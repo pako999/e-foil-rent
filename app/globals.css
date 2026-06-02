@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Barlow", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff;
+  color: #0a0e1a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 font-display uppercase tracking-wide text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-teal text-ink hover:bg-teal-dark;
+  }
+  .btn-secondary {
+    @apply btn bg-transparent border border-white/40 text-white hover:bg-white/10;
+  }
+  .btn-ghost {
+    @apply btn bg-ink text-white hover:bg-ink/90;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .h-display {
+    @apply font-display uppercase tracking-tight leading-[0.95];
+  }
+  .label {
+    @apply block text-xs uppercase tracking-widest font-display text-ink/70 mb-2;
+  }
+  .field {
+    @apply w-full border border-ink/20 bg-white px-3 py-2 text-ink focus:outline-none focus:border-ink transition-colors;
+  }
+  .reveal {
+    @apply opacity-0 translate-y-4;
+    animation: reveal 0.6s ease forwards;
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Hide honeypot field. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

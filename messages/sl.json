@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "Šola e-foila in izposoja | Surf-Store.com",
+    "description": "Duotone e-foil deske na Green Lake, Kidričevo. Pridi, preizkusi, zaljubi se v e-foiling. Šola in izposoja za začetnike in izkušene.",
+    "ogAlt": "E-foil ride na Green Lake, Kidričevo"
+  },
+  "nav": {
+    "boards": "Deske",
+    "how": "Kako poteka",
+    "location": "Lokacija",
+    "book": "Rezerviraj",
+    "language": "Jezik"
+  },
+  "hero": {
+    "eyebrow": "Surf-Store.com presents",
+    "title": "ŠOLA E-FOILA IN IZPOSOJA",
+    "subtitle": "Duotone e-foil deske",
+    "tagline": "PRIDI, PREIZKUSI, ZALJUBI SE V E-FOILING!",
+    "ctaPrimary": "Rezerviraj termin",
+    "ctaSecondary": "Kako poteka"
+  },
+  "features": {
+    "electric": {
+      "title": "100% Električno",
+      "body": "Brez goriva, brez hrupa motorja. Samo ti, voda in let."
+    },
+    "silent": {
+      "title": "Tiho & brez emisij",
+      "body": "Prijazno do narave, idealno za jezero in zaščitena območja."
+    },
+    "easy": {
+      "title": "Lahko upravljanje",
+      "body": "Že po prvi uri letiš nad vodo — primerno za vse starostne skupine."
+    }
+  },
+  "location": {
+    "title": "LOKACIJA",
+    "name": "Green Lake, Kidričevo",
+    "blurb": "Uživaj v letenju nad vodo in odkrij svobodo e-foila!",
+    "directions": "Pokaži pot",
+    "address": "Green Lake, Kidričevo, Slovenija"
+  },
+  "boards": {
+    "title": "DESKE",
+    "subtitle": "Tri konfiguracije Duotone e-foilov — izberi svojo.",
+    "perDay": "/dan",
+    "fromWeek": "od {price}/teden",
+    "bookCta": "Rezerviraj"
+  },
+  "how": {
+    "title": "ZA VSE — OD ZAČETNIKOV DO IZKUŠENIH",
+    "subtitle": "Termini po dogovoru. Letenje nad vodo v treh korakih.",
+    "step1Title": "Izberi termin",
+    "step1Body": "Spletna rezervacija ali pošlji sporočilo — potrdimo termin v 24 urah.",
+    "step2Title": "Kratka uvodna šola",
+    "step2Body": "Inštruktor te nauči osnove — varnost, ravnotežje, prvi vzlet.",
+    "step3Title": "Leti nad vodo",
+    "step3Body": "Tiho drsenje 1 meter nad gladino. Drugačen občutek za vodo."
+  },
+  "booking": {
+    "title": "REZERVIRAJ TERMIN",
+    "subtitle": "Izberi desko, datume in tip rezervacije — ceno izračunamo sproti.",
+    "selectBoard": "Izberi desko",
+    "selectBoardPlaceholder": "— izberi —",
+    "startDate": "Začetni datum",
+    "endDate": "Končni datum",
+    "experience": "Tvoja raven",
+    "experienceBeginner": "Začetnik",
+    "experienceExperienced": "Izkušen",
+    "type": "Tip rezervacije",
+    "typeRental": "Izposoja",
+    "typeLesson": "Šola",
+    "typeBoth": "Izposoja + šola",
+    "name": "Ime in priimek",
+    "email": "E-pošta",
+    "phone": "Telefon",
+    "notes": "Opombe (neobvezno)",
+    "submit": "Pošlji rezervacijo",
+    "submitting": "Pošiljam …",
+    "successTitle": "Rezervacija prejeta!",
+    "successBody": "Poslali smo ti potrdilo na e-pošto. Termin potrdimo v 24 urah.",
+    "errorTitle": "Ups, nekaj je šlo narobe",
+    "errorGeneric": "Poskusi znova ali nam piši na info@surf-store.com.",
+    "errorUnavailable": "Izbrani datumi niso več prosti. Izberi drug termin.",
+    "priceTitle": "Cena",
+    "priceDays": "{days, plural, one {# dan} two {# dni} few {# dni} other {# dni}}",
+    "priceDiscount": "Popust",
+    "priceTotal": "Skupaj",
+    "noDates": "Izberi datume za izračun cene.",
+    "honeypot": "Pusti prazno"
+  },
+  "footer": {
+    "tagline": "E-foiling na Green Lake, Kidričevo.",
+    "contact": "Kontakt",
+    "follow": "Sledi nam",
+    "rights": "Vse pravice pridržane.",
+    "visitMain": "Obišči glavno spletno mesto"
+  }
+}

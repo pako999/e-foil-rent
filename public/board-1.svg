@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#00b8aa"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg1)"/>
+  <g transform="translate(60,130)" fill="#fff">
+    <ellipse cx="140" cy="20" rx="140" ry="14"/>
+    <rect x="135" y="34" width="10" height="60" fill="#fff" opacity="0.7"/>
+    <path d="M110,94 L170,94 L155,112 L125,112 Z" opacity="0.85"/>
+  </g>
+  <text x="20" y="280" fill="#fff" font-family="monospace" font-size="14" opacity="0.7">Downwinder SLS</text>
+</svg>

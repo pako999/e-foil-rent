@@ -1,0 +1,109 @@
+import { NextResponse } from "next/server";
+import { db } from "@/db";
+import { bookings } from "@/db/schema";
+import { bookingInput } from "@/lib/validations";
+import { getBoardById, isRangeAvailable } from "@/lib/queries";
+import { inclusiveDays, quote } from "@/lib/pricing";
+import { rateLimit, ipFromRequest } from "@/lib/rate-limit";
+import { sendBookingEmails } from "@/lib/email";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+export async function POST(req: Request) {
+  const ip = ipFromRequest(req);
+  const limit = rateLimit(`booking:${ip}`, 5, 60_000);
+  if (!limit.ok) {
+    return NextResponse.json(
+      { error: "rate_limited" },
+      { status: 429, headers: { "Retry-After": String(Math.ceil(limit.resetMs / 1000)) } },
+    );
+  }
+
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "invalid_json" }, { status: 400 });
+  }
+
+  const parsed = bookingInput.safeParse(body);
+  if (!parsed.success) {
+    return NextResponse.json(
+      { error: "validation_failed", issues: parsed.error.flatten() },
+      { status: 400 },
+    );
+  }
+  const data = parsed.data;
+
+  // Honeypot: bots fill `website`. Accept silently to avoid telling them why.
+  if (data.website && data.website.length > 0) {
+    return NextResponse.json({ ok: true, id: 0 });
+  }
+
+  const board = await getBoardById(data.boardId);
+  if (!board || !board.active) {
+    return NextResponse.json({ error: "board_unavailable" }, { status: 400 });
+  }
+
+  const available = await isRangeAvailable(
+    data.boardId,
+    data.startDate,
+    data.endDate,
+  );
+  if (!available) {
+    return NextResponse.json({ error: "dates_unavailable" }, { status: 409 });
+  }
+
+  const days = inclusiveDays(data.startDate, data.endDate);
+  if (days < 1) {
+    return NextResponse.json({ error: "invalid_range" }, { status: 400 });
+  }
+
+  // Server-authoritative price calc — never trust the client total.
+  const q = quote({
+    days,
+    dailyPrice: board.dailyPrice,
+    weeklyPrice: board.weeklyPrice,
+  });
+
+  const inserted = await db
+    .insert(bookings)
+    .values({
+      boardId: board.id,
+      customerName: data.customerName,
+      email: data.email,
+      phone: data.phone,
+      startDate: data.startDate,
+      endDate: data.endDate,
+      days,
+      experienceLevel: data.experienceLevel,
+      bookingType: data.bookingType,
+      subtotal: q.subtotal,
+      discount: q.discount,
+      total: q.total,
+      status: "pending",
+      notes: data.notes ?? null,
+    })
+    .returning();
+
+  const booking = inserted[0]!;
+
+  const locale = pickLocale(req);
+  // Fire-and-forget; don't block the response on email provider latency.
+  void sendBookingEmails({ booking, board, locale }).catch((err) =>
+    console.error("[email] send failed", err),
+  );
+
+  return NextResponse.json({
+    ok: true,
+    id: booking.id,
+    quote: q,
+  });
+}
+
+function pickLocale(req: Request): "sl" | "en" {
+  const ref = req.headers.get("referer") ?? "";
+  if (ref.includes("/en")) return "en";
+  return "sl";
+}

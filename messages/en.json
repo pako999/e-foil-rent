@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "E-Foil School & Rental | Surf-Store.com",
+    "description": "Duotone e-foil boards at Green Lake, Kidričevo, Slovenia. Come, try it, fall in love with e-foiling. Lessons and rentals for beginners and experienced riders.",
+    "ogAlt": "E-foil ride at Green Lake, Kidričevo"
+  },
+  "nav": {
+    "boards": "Boards",
+    "how": "How it works",
+    "location": "Location",
+    "book": "Book",
+    "language": "Language"
+  },
+  "hero": {
+    "eyebrow": "Surf-Store.com presents",
+    "title": "E-FOIL SCHOOL & RENTAL",
+    "subtitle": "Duotone e-foil boards",
+    "tagline": "COME, TRY IT, FALL IN LOVE WITH E-FOILING!",
+    "ctaPrimary": "Book a session",
+    "ctaSecondary": "How it works"
+  },
+  "features": {
+    "electric": {
+      "title": "100% Electric",
+      "body": "No fuel, no engine noise. Just you, the water and flight."
+    },
+    "silent": {
+      "title": "Silent & emission-free",
+      "body": "Kind to nature — perfect for lakes and protected areas."
+    },
+    "easy": {
+      "title": "Easy to ride",
+      "body": "Most riders are flying within an hour. Suitable for all ages."
+    }
+  },
+  "location": {
+    "title": "LOCATION",
+    "name": "Green Lake, Kidričevo",
+    "blurb": "Enjoy the freedom of flight above the water at Green Lake.",
+    "directions": "Get directions",
+    "address": "Green Lake, Kidričevo, Slovenia"
+  },
+  "boards": {
+    "title": "THE BOARDS",
+    "subtitle": "Three Duotone e-foil setups — pick yours.",
+    "perDay": "/day",
+    "fromWeek": "from {price}/week",
+    "bookCta": "Book"
+  },
+  "how": {
+    "title": "FOR EVERYONE — BEGINNERS TO ADVANCED",
+    "subtitle": "Sessions by appointment. Flying above water in three steps.",
+    "step1Title": "Pick a slot",
+    "step1Body": "Book online or message us — we confirm within 24 hours.",
+    "step2Title": "Quick intro lesson",
+    "step2Body": "Instructor covers safety, balance and your first lift-off.",
+    "step3Title": "Fly above the water",
+    "step3Body": "Silent glide one meter above the surface. A new way to feel water."
+  },
+  "booking": {
+    "title": "BOOK A SESSION",
+    "subtitle": "Choose a board, dates and type — we calculate the price live.",
+    "selectBoard": "Choose a board",
+    "selectBoardPlaceholder": "— select —",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "experience": "Your level",
+    "experienceBeginner": "Beginner",
+    "experienceExperienced": "Experienced",
+    "type": "Booking type",
+    "typeRental": "Rental",
+    "typeLesson": "Lesson",
+    "typeBoth": "Rental + lesson",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "notes": "Notes (optional)",
+    "submit": "Send booking",
+    "submitting": "Sending …",
+    "successTitle": "Booking received!",
+    "successBody": "We've emailed you a confirmation. We'll confirm the slot within 24 hours.",
+    "errorTitle": "Something went wrong",
+    "errorGeneric": "Please try again or write us at info@surf-store.com.",
+    "errorUnavailable": "Those dates are no longer available. Please pick another range.",
+    "priceTitle": "Price",
+    "priceDays": "{days, plural, one {# day} other {# days}}",
+    "priceDiscount": "Discount",
+    "priceTotal": "Total",
+    "noDates": "Pick dates to see the price.",
+    "honeypot": "Leave empty"
+  },
+  "footer": {
+    "tagline": "E-foiling at Green Lake, Kidričevo.",
+    "contact": "Contact",
+    "follow": "Follow us",
+    "rights": "All rights reserved.",
+    "visitMain": "Visit main site"
+  }
+}
