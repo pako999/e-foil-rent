@@ -5,19 +5,25 @@
     "ogAlt": "E-foil ride na Green Lake, Kidričevo"
   },
   "nav": {
+    "packages": "Paketi",
     "boards": "Deske",
     "how": "Kako poteka",
     "location": "Lokacija",
+    "gallery": "Galerija",
+    "faq": "Vprašanja",
     "book": "Rezerviraj",
     "language": "Jezik"
   },
   "hero": {
-    "eyebrow": "Surf-Store.com presents",
-    "title": "ŠOLA E-FOILA IN IZPOSOJA",
-    "subtitle": "Duotone e-foil deske",
+    "eyebrow": "Surf-Store.com — Green Lake, Kidričevo",
+    "title": "LETI NAD VODO",
+    "subtitle": "Šola e-foila in izposoja Duotone desk",
     "tagline": "PRIDI, PREIZKUSI, ZALJUBI SE V E-FOILING!",
     "ctaPrimary": "Rezerviraj termin",
-    "ctaSecondary": "Kako poteka"
+    "ctaSecondary": "Cene & paketi",
+    "badge1": "Brez izkušenj? Brez težav.",
+    "badge2": "Že po 1 uri letiš.",
+    "badge3": "100% električno & tiho."
   },
   "features": {
     "electric": {
@@ -33,6 +39,71 @@
       "body": "Že po prvi uri letiš nad vodo — primerno za vse starostne skupine."
     }
   },
+  "packages": {
+    "eyebrow": "Cenik & paketi",
+    "title": "IZBERI SVOJ PAKET",
+    "subtitle": "Od 30-minutne degustacije do dvotedenskega počitniškega podviga — vsak paket vključuje opremo, varnostno opremo in kratek uvod.",
+    "fromPrice": "od {price}",
+    "select": "Rezerviraj",
+    "bestBadge": "Najbolj priljubljeno",
+    "include": "Vključeno",
+    "items": {
+      "30min": {
+        "name": "30 min — Taster",
+        "duration": "30 minut",
+        "desc": "Hiter okus letenja nad vodo. Idealno za začetnike, ki bi radi občutek pred polnim terminom.",
+        "f1": "Kratek inštruktažni brief",
+        "f2": "Vsa varnostna oprema",
+        "f3": "Inštruktor v vodi",
+        "f4": "Foto spomin"
+      },
+      "day1": {
+        "name": "1 dan",
+        "duration": "1 dan",
+        "desc": "Cel dan izposoje. Vzemi si čas — vadi, počivaj, leti znova.",
+        "f1": "Cel dan deske + foil",
+        "f2": "Polnilnik + rezervna baterija",
+        "f3": "Reševalni jopič in čelada",
+        "f4": "Krajši uvod (po želji)"
+      },
+      "day2": {
+        "name": "2 dni",
+        "duration": "2 dni",
+        "desc": "Dva polna dni za pravo napredovanje. Drugi dan je vse v hrbtu.",
+        "f1": "2 dni izposoje",
+        "f2": "Brezplačno shranjevanje opreme",
+        "f3": "Polnilnik + rezervna baterija",
+        "f4": "Vse varnostna oprema"
+      },
+      "day3": {
+        "name": "3 dni — 10% popust",
+        "duration": "3 dni",
+        "desc": "Najbolj priljubljen paket. Dovolj časa, da osvojiš vzlet in prve obrate.",
+        "f1": "3 dni izposoje (−10%)",
+        "f2": "1 ura inštrukcije gratis",
+        "f3": "Shranjevanje + transport",
+        "f4": "Foto/video spomin"
+      },
+      "week1": {
+        "name": "1 teden",
+        "duration": "7 dni",
+        "desc": "Cel teden, fiksna cena. Idealno za dopust ob jezeru.",
+        "f1": "7 dni izposoje, fiksna cena",
+        "f2": "2 uri inštrukcije gratis",
+        "f3": "24/7 podpora na kraju samem",
+        "f4": "Foto/video paket"
+      },
+      "week2": {
+        "name": "2 tedna — VIP",
+        "duration": "14 dni",
+        "desc": "Dvotedensko popolno popotniško doživetje. Privatni inštruktor, fleksibilni urniki.",
+        "f1": "14 dni izposoje",
+        "f2": "Privatni inštruktor (3h)",
+        "f3": "Premium oprema na izbiro",
+        "f4": "Foto/video produkcija"
+      }
+    }
+  },
   "location": {
     "title": "LOKACIJA",
     "name": "Green Lake, Kidričevo",
@@ -45,6 +116,7 @@
     "subtitle": "Tri konfiguracije Duotone e-foilov — izberi svojo.",
     "perDay": "/dan",
     "fromWeek": "od {price}/teden",
+    "from30": "od {price}/30 min",
     "bookCta": "Rezerviraj"
   },
   "how": {
@@ -57,9 +129,72 @@
     "step3Title": "Leti nad vodo",
     "step3Body": "Tiho drsenje 1 meter nad gladino. Drugačen občutek za vodo."
   },
+  "gallery": {
+    "eyebrow": "Galerija",
+    "title": "TAKO IZGLEDA NAŠ DAN",
+    "subtitle": "Utrinki z Green Lake — od prvih vzletov do sončnih zahodov."
+  },
+  "reviews": {
+    "eyebrow": "Mnenja",
+    "title": "KAJ PRAVIJO RIDERJI",
+    "items": {
+      "r1": {
+        "quote": "Najboljša izkušnja poletja! Po 20 minutah sem že letel nad vodo. Inštruktor je super.",
+        "author": "Maja",
+        "city": "Maribor"
+      },
+      "r2": {
+        "quote": "Tiho, hitro, čista magija. Vzel sem 3-dnevni paket in vsak dan bilo bolj nori.",
+        "author": "Luka",
+        "city": "Ljubljana"
+      },
+      "r3": {
+        "quote": "Družinski izlet, ki ga ne pozabimo. Otroci so bili navdušeni, organizacija top.",
+        "author": "Andreja",
+        "city": "Celje"
+      }
+    }
+  },
+  "gift": {
+    "eyebrow": "Darilo z razlogom",
+    "title": "PODARI LET NAD VODO",
+    "body": "Darilni bon za 30-minutni taster ali cel dan izposoje. Veljaven 12 mesecev.",
+    "cta": "Naroči darilni bon"
+  },
+  "faq": {
+    "eyebrow": "Pogosta vprašanja",
+    "title": "POGOSTA VPRAŠANJA",
+    "items": {
+      "age": {
+        "q": "Koliko sem moram biti star/a?",
+        "a": "Minimalna starost je 14 let (z dovoljenjem staršev), brez zgornje omejitve. Naši najstarejši riderji imajo 65+."
+      },
+      "experience": {
+        "q": "Ali potrebujem predhodne izkušnje?",
+        "a": "Ne. 90% gostov začne brez izkušenj. Krajši uvod traja 15 minut in pokriva vse, kar potrebuješ."
+      },
+      "weather": {
+        "q": "Kaj če bo slabo vreme?",
+        "a": "Termin lahko prestaviš brezplačno do 12 ur prej. Ob nevihti ali močnem vetru ti predlagamo drug termin."
+      },
+      "gear": {
+        "q": "Kaj naj prinesem?",
+        "a": "Kopalke, brisača, sončna krema. Vse ostalo (deska, čelada, reševalni jopič, neoprenski plašč) je vključeno."
+      },
+      "weight": {
+        "q": "Ali je omejitev po teži?",
+        "a": "Deske so primerne za 40–110 kg. Za težje riderje imamo Duotone Downwinder SLS."
+      },
+      "cancel": {
+        "q": "Kako delujejo odpovedi?",
+        "a": "Brezplačna odpoved do 48 ur prej. Med 48–24 urami pol cene. Manj kot 24 ur — celotna cena."
+      }
+    }
+  },
   "booking": {
     "title": "REZERVIRAJ TERMIN",
     "subtitle": "Izberi desko, datume in tip rezervacije — ceno izračunamo sproti.",
+    "quickPick": "Hiter paket",
     "selectBoard": "Izberi desko",
     "selectBoardPlaceholder": "— izberi —",
     "startDate": "Začetni datum",
@@ -88,6 +223,10 @@
     "priceTotal": "Skupaj",
     "noDates": "Izberi datume za izračun cene.",
     "honeypot": "Pusti prazno"
+  },
+  "stickyBar": {
+    "label": "Pripravljen za let?",
+    "cta": "Rezerviraj"
   },
   "footer": {
     "tagline": "E-foiling na Green Lake, Kidričevo.",

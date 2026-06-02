@@ -3,7 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { Board } from "@/db/schema";
-import { inclusiveDays, quote, formatPrice } from "@/lib/pricing";
+import {
+  inclusiveDays,
+  quote,
+  formatPrice,
+  PACKAGES,
+  type PackageId,
+} from "@/lib/pricing";
 import type { Locale } from "@/i18n/request";
 
 type Status =
@@ -11,6 +17,21 @@ type Status =
   | { kind: "submitting" }
   | { kind: "ok" }
   | { kind: "err"; code: "generic" | "unavailable" };
+
+const QUICK_PACKAGES: { id: PackageId; labelKey: string }[] = [
+  { id: "30min", labelKey: "30min" },
+  { id: "day1", labelKey: "day1" },
+  { id: "day2", labelKey: "day2" },
+  { id: "day3", labelKey: "day3" },
+  { id: "week1", labelKey: "week1" },
+  { id: "week2", labelKey: "week2" },
+];
+
+function addDaysISO(isoStart: string, days: number): string {
+  const d = new Date(isoStart + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() + days - 1);
+  return d.toISOString().slice(0, 10);
+}
 
 export function BookingSection({
   boards,
@@ -20,11 +41,13 @@ export function BookingSection({
   locale: Locale;
 }) {
   const t = useTranslations("booking");
+  const tPkg = useTranslations("packages");
   const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
 
   const [boardId, setBoardId] = useState<number | "">(boards[0]?.id ?? "");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [activePkg, setActivePkg] = useState<PackageId | null>(null);
   const [experienceLevel, setExperienceLevel] = useState<
     "beginner" | "experienced"
   >("beginner");
@@ -44,14 +67,16 @@ export function BookingSection({
     [boards, boardId],
   );
 
-  // Preselect board if the URL hash includes ?board=ID.
+  // Preselect board/package from URL hash (`#book?board=2&pkg=day3`).
   useEffect(() => {
     const params = new URLSearchParams(window.location.hash.split("?")[1] ?? "");
     const id = Number(params.get("board"));
     if (id && boards.some((b) => b.id === id)) setBoardId(id);
+    const pkg = params.get("pkg") as PackageId | null;
+    if (pkg && PACKAGES.some((p) => p.id === pkg)) applyPackage(pkg);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boards]);
 
-  // Fetch unavailability for the next 12 months whenever board changes.
   useEffect(() => {
     if (!board) return;
     const today = new Date();
@@ -71,6 +96,21 @@ export function BookingSection({
     return () => ctrl.abort();
   }, [board]);
 
+  function applyPackage(id: PackageId) {
+    const pkg = PACKAGES.find((p) => p.id === id)!;
+    setActivePkg(id);
+    const today = new Date().toISOString().slice(0, 10);
+    if (pkg.isHalfHour) {
+      setStartDate(today);
+      setEndDate(today);
+      setBookingType("rental_lesson");
+    } else {
+      const start = startDate || today;
+      setStartDate(start);
+      setEndDate(addDaysISO(start, pkg.days));
+    }
+  }
+
   const days = inclusiveDays(startDate, endDate);
   const q =
     board && days > 0
@@ -80,6 +120,11 @@ export function BookingSection({
           weeklyPrice: board.weeklyPrice,
         })
       : null;
+
+  // For 30-min taster, show the board's halfHourPrice instead of day-based.
+  const isHalfHour = activePkg === "30min";
+  const displayTotal =
+    isHalfHour && board ? board.halfHourPrice : q?.total ?? 0;
 
   const rangeHasBlocked = useMemo(() => {
     if (!startDate || !endDate || days <= 0) return false;
@@ -98,6 +143,8 @@ export function BookingSection({
     if (!board || days <= 0 || rangeHasBlocked) return;
     setStatus({ kind: "submitting" });
 
+    const pkgNote = activePkg ? `[Package: ${activePkg}] ` : "";
+
     try {
       const res = await fetch("/api/bookings", {
         method: "POST",
@@ -111,7 +158,7 @@ export function BookingSection({
           endDate,
           experienceLevel,
           bookingType,
-          notes: notes || null,
+          notes: (pkgNote + (notes || "")).trim() || null,
           website,
         }),
       });
@@ -130,25 +177,42 @@ export function BookingSection({
 
   if (status.kind === "ok") {
     return (
-      <section id="book" className="bg-teal/10 border-t border-b border-teal/30">
-        <div className="container-x py-20 max-w-2xl">
-          <h2 className="h-display text-4xl text-ink mb-4">
+      <section id="book" className="bg-sand/60 border-y border-sun/30 scroll-mt-20">
+        <div className="container-x py-20 max-w-2xl text-center">
+          <div className="text-6xl mb-4">🎉</div>
+          <h2 className="h-display text-4xl text-ocean mb-4">
             {t("successTitle")}
           </h2>
-          <p className="text-ink/80 text-lg">{t("successBody")}</p>
+          <p className="text-ocean/80 text-lg">{t("successBody")}</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section id="book" className="bg-white border-t border-ink/10">
+    <section id="book" className="bg-foam scroll-mt-20">
       <div className="container-x py-20 grid lg:grid-cols-[1fr,360px] gap-12">
         <div>
-          <h2 className="h-display text-4xl md:text-5xl text-ink mb-3">
+          <h2 className="h-display text-4xl md:text-5xl text-ocean mb-3">
             {t("title")}
           </h2>
-          <p className="text-ink/70 mb-10 max-w-xl">{t("subtitle")}</p>
+          <p className="text-ocean/70 mb-8 max-w-xl">{t("subtitle")}</p>
+
+          <div className="mb-8">
+            <p className="label">{t("quickPick")}</p>
+            <div className="flex flex-wrap gap-2">
+              {QUICK_PACKAGES.map((p) => (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => applyPackage(p.id)}
+                  className={`chip ${activePkg === p.id ? "chip-active" : ""}`}
+                >
+                  {tPkg(`items.${p.labelKey}.duration`)}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <form onSubmit={onSubmit} className="space-y-6" noValidate>
             <div>
@@ -178,7 +242,10 @@ export function BookingSection({
                   className="field"
                   min={today}
                   value={startDate}
-                  onChange={(e) => setStartDate(e.target.value)}
+                  onChange={(e) => {
+                    setStartDate(e.target.value);
+                    setActivePkg(null);
+                  }}
                   required
                 />
               </div>
@@ -190,14 +257,17 @@ export function BookingSection({
                   className="field"
                   min={startDate || today}
                   value={endDate}
-                  onChange={(e) => setEndDate(e.target.value)}
+                  onChange={(e) => {
+                    setEndDate(e.target.value);
+                    setActivePkg(null);
+                  }}
                   required
                 />
               </div>
             </div>
 
             {rangeHasBlocked && (
-              <div className="text-sm text-red-700 bg-red-50 border border-red-200 px-3 py-2">
+              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
                 {t("errorUnavailable")}
               </div>
             )}
@@ -205,18 +275,18 @@ export function BookingSection({
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="label">{t("experience")}</label>
-                <div className="flex">
+                <div className="flex rounded-lg overflow-hidden border border-ocean/15">
                   <button
                     type="button"
                     onClick={() => setExperienceLevel("beginner")}
-                    className={`flex-1 px-3 py-2 border ${experienceLevel === "beginner" ? "bg-ink text-white border-ink" : "bg-white text-ink border-ink/20"}`}
+                    className={`flex-1 px-3 py-2 transition ${experienceLevel === "beginner" ? "bg-ocean text-white" : "bg-white text-ocean hover:bg-ocean/5"}`}
                   >
                     {t("experienceBeginner")}
                   </button>
                   <button
                     type="button"
                     onClick={() => setExperienceLevel("experienced")}
-                    className={`flex-1 px-3 py-2 border-l-0 border ${experienceLevel === "experienced" ? "bg-ink text-white border-ink" : "bg-white text-ink border-ink/20"}`}
+                    className={`flex-1 px-3 py-2 border-l border-ocean/15 transition ${experienceLevel === "experienced" ? "bg-ocean text-white" : "bg-white text-ocean hover:bg-ocean/5"}`}
                   >
                     {t("experienceExperienced")}
                   </button>
@@ -288,7 +358,6 @@ export function BookingSection({
               />
             </div>
 
-            {/* Honeypot — hidden from real users via CSS, indexed by bots. */}
             <div className="hp-field" aria-hidden="true">
               <label htmlFor="website">{t("honeypot")}</label>
               <input
@@ -302,7 +371,7 @@ export function BookingSection({
             </div>
 
             {status.kind === "err" && (
-              <div className="text-sm text-red-700 bg-red-50 border border-red-200 px-3 py-2">
+              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
                 <strong>{t("errorTitle")}</strong>{" "}
                 {status.code === "unavailable"
                   ? t("errorUnavailable")
@@ -320,33 +389,36 @@ export function BookingSection({
                 rangeHasBlocked
               }
             >
-              {status.kind === "submitting" ? t("submitting") : t("submit")}
+              {status.kind === "submitting" ? t("submitting") : t("submit")} →
             </button>
           </form>
         </div>
 
-        <aside className="bg-ink text-white p-8 h-fit lg:sticky lg:top-24">
-          <p className="font-mono text-xs uppercase tracking-widest text-teal mb-3">
-            {t("priceTitle")}
+        <aside className="bg-gradient-to-br from-ocean to-ocean-deep text-white p-8 rounded-2xl h-fit lg:sticky lg:top-24 shadow-cardHover">
+          <p className="font-mono text-xs uppercase tracking-widest text-sun-light mb-3">
+            💸 {t("priceTitle")}
           </p>
-          {q && board ? (
+          {board && (isHalfHour || q) ? (
             <div>
-              <p className="font-display text-3xl">
-                {formatPrice(q.total, intlLocale)}
+              <p className="font-display text-4xl">
+                {formatPrice(displayTotal, intlLocale)}
               </p>
               <p className="font-mono text-sm text-white/70 mt-2">
-                {t("priceDays", { days: q.days })} ·{" "}
-                {formatPrice(q.dailyPrice, intlLocale)}/d
+                {isHalfHour
+                  ? "30 min · " + board.name
+                  : `${t("priceDays", { days: q!.days })} · ${formatPrice(q!.dailyPrice, intlLocale)}/d`}
               </p>
-              {q.discount > 0 && (
-                <p className="font-mono text-sm text-teal mt-1">
+              {!isHalfHour && q && q.discount > 0 && (
+                <p className="font-mono text-sm text-sun mt-1">
                   −{q.discountPct}% {t("priceDiscount")} (−
                   {formatPrice(q.discount, intlLocale)})
                 </p>
               )}
               <div className="mt-6 pt-6 border-t border-white/10 flex justify-between font-display uppercase tracking-wide">
                 <span>{t("priceTotal")}</span>
-                <span>{formatPrice(q.total, intlLocale)}</span>
+                <span className="text-sun">
+                  {formatPrice(displayTotal, intlLocale)}
+                </span>
               </div>
             </div>
           ) : (

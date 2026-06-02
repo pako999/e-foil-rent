@@ -6,18 +6,18 @@ import type { Locale } from "@/i18n/request";
 export async function Footer({ locale }: { locale: Locale }) {
   const t = await getTranslations("footer");
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-ocean-deep text-white pb-16 lg:pb-0">
       <div className="container-x py-16 grid md:grid-cols-3 gap-12">
         <div>
           <p className="font-display uppercase tracking-tight text-2xl mb-3">
-            Surf-Store<span className="text-teal">.</span>com
+            Surf-Store<span className="text-sun">.</span>com
           </p>
           <p className="text-white/70 max-w-xs">{t("tagline")}</p>
           <a
             href={SITE.mainSite}
             target="_blank"
             rel="noreferrer"
-            className="inline-block mt-4 font-mono text-xs text-teal hover:text-teal-dark"
+            className="inline-block mt-4 font-mono text-xs text-sun hover:text-sun-light"
           >
             {t("visitMain")} ↗
           </a>
@@ -28,7 +28,7 @@ export async function Footer({ locale }: { locale: Locale }) {
           </p>
           <a
             href={`mailto:${SITE.contactEmail}`}
-            className="block hover:text-teal"
+            className="block hover:text-sun"
           >
             {SITE.contactEmail}
           </a>
@@ -42,7 +42,7 @@ export async function Footer({ locale }: { locale: Locale }) {
               href={SITE.social.instagram}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-teal"
+              className="hover:text-sun"
             >
               Instagram
             </a>
@@ -50,7 +50,7 @@ export async function Footer({ locale }: { locale: Locale }) {
               href={SITE.social.facebook}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-teal"
+              className="hover:text-sun"
             >
               Facebook
             </a>

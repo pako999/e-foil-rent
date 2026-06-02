@@ -34,6 +34,7 @@ export const boards = pgTable("boards", {
   description: text("description").notNull(),
   imageUrl: text("image_url").notNull(),
   // Stored as integer cents (EUR).
+  halfHourPrice: integer("half_hour_price").notNull().default(6000),
   dailyPrice: integer("daily_price").notNull(),
   weeklyPrice: integer("weekly_price").notNull(),
   unitsAvailable: integer("units_available").notNull().default(1),

@@ -5,19 +5,25 @@
     "ogAlt": "E-foil ride at Green Lake, Kidričevo"
   },
   "nav": {
+    "packages": "Packages",
     "boards": "Boards",
     "how": "How it works",
     "location": "Location",
+    "gallery": "Gallery",
+    "faq": "FAQ",
     "book": "Book",
     "language": "Language"
   },
   "hero": {
-    "eyebrow": "Surf-Store.com presents",
-    "title": "E-FOIL SCHOOL & RENTAL",
-    "subtitle": "Duotone e-foil boards",
+    "eyebrow": "Surf-Store.com — Green Lake, Kidričevo",
+    "title": "FLY ABOVE WATER",
+    "subtitle": "E-foil school & Duotone board rental",
     "tagline": "COME, TRY IT, FALL IN LOVE WITH E-FOILING!",
     "ctaPrimary": "Book a session",
-    "ctaSecondary": "How it works"
+    "ctaSecondary": "See packages",
+    "badge1": "No experience needed.",
+    "badge2": "Most fly within 1 hour.",
+    "badge3": "100% electric & silent."
   },
   "features": {
     "electric": {
@@ -30,7 +36,72 @@
     },
     "easy": {
       "title": "Easy to ride",
-      "body": "Most riders are flying within an hour. Suitable for all ages."
+      "body": "Most riders fly within an hour. Suitable for all ages."
+    }
+  },
+  "packages": {
+    "eyebrow": "Prices & packages",
+    "title": "PICK YOUR PACKAGE",
+    "subtitle": "From a 30-minute taster to a two-week vacation rental — every package includes the board, safety gear and a short intro.",
+    "fromPrice": "from {price}",
+    "select": "Book",
+    "bestBadge": "Most popular",
+    "include": "Included",
+    "items": {
+      "30min": {
+        "name": "30 min — Taster",
+        "duration": "30 minutes",
+        "desc": "A quick taste of flying above water. Perfect for newcomers who want a feel before committing.",
+        "f1": "Short instructional brief",
+        "f2": "All safety gear",
+        "f3": "Instructor in the water",
+        "f4": "Photo memento"
+      },
+      "day1": {
+        "name": "1 day",
+        "duration": "1 day",
+        "desc": "Full day rental. Take your time — practice, rest, fly again.",
+        "f1": "Full day board + foil",
+        "f2": "Charger + spare battery",
+        "f3": "Life vest and helmet",
+        "f4": "Short intro (optional)"
+      },
+      "day2": {
+        "name": "2 days",
+        "duration": "2 days",
+        "desc": "Two full days for real progress. Day two is when it clicks.",
+        "f1": "2 days rental",
+        "f2": "Free gear storage",
+        "f3": "Charger + spare battery",
+        "f4": "All safety gear"
+      },
+      "day3": {
+        "name": "3 days — 10% off",
+        "duration": "3 days",
+        "desc": "Our most popular package. Enough time to master take-off and first turns.",
+        "f1": "3 days rental (−10%)",
+        "f2": "1 hour of instruction free",
+        "f3": "Storage + transport",
+        "f4": "Photo/video memento"
+      },
+      "week1": {
+        "name": "1 week",
+        "duration": "7 days",
+        "desc": "A full week at a fixed price. Ideal for a lakeside holiday.",
+        "f1": "7 days rental, fixed price",
+        "f2": "2 hours of instruction free",
+        "f3": "24/7 on-site support",
+        "f4": "Photo/video pack"
+      },
+      "week2": {
+        "name": "2 weeks — VIP",
+        "duration": "14 days",
+        "desc": "Two-week full experience. Private instructor, flexible scheduling.",
+        "f1": "14 days rental",
+        "f2": "Private instructor (3h)",
+        "f3": "Premium board of choice",
+        "f4": "Photo/video production"
+      }
     }
   },
   "location": {
@@ -45,6 +116,7 @@
     "subtitle": "Three Duotone e-foil setups — pick yours.",
     "perDay": "/day",
     "fromWeek": "from {price}/week",
+    "from30": "from {price}/30 min",
     "bookCta": "Book"
   },
   "how": {
@@ -57,9 +129,72 @@
     "step3Title": "Fly above the water",
     "step3Body": "Silent glide one meter above the surface. A new way to feel water."
   },
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "A DAY ON THE LAKE",
+    "subtitle": "Moments from Green Lake — first lift-offs to sunset cruises."
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "WHAT RIDERS SAY",
+    "items": {
+      "r1": {
+        "quote": "Best experience of the summer! I was flying after 20 minutes. The instructor is amazing.",
+        "author": "Maja",
+        "city": "Maribor"
+      },
+      "r2": {
+        "quote": "Silent, fast, pure magic. Took the 3-day package and every day was wilder than the last.",
+        "author": "Luka",
+        "city": "Ljubljana"
+      },
+      "r3": {
+        "quote": "A family trip we'll never forget. The kids loved it, the team was top-notch.",
+        "author": "Andreja",
+        "city": "Celje"
+      }
+    }
+  },
+  "gift": {
+    "eyebrow": "Gift with reason",
+    "title": "GIVE THE GIFT OF FLIGHT",
+    "body": "A voucher for a 30-minute taster or a full day rental. Valid 12 months.",
+    "cta": "Order a gift voucher"
+  },
+  "faq": {
+    "eyebrow": "Frequently asked",
+    "title": "FREQUENTLY ASKED",
+    "items": {
+      "age": {
+        "q": "How old do I need to be?",
+        "a": "Minimum age is 14 (with parental consent), no upper limit. Our oldest riders are 65+."
+      },
+      "experience": {
+        "q": "Do I need experience?",
+        "a": "No. 90% of our guests start from zero. A short intro takes ~15 minutes and covers everything you need."
+      },
+      "weather": {
+        "q": "What about bad weather?",
+        "a": "You can reschedule free of charge up to 12 hours before. In a storm or strong wind we'll suggest another slot."
+      },
+      "gear": {
+        "q": "What should I bring?",
+        "a": "Swimwear, towel, sunscreen. Everything else (board, helmet, vest, wetsuit) is included."
+      },
+      "weight": {
+        "q": "Is there a weight limit?",
+        "a": "Boards work for 40–110 kg. For heavier riders we have the Duotone Downwinder SLS."
+      },
+      "cancel": {
+        "q": "What's your cancellation policy?",
+        "a": "Free cancellation up to 48 hours before. 48–24 hours: half price. Less than 24h: full price."
+      }
+    }
+  },
   "booking": {
     "title": "BOOK A SESSION",
     "subtitle": "Choose a board, dates and type — we calculate the price live.",
+    "quickPick": "Quick pick",
     "selectBoard": "Choose a board",
     "selectBoardPlaceholder": "— select —",
     "startDate": "Start date",
@@ -88,6 +223,10 @@
     "priceTotal": "Total",
     "noDates": "Pick dates to see the price.",
     "honeypot": "Leave empty"
+  },
+  "stickyBar": {
+    "label": "Ready to fly?",
+    "cta": "Book now"
   },
   "footer": {
     "tagline": "E-foiling at Green Lake, Kidričevo.",

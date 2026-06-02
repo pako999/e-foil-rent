@@ -156,3 +156,47 @@ export function formatPrice(cents: number, locale = "sl-SI"): string {
     maximumFractionDigits: 0,
   }).format(cents / 100);
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Package presets — fixed-duration rentals shown as marketing cards.
+ * Each package compiles to either a half-hour single-session price or
+ * a multi-day quote via `quote()`.
+ * ──────────────────────────────────────────────────────────────────── */
+
+export type PackageId =
+  | "30min"
+  | "day1"
+  | "day2"
+  | "day3"
+  | "week1"
+  | "week2";
+
+export type PackageDef = {
+  id: PackageId;
+  days: number; // 0 for the 30-min taster
+  isHalfHour?: boolean;
+};
+
+export const PACKAGES: readonly PackageDef[] = [
+  { id: "30min", days: 0, isHalfHour: true },
+  { id: "day1", days: 1 },
+  { id: "day2", days: 2 },
+  { id: "day3", days: 3 },
+  { id: "week1", days: 7 },
+  { id: "week2", days: 14 },
+];
+
+export type BoardPricing = {
+  halfHourPrice: number;
+  dailyPrice: number;
+  weeklyPrice: number;
+};
+
+export function packageTotal(pkg: PackageDef, board: BoardPricing): number {
+  if (pkg.isHalfHour) return board.halfHourPrice;
+  return quote({
+    days: pkg.days,
+    dailyPrice: board.dailyPrice,
+    weeklyPrice: board.weeklyPrice,
+  }).total;
+}

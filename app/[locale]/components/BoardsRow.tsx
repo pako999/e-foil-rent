@@ -15,13 +15,13 @@ export async function BoardsRow({
   const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
 
   return (
-    <section id="boards" className="bg-white">
+    <section id="boards" className="bg-sand/40 scroll-mt-20">
       <div className="container-x py-20">
         <div className="mb-12 max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-teal-dark mb-3">
+          <p className="font-mono text-xs uppercase tracking-widest text-sun-dark mb-3">
             {t("title")}
           </p>
-          <h2 className="h-display text-4xl md:text-5xl text-ink">
+          <h2 className="h-display text-4xl md:text-5xl text-ocean">
             {t("subtitle")}
           </h2>
         </div>
@@ -29,9 +29,9 @@ export async function BoardsRow({
           {boards.map((board) => (
             <article
               key={board.id}
-              className="group border border-ink/10 bg-white hover:border-ink transition-colors flex flex-col"
+              className="group card flex flex-col hover:-translate-y-1"
             >
-              <div className="aspect-[4/3] bg-ink/5 relative overflow-hidden">
+              <div className="aspect-[4/3] bg-ocean/5 relative overflow-hidden">
                 <Image
                   src={board.imageUrl}
                   alt={board.name}
@@ -39,20 +39,25 @@ export async function BoardsRow({
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <span className="absolute top-3 right-3 bg-white/90 backdrop-blur text-ocean font-mono text-xs px-3 py-1 rounded-full">
+                  {t("from30", {
+                    price: formatPrice(board.halfHourPrice, intlLocale),
+                  })}
+                </span>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="font-display uppercase tracking-tight text-2xl text-ink">
+                <h3 className="font-display uppercase tracking-tight text-2xl text-ocean">
                   {board.name}
                 </h3>
-                <p className="text-ink/70 mt-2 mb-6 flex-1">
+                <p className="text-ocean/70 mt-2 mb-6 flex-1 text-sm">
                   {board.description}
                 </p>
                 <div className="flex items-baseline justify-between mb-4">
-                  <span className="font-mono text-2xl text-ink">
+                  <span className="font-mono text-2xl text-ocean">
                     {formatPrice(board.dailyPrice, intlLocale)}
-                    <span className="text-sm text-ink/60">{t("perDay")}</span>
+                    <span className="text-sm text-ocean/60">{t("perDay")}</span>
                   </span>
-                  <span className="font-mono text-xs text-ink/60">
+                  <span className="font-mono text-xs text-ocean/60">
                     {t("fromWeek", {
                       price: formatPrice(board.weeklyPrice, intlLocale),
                     })}
@@ -61,9 +66,9 @@ export async function BoardsRow({
                 <a
                   href={`#book?board=${board.id}`}
                   data-board-id={board.id}
-                  className="btn-ghost w-full"
+                  className="btn-sky w-full"
                 >
-                  {t("bookCta")}
+                  {t("bookCta")} →
                 </a>
               </div>
             </article>

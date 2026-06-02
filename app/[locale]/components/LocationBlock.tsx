@@ -7,25 +7,29 @@ export async function LocationBlock() {
   const embedSrc = `https://www.google.com/maps?q=${LOCATION.mapsQuery}&output=embed`;
 
   return (
-    <section id="location" className="bg-ink text-white">
+    <section id="location" className="bg-sand/40 scroll-mt-20">
       <div className="container-x py-20 grid md:grid-cols-2 gap-12 items-start">
         <div>
-          <p className="font-mono text-xs uppercase tracking-widest text-teal mb-4">
-            {t("title")}
+          <p className="font-mono text-xs uppercase tracking-widest text-sun-dark mb-4">
+            📍 {t("title")}
           </p>
-          <h2 className="h-display text-4xl md:text-5xl mb-6">{t("name")}</h2>
-          <p className="text-white/80 text-lg max-w-md mb-8">{t("blurb")}</p>
-          <p className="text-white/60 mb-6">{t("address")}</p>
+          <h2 className="h-display text-4xl md:text-5xl text-ocean mb-6">
+            {t("name")}
+          </h2>
+          <p className="text-ocean/75 text-lg max-w-md mb-6">{t("blurb")}</p>
+          <p className="text-ocean/60 mb-6 font-mono text-sm">
+            {t("address")}
+          </p>
           <a
             href={mapsLink}
             target="_blank"
             rel="noreferrer"
-            className="btn-primary"
+            className="btn-sky"
           >
-            {t("directions")}
+            {t("directions")} →
           </a>
         </div>
-        <div className="aspect-video w-full border-4 border-teal/30">
+        <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-card border border-ocean/10">
           <iframe
             src={embedSrc}
             className="w-full h-full"
