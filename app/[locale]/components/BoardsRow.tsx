@@ -15,13 +15,11 @@ export async function BoardsRow({
   const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
 
   return (
-    <section id="boards" className="bg-sand/40 scroll-mt-20">
+    <section id="boards" className="bg-paper scroll-mt-20 border-b-2 border-ink">
       <div className="container-x py-20">
         <div className="mb-12 max-w-2xl">
-          <p className="font-mono text-xs uppercase tracking-widest text-sun-dark mb-3">
-            {t("title")}
-          </p>
-          <h2 className="h-display text-4xl md:text-5xl text-ocean">
+          <p className="eyebrow mb-3">// {t("title")}</p>
+          <h2 className="h-display text-5xl md:text-6xl text-ink">
             {t("subtitle")}
           </h2>
         </div>
@@ -29,9 +27,9 @@ export async function BoardsRow({
           {boards.map((board) => (
             <article
               key={board.id}
-              className="group card flex flex-col hover:-translate-y-1"
+              className="group card card-hover flex flex-col"
             >
-              <div className="aspect-[4/3] bg-ocean/5 relative overflow-hidden">
+              <div className="aspect-[4/3] bg-cream relative overflow-hidden border-b-2 border-ink">
                 <Image
                   src={board.imageUrl}
                   alt={board.name}
@@ -39,25 +37,25 @@ export async function BoardsRow({
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 right-3 bg-white/90 backdrop-blur text-ocean font-mono text-xs px-3 py-1 rounded-full">
+                <span className="absolute top-3 right-3 bg-gold border-2 border-ink text-ink font-mono text-xs px-3 py-1">
                   {t("from30", {
                     price: formatPrice(board.halfHourPrice, intlLocale),
                   })}
                 </span>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <h3 className="font-display uppercase tracking-tight text-2xl text-ocean">
+                <h3 className="font-display uppercase tracking-tight text-2xl text-ink" style={{ fontWeight: 900 }}>
                   {board.name}
                 </h3>
-                <p className="text-ocean/70 mt-2 mb-6 flex-1 text-sm">
+                <p className="text-graphite mt-2 mb-6 flex-1 text-sm">
                   {board.description}
                 </p>
-                <div className="flex items-baseline justify-between mb-4">
-                  <span className="font-mono text-2xl text-ocean">
+                <div className="flex items-baseline justify-between mb-4 pb-4 border-b-2 border-ink/10">
+                  <span className="font-display text-3xl text-ink" style={{ fontWeight: 900 }}>
                     {formatPrice(board.dailyPrice, intlLocale)}
-                    <span className="text-sm text-ocean/60">{t("perDay")}</span>
+                    <span className="text-sm text-mute font-sans">{t("perDay")}</span>
                   </span>
-                  <span className="font-mono text-xs text-ocean/60">
+                  <span className="font-mono text-xs text-mute">
                     {t("fromWeek", {
                       price: formatPrice(board.weeklyPrice, intlLocale),
                     })}

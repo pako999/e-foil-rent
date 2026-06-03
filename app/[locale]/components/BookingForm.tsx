@@ -177,26 +177,26 @@ export function BookingSection({
 
   if (status.kind === "ok") {
     return (
-      <section id="book" className="bg-sand/60 border-y border-sun/30 scroll-mt-20">
+      <section id="book" className="bg-gold border-y-2 border-ink scroll-mt-20">
         <div className="container-x py-20 max-w-2xl text-center">
           <div className="text-6xl mb-4">🎉</div>
-          <h2 className="h-display text-4xl text-ocean mb-4">
+          <h2 className="h-display text-4xl text-ink mb-4">
             {t("successTitle")}
           </h2>
-          <p className="text-ocean/80 text-lg">{t("successBody")}</p>
+          <p className="text-ink text-lg">{t("successBody")}</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section id="book" className="bg-foam scroll-mt-20">
+    <section id="book" className="bg-paper border-b-2 border-ink scroll-mt-20">
       <div className="container-x py-20 grid lg:grid-cols-[1fr,360px] gap-12">
         <div>
-          <h2 className="h-display text-4xl md:text-5xl text-ocean mb-3">
+          <h2 className="h-display text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
-          <p className="text-ocean/70 mb-8 max-w-xl">{t("subtitle")}</p>
+          <p className="text-graphite mb-8 max-w-xl">{t("subtitle")}</p>
 
           <div className="mb-8">
             <p className="label">{t("quickPick")}</p>
@@ -267,7 +267,7 @@ export function BookingSection({
             </div>
 
             {rangeHasBlocked && (
-              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              <div className="text-sm text-ink bg-gold border-2 border-ink px-3 py-2">
                 {t("errorUnavailable")}
               </div>
             )}
@@ -275,18 +275,18 @@ export function BookingSection({
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="label">{t("experience")}</label>
-                <div className="flex rounded-lg overflow-hidden border border-ocean/15">
+                <div className="flex border-2 border-ink overflow-hidden">
                   <button
                     type="button"
                     onClick={() => setExperienceLevel("beginner")}
-                    className={`flex-1 px-3 py-2 transition ${experienceLevel === "beginner" ? "bg-ocean text-white" : "bg-white text-ocean hover:bg-ocean/5"}`}
+                    className={`flex-1 px-3 py-2 transition font-bold ${experienceLevel === "beginner" ? "bg-ink text-paper" : "bg-paper text-ink hover:bg-cream"}`}
                   >
                     {t("experienceBeginner")}
                   </button>
                   <button
                     type="button"
                     onClick={() => setExperienceLevel("experienced")}
-                    className={`flex-1 px-3 py-2 border-l border-ocean/15 transition ${experienceLevel === "experienced" ? "bg-ocean text-white" : "bg-white text-ocean hover:bg-ocean/5"}`}
+                    className={`flex-1 px-3 py-2 border-l-2 border-ink transition font-bold ${experienceLevel === "experienced" ? "bg-ink text-paper" : "bg-paper text-ink hover:bg-cream"}`}
                   >
                     {t("experienceExperienced")}
                   </button>
@@ -371,7 +371,7 @@ export function BookingSection({
             </div>
 
             {status.kind === "err" && (
-              <div className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              <div className="text-sm text-ink bg-gold border-2 border-ink px-3 py-2">
                 <strong>{t("errorTitle")}</strong>{" "}
                 {status.code === "unavailable"
                   ? t("errorUnavailable")
@@ -394,35 +394,35 @@ export function BookingSection({
           </form>
         </div>
 
-        <aside className="bg-gradient-to-br from-ocean to-ocean-deep text-white p-8 rounded-2xl h-fit lg:sticky lg:top-24 shadow-cardHover">
-          <p className="font-mono text-xs uppercase tracking-widest text-sun-light mb-3">
+        <aside className="bg-ink text-paper p-8 h-fit lg:sticky lg:top-24 border-2 border-ink" style={{ boxShadow: "8px 8px 0 0 #FFD600" }}>
+          <p className="font-display uppercase tracking-widest text-xs text-gold mb-3" style={{ fontWeight: 800 }}>
             💸 {t("priceTitle")}
           </p>
           {board && (isHalfHour || q) ? (
             <div>
-              <p className="font-display text-4xl">
+              <p className="font-display text-5xl text-gold" style={{ fontWeight: 900 }}>
                 {formatPrice(displayTotal, intlLocale)}
               </p>
-              <p className="font-mono text-sm text-white/70 mt-2">
+              <p className="font-mono text-sm text-paper/70 mt-2">
                 {isHalfHour
                   ? "30 min · " + board.name
                   : `${t("priceDays", { days: q!.days })} · ${formatPrice(q!.dailyPrice, intlLocale)}/d`}
               </p>
               {!isHalfHour && q && q.discount > 0 && (
-                <p className="font-mono text-sm text-sun mt-1">
+                <p className="font-mono text-sm text-gold mt-1">
                   −{q.discountPct}% {t("priceDiscount")} (−
                   {formatPrice(q.discount, intlLocale)})
                 </p>
               )}
-              <div className="mt-6 pt-6 border-t border-white/10 flex justify-between font-display uppercase tracking-wide">
+              <div className="mt-6 pt-6 border-t-2 border-gold/30 flex justify-between font-display uppercase tracking-wide" style={{ fontWeight: 800 }}>
                 <span>{t("priceTotal")}</span>
-                <span className="text-sun">
+                <span className="text-gold">
                   {formatPrice(displayTotal, intlLocale)}
                 </span>
               </div>
             </div>
           ) : (
-            <p className="text-white/70">{t("noDates")}</p>
+            <p className="text-paper/70">{t("noDates")}</p>
           )}
         </aside>
       </div>

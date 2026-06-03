@@ -4,13 +4,11 @@ import { FAQ_KEYS } from "@/lib/content";
 export async function Faq() {
   const t = await getTranslations("faq");
   return (
-    <section id="faq" className="bg-foam scroll-mt-20">
+    <section id="faq" className="bg-cream scroll-mt-20 border-b-2 border-ink">
       <div className="container-x py-20 max-w-3xl">
-        <div className="mb-10 text-center">
-          <p className="font-mono text-xs uppercase tracking-widest text-sun-dark mb-3">
-            {t("eyebrow")}
-          </p>
-          <h2 className="h-display text-4xl md:text-5xl text-ocean">
+        <div className="mb-10">
+          <p className="eyebrow mb-3">// {t("eyebrow")}</p>
+          <h2 className="h-display text-5xl md:text-6xl text-ink">
             {t("title")}
           </h2>
         </div>
@@ -18,16 +16,16 @@ export async function Faq() {
           {FAQ_KEYS.map((k) => (
             <details
               key={k}
-              className="group bg-white rounded-xl shadow-card border border-ocean/5 overflow-hidden"
+              className="group bg-paper border-2 border-ink overflow-hidden"
             >
-              <summary className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4 font-display uppercase tracking-wide text-ocean">
+              <summary className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4 font-display uppercase tracking-wide text-ink group-open:bg-gold transition-colors" style={{ fontWeight: 800 }}>
                 <span>{t(`items.${k}.q`)}</span>
-                <span className="shrink-0 w-8 h-8 rounded-full bg-sky/15 text-sky flex items-center justify-center transition group-open:rotate-45 group-open:bg-sun/15 group-open:text-sun-dark">
+                <span className="shrink-0 w-7 h-7 bg-ink text-gold flex items-center justify-center transition group-open:rotate-45">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="2.5"
+                    strokeWidth="3"
                     strokeLinecap="round"
                     className="w-4 h-4"
                   >
@@ -36,7 +34,7 @@ export async function Faq() {
                   </svg>
                 </span>
               </summary>
-              <div className="px-6 pb-5 text-ocean/75 leading-relaxed">
+              <div className="px-6 py-5 text-graphite leading-relaxed border-t-2 border-ink">
                 {t(`items.${k}.a`)}
               </div>
             </details>

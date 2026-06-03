@@ -3,10 +3,6 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
-/**
- * Mobile-first persistent CTA. Shows once the user scrolls past the hero,
- * hides when the booking form is in view.
- */
 export function StickyBookBar() {
   const t = useTranslations("stickyBar");
   const [visible, setVisible] = useState(false);
@@ -45,13 +41,13 @@ export function StickyBookBar() {
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="bg-ocean/95 backdrop-blur border-t border-white/10 shadow-cardHover">
+      <div className="bg-ink border-t-2 border-gold">
         <div className="container-x flex items-center justify-between gap-4 py-3">
-          <div className="text-white">
-            <p className="font-display uppercase text-sm tracking-wide leading-tight">
+          <div className="text-paper">
+            <p className="font-display uppercase text-sm tracking-wide leading-tight" style={{ fontWeight: 800 }}>
               {t("label")}
             </p>
-            <p className="font-mono text-xs text-sun-light hidden sm:block">
+            <p className="font-mono text-xs text-gold hidden sm:block">
               Green Lake, Kidričevo
             </p>
           </div>

@@ -71,7 +71,7 @@ export default async function LocaleLayout({
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&family=Sofia+Sans+Condensed:wght@700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>

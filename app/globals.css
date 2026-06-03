@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Barlow", system-ui, sans-serif;
-  --font-display: "Barlow Condensed", "Barlow", sans-serif;
+  --font-sans: "Nunito Sans", system-ui, sans-serif;
+  --font-display: "Sofia Sans Condensed", "Nunito Sans", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
@@ -13,51 +13,77 @@ html {
 }
 
 body {
-  background: #fffaf0;
-  color: #0a1428;
+  background: #ffffff;
+  color: #1a1a1a;
   font-family: var(--font-sans);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-display uppercase tracking-wide text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-95;
+    @apply inline-flex items-center justify-center px-6 py-3 font-display uppercase tracking-wide text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed active:translate-x-[2px] active:translate-y-[2px];
+    font-weight: 800;
+    border-radius: 4px;
   }
   .btn-primary {
-    @apply btn bg-sun text-white shadow-sun hover:bg-sun-dark hover:shadow-cardHover;
+    @apply btn bg-gold text-ink border-2 border-ink hover:bg-gold-light;
+    box-shadow: 4px 4px 0 0 #1a1a1a;
+  }
+  .btn-primary:hover {
+    box-shadow: 2px 2px 0 0 #1a1a1a;
+    transform: translate(2px, 2px);
   }
   .btn-secondary {
-    @apply btn bg-white/15 backdrop-blur border border-white/40 text-white hover:bg-white/25;
+    @apply btn bg-transparent border-2 border-paper text-paper hover:bg-paper hover:text-ink;
   }
   .btn-sky {
-    @apply btn bg-sky text-white hover:bg-sky-dark;
+    @apply btn bg-teal text-ink border-2 border-ink hover:bg-teal-light;
+    box-shadow: 4px 4px 0 0 #1a1a1a;
+  }
+  .btn-sky:hover {
+    box-shadow: 2px 2px 0 0 #1a1a1a;
+    transform: translate(2px, 2px);
   }
   .btn-ghost {
-    @apply btn bg-ocean text-white hover:bg-ocean-deep;
+    @apply btn bg-ink text-paper border-2 border-ink hover:bg-paper hover:text-ink;
   }
   .btn-outline {
-    @apply btn bg-transparent border-2 border-ocean text-ocean hover:bg-ocean hover:text-white;
+    @apply btn bg-transparent border-2 border-ink text-ink hover:bg-ink hover:text-paper;
   }
   .container-x {
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
   }
   .h-display {
-    @apply font-display uppercase tracking-tight leading-[0.95];
+    @apply font-display uppercase tracking-tight leading-[0.9];
+    font-weight: 900;
   }
   .label {
-    @apply block text-xs uppercase tracking-widest font-display text-ocean/80 mb-2;
+    @apply block text-xs uppercase tracking-widest font-display text-ink mb-2;
+    font-weight: 800;
   }
   .field {
-    @apply w-full border border-ocean/15 bg-white rounded-lg px-3 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-sky/40 focus:border-sky transition;
+    @apply w-full border-2 border-ink bg-paper px-3 py-2 text-ink focus:outline-none focus:bg-gold/10 transition;
+    border-radius: 4px;
   }
   .chip {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-ocean/15 bg-white text-sm font-medium cursor-pointer transition hover:border-sky;
+    @apply inline-flex items-center gap-2 px-4 py-2 border-2 border-ink bg-paper text-sm font-bold cursor-pointer transition hover:bg-teal-light;
+    border-radius: 4px;
   }
   .chip-active {
-    @apply border-sun bg-sun/10 text-sun-dark;
+    @apply bg-gold border-ink;
   }
   .card {
-    @apply bg-white rounded-2xl shadow-card border border-ocean/5 overflow-hidden transition hover:shadow-cardHover;
+    @apply bg-paper border-2 border-ink overflow-hidden transition;
+    border-radius: 4px;
+  }
+  .card-hover:hover {
+    box-shadow: 6px 6px 0 0 #1a1a1a;
+    transform: translate(-2px, -2px);
+  }
+  .eyebrow {
+    @apply inline-block font-display uppercase tracking-widest text-xs text-ink;
+    font-weight: 800;
   }
 }
 
@@ -68,11 +94,4 @@ body {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-/* Wave divider between sections */
-.wave-divider {
-  display: block;
-  width: 100%;
-  height: 48px;
 }
