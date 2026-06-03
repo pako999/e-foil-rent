@@ -9,9 +9,9 @@ const seed = async () => {
       description:
         "Vsestranska e-foil deska — stabilna za začetnike, dovolj okretna za izkušene riderje.",
       imageUrl: "/board-1.jpg",
-      halfHourPrice: 5000, // €50
-      dailyPrice: 12000, // €120
-      weeklyPrice: 70000, // €700
+      halfHourPrice: 7000, // €70
+      dailyPrice: 20000, // €200
+      weeklyPrice: 105000, // €1050 (≈ €150/day)
       unitsAvailable: 1,
       sortOrder: 1,
     },
@@ -21,9 +21,9 @@ const seed = async () => {
       description:
         "Hitra, agilna in odzivna — za jezerske turne in zaviti carving freestyle.",
       imageUrl: "/board-2.jpg",
-      halfHourPrice: 5500, // €55
-      dailyPrice: 13000, // €130
-      weeklyPrice: 75000, // €750
+      halfHourPrice: 7000, // €70
+      dailyPrice: 20000, // €200
+      weeklyPrice: 105000, // €1050
       unitsAvailable: 1,
       sortOrder: 2,
     },
@@ -33,9 +33,9 @@ const seed = async () => {
       description:
         "Lahka in elegantna — najboljša izbira za daljše drsanje in vse-dnevni užitek.",
       imageUrl: "/board-3.jpg",
-      halfHourPrice: 6000, // €60
-      dailyPrice: 14000, // €140
-      weeklyPrice: 80000, // €800
+      halfHourPrice: 7000, // €70
+      dailyPrice: 20000, // €200
+      weeklyPrice: 105000, // €1050
       unitsAvailable: 1,
       sortOrder: 3,
     },
