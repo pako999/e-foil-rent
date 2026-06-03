@@ -224,6 +224,31 @@
     "noDates": "Pick dates to see the price.",
     "honeypot": "Leave empty"
   },
+  "video": {
+    "eyebrow": "See it live",
+    "title": "THIS IS E-FOILING",
+    "subtitle": "Silent glide one meter above the water — up to 40 km/h, no waves required.",
+    "playLabel": "Play video"
+  },
+  "tech": {
+    "eyebrow": "Tech",
+    "title": "WHY E-FOIL?",
+    "subtitle": "An electric hydrofoil lifts you above the water. Almost zero drag. Almost zero noise. A full day of fun.",
+    "items": {
+      "range": { "title": "Range", "body": "Up to 2 hours of ride time per charge, depending on style." },
+      "speed": { "title": "Speed", "body": "40+ km/h top speed. Controlled by a wireless trigger." },
+      "battery": { "title": "Li-ion battery", "body": "Quick-swap pack — 75 min charge for a full flight." },
+      "weight": { "title": "Lightweight board", "body": "Carbon construction, 14–17 kg complete with foil." },
+      "silent": { "title": "Silent motor", "body": "Brushless drive — all you hear is the water." },
+      "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
+    }
+  },
+  "shop": {
+    "eyebrow": "Buy your own",
+    "title": "FELL IN LOVE? TAKE ONE HOME.",
+    "body": "Find every Duotone e-foil set in our Surf-Store.com shop. Free shipping across Slovenia.",
+    "cta": "Browse e-foil sets"
+  },
   "stickyBar": {
     "label": "Ready to fly?",
     "cta": "Book now"

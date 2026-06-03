@@ -7,13 +7,14 @@ export async function Hero() {
     <section className="relative bg-ink text-paper overflow-hidden border-b-2 border-ink">
       <div className="absolute inset-0">
         <Image
-          src="/hero-placeholder.svg"
+          src="/hero.jpg"
           alt=""
           fill
           priority
-          className="object-cover opacity-40"
+          sizes="100vw"
+          className="object-cover opacity-65"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-ink/90 via-ink/60 to-ink/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/40 to-ink/85" />
       </div>
       <div className="relative container-x py-20 md:py-32">
         <p className="inline-flex items-center gap-2 font-display uppercase tracking-widest text-xs text-gold mb-6 border-2 border-gold px-3 py-1.5">

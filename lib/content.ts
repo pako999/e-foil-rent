@@ -8,6 +8,8 @@ export const SITE = {
   operator: "Surf-Store.com",
   contactEmail: "info@surf-store.com",
   mainSite: "https://www.surf-store.com",
+  shop: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
+  videoId: "Wj6xwO_FDqU",
   social: {
     instagram: "https://www.instagram.com/surfstoreslovenia",
     facebook: "https://www.facebook.com/surfstoreslovenia",
@@ -28,15 +30,19 @@ export type FeatureKey = (typeof FEATURE_KEYS)[number];
 
 export const HOW_STEPS = [1, 2, 3] as const;
 
-// Gallery images — drop real photos into /public and reference here.
+// Gallery images. Drop the 5 photos shared by the user into /public with
+// the filenames below. Until then the components fall back to placeholder
+// SVGs so the page still renders.
 export const GALLERY_IMAGES = [
-  { src: "/board-1.svg", alt: "Rider flying above Green Lake at sunset" },
-  { src: "/board-2.svg", alt: "Carving turns on the e-foil" },
-  { src: "/board-3.svg", alt: "Beginner taking off for the first time" },
-  { src: "/hero-placeholder.svg", alt: "Wide view of Green Lake, Kidričevo" },
-  { src: "/board-1.svg", alt: "Group lesson on the lake shore" },
-  { src: "/board-2.svg", alt: "Duotone e-foil board detail" },
+  { src: "/hero.jpg", alt: "Rider gliding above clear water near a tropical island" },
+  { src: "/action-1.jpg", alt: "E-foil rider carving on a dark blue wave" },
+  { src: "/board-2.jpg", alt: "Blue-shirt rider holding the throttle on a clean wave" },
+  { src: "/board-1.jpg", alt: "Two riders cruising over turquoise reef water" },
+  { src: "/action-2.jpg", alt: "E-foiler in front of a breaking wave with cloud backdrop" },
+  { src: "/board-3.jpg", alt: "Duotone foilboard detail" },
 ] as const;
+
+export const TECH_FEATURES = ["range", "speed", "battery", "weight", "silent", "easy"] as const;
 
 // Featured packages shown in the marketing grid. The "best" flag highlights
 // one card with the sun-accent stripe.

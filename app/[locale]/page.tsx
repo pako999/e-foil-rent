@@ -9,8 +9,11 @@ import { Packages } from "./components/Packages";
 import { LocationBlock } from "./components/LocationBlock";
 import { BoardsRow } from "./components/BoardsRow";
 import { HowItWorks } from "./components/HowItWorks";
+import { Video } from "./components/Video";
+import { Tech } from "./components/Tech";
 import { Gallery } from "./components/Gallery";
 import { Reviews } from "./components/Reviews";
+import { ShopCta } from "./components/ShopCta";
 import { GiftVoucher } from "./components/GiftVoucher";
 import { Faq } from "./components/Faq";
 import { BookingSection } from "./components/BookingForm";
@@ -36,12 +39,15 @@ export default async function HomePage({
       <main>
         <Hero />
         <FeatureBadges />
+        <Video />
         <Packages boards={boards} locale={locale as Locale} />
+        <Tech />
         <HowItWorks />
         <BoardsRow boards={boards} locale={locale as Locale} />
         <Gallery />
         <Reviews />
         <LocationBlock />
+        <ShopCta />
         <GiftVoucher />
         <Faq />
         <BookingSection boards={boards} locale={locale as Locale} />

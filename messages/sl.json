@@ -224,6 +224,31 @@
     "noDates": "Izberi datume za izračun cene.",
     "honeypot": "Pusti prazno"
   },
+  "video": {
+    "eyebrow": "Poglej v živo",
+    "title": "TAKO IZGLEDA E-FOIL",
+    "subtitle": "Tiho drsenje nad vodo — 1 meter v zraku, do 40 km/h, brez valov.",
+    "playLabel": "Predvajaj video"
+  },
+  "tech": {
+    "eyebrow": "Tehnologija",
+    "title": "ZAKAJ E-FOIL?",
+    "subtitle": "Električni hidrofoil te dvigne nad vodo. Skoraj brez upora. Skoraj brez hrupa. Cel dan zabave.",
+    "items": {
+      "range": { "title": "Doseg", "body": "Do 2 uri vožnje na polnjenje, odvisno od stila." },
+      "speed": { "title": "Hitrost", "body": "Do 40+ km/h. Kontroliraš jo z brezžičnim sprožilcem." },
+      "battery": { "title": "Litij-ion baterija", "body": "Hitra zamenjava — 75 min polnjenje za poln let." },
+      "weight": { "title": "Lahka deska", "body": "Karbonska konstrukcija, 14–17 kg s foilom." },
+      "silent": { "title": "Tih motor", "body": "Brezkrtačni motor — slišiš le šum vode." },
+      "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
+    }
+  },
+  "shop": {
+    "eyebrow": "Kupi svoj e-foil",
+    "title": "ZALJUBLJEN? PELJI GA DOMOV.",
+    "body": "Vse Duotone e-foil sete najdeš v naši trgovini Surf-Store.com. Brezplačna dostava po Sloveniji.",
+    "cta": "Oglej si komplete v trgovini"
+  },
   "stickyBar": {
     "label": "Pripravljen za let?",
     "cta": "Rezerviraj"
