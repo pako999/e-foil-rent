@@ -6,8 +6,10 @@
   },
   "nav": {
     "packages": "Paketi",
+    "duotone": "Duotone",
     "boards": "Deske",
     "how": "Kako poteka",
+    "specs": "Specifikacije",
     "location": "Lokacija",
     "gallery": "Galerija",
     "faq": "Vprašanja",
@@ -241,6 +243,99 @@
       "weight": { "title": "Lahka deska", "body": "Karbonska konstrukcija, 14–17 kg s foilom." },
       "silent": { "title": "Tih motor", "body": "Brezkrtačni motor — slišiš le šum vode." },
       "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
+    }
+  },
+  "duotone": {
+    "meta": {
+      "title": "Duotone Foil — E-Foil oprema | Surf-Store.com",
+      "description": "Vse o Duotone foil opremi — D/LAB karbon, aluminij in Cruise konfiguracije. Brand, tehnologija in povezave do trgovine."
+    },
+    "hero": {
+      "eyebrow": "Brand v fokusu",
+      "title": "DUOTONE FOIL",
+      "tagline": "Inženiring iz Nemčije. Občutek iz Maui.",
+      "intro": "Duotone je premium watersports brand pod streho Boards & More iz Nemčije. Od kitesurfa do wing-foilinga in zdaj e-foilinga — Duotone gradi opremo, ki je hkrati zmogljiva in dostopna za začetnike. Vsa oprema je razvita v tesnem sodelovanju s svetovnimi šampijoni — Sky Solbach, Jake Kelsick, Matchu Lopes — in testirana v hawajskih in evropskih vodah."
+    },
+    "story": {
+      "title": "KRATKA ZGODBA",
+      "p1": "Duotone se je leta 2018 ločil od North Kiteboarding in postal samostojni brand znotraj Boards & More skupine. Hitro je zgradil eno največjih kolekcij wing-foil opreme na svetu — od prvih wingov do popolnih foil paketov.",
+      "p2": "Z e-foilom Duotone prinaša električno asistenco v isti modularni sistem, ki ga uporablja njegova wing-foil ekipa. Isti masti, isti front wingovi, isti boardi — samo dodaš e-harness in baterije.",
+      "p3": "Filozofija: ena modularna platforma za vse foil discipline. Manj opreme, več užitka."
+    },
+    "range": {
+      "title": "DUOTONE FOIL RANGE",
+      "subtitle": "Trije gradbeni nivoji — od najboljšega možnega do najbolj dostopnega.",
+      "items": {
+        "dlab": {
+          "name": "D/LAB Carbon",
+          "desc": "Najlažja izvedba — prepreden karbon, najnižja masa, najhitrejši odziv. Za pro riderje in tekmovalce.",
+          "weight": "3.0 kg mast",
+          "cta": "Oglej D/LAB"
+        },
+        "al": {
+          "name": "Foil Assist AL",
+          "desc": "Naša izposojevalna konfiguracija. Aluminijasta mast, robustna in zanesljiva za vsakdanjo uporabo.",
+          "weight": "3.45 kg mast",
+          "cta": "Oglej AL set"
+        },
+        "cruise": {
+          "name": "Cruise Mast AL",
+          "desc": "Krajša 80 cm mast za lažje učenje in plitke vode. Idealno za začetnike in družinske vožnje.",
+          "weight": "3.55 kg mast",
+          "cta": "Oglej Cruise set"
+        }
+      }
+    },
+    "tech": {
+      "title": "MODULARNI SISTEM",
+      "p1": "Vsi Duotone foil setovi delijo isti track sistem — masti, fuselage, front in back wingi se zamenjajo v sekundah brez orodja.",
+      "p2": "To pomeni: če imaš že Duotone wing-foil, lahko za e-foiling dokupiš samo eHarness + baterije. Ena oprema, dve disciplini.",
+      "specsLink": "Polni tehnični podatki za rental konfiguracijo →"
+    },
+    "videos": {
+      "eyebrow": "Iz Duotone arhiva",
+      "title": "VIDEO POSNETKI",
+      "subtitle": "Uradni Duotone YouTube kanal — vožnje, navodila, recenzije.",
+      "channelCta": "Odpri Duotone kanal ↗"
+    },
+    "shop": {
+      "title": "VSA OPREMA V TRGOVINI",
+      "body": "Duotone foil sete, dodatke in nadomestne dele najdeš na Surf-Store.com. Brezplačna dostava po Sloveniji.",
+      "cta": "Pojdi v trgovino →"
+    }
+  },
+  "specs": {
+    "eyebrow": "Tehnični podatki",
+    "title": "DUOTONE E-FOIL ASSIST",
+    "model": "Aluminijasta izvedba — naša izposojevalna konfiguracija. Polni paket: deska, foil, mast, e-harness in baterije.",
+    "buyCta": "Kupi v trgovini",
+    "footnote": "Vsi podatki: Duotone uradna specifikacija. Lahko se spremenijo brez najave.",
+    "groups": {
+      "performance": "Zmogljivost",
+      "battery": "Baterija & energija",
+      "mast": "Mast in foil",
+      "compat": "Kompatibilnost",
+      "harness": "Velikosti pasu (harness)"
+    },
+    "labels": {
+      "runtime": "Maks. čas vožnje",
+      "speedLevels": "Stopnje hitrosti",
+      "chargeTime": "Čas polnjenja (0–100 %)",
+      "cells": "Tip baterij",
+      "capacity": "Kapaciteta",
+      "voltage": "Napetost",
+      "energy": "Energija",
+      "batteryWeight": "Teža baterij",
+      "harnessTotal": "eHarness z baterijami",
+      "mastDlab": "Foil Assist Mast D/LAB",
+      "mastAl": "Foil Assist Mast AL",
+      "mastCruiseAl": "Foil Assist Cruise Mast AL",
+      "lenAssist": "Dolžina Assist mast",
+      "lenCruise": "Dolžina Cruise mast",
+      "minWing": "Min. front wing (za optimalno baterijo)",
+      "minVolume": "Min. volumen boarda",
+      "sizeSm": "Velikost S/M",
+      "sizeLxxl": "Velikost L/XXL"
     }
   },
   "shop": {

@@ -10,11 +10,44 @@ export const SITE = {
   mainSite: "https://www.surf-store.com",
   shop: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
   videoId: "Wj6xwO_FDqU",
+  duotoneYouTube: "https://www.youtube.com/@duotone.wingfoiling",
   social: {
     instagram: "https://www.instagram.com/surfstoreslovenia",
     facebook: "https://www.facebook.com/surfstoreslovenia",
   },
 } as const;
+
+/**
+ * Duotone product range — links to the relevant category on surf-store.com.
+ * Swap the YouTube IDs once you pick which Duotone videos to feature.
+ */
+export const DUOTONE_PRODUCTS = [
+  {
+    key: "dlab",
+    image: "/board-2.jpg",
+    shopUrl: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
+  },
+  {
+    key: "al",
+    image: "/board-1.jpg",
+    shopUrl: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
+  },
+  {
+    key: "cruise",
+    image: "/board-3.jpg",
+    shopUrl: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
+  },
+] as const;
+
+/**
+ * Featured Duotone YouTube videos. Replace these IDs with actual videos
+ * from https://www.youtube.com/@duotone.wingfoiling that you want to feature.
+ * Until then the page falls back to a single hero video + channel link.
+ */
+export const DUOTONE_VIDEOS: readonly string[] = [
+  // Examples — replace with real Duotone video IDs.
+  "Wj6xwO_FDqU",
+];
 
 export const LOCATION = {
   name: "Green Lake, Kidričevo",

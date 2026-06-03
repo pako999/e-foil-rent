@@ -11,6 +11,7 @@ import { BoardsRow } from "./components/BoardsRow";
 import { HowItWorks } from "./components/HowItWorks";
 import { Video } from "./components/Video";
 import { Tech } from "./components/Tech";
+import { TechSpecs } from "./components/TechSpecs";
 import { Gallery } from "./components/Gallery";
 import { Reviews } from "./components/Reviews";
 import { ShopCta } from "./components/ShopCta";
@@ -42,6 +43,7 @@ export default async function HomePage({
         <Video />
         <Packages boards={boards} locale={locale as Locale} />
         <Tech />
+        <TechSpecs />
         <HowItWorks />
         <BoardsRow boards={boards} locale={locale as Locale} />
         <Gallery />

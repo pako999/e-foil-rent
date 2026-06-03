@@ -6,8 +6,10 @@
   },
   "nav": {
     "packages": "Packages",
+    "duotone": "Duotone",
     "boards": "Boards",
     "how": "How it works",
+    "specs": "Specs",
     "location": "Location",
     "gallery": "Gallery",
     "faq": "FAQ",
@@ -241,6 +243,99 @@
       "weight": { "title": "Lightweight board", "body": "Carbon construction, 14–17 kg complete with foil." },
       "silent": { "title": "Silent motor", "body": "Brushless drive — all you hear is the water." },
       "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
+    }
+  },
+  "duotone": {
+    "meta": {
+      "title": "Duotone Foil — E-Foil gear | Surf-Store.com",
+      "description": "Everything about Duotone foil gear — D/LAB carbon, aluminum and Cruise setups. Brand, tech and shop links."
+    },
+    "hero": {
+      "eyebrow": "Brand spotlight",
+      "title": "DUOTONE FOIL",
+      "tagline": "German engineering. Maui feel.",
+      "intro": "Duotone is a premium watersports brand under the Boards & More group from Germany. From kitesurfing to wing-foiling and now e-foiling, Duotone builds gear that's both high-performance and approachable. Every product is co-developed with world champions — Sky Solbach, Jake Kelsick, Matchu Lopes — and tested in Hawaiian and European waters."
+    },
+    "story": {
+      "title": "THE SHORT STORY",
+      "p1": "Duotone split from North Kiteboarding in 2018 to become a standalone brand inside the Boards & More group. It quickly built one of the largest wing-foil ranges in the world — from the first wings to complete foil packages.",
+      "p2": "With e-foil, Duotone brings electric assist into the same modular system its wing-foil team rides. Same masts, same front wings, same boards — just add the e-harness and batteries.",
+      "p3": "The philosophy: one modular platform for every foil discipline. Less gear, more time on the water."
+    },
+    "range": {
+      "title": "DUOTONE FOIL RANGE",
+      "subtitle": "Three build tiers — from absolute top-end to everyday workhorse.",
+      "items": {
+        "dlab": {
+          "name": "D/LAB Carbon",
+          "desc": "The lightest build — full carbon, lowest mass, fastest response. For pros and racers.",
+          "weight": "3.0 kg mast",
+          "cta": "View D/LAB"
+        },
+        "al": {
+          "name": "Foil Assist AL",
+          "desc": "Our rental setup. Aluminum mast, rugged and reliable for daily use.",
+          "weight": "3.45 kg mast",
+          "cta": "View AL set"
+        },
+        "cruise": {
+          "name": "Cruise Mast AL",
+          "desc": "Shorter 80 cm mast for easier learning and shallow water. Ideal for beginners and family rides.",
+          "weight": "3.55 kg mast",
+          "cta": "View Cruise set"
+        }
+      }
+    },
+    "tech": {
+      "title": "ONE MODULAR SYSTEM",
+      "p1": "Every Duotone foil set shares the same track system — masts, fuselages, front and back wings swap in seconds, no tools.",
+      "p2": "Meaning: if you already own a Duotone wing-foil, you only need to add the eHarness + batteries to go electric. One kit, two disciplines.",
+      "specsLink": "Full tech specs for the rental setup →"
+    },
+    "videos": {
+      "eyebrow": "From the Duotone archive",
+      "title": "VIDEO LIBRARY",
+      "subtitle": "Official Duotone YouTube channel — rides, how-tos and reviews.",
+      "channelCta": "Open Duotone channel ↗"
+    },
+    "shop": {
+      "title": "FULL RANGE AT THE SHOP",
+      "body": "Duotone foil sets, accessories and spare parts at Surf-Store.com. Free shipping across Slovenia.",
+      "cta": "Visit the shop →"
+    }
+  },
+  "specs": {
+    "eyebrow": "Tech specs",
+    "title": "DUOTONE E-FOIL ASSIST",
+    "model": "Aluminum build — our rental setup. Full package: board, foil, mast, e-harness and batteries.",
+    "buyCta": "Buy at our shop",
+    "footnote": "All data from Duotone official spec. Subject to change without notice.",
+    "groups": {
+      "performance": "Performance",
+      "battery": "Battery & energy",
+      "mast": "Mast & foil",
+      "compat": "Compatibility",
+      "harness": "Harness sizes"
+    },
+    "labels": {
+      "runtime": "Max runtime",
+      "speedLevels": "Speed levels",
+      "chargeTime": "Charge time (0–100 %)",
+      "cells": "Battery type",
+      "capacity": "Capacity",
+      "voltage": "Voltage",
+      "energy": "Energy",
+      "batteryWeight": "Battery weight",
+      "harnessTotal": "eHarness with batteries",
+      "mastDlab": "Foil Assist Mast D/LAB",
+      "mastAl": "Foil Assist Mast AL",
+      "mastCruiseAl": "Foil Assist Cruise Mast AL",
+      "lenAssist": "Assist mast length",
+      "lenCruise": "Cruise mast length",
+      "minWing": "Min front wing (for optimal battery)",
+      "minVolume": "Min board volume",
+      "sizeSm": "Size S/M",
+      "sizeLxxl": "Size L/XXL"
     }
   },
   "shop": {
