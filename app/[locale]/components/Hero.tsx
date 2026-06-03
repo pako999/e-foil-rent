@@ -23,13 +23,13 @@ export async function Hero() {
         <p className="inline-flex items-center gap-2 font-display uppercase tracking-widest text-xs text-gold mb-6 border-2 border-gold px-3 py-1.5 bg-ink/40 backdrop-blur-sm">
           📍 {t("eyebrow")}
         </p>
-        <h1 className="h-display text-6xl sm:text-8xl md:text-9xl text-paper max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+        <h1 className="h-display text-5xl xs:text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-paper max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] break-words">
           {t("title")}
         </h1>
         <p className="font-display uppercase tracking-wide text-xl mt-4 text-paper/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
           {t("subtitle")}
         </p>
-        <p className="mt-10 font-display uppercase text-2xl md:text-3xl text-gold max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+        <p className="mt-10 font-display uppercase text-xl sm:text-2xl md:text-3xl text-gold max-w-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
           {t("tagline")}
         </p>
         <div className="mt-10 flex flex-wrap gap-4">

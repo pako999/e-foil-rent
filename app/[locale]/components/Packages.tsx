@@ -24,7 +24,7 @@ export async function Packages({
       <div className="container-x py-20">
         <div className="mb-14 max-w-2xl">
           <p className="eyebrow mb-3">// {t("eyebrow")}</p>
-          <h2 className="h-display text-5xl md:text-6xl text-ink mb-4">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-4">
             {t("title")}
           </h2>
           <p className="text-graphite text-lg">{t("subtitle")}</p>

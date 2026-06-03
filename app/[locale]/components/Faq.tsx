@@ -8,7 +8,7 @@ export async function Faq() {
       <div className="container-x py-20 max-w-3xl">
         <div className="mb-10">
           <p className="eyebrow mb-3">// {t("eyebrow")}</p>
-          <h2 className="h-display text-5xl md:text-6xl text-ink">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink">
             {t("title")}
           </h2>
         </div>

@@ -79,7 +79,7 @@ export default async function DuotonePage({
         {/* STORY */}
         <section className="bg-paper border-b-2 border-ink">
           <div className="container-x py-20 grid md:grid-cols-[1fr,1.4fr] gap-12 items-start">
-            <h2 className="h-display text-5xl md:text-6xl text-ink">
+            <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink">
               {t("story.title")}
             </h2>
             <div className="space-y-5 text-graphite text-lg leading-relaxed">
@@ -96,7 +96,7 @@ export default async function DuotonePage({
         <section className="bg-cream border-b-2 border-ink">
           <div className="container-x py-20">
             <div className="mb-12 max-w-2xl">
-              <h2 className="h-display text-5xl md:text-6xl text-ink mb-3">
+              <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("range.title")}
               </h2>
               <p className="text-graphite text-lg">{t("range.subtitle")}</p>
@@ -142,7 +142,7 @@ export default async function DuotonePage({
         <section className="bg-paper border-b-2 border-ink">
           <div className="container-x py-20 grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="h-display text-5xl md:text-6xl text-ink mb-6">
+              <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-6">
                 {t("tech.title")}
               </h2>
               <div className="space-y-4 text-graphite text-lg leading-relaxed">
@@ -176,7 +176,7 @@ export default async function DuotonePage({
               <p className="font-display uppercase tracking-widest text-xs text-gold mb-3" style={{ fontWeight: 800 }}>
                 ▶ // {t("videos.eyebrow")}
               </p>
-              <h2 className="h-display text-5xl md:text-6xl">
+              <h2 className="h-display text-4xl sm:text-5xl md:text-6xl">
                 {t("videos.title")}
               </h2>
               <p className="text-paper/75 text-lg mt-3">{t("videos.subtitle")}</p>

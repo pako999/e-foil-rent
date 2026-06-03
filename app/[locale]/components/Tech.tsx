@@ -27,7 +27,7 @@ export async function Tech() {
         </div>
         <div>
           <p className="eyebrow mb-3">// {t("eyebrow")}</p>
-          <h2 className="h-display text-5xl md:text-6xl text-ink mb-3">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
           <p className="text-graphite text-lg mb-8">{t("subtitle")}</p>

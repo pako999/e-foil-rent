@@ -193,7 +193,7 @@ export function BookingSection({
     <section id="book" className="bg-paper border-b-2 border-ink scroll-mt-20">
       <div className="container-x py-20 grid lg:grid-cols-[1fr,360px] gap-12">
         <div>
-          <h2 className="h-display text-5xl md:text-6xl text-ink mb-3">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
           <p className="text-graphite mb-8 max-w-xl">{t("subtitle")}</p>

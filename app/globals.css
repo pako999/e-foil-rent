@@ -18,6 +18,9 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  /* Stop brutalist offset shadows + edge graphics from causing a
+     horizontal scroll on narrow viewports. */
+  overflow-x: hidden;
 }
 
 @layer components {
@@ -74,7 +77,11 @@ body {
     @apply bg-gold border-ink;
   }
   .card {
-    @apply bg-paper border-2 border-ink overflow-hidden transition;
+    /* No overflow-hidden — sibling elements like the "Most popular" badge
+       on package cards and the 01/02/03 numerals on HowItWorks need to
+       bleed outside the border. Components that have an internal image
+       wrapper handle their own clipping. */
+    @apply bg-paper border-2 border-ink transition;
     border-radius: 4px;
   }
   .card-hover:hover {

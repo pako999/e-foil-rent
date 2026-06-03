@@ -7,7 +7,7 @@ export async function HowItWorks() {
     <section id="how" className="bg-paper scroll-mt-20 border-b-2 border-ink">
       <div className="container-x py-20">
         <div className="mb-12 max-w-2xl">
-          <h2 className="h-display text-5xl md:text-6xl text-ink mb-4">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-4">
             {t("title")}
           </h2>
           <p className="text-graphite text-lg">{t("subtitle")}</p>

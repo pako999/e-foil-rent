@@ -12,7 +12,7 @@ export async function Reviews() {
           <p className="font-display uppercase tracking-widest text-xs text-gold mb-3" style={{ fontWeight: 800 }}>
             // {t("eyebrow")}
           </p>
-          <h2 className="h-display text-5xl md:text-6xl">{t("title")}</h2>
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl">{t("title")}</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {REVIEW_KEYS.map((k) => (

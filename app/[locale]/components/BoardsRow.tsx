@@ -19,7 +19,7 @@ export async function BoardsRow({
       <div className="container-x py-20">
         <div className="mb-12 max-w-2xl">
           <p className="eyebrow mb-3">// {t("title")}</p>
-          <h2 className="h-display text-5xl md:text-6xl text-ink">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink">
             {t("subtitle")}
           </h2>
         </div>

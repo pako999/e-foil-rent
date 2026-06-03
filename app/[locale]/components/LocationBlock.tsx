@@ -11,7 +11,7 @@ export async function LocationBlock() {
       <div className="container-x py-20 grid md:grid-cols-2 gap-12 items-start">
         <div>
           <p className="eyebrow mb-4">📍 // {t("title")}</p>
-          <h2 className="h-display text-5xl md:text-6xl text-ink mb-6">
+          <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-6">
             {t("name")}
           </h2>
           <p className="text-graphite text-lg max-w-md mb-6">{t("blurb")}</p>
