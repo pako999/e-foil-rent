@@ -245,6 +245,11 @@
       "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
     }
   },
+  "pickup": {
+    "label": "Rental pickup available",
+    "cities": "Maribor · Ljubljana",
+    "note": "Free pickup in either city by arrangement."
+  },
   "duotone": {
     "meta": {
       "title": "Duotone Foil — E-Foil gear | Surf-Store.com",

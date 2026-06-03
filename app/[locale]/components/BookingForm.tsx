@@ -42,6 +42,7 @@ export function BookingSection({
 }) {
   const t = useTranslations("booking");
   const tPkg = useTranslations("packages");
+  const tPickup = useTranslations("pickup");
   const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
 
   const [boardId, setBoardId] = useState<number | "">(boards[0]?.id ?? "");
@@ -196,7 +197,17 @@ export function BookingSection({
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
-          <p className="text-graphite mb-8 max-w-xl">{t("subtitle")}</p>
+          <p className="text-graphite mb-6 max-w-xl">{t("subtitle")}</p>
+
+          <div className="mb-8 flex items-center gap-3 bg-gold border-2 border-ink px-4 py-3 max-w-xl">
+            <span className="text-xl">🚚</span>
+            <div className="text-sm text-ink">
+              <strong className="font-display uppercase tracking-wide" style={{ fontWeight: 800 }}>
+                {tPickup("label")}:
+              </strong>{" "}
+              {tPickup("cities")}
+            </div>
+          </div>
 
           <div className="mb-8">
             <p className="label">{t("quickPick")}</p>

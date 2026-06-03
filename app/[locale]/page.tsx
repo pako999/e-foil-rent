@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getActiveBoards } from "@/lib/queries";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { PickupBanner } from "./components/PickupBanner";
 import { FeatureBadges } from "./components/FeatureBadges";
 import { Packages } from "./components/Packages";
 import { LocationBlock } from "./components/LocationBlock";
@@ -39,6 +40,7 @@ export default async function HomePage({
       <Header locale={locale as Locale} />
       <main>
         <Hero />
+        <PickupBanner />
         <FeatureBadges />
         <Video />
         <Packages boards={boards} locale={locale as Locale} />

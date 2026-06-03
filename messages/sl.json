@@ -44,7 +44,7 @@
   "packages": {
     "eyebrow": "Cenik & paketi",
     "title": "IZBERI SVOJ PAKET",
-    "subtitle": "Od 30-minutne degustacije do dvotedenskega počitniškega podviga — vsak paket vključuje opremo, varnostno opremo in kratek uvod.",
+    "subtitle": "Od 30-minutne pokušine do dvotedenskega počitniškega doživetja — vsak paket vključuje desko, varnostno opremo in kratek uvod.",
     "fromPrice": "od {price}",
     "select": "Rezerviraj",
     "bestBadge": "Najbolj priljubljeno",
@@ -92,15 +92,15 @@
         "desc": "Cel teden, fiksna cena. Idealno za dopust ob jezeru.",
         "f1": "7 dni izposoje, fiksna cena",
         "f2": "2 uri inštrukcije gratis",
-        "f3": "24/7 podpora na kraju samem",
+        "f3": "Podpora na lokaciji 24/7",
         "f4": "Foto/video paket"
       },
       "week2": {
         "name": "2 tedna — VIP",
         "duration": "14 dni",
-        "desc": "Dvotedensko popolno popotniško doživetje. Privatni inštruktor, fleksibilni urniki.",
+        "desc": "Dvotedensko vsestransko doživetje. Zasebni inštruktor in prilagodljiv urnik.",
         "f1": "14 dni izposoje",
-        "f2": "Privatni inštruktor (3h)",
+        "f2": "Zasebni inštruktor (3 h)",
         "f3": "Premium oprema na izbiro",
         "f4": "Foto/video produkcija"
       }
@@ -146,7 +146,7 @@
         "city": "Maribor"
       },
       "r2": {
-        "quote": "Tiho, hitro, čista magija. Vzel sem 3-dnevni paket in vsak dan bilo bolj nori.",
+        "quote": "Tiho, hitro, čista magija. Vzel sem tridnevni paket in vsak dan je bil bolj nor.",
         "author": "Luka",
         "city": "Ljubljana"
       },
@@ -168,20 +168,20 @@
     "title": "POGOSTA VPRAŠANJA",
     "items": {
       "age": {
-        "q": "Koliko sem moram biti star/a?",
-        "a": "Minimalna starost je 14 let (z dovoljenjem staršev), brez zgornje omejitve. Naši najstarejši riderji imajo 65+."
+        "q": "Koliko moram biti star/a?",
+        "a": "Najnižja starost je 14 let (z dovoljenjem staršev), zgornje meje ni. Naši najstarejši vozniki imajo 65 let in več."
       },
       "experience": {
         "q": "Ali potrebujem predhodne izkušnje?",
-        "a": "Ne. 90% gostov začne brez izkušenj. Krajši uvod traja 15 minut in pokriva vse, kar potrebuješ."
+        "a": "Ne. 90 % gostov začne brez izkušenj. Kratek uvod traja 15 minut in pokrije vse, kar potrebuješ za prvi vzlet."
       },
       "weather": {
         "q": "Kaj če bo slabo vreme?",
-        "a": "Termin lahko prestaviš brezplačno do 12 ur prej. Ob nevihti ali močnem vetru ti predlagamo drug termin."
+        "a": "Termin lahko brezplačno prestaviš do 12 ur prej. Ob nevihti ali močnem vetru predlagamo nov datum."
       },
       "gear": {
         "q": "Kaj naj prinesem?",
-        "a": "Kopalke, brisača, sončna krema. Vse ostalo (deska, čelada, reševalni jopič, neoprenski plašč) je vključeno."
+        "a": "Kopalke, brisača, sončna krema. Vse ostalo (deska, čelada, reševalni jopič, neopren) je vključeno."
       },
       "weight": {
         "q": "Ali je omejitev po teži?",
@@ -189,14 +189,14 @@
       },
       "cancel": {
         "q": "Kako delujejo odpovedi?",
-        "a": "Brezplačna odpoved do 48 ur prej. Med 48–24 urami pol cene. Manj kot 24 ur — celotna cena."
+        "a": "Brezplačna odpoved do 48 ur pred terminom. Med 48 in 24 urami se zaračuna polovica cene. Manj kot 24 ur — celotna cena."
       }
     }
   },
   "booking": {
     "title": "REZERVIRAJ TERMIN",
     "subtitle": "Izberi desko, datume in tip rezervacije — ceno izračunamo sproti.",
-    "quickPick": "Hiter paket",
+    "quickPick": "Hitra izbira",
     "selectBoard": "Izberi desko",
     "selectBoardPlaceholder": "— izberi —",
     "startDate": "Začetni datum",
@@ -244,6 +244,11 @@
       "silent": { "title": "Tih motor", "body": "Brezkrtačni motor — slišiš le šum vode." },
       "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
     }
+  },
+  "pickup": {
+    "label": "Možen prevzem za najem",
+    "cities": "Maribor · Ljubljana",
+    "note": "Brezplačen prevzem v obeh mestih po dogovoru."
   },
   "duotone": {
     "meta": {
