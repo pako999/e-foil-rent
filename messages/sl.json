@@ -57,7 +57,8 @@
         "f1": "Kratek inštruktažni brief",
         "f2": "Vsa varnostna oprema",
         "f3": "Inštruktor v vodi",
-        "f4": "Foto spomin"
+        "f4": "Foto spomin",
+        "locationNote": "Na voljo samo: Green Lake · Kamešnica · Murska Sobota · Maribor (po dogovoru)"
       },
       "day1": {
         "name": "1 dan",
@@ -114,8 +115,9 @@
     "address": "Green Lake, Kidričevo, Slovenija"
   },
   "boards": {
-    "title": "DESKE",
-    "subtitle": "Tri konfiguracije Duotone e-foilov — izberi svojo.",
+    "title": "NAŠA OPREMA",
+    "subtitle": "DUOTONE FOIL CRUISE SET AL",
+    "tagline": "Z desko Duotone Midwish 5'8 — naša rental konfiguracija.",
     "perDay": "/dan",
     "fromWeek": "od {price}/teden",
     "from30": "od {price}/30 min",
@@ -247,8 +249,8 @@
   },
   "pickup": {
     "label": "Možen prevzem za najem",
-    "cities": "Maribor · Ljubljana",
-    "note": "Brezplačen prevzem v obeh mestih po dogovoru."
+    "cities": "Maribor · Ljubljana · Celje",
+    "note": "Brezplačen prevzem v vseh treh mestih po dogovoru."
   },
   "duotone": {
     "meta": {

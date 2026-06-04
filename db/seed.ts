@@ -4,40 +4,16 @@ import { boards } from "./schema";
 const seed = async () => {
   const rows = [
     {
-      slug: "duotone-downwinder-sls",
-      name: "Duotone Downwinder SLS",
+      slug: "duotone-foil-cruise-set-al",
+      name: "Duotone Foil Cruise Set AL — Midwish 5'8",
       description:
-        "Vsestranska e-foil deska — stabilna za začetnike, dovolj okretna za izkušene riderje.",
+        "Naša rental konfiguracija. Aluminijasta Cruise mast (80 cm), Duotone Midwish 5'8 deska. Robustna, zanesljiva in primerna za začetnike.",
       imageUrl: "/board-1.jpg",
       halfHourPrice: 7000, // €70
       dailyPrice: 20000, // €200
       weeklyPrice: 105000, // €1050 (≈ €150/day)
       unitsAvailable: 1,
       sortOrder: 1,
-    },
-    {
-      slug: "duotone-pace-sls",
-      name: "Duotone Pace SLS",
-      description:
-        "Hitra, agilna in odzivna — za jezerske turne in zaviti carving freestyle.",
-      imageUrl: "/board-2.jpg",
-      halfHourPrice: 7000, // €70
-      dailyPrice: 20000, // €200
-      weeklyPrice: 105000, // €1050
-      unitsAvailable: 1,
-      sortOrder: 2,
-    },
-    {
-      slug: "duotone-fly-sls",
-      name: "Duotone Fly SLS",
-      description:
-        "Lahka in elegantna — najboljša izbira za daljše drsanje in vse-dnevni užitek.",
-      imageUrl: "/board-3.jpg",
-      halfHourPrice: 7000, // €70
-      dailyPrice: 20000, // €200
-      weeklyPrice: 105000, // €1050
-      unitsAvailable: 1,
-      sortOrder: 3,
     },
   ];
 

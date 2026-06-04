@@ -80,6 +80,11 @@ export async function Packages({
                     </li>
                   ))}
                 </ul>
+                {pkg.id === "30min" && (
+                  <p className="text-xs text-ink/70 mb-4 border-l-2 border-ink pl-3 italic">
+                    {t("items.30min.locationNote")}
+                  </p>
+                )}
                 <a
                   href={`#book?pkg=${pkg.id}`}
                   data-pkg-id={pkg.id}

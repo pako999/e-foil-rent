@@ -14,6 +14,64 @@ export async function BoardsRow({
   const t = await getTranslations("boards");
   const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
 
+  if (boards.length === 0) return null;
+
+  // Single-board layout — featured product card with side-by-side image + details.
+  if (boards.length === 1) {
+    const board = boards[0]!;
+    return (
+      <section id="boards" className="bg-paper scroll-mt-20 border-b-2 border-ink">
+        <div className="container-x py-20">
+          <div className="mb-10 max-w-2xl">
+            <p className="eyebrow mb-3">// {t("title")}</p>
+            <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink">
+              {t("subtitle")}
+            </h2>
+            <p className="text-graphite text-lg mt-3">{t("tagline")}</p>
+          </div>
+          <article className="grid md:grid-cols-2 border-2 border-ink overflow-hidden" style={{ boxShadow: "8px 8px 0 0 #1a1a1a" }}>
+            <div className="aspect-[4/3] md:aspect-auto relative bg-cream border-b-2 md:border-b-0 md:border-r-2 border-ink overflow-hidden">
+              <Image
+                src={board.imageUrl}
+                alt={board.name}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <span className="absolute top-3 right-3 bg-gold border-2 border-ink text-ink font-mono text-xs px-3 py-1">
+                {t("from30", { price: formatPrice(board.halfHourPrice, intlLocale) })}
+              </span>
+            </div>
+            <div className="p-8 flex flex-col">
+              <h3 className="font-display uppercase tracking-tight text-3xl text-ink mb-3" style={{ fontWeight: 900 }}>
+                {board.name}
+              </h3>
+              <p className="text-graphite mb-6 flex-1">{board.description}</p>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="border-2 border-ink p-3 bg-cream">
+                  <p className="font-mono text-xs uppercase text-ink/60">{t("perDay").replace("/", "")}</p>
+                  <p className="font-display text-2xl text-ink" style={{ fontWeight: 900 }}>
+                    {formatPrice(board.dailyPrice, intlLocale)}
+                  </p>
+                </div>
+                <div className="border-2 border-ink p-3 bg-gold">
+                  <p className="font-mono text-xs uppercase text-ink/70">/teden · /week</p>
+                  <p className="font-display text-2xl text-ink" style={{ fontWeight: 900 }}>
+                    {formatPrice(board.weeklyPrice, intlLocale)}
+                  </p>
+                </div>
+              </div>
+              <a href={`#book?board=${board.id}`} data-board-id={board.id} className="btn-primary w-full">
+                {t("bookCta")} →
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+    );
+  }
+
+  // Multi-board fallback — preserves the original 3-up grid.
   return (
     <section id="boards" className="bg-paper scroll-mt-20 border-b-2 border-ink">
       <div className="container-x py-20">
@@ -29,7 +87,7 @@ export async function BoardsRow({
               key={board.id}
               className="group card card-hover flex flex-col"
             >
-              <div className="aspect-[4/3] bg-cream relative overflow-hidden border-b-2 border-ink">
+              <div className="aspect-[4/3] bg-ink/5 relative overflow-hidden border-b-2 border-ink">
                 <Image
                   src={board.imageUrl}
                   alt={board.name}

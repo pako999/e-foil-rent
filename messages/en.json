@@ -57,7 +57,8 @@
         "f1": "Short instructional brief",
         "f2": "All safety gear",
         "f3": "Instructor in the water",
-        "f4": "Photo memento"
+        "f4": "Photo memento",
+        "locationNote": "Only at: Green Lake · Kamešnica · Murska Sobota · Maribor (by arrangement)"
       },
       "day1": {
         "name": "1 day",
@@ -114,8 +115,9 @@
     "address": "Green Lake, Kidričevo, Slovenia"
   },
   "boards": {
-    "title": "THE BOARDS",
-    "subtitle": "Three Duotone e-foil setups — pick yours.",
+    "title": "OUR GEAR",
+    "subtitle": "DUOTONE FOIL CRUISE SET AL",
+    "tagline": "With the Duotone Midwish 5'8 board — our rental setup.",
     "perDay": "/day",
     "fromWeek": "from {price}/week",
     "from30": "from {price}/30 min",
@@ -247,8 +249,8 @@
   },
   "pickup": {
     "label": "Rental pickup available",
-    "cities": "Maribor · Ljubljana",
-    "note": "Free pickup in either city by arrangement."
+    "cities": "Maribor · Ljubljana · Celje",
+    "note": "Free pickup in all three cities by arrangement."
   },
   "duotone": {
     "meta": {
