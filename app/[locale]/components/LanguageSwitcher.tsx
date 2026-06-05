@@ -16,32 +16,34 @@ export function LanguageSwitcher({
   const rest = pathname.replace(/^\/(sl|en)(?=\/|$)/, "") || "/";
   const dark = variant === "dark";
 
-  const wrapClass = dark
-    ? "border-paper"
-    : "border-ink";
-
   const activeClass = dark
-    ? "bg-paper text-ink"
-    : "bg-ink text-paper";
+    ? "text-gold"
+    : "text-ink";
 
   const inactiveClass = dark
-    ? "text-paper hover:bg-gold hover:text-ink"
-    : "text-ink hover:bg-gold";
+    ? "text-paper/40 hover:text-paper"
+    : "text-ink/40 hover:text-ink";
 
   return (
     <div
-      className={`flex items-center font-display uppercase text-xs tracking-widest border-2 ${wrapClass}`}
+      className="inline-flex items-center gap-3 font-display uppercase text-sm tracking-widest"
       style={{ fontWeight: 800 }}
     >
-      {locales.map((loc) => (
-        <Link
-          key={loc}
-          href={`/${loc}${rest === "/" ? "" : rest}`}
-          className={`px-3 py-1.5 ${loc === currentLocale ? activeClass : inactiveClass}`}
-          aria-current={loc === currentLocale ? "page" : undefined}
-        >
-          {loc}
-        </Link>
+      {locales.map((loc, i) => (
+        <span key={loc} className="flex items-center gap-3">
+          {i > 0 && (
+            <span className={dark ? "text-paper/20" : "text-ink/20"} aria-hidden="true">
+              /
+            </span>
+          )}
+          <Link
+            href={`/${loc}${rest === "/" ? "" : rest}`}
+            className={loc === currentLocale ? activeClass : inactiveClass}
+            aria-current={loc === currentLocale ? "page" : undefined}
+          >
+            {loc}
+          </Link>
+        </span>
       ))}
     </div>
   );
