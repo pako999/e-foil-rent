@@ -198,7 +198,7 @@
       },
       "cities": {
         "q": "Welche Städte deckt ihr für die Abholung ab?",
-        "a": "Kostenlose Abholung in Maribor, Ljubljana und Celje. Für andere slowenische Städte können wir gegen Gebühr eine Lieferung organisieren — schreib an info@surf-store.com."
+        "a": "Kostenlose Abholung in Maribor, Ljubljana und Celje. Für andere slowenische Städte können wir gegen Gebühr eine Lieferung organisieren — schreib an info@e-foiling.si."
       },
       "ownSpot": {
         "q": "Kann ich das Board zu meinem eigenen See oder ans Meer mitnehmen?",
@@ -250,7 +250,7 @@
     "successTitle": "Buchung eingegangen!",
     "successBody": "Wir haben dir eine Bestätigung per E-Mail geschickt. Wir bestätigen den Termin innerhalb von 24 Stunden.",
     "errorTitle": "Etwas ist schiefgelaufen",
-    "errorGeneric": "Bitte erneut versuchen oder schreib uns an info@surf-store.com.",
+    "errorGeneric": "Bitte erneut versuchen oder schreib uns an info@e-foiling.si.",
     "errorUnavailable": "Diese Termine sind nicht mehr verfügbar. Bitte wähle einen anderen Zeitraum.",
     "priceTitle": "Preis",
     "priceDays": "{days, plural, one {# Tag} other {# Tage}}",
@@ -455,7 +455,7 @@
         },
         "gift": {
           "q": "Kann ich einen Kurs als Geschenk kaufen?",
-          "a": "Klar — wir stellen einen Gutschein aus, 12 Monate gültig. Schreib an info@surf-store.com."
+          "a": "Klar — wir stellen einen Gutschein aus, 12 Monate gültig. Schreib an info@e-foiling.si."
         }
       }
     },
@@ -789,7 +789,7 @@
         { "title": "5. Stornierung und Umbuchung", "body": "Kostenlose Stornierung oder Umbuchung bis 48 Stunden vor Beginn. 48–24 Stunden: 50 % Gebühr. Weniger als 24 Stunden: volle Gebühr. Bei schlechtem Wetter bucht der Anbieter kostenlos um." },
         { "title": "6. Haftung und Sicherheit", "body": "Kunden müssen mindestens 14 Jahre alt sein (unter 18 mit Elterneinverständnis) und schwimmen können. Die gesamte Sicherheitsausrüstung ist zu tragen. Der Kunde verpflichtet sich, den Anweisungen des Instruktors und örtlichen Vorschriften zu folgen. Der Anbieter haftet nicht für Schäden durch Nichteinhaltung." },
         { "title": "7. Sachschäden", "body": "Der Kunde haftet für Schäden durch fahrlässigen Gebrauch. Kleine Schäden werden von der Kaution abgezogen. Größere Schäden werden zu Duotone-Servicepreisen berechnet." },
-        { "title": "8. Streitigkeiten", "body": "Beschwerden schriftlich an info@surf-store.com; wir antworten innerhalb von 8 Tagen. Gerichtsstand: Maribor, Slowenien. Verbraucher können auch die EU-OS-Plattform nutzen." },
+        { "title": "8. Streitigkeiten", "body": "Beschwerden schriftlich an info@e-foiling.si; wir antworten innerhalb von 8 Tagen. Gerichtsstand: Maribor, Slowenien. Verbraucher können auch die EU-OS-Plattform nutzen." },
         { "title": "9. Gültigkeit", "body": "Diese AGB gelten ab dem oben angegebenen Datum. Der Anbieter behält sich das Recht auf Änderungen vor; die aktuelle Fassung ist immer auf dieser Seite veröffentlicht." }
       ]
     },
@@ -806,7 +806,7 @@
         { "title": "2. Wetter", "body": "Bei gefährlichem Wetter (Sturm, Wind über 5 Beaufort, außergewöhnlicher Wellengang) buchen wir kostenlos um. Bedingungen werden anhand der offiziellen ARSO-Prognose beurteilt." },
         { "title": "3. Anbieterstornierung", "body": "Wenn wir absagen (Wetter, Ausrüstungsausfall, Krankheit des Instruktors), bekommst du innerhalb von 7 Werktagen eine volle Rückerstattung oder eine kostenlose Umbuchung." },
         { "title": "4. Rückgabe Kaution", "body": "Die 500-€-Kaution (jeder Verleih ab 1 Tag) wird bei schadenfreier Rückgabe vollständig erstattet. Teileinbehalt wird schriftlich aufgeschlüsselt." },
-        { "title": "5. Erstattungsprozess", "body": "E-Mail an info@surf-store.com mit Buchungsnummer und Grund. Wir antworten in 3 Werktagen; genehmigte Erstattungen kommen in 7 Tagen an." },
+        { "title": "5. Erstattungsprozess", "body": "E-Mail an info@e-foiling.si mit Buchungsnummer und Grund. Wir antworten in 3 Werktagen; genehmigte Erstattungen kommen in 7 Tagen an." },
         { "title": "6. Verbraucherrechte", "body": "Nichts hier schränkt deine gesetzlichen Verbraucherrechte nach dem slowenischen Verbraucherschutzgesetz (ZVPot-1) ein. Verbraucher können die EU-OS-Plattform nutzen." }
       ]
     },
@@ -819,13 +819,13 @@
       "updatedAt": "5. Juni 2026",
       "intro": "Wir respektieren deine Privatsphäre. Diese Seite erklärt, welche personenbezogenen Daten wir erheben, warum, wie lange wir sie aufbewahren und welche Rechte du nach DSGVO und slowenischem ZVOP-2 hast.",
       "sections": [
-        { "title": "1. Verantwortlicher", "body": "Sport Group d.o.o., Osojnikova 4, 2000 Maribor, USt-ID SI72133449. Kontakt Datenschutz: info@surf-store.com." },
+        { "title": "1. Verantwortlicher", "body": "Sport Group d.o.o., Osojnikova 4, 2000 Maribor, USt-ID SI72133449. Kontakt Datenschutz: info@e-foiling.si." },
         { "title": "2. Was wir erheben", "body": "Buchungsdaten: Name, E-Mail, Telefon, Termine, Paket, Erfahrungsstufe. Browsing-Daten: IP, Browsertyp, besuchte Seiten, Zeitstempel. Kartenzahlungen werden ausschließlich von unserem Zahlungsdienstleister abgewickelt — wir speichern nur den Transaktionsbeleg." },
         { "title": "3. Zwecke", "body": "Bestätigung von Reservierungen und Kommunikation; Erbringung der Dienstleistung; Rechnungsstellung; Beantwortung von Anfragen; gesetzliche Aufbewahrung im Rechnungswesen; Marketing nur mit deiner ausdrücklichen Einwilligung." },
         { "title": "4. Rechtsgrundlage", "body": "Vertragserfüllung, gesetzliche Verpflichtung (Steuer), berechtigtes Interesse (Betrugsprävention) und Einwilligung (Marketing)." },
         { "title": "5. Empfänger", "body": "Daten werden nicht an Dritte weitergegeben, außer wenn gesetzlich vorgeschrieben oder für die Dienstleistungserbringung nötig (Zahlungsanbieter, Buchhaltung, Resend für E-Mail)." },
         { "title": "6. Aufbewahrung", "body": "Buchungsdaten 3 Jahre nach Leistung; Buchhaltungsdaten 10 Jahre; Marketing bis zum Widerruf der Einwilligung." },
-        { "title": "7. Deine Rechte", "body": "Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit und Widerspruch. E-Mail an info@surf-store.com — wir antworten innerhalb von 30 Tagen. Du kannst auch eine Beschwerde beim slowenischen Informationsbeauftragten einreichen (gp.ip@ip-rs.si)." },
+        { "title": "7. Deine Rechte", "body": "Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit und Widerspruch. E-Mail an info@e-foiling.si — wir antworten innerhalb von 30 Tagen. Du kannst auch eine Beschwerde beim slowenischen Informationsbeauftragten einreichen (gp.ip@ip-rs.si)." },
         { "title": "8. Sicherheit", "body": "Alle Übertragungen sind TLS-verschlüsselt; Datenbankzugriff ist beschränkt; Backups sind verschlüsselt." }
       ]
     },

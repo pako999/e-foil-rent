@@ -198,7 +198,7 @@
       },
       "cities": {
         "q": "Katera mesta pokrivate za prevzem?",
-        "a": "Brezplačen prevzem v Mariboru, Ljubljani in Celju. Za druga mesta v Sloveniji se lahko dogovorimo za dostavo proti doplačilu — piši nam na info@surf-store.com."
+        "a": "Brezplačen prevzem v Mariboru, Ljubljani in Celju. Za druga mesta v Sloveniji se lahko dogovorimo za dostavo proti doplačilu — piši nam na info@e-foiling.si."
       },
       "ownSpot": {
         "q": "Ali lahko vzamem desko na svoje jezero ali morje?",
@@ -250,7 +250,7 @@
     "successTitle": "Rezervacija prejeta!",
     "successBody": "Poslali smo ti potrdilo na e-pošto. Termin potrdimo v 24 urah.",
     "errorTitle": "Ups, nekaj je šlo narobe",
-    "errorGeneric": "Poskusi znova ali nam piši na info@surf-store.com.",
+    "errorGeneric": "Poskusi znova ali nam piši na info@e-foiling.si.",
     "errorUnavailable": "Izbrani datumi niso več prosti. Izberi drug termin.",
     "priceTitle": "Cena",
     "priceDays": "{days, plural, one {# dan} two {# dni} few {# dni} other {# dni}}",
@@ -455,7 +455,7 @@
         },
         "gift": {
           "q": "Lahko tečaj kupim kot darilo?",
-          "a": "Seveda — izdamo darilni bon z veljavnostjo 12 mesecev. Piši na info@surf-store.com."
+          "a": "Seveda — izdamo darilni bon z veljavnostjo 12 mesecev. Piši na info@e-foiling.si."
         }
       }
     },
@@ -816,7 +816,7 @@
         },
         {
           "title": "9. Pritožbe in reševanje sporov",
-          "body": "Morebitne pritožbe stranka pošlje pisno na info@surf-store.com. Ponudnik bo odgovoril v 8 dneh. V primeru, da spora ni mogoče rešiti sporazumno, je za reševanje pristojno sodišče v Mariboru. Stranka — potrošnik se lahko obrne tudi na evropsko platformo za zunajsodno reševanje potrošniških sporov ODR."
+          "body": "Morebitne pritožbe stranka pošlje pisno na info@e-foiling.si. Ponudnik bo odgovoril v 8 dneh. V primeru, da spora ni mogoče rešiti sporazumno, je za reševanje pristojno sodišče v Mariboru. Stranka — potrošnik se lahko obrne tudi na evropsko platformo za zunajsodno reševanje potrošniških sporov ODR."
         },
         {
           "title": "10. Veljavnost",
@@ -851,7 +851,7 @@
         },
         {
           "title": "5. Postopek povračila",
-          "body": "Zahtevek za vračilo denarja pošljite po e-pošti na info@surf-store.com z navedbo številke rezervacije in razloga. Ponudnik bo odgovoril v 3 delovnih dneh. Odobrena povračila izvedemo v 7 delovnih dneh."
+          "body": "Zahtevek za vračilo denarja pošljite po e-pošti na info@e-foiling.si z navedbo številke rezervacije in razloga. Ponudnik bo odgovoril v 3 delovnih dneh. Odobrena povračila izvedemo v 7 delovnih dneh."
         },
         {
           "title": "6. Pravice potrošnikov",
@@ -870,7 +870,7 @@
       "sections": [
         {
           "title": "1. Upravljavec podatkov",
-          "body": "Upravljavec osebnih podatkov je Sport Group d.o.o., Osojnikova 4, 2000 Maribor, davčna številka SI72133449. Stik za vprašanja glede zasebnosti: info@surf-store.com."
+          "body": "Upravljavec osebnih podatkov je Sport Group d.o.o., Osojnikova 4, 2000 Maribor, davčna številka SI72133449. Stik za vprašanja glede zasebnosti: info@e-foiling.si."
         },
         {
           "title": "2. Katere podatke zbiramo",
@@ -894,7 +894,7 @@
         },
         {
           "title": "7. Tvoje pravice",
-          "body": "Po GDPR imaš pravico do: dostopa do svojih podatkov, popravka, izbrisa (»pravica do pozabe«), omejitve obdelave, prenosljivosti in ugovora. Zahtevek pošlji na info@surf-store.com — odgovorili bomo v 30 dneh. Imaš tudi pravico do pritožbe pri Informacijskem pooblaščencu RS (gp.ip@ip-rs.si)."
+          "body": "Po GDPR imaš pravico do: dostopa do svojih podatkov, popravka, izbrisa (»pravica do pozabe«), omejitve obdelave, prenosljivosti in ugovora. Zahtevek pošlji na info@e-foiling.si — odgovorili bomo v 30 dneh. Imaš tudi pravico do pritožbe pri Informacijskem pooblaščencu RS (gp.ip@ip-rs.si)."
         },
         {
           "title": "8. Varnost podatkov",

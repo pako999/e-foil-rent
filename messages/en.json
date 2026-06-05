@@ -198,7 +198,7 @@
       },
       "cities": {
         "q": "Which cities do you cover for pickup?",
-        "a": "Free pickup in Maribor, Ljubljana and Celje. For other Slovenian cities we can arrange delivery for a fee — email info@surf-store.com."
+        "a": "Free pickup in Maribor, Ljubljana and Celje. For other Slovenian cities we can arrange delivery for a fee — email info@e-foiling.si."
       },
       "ownSpot": {
         "q": "Can I take the board to my own lake or to the sea?",
@@ -250,7 +250,7 @@
     "successTitle": "Booking received!",
     "successBody": "We've emailed you a confirmation. We'll confirm the slot within 24 hours.",
     "errorTitle": "Something went wrong",
-    "errorGeneric": "Please try again or write us at info@surf-store.com.",
+    "errorGeneric": "Please try again or write us at info@e-foiling.si.",
     "errorUnavailable": "Those dates are no longer available. Please pick another range.",
     "priceTitle": "Price",
     "priceDays": "{days, plural, one {# day} other {# days}}",
@@ -455,7 +455,7 @@
         },
         "gift": {
           "q": "Can I buy a course as a gift?",
-          "a": "Absolutely — we issue a gift voucher valid for 12 months. Email info@surf-store.com."
+          "a": "Absolutely — we issue a gift voucher valid for 12 months. Email info@e-foiling.si."
         }
       }
     },
@@ -789,7 +789,7 @@
         { "title": "5. Cancellation and reschedules", "body": "Free cancellation or reschedule up to 48 hours before start. 48–24 hours: 50 % charge. Less than 24 hours: full charge. In case of bad weather the Provider reschedules free of charge." },
         { "title": "6. Liability and safety", "body": "Customers must be at least 14 years old (under 18 with parental consent) and able to swim. All safety equipment must be worn. The customer agrees to follow the instructor's directions and local regulations. The Provider is not liable for damages resulting from non-compliance." },
         { "title": "7. Equipment damage", "body": "The customer is liable for damage caused by negligent use. Minor damage is charged from the deposit. Larger damage is charged at Duotone service rates." },
-        { "title": "8. Disputes", "body": "Complaints in writing to info@surf-store.com; we reply within 8 days. Court of jurisdiction: Maribor, Slovenia. Consumers may also use the EU ODR platform." },
+        { "title": "8. Disputes", "body": "Complaints in writing to info@e-foiling.si; we reply within 8 days. Court of jurisdiction: Maribor, Slovenia. Consumers may also use the EU ODR platform." },
         { "title": "9. Validity", "body": "These terms apply from the date shown above. The Provider reserves the right to amend them; the current version is always published on this page." }
       ]
     },
@@ -806,7 +806,7 @@
         { "title": "2. Weather", "body": "In dangerous weather (storm, winds over 5 Beaufort, exceptional swell) we reschedule free of charge. Conditions are assessed against the official ARSO forecast." },
         { "title": "3. Provider cancellation", "body": "If we cancel (weather, equipment failure, instructor illness), you get a full refund within 7 business days or a free reschedule." },
         { "title": "4. Deposit return", "body": "The €500 deposit (any rental of 1 day or longer) is refunded in full upon damage-free return. Partial retention is itemised in writing." },
-        { "title": "5. Refund process", "body": "Email info@surf-store.com with your booking number and reason. We respond in 3 business days; approved refunds clear in 7." },
+        { "title": "5. Refund process", "body": "Email info@e-foiling.si with your booking number and reason. We respond in 3 business days; approved refunds clear in 7." },
         { "title": "6. Consumer rights", "body": "Nothing here restricts your statutory consumer rights under Slovenian Consumer Protection Act (ZVPot-1). Consumers may use the EU ODR platform." }
       ]
     },
@@ -819,13 +819,13 @@
       "updatedAt": "5 June 2026",
       "intro": "We respect your privacy. This page explains what personal data we collect, why, how long we keep it, and what rights you have under the GDPR and Slovenian ZVOP-2.",
       "sections": [
-        { "title": "1. Data controller", "body": "Sport Group d.o.o., Osojnikova 4, 2000 Maribor, VAT ID SI72133449. Contact for privacy: info@surf-store.com." },
+        { "title": "1. Data controller", "body": "Sport Group d.o.o., Osojnikova 4, 2000 Maribor, VAT ID SI72133449. Contact for privacy: info@e-foiling.si." },
         { "title": "2. What we collect", "body": "Booking data: name, email, phone, dates, package, experience level. Browsing data: IP, browser type, pages visited, timestamps. Card payments are handled exclusively by our payment provider — we store only the transaction receipt." },
         { "title": "3. Purposes", "body": "Confirming reservations and communication; performing the service; issuing invoices; replying to enquiries; legal accounting retention; marketing only with your explicit consent." },
         { "title": "4. Legal basis", "body": "Contract performance, legal obligation (tax), legitimate interest (fraud prevention), and consent (marketing)." },
         { "title": "5. Recipients", "body": "Data is not shared with third parties except where required by law or for service delivery (payment processor, accounting, Resend for email)." },
         { "title": "6. Retention", "body": "Booking data 3 years after service; accounting data 10 years; marketing until consent withdrawal." },
-        { "title": "7. Your rights", "body": "Access, rectification, erasure, restriction, portability and objection. Email info@surf-store.com — we respond in 30 days. You may also lodge a complaint with the Slovenian Information Commissioner (gp.ip@ip-rs.si)." },
+        { "title": "7. Your rights", "body": "Access, rectification, erasure, restriction, portability and objection. Email info@e-foiling.si — we respond in 30 days. You may also lodge a complaint with the Slovenian Information Commissioner (gp.ip@ip-rs.si)." },
         { "title": "8. Security", "body": "All transfers are TLS-encrypted; database access is restricted; backups are encrypted." }
       ]
     },

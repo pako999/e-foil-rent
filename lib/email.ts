@@ -9,7 +9,7 @@ const fromEmail =
 const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
 // Admin notifications always land here unless overridden by env var.
 const adminEmail =
-  process.env.ENQUIRY_TO_EMAIL ?? "info@surf-store.com";
+  process.env.ENQUIRY_TO_EMAIL ?? "info@e-foiling.si";
 
 const ms = apiKey ? new MailerSend({ apiKey }) : null;
 
@@ -375,7 +375,7 @@ function shell(inner: string) {
     <p style="font-size:12px;color:#6b7280;line-height:1.5;margin:0 0 8px">
       Surf-Store.com — E-Foil school &amp; rental<br />
       Sport Group d.o.o., Osojnikova ulica 4, 2000 Maribor, Slovenija · VAT SI72133449<br />
-      <a href="mailto:info@surf-store.com" style="color:#6b7280">info@surf-store.com</a>
+      <a href="mailto:info@e-foiling.si" style="color:#6b7280">info@e-foiling.si</a>
       · <a href="https://e-foiling.si" style="color:#6b7280">e-foiling.si</a>
     </p>
     <p style="font-size:11px;color:#9ca3af;margin:0">
