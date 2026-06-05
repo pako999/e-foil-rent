@@ -261,7 +261,16 @@
     "totalWithVat": "Total incl. VAT",
     "vatIncluded": "Price includes 22 % VAT",
     "noDates": "Pick dates to see the price.",
-    "honeypot": "Leave empty"
+    "honeypot": "Leave empty",
+    "discountLabel": "Discount code (optional)",
+    "discountApply": "Apply",
+    "discountApplied": "Code valid — {pct}% off applied.",
+    "discountErr": {
+      "not_found": "Code does not exist.",
+      "expired": "Code has expired.",
+      "exhausted": "Code has already been used.",
+      "inactive": "Code is inactive."
+    }
   },
   "video": {
     "eyebrow": "See it live",
@@ -775,6 +784,20 @@
       "save": "Save choice",
       "policyLink": "Read the full cookie policy"
     }
+  },
+  "exitIntent": {
+    "eyebrow": "Special offer",
+    "title": "WAIT — 10% OFF YOUR BOOKING",
+    "body": "Leave us your email and we'll send a one-time 10% off code for your reservation. Valid 30 days.",
+    "emailLabel": "Email",
+    "cta": "Send me the code",
+    "submitting": "Sending …",
+    "okTitle": "Check your inbox",
+    "okBody": "Your 10% off code is on the way. Paste it in the \"Discount code\" field at checkout.",
+    "close": "Close",
+    "privacy": "No spam, no sharing. We only use your email to send the code.",
+    "errGeneric": "Something went wrong. Please try again.",
+    "errRate": "Too many attempts. Please wait a bit and try again."
   },
   "legal": {
     "updatedOn": "Last updated",

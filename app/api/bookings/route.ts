@@ -6,6 +6,7 @@ import { getBoardById, isRangeAvailable } from "@/lib/queries";
 import { inclusiveDays, quote, packageById } from "@/lib/pricing";
 import { rateLimit, ipFromRequest } from "@/lib/rate-limit";
 import { sendBookingEmails } from "@/lib/email";
+import { consumeDiscountCode, validateDiscountCode } from "@/lib/discount";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -71,7 +72,7 @@ export async function POST(req: Request) {
   });
   const useFixed =
     pkg?.fixedTotal !== undefined && pkg.days === days;
-  const q = useFixed
+  const preCode = useFixed
     ? {
         ...baseQuote,
         subtotal: pkg!.fixedTotal!,
@@ -80,6 +81,34 @@ export async function POST(req: Request) {
         discountPct: 0,
       }
     : baseQuote;
+
+  // Apply discount code on top of the day-ladder / fixed-package total.
+  // We validate here (server-authoritative) and only commit the code if
+  // the booking row insert succeeds, so a failed insert doesn't burn it.
+  let appliedCode: { code: string; percentOff: number } | null = null;
+  let q = preCode;
+  if (data.discountCode) {
+    const result = await validateDiscountCode(data.discountCode);
+    if (!result.ok) {
+      return NextResponse.json(
+        { error: "invalid_code", reason: result.reason },
+        { status: 400 },
+      );
+    }
+    const codeDiscount = Math.round((preCode.total * result.percentOff) / 100);
+    q = {
+      ...preCode,
+      discount: preCode.discount + codeDiscount,
+      total: Math.max(0, preCode.total - codeDiscount),
+      discountPct:
+        preCode.subtotal > 0
+          ? Math.round(
+              ((preCode.discount + codeDiscount) * 100) / preCode.subtotal,
+            )
+          : 0,
+    };
+    appliedCode = { code: result.code, percentOff: result.percentOff };
+  }
 
   const inserted = await db
     .insert(bookings)
@@ -102,6 +131,17 @@ export async function POST(req: Request) {
     .returning();
 
   const booking = inserted[0]!;
+
+  // Commit the discount only now that the booking row actually exists.
+  // If two requests raced for the last use, the loser pays full price
+  // (we already charged the discounted total; small one-off cost is
+  // preferable to the alternative — duplicate consumption and angry
+  // customer.)
+  if (appliedCode) {
+    await consumeDiscountCode(appliedCode.code).catch((err) =>
+      console.error("[booking] consumeDiscountCode failed", err),
+    );
+  }
 
   const locale = pickLocale(req);
   // Await — on Vercel serverless `void`/fire-and-forget tasks can get

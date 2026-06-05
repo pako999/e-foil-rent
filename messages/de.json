@@ -261,7 +261,16 @@
     "totalWithVat": "Gesamt inkl. MwSt.",
     "vatIncluded": "Preis inkl. 22 % MwSt.",
     "noDates": "Wähle Termine, um den Preis zu sehen.",
-    "honeypot": "Leer lassen"
+    "honeypot": "Leer lassen",
+    "discountLabel": "Rabattcode (optional)",
+    "discountApply": "Anwenden",
+    "discountApplied": "Code gültig — {pct} % Rabatt angewendet.",
+    "discountErr": {
+      "not_found": "Code existiert nicht.",
+      "expired": "Code ist abgelaufen.",
+      "exhausted": "Code wurde bereits eingelöst.",
+      "inactive": "Code ist nicht aktiv."
+    }
   },
   "video": {
     "eyebrow": "Live ansehen",
@@ -775,6 +784,20 @@
       "save": "Wahl speichern",
       "policyLink": "Vollständige Cookie-Richtlinie lesen"
     }
+  },
+  "exitIntent": {
+    "eyebrow": "Sonderangebot",
+    "title": "WARTE — 10 % AUF DEINE BUCHUNG",
+    "body": "Lass uns deine E-Mail-Adresse da und wir senden dir einen einmaligen 10 %-Rabattcode für deine Reservierung. 30 Tage gültig.",
+    "emailLabel": "E-Mail",
+    "cta": "Code senden",
+    "submitting": "Senden …",
+    "okTitle": "Schau in dein Postfach",
+    "okBody": "Dein 10 %-Code ist unterwegs. Trag ihn beim Buchen ins Feld „Rabattcode\" ein.",
+    "close": "Schließen",
+    "privacy": "Kein Spam, keine Weitergabe. Wir verwenden deine E-Mail nur zum Versenden des Codes.",
+    "errGeneric": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
+    "errRate": "Zu viele Versuche. Bitte kurz warten und erneut probieren."
   },
   "legal": {
     "updatedOn": "Zuletzt aktualisiert",

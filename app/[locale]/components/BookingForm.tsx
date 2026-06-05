@@ -70,6 +70,13 @@ export function BookingSection({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
+  const [discountCode, setDiscountCode] = useState("");
+  const [discountStatus, setDiscountStatus] = useState<
+    | { kind: "idle" }
+    | { kind: "checking" }
+    | { kind: "ok"; percentOff: number; code: string }
+    | { kind: "err"; reason: string }
+  >({ kind: "idle" });
   const [website, setWebsite] = useState("");
   const [unavailable, setUnavailable] = useState<Set<string>>(new Set());
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -193,11 +200,19 @@ export function BookingSection({
     activePkgDef && activePkgDef.fixedTotal !== undefined
       ? activePkgDef.fixedTotal
       : null;
-  const displayTotal = fixedTotal !== null
-    ? fixedTotal
-    : isHalfHour && board
-      ? board.halfHourPrice
-      : q?.total ?? 0;
+  const preCodeTotal =
+    fixedTotal !== null
+      ? fixedTotal
+      : isHalfHour && board
+        ? board.halfHourPrice
+        : q?.total ?? 0;
+  // Discount code reduces the running total in the side panel so the
+  // user sees what they'll actually pay before submitting.
+  const codeDiscount =
+    discountStatus.kind === "ok"
+      ? Math.round((preCodeTotal * discountStatus.percentOff) / 100)
+      : 0;
+  const displayTotal = Math.max(0, preCodeTotal - codeDiscount);
 
   const rangeHasBlocked = useMemo(() => {
     if (!startDate || !endDate || days <= 0) return false;
@@ -233,6 +248,8 @@ export function BookingSection({
           experienceLevel,
           bookingType,
           notes: (pkgNote + (notes || "")).trim() || null,
+          discountCode:
+            discountStatus.kind === "ok" ? discountStatus.code : null,
           website,
         }),
       });
@@ -455,6 +472,75 @@ export function BookingSection({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
               />
+            </div>
+
+            <div>
+              <label htmlFor="discount" className="label">
+                {t("discountLabel")}
+              </label>
+              <div className="flex gap-2">
+                <input
+                  id="discount"
+                  type="text"
+                  className="field flex-1 uppercase tracking-widest"
+                  placeholder="XXXX-XXXX"
+                  value={discountCode}
+                  onChange={(e) => {
+                    setDiscountCode(e.target.value.toUpperCase());
+                    if (discountStatus.kind !== "idle") {
+                      setDiscountStatus({ kind: "idle" });
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={async () => {
+                    if (!discountCode.trim()) return;
+                    setDiscountStatus({ kind: "checking" });
+                    try {
+                      const res = await fetch("/api/validate-code", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ code: discountCode.trim() }),
+                      });
+                      const data = await res.json();
+                      if (data?.ok) {
+                        setDiscountStatus({
+                          kind: "ok",
+                          percentOff: data.percentOff,
+                          code: data.code,
+                        });
+                      } else {
+                        setDiscountStatus({
+                          kind: "err",
+                          reason: data?.reason ?? "not_found",
+                        });
+                      }
+                    } catch {
+                      setDiscountStatus({ kind: "err", reason: "not_found" });
+                    }
+                  }}
+                  disabled={
+                    !discountCode.trim() || discountStatus.kind === "checking"
+                  }
+                  className="border-2 border-ink bg-paper px-4 font-display uppercase text-sm hover:bg-gold disabled:opacity-60 whitespace-nowrap"
+                  style={{ fontWeight: 800 }}
+                >
+                  {discountStatus.kind === "checking"
+                    ? "…"
+                    : t("discountApply")}
+                </button>
+              </div>
+              {discountStatus.kind === "ok" && (
+                <p className="mt-1 text-sm text-ink font-mono">
+                  ✓ {t("discountApplied", { pct: discountStatus.percentOff })}
+                </p>
+              )}
+              {discountStatus.kind === "err" && (
+                <p className="mt-1 text-sm text-red-700 font-mono">
+                  ✗ {t(`discountErr.${discountStatus.reason}` as never)}
+                </p>
+              )}
             </div>
 
             <div className="hp-field" aria-hidden="true">

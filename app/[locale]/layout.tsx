@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { locales, ogLocale, type Locale } from "@/i18n/request";
 import { ConsentInit } from "./components/ConsentInit";
 import { CookieBanner } from "./components/CookieBanner";
+import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -122,6 +123,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
           <CookieBanner locale={locale as Locale} />
+          <ExitIntentPopup locale={locale as Locale} />
         </NextIntlClientProvider>
       </body>
     </html>

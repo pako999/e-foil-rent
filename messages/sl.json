@@ -261,7 +261,16 @@
     "totalWithVat": "Skupaj z DDV",
     "vatIncluded": "Cena vključuje 22 % DDV",
     "noDates": "Izberi datume za izračun cene.",
-    "honeypot": "Pusti prazno"
+    "honeypot": "Pusti prazno",
+    "discountLabel": "Koda za popust (neobvezno)",
+    "discountApply": "Uporabi",
+    "discountApplied": "Koda velja — {pct} % popusta uporabljen.",
+    "discountErr": {
+      "not_found": "Koda ne obstaja.",
+      "expired": "Koda je potekla.",
+      "exhausted": "Koda je že porabljena.",
+      "inactive": "Koda ni aktivna."
+    }
   },
   "video": {
     "eyebrow": "Poglej v živo",
@@ -775,6 +784,20 @@
       "save": "Shrani izbiro",
       "policyLink": "Preberi celotno politiko piškotov"
     }
+  },
+  "exitIntent": {
+    "eyebrow": "Specialna ponudba",
+    "title": "PRED ODHODOM — 10 % POPUST",
+    "body": "Pusti nam svoj email in ti pošljemo enkratno kodo za 10 % popust pri rezervaciji. Velja 30 dni.",
+    "emailLabel": "Email",
+    "cta": "Pošljite mi kodo",
+    "submitting": "Pošiljam …",
+    "okTitle": "Preveri svoj email",
+    "okBody": "Koda za 10 % popust je na poti. Vneseš jo v polje «Koda za popust» pri rezervaciji.",
+    "close": "Zapri",
+    "privacy": "Brez spama, brez deljenja podatkov. Email uporabimo samo za pošiljanje kode.",
+    "errGeneric": "Nekaj je šlo narobe. Poskusi znova.",
+    "errRate": "Preveč poskusov. Počakaj malo in poskusi znova."
   },
   "legal": {
     "updatedOn": "Zadnja sprememba",

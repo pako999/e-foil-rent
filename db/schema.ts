@@ -98,8 +98,38 @@ export const blockedDates = pgTable(
   }),
 );
 
+export const discountSource = pgEnum("discount_source", [
+  "exit_intent",
+  "admin",
+]);
+
+export const discountCodes = pgTable(
+  "discount_codes",
+  {
+    code: text("code").primaryKey(),
+    percentOff: integer("percent_off").notNull(),
+    source: discountSource("source").notNull(),
+    // Who claimed an exit-intent code; null for admin-issued public codes.
+    email: text("email"),
+    // null = never expires
+    expiresAt: timestamp("expires_at", { withTimezone: true }),
+    maxUses: integer("max_uses").notNull().default(1),
+    usedCount: integer("used_count").notNull().default(0),
+    active: boolean("active").notNull().default(true),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => ({
+    emailIdx: index("discount_codes_email_idx").on(t.email),
+    activeIdx: index("discount_codes_active_idx").on(t.active),
+  }),
+);
+
 export type Board = typeof boards.$inferSelect;
 export type NewBoard = typeof boards.$inferInsert;
 export type Booking = typeof bookings.$inferSelect;
 export type NewBooking = typeof bookings.$inferInsert;
 export type BlockedDate = typeof blockedDates.$inferSelect;
+export type DiscountCode = typeof discountCodes.$inferSelect;
+export type NewDiscountCode = typeof discountCodes.$inferInsert;

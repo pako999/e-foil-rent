@@ -155,7 +155,18 @@ export default async function AdminPage({
           <h1 style={{ fontSize: 28, margin: 0 }}>
             Bookings ({rows.length})
           </h1>
-          <form method="POST" action="/admin/signout" style={{ margin: 0 }}>
+          <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+            <a
+              href="/admin/discounts"
+              style={{
+                fontSize: 13,
+                color: "#1a1a1a",
+                textDecoration: "underline",
+              }}
+            >
+              Discount codes →
+            </a>
+            <form method="POST" action="/admin/signout" style={{ margin: 0 }}>
             <button
               type="submit"
               style={{
@@ -169,6 +180,7 @@ export default async function AdminPage({
               Sign out
             </button>
           </form>
+          </div>
         </div>
         <p style={{ color: "#555", fontSize: 13, marginBottom: 24 }}>
           Click 📅 next to any booking to download an .ics file and add it to

@@ -278,6 +278,89 @@ export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
   ]);
 }
 
+/**
+ * Sent from the exit-intent popup: gives the visitor a one-time discount
+ * code (10 % by default) they can paste into the booking form.
+ */
+export async function sendDiscountCodeEmail({
+  email,
+  code,
+  percentOff,
+  expiresAt,
+  locale,
+}: {
+  email: string;
+  code: string;
+  percentOff: number;
+  expiresAt: Date | null;
+  locale: EmailLocale;
+}) {
+  if (!ms) {
+    console.warn("[email] MAILERSEND_API_TOKEN missing — skipping discount");
+    return;
+  }
+  const expiry = expiresAt
+    ? new Intl.DateTimeFormat(intlFor(locale), { dateStyle: "long" }).format(
+        expiresAt,
+      )
+    : null;
+
+  const body = (() => {
+    if (locale === "sl") {
+      return {
+        subject: `Tvoja ${percentOff} % koda za popust pri Surf-Store E-Foil`,
+        html: shell(`
+          <h2>Tvoja ${percentOff} % koda za popust</h2>
+          <p>Hvala, ker si se prijavil/a na naše obvestilo. Tu je tvoja
+          osebna koda za rezervacijo pri Surf-Store E-Foil:</p>
+          <p style="font-size:28px;font-family:ui-monospace,monospace;background:#FFD600;border:2px solid #1a1a1a;padding:18px 24px;display:inline-block;font-weight:800;letter-spacing:2px">${escapeHtml(code)}</p>
+          <p style="margin-top:24px">Vneseš jo pri rezervaciji v polje
+          <strong>«Koda za popust»</strong>, znesek se samodejno zniža za
+          ${percentOff} %.</p>
+          ${expiry ? `<p>Koda velja do <strong>${expiry}</strong> in se lahko uporabi enkrat.</p>` : ""}
+          <p style="margin-top:24px"><a href="https://e-foiling.si/sl#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Rezerviraj termin →</a></p>
+        `),
+      };
+    }
+    if (locale === "de") {
+      return {
+        subject: `Dein ${percentOff} % Rabattcode für Surf-Store E-Foil`,
+        html: shell(`
+          <h2>Dein ${percentOff} % Rabattcode</h2>
+          <p>Danke für die Anmeldung. Hier ist dein persönlicher Code für
+          eine Buchung bei Surf-Store E-Foil:</p>
+          <p style="font-size:28px;font-family:ui-monospace,monospace;background:#FFD600;border:2px solid #1a1a1a;padding:18px 24px;display:inline-block;font-weight:800;letter-spacing:2px">${escapeHtml(code)}</p>
+          <p style="margin-top:24px">Gib ihn beim Buchen ins Feld
+          <strong>„Rabattcode"</strong> ein und der Betrag wird automatisch
+          um ${percentOff} % reduziert.</p>
+          ${expiry ? `<p>Der Code ist gültig bis <strong>${expiry}</strong> und kann einmal eingelöst werden.</p>` : ""}
+          <p style="margin-top:24px"><a href="https://e-foiling.si/de#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Termin reservieren →</a></p>
+        `),
+      };
+    }
+    return {
+      subject: `Your ${percentOff}% discount code for Surf-Store E-Foil`,
+      html: shell(`
+        <h2>Your ${percentOff}% discount code</h2>
+        <p>Thanks for signing up. Here is your personal code for a booking
+        with Surf-Store E-Foil:</p>
+        <p style="font-size:28px;font-family:ui-monospace,monospace;background:#FFD600;border:2px solid #1a1a1a;padding:18px 24px;display:inline-block;font-weight:800;letter-spacing:2px">${escapeHtml(code)}</p>
+        <p style="margin-top:24px">Paste it into the
+        <strong>"Discount code"</strong> field on the booking form and the
+        total will drop by ${percentOff}% automatically.</p>
+        ${expiry ? `<p>Valid until <strong>${expiry}</strong>, single use.</p>` : ""}
+        <p style="margin-top:24px"><a href="https://e-foiling.si/en#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Book a session →</a></p>
+      `),
+    };
+  })();
+
+  await send({
+    to: { email },
+    subject: body.subject,
+    html: body.html,
+  });
+}
+
 function renderCustomer({ booking, board, locale }: SendArgs) {
   const total = formatPrice(booking.total, intlFor(locale));
   if (locale === "sl") {
