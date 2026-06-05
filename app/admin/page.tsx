@@ -19,9 +19,9 @@ async function authorize() {
 export default async function AdminPage({
   searchParams,
 }: {
-  searchParams: Promise<{ token?: string }>;
+  searchParams: Promise<{ token?: string; err?: string }>;
 }) {
-  const { token } = await searchParams;
+  const { token, err } = await searchParams;
 
   // Backwards-compat: old bookmarks of `/admin?token=…` are forwarded to
   // the Route Handler that actually mutates the cookie. Next 15 forbids
@@ -33,13 +33,106 @@ export default async function AdminPage({
   if (!(await authorize())) {
     return (
       <html lang="en">
-        <body style={{ fontFamily: "sans-serif", padding: 48 }}>
-          <h1>Admin — locked</h1>
-          <p>
-            Append <code>/signin?token=YOUR_ADMIN_TOKEN</code> to this URL
-            (i.e. <code>/admin/signin?token=…</code>) to sign in. The token
-            is set via <code>ADMIN_TOKEN</code> in environment.
-          </p>
+        <body
+          style={{
+            fontFamily: "system-ui,-apple-system,sans-serif",
+            background: "#f5f5f4",
+            margin: 0,
+            minHeight: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 24,
+          }}
+        >
+          <form
+            method="POST"
+            action="/admin/signin"
+            style={{
+              background: "#fff",
+              border: "2px solid #1a1a1a",
+              boxShadow: "8px 8px 0 0 #1a1a1a",
+              padding: 32,
+              width: "100%",
+              maxWidth: 380,
+            }}
+          >
+            <h1
+              style={{
+                fontFamily: "system-ui,sans-serif",
+                fontWeight: 900,
+                fontSize: 28,
+                margin: "0 0 4px",
+                textTransform: "uppercase",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Admin
+            </h1>
+            <p style={{ margin: "0 0 24px", color: "#6b7280", fontSize: 14 }}>
+              Vnesi admin geslo za dostop do rezervacij.
+            </p>
+            <label
+              htmlFor="token"
+              style={{
+                display: "block",
+                fontSize: 12,
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                marginBottom: 6,
+              }}
+            >
+              Geslo
+            </label>
+            <input
+              id="token"
+              name="token"
+              type="password"
+              autoComplete="current-password"
+              autoFocus
+              required
+              style={{
+                width: "100%",
+                boxSizing: "border-box",
+                padding: "10px 12px",
+                border: "2px solid #1a1a1a",
+                fontFamily: "ui-monospace,monospace",
+                fontSize: 15,
+                marginBottom: 8,
+                background: "#fff",
+              }}
+            />
+            {err && (
+              <p
+                style={{
+                  color: "#b91c1c",
+                  fontSize: 13,
+                  margin: "0 0 12px",
+                  fontWeight: 600,
+                }}
+              >
+                Napačno geslo.
+              </p>
+            )}
+            <button
+              type="submit"
+              style={{
+                marginTop: 12,
+                width: "100%",
+                padding: "12px 16px",
+                background: "#FFD600",
+                border: "2px solid #1a1a1a",
+                fontWeight: 800,
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+                cursor: "pointer",
+                fontSize: 14,
+              }}
+            >
+              Prijava →
+            </button>
+          </form>
         </body>
       </html>
     );
@@ -58,9 +151,25 @@ export default async function AdminPage({
   return (
     <html lang="en">
       <body style={{ fontFamily: "ui-sans-serif, system-ui", padding: 24, background: "#fafafa" }}>
-        <h1 style={{ fontSize: 28, marginBottom: 16 }}>
-          Bookings ({rows.length})
-        </h1>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 16 }}>
+          <h1 style={{ fontSize: 28, margin: 0 }}>
+            Bookings ({rows.length})
+          </h1>
+          <form method="POST" action="/admin/signout" style={{ margin: 0 }}>
+            <button
+              type="submit"
+              style={{
+                background: "transparent",
+                border: "1px solid #999",
+                padding: "4px 12px",
+                fontSize: 12,
+                cursor: "pointer",
+              }}
+            >
+              Sign out
+            </button>
+          </form>
+        </div>
         <p style={{ color: "#555", fontSize: 13, marginBottom: 24 }}>
           Click 📅 next to any booking to download an .ics file and add it to
           your calendar.
