@@ -35,29 +35,25 @@ async function send(args: {
   replyTo?: { email: string; name?: string };
   attachments?: Array<{ filename: string; content: Buffer; mime?: string }>;
 }) {
-  if (!ms) return;
+  if (!ms) {
+    console.warn("[email] MAILERSEND_API_TOKEN missing — skipping send");
+    return;
+  }
+  // Build the minimum-viable payload first; every extra setter is a
+  // potential 422 (Reply-To off-domain, tag not whitelisted, …) so we add
+  // them defensively and let the core message go out even if an
+  // enhancement is rejected.
   const params = new EmailParams()
     .setFrom(new Sender(fromEmail, fromName))
     .setTo([new Recipient(args.to.email, args.to.name ?? args.to.email)])
     .setSubject(args.subject)
     .setHtml(args.html)
-    // Plain-text alternative drastically improves deliverability and is
-    // required by some receivers (Outlook/O365 score multipart messages
-    // much higher than HTML-only).
-    .setText(args.text ?? htmlToText(args.html))
-    // Reply-To defaults to the human inbox so replies don't bounce off
-    // the no-reply MailerSend sender domain.
-    .setReplyTo(
-      args.replyTo
-        ? new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email)
-        : new Sender("info@surf-store.com", "Surf-Store"),
-    )
-    // MailerSend only accepts custom headers prefixed with `X-`; setting
-    // List-Unsubscribe / List-Id here causes a 422. We still keep an
-    // X-Entity-Ref-ID for Gmail thread-grouping; List-Unsubscribe is
-    // configured at the MailerSend domain level (Settings → Inbound).
-    .setHeaders([{ name: "X-Entity-Ref-ID", value: cryptoRandom() }])
-    .setTags(["booking"]);
+    .setText(args.text ?? htmlToText(args.html));
+  if (args.replyTo) {
+    params.setReplyTo(
+      new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email),
+    );
+  }
   if (args.attachments && args.attachments.length > 0) {
     params.setAttachments(
       args.attachments.map(
@@ -70,11 +66,24 @@ async function send(args: {
       ),
     );
   }
-  await ms.email.send(params);
-}
-
-function cryptoRandom() {
-  return Math.random().toString(36).slice(2) + Date.now().toString(36);
+  try {
+    await ms.email.send(params);
+  } catch (err) {
+    // Re-throw with a useful message — the MailerSend SDK throws an
+    // object literal whose `.message` is undefined, which surfaces as
+    // the literal string "undefined" in our admin alerts.
+    const e = err as {
+      message?: string;
+      statusCode?: number;
+      body?: unknown;
+    };
+    const detail =
+      e?.message ??
+      `HTTP ${e?.statusCode ?? "?"} ${
+        e?.body ? JSON.stringify(e.body).slice(0, 300) : ""
+      }`;
+    throw new Error(`MailerSend: ${detail}`);
+  }
 }
 
 function htmlToText(html: string): string {

@@ -238,6 +238,13 @@ export function BookingSection({
       });
 
       if (res.ok) {
+        const ok = await res.json().catch(() => ({}));
+        // Email delivery failures show up here as a side-channel so the
+        // owner can grep them in the browser console without surfacing
+        // them to customers (the booking is saved either way).
+        if (ok?.emailError) {
+          console.error("[booking] saved, but email failed:", ok.emailError);
+        }
         setStatus({ kind: "ok" });
         // The success panel replaces the form which sits below the fold,
         // so without an explicit scroll the user sees only the empty space

@@ -106,16 +106,21 @@ export async function POST(req: Request) {
   const locale = pickLocale(req);
   // Await — on Vercel serverless `void`/fire-and-forget tasks can get
   // killed before they finish, especially on cold starts. ~500 ms delay
-  // for the customer is fine; reliable email is the priority.
+  // for the customer is fine; reliable email is the priority. We surface
+  // any error in the JSON response so the form can show "booking saved
+  // but email delivery failed" instead of pretending it all worked.
+  let emailError: string | null = null;
   try {
     await sendBookingEmails({ booking, board, locale });
   } catch (err) {
     console.error("[email] send failed", err);
+    emailError = (err as Error)?.message ?? String(err);
   }
 
   return NextResponse.json({
     ok: true,
     id: booking.id,
+    emailError,
     quote: q,
   });
 }
