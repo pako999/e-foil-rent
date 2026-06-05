@@ -47,7 +47,7 @@ export const DUOTONE_PRODUCTS = [
   {
     key: "cruise",
     image: "/board-3.jpg",
-    shopUrl: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
+    shopUrl: "https://www.surf-store.com/products/duotone-foil-cruise-set-al-2026",
   },
 ] as const;
 
