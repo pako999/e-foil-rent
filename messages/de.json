@@ -262,6 +262,8 @@
     "vatIncluded": "Preis inkl. 22 % MwSt.",
     "noDates": "Wähle Termine, um den Preis zu sehen.",
     "honeypot": "Leer lassen",
+    "priceOriginal": "Originalpreis",
+    "priceCodeDiscount": "Rabatt (Code {code}) −{pct} %",
     "discountLabel": "Rabattcode (optional)",
     "discountApply": "Anwenden",
     "discountApplied": "Code gültig — {pct} % Rabatt angewendet.",

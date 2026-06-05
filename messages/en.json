@@ -262,6 +262,8 @@
     "vatIncluded": "Price includes 22 % VAT",
     "noDates": "Pick dates to see the price.",
     "honeypot": "Leave empty",
+    "priceOriginal": "Original price",
+    "priceCodeDiscount": "Discount (code {code}) −{pct}%",
     "discountLabel": "Discount code (optional)",
     "discountApply": "Apply",
     "discountApplied": "Code valid — {pct}% off applied.",

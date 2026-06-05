@@ -603,6 +603,23 @@ export function BookingSection({
                   {formatPrice(q.discount, intlLocale)})
                 </p>
               )}
+              {discountStatus.kind === "ok" && codeDiscount > 0 && (
+                <div className="mt-3 pt-3 border-t-2 border-gold/30 space-y-1">
+                  <div className="flex justify-between font-mono text-sm text-paper/70">
+                    <span>{t("priceOriginal")}</span>
+                    <span>{formatPrice(preCodeTotal, intlLocale)}</span>
+                  </div>
+                  <div className="flex justify-between font-mono text-sm text-gold">
+                    <span>
+                      {t("priceCodeDiscount", {
+                        pct: discountStatus.percentOff,
+                        code: discountStatus.code,
+                      })}
+                    </span>
+                    <span>−{formatPrice(codeDiscount, intlLocale)}</span>
+                  </div>
+                </div>
+              )}
               {(() => {
                 const v = vatBreakdown(displayTotal);
                 return (

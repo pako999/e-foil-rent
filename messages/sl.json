@@ -262,6 +262,8 @@
     "vatIncluded": "Cena vključuje 22 % DDV",
     "noDates": "Izberi datume za izračun cene.",
     "honeypot": "Pusti prazno",
+    "priceOriginal": "Originalna cena",
+    "priceCodeDiscount": "Popust (koda {code}) −{pct} %",
     "discountLabel": "Koda za popust (neobvezno)",
     "discountApply": "Uporabi",
     "discountApplied": "Koda velja — {pct} % popusta uporabljen.",
