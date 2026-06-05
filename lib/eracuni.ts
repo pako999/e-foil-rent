@@ -1,24 +1,34 @@
 /**
- * Minimal client for the e-racuni.com SaaS invoicing API. Used to create
- * a proforma invoice (predračun) when an admin confirms a booking.
+ * e-racuni.com proforma client.
  *
- * Auth + endpoint conventions:
- *   - Set ERACUNI_API_KEY (issued in e-racuni → Nastavitve → API)
- *   - Set ERACUNI_API_URL (defaults to the public REST endpoint)
- *   - Set ERACUNI_VAT_RATE_ID if your e-racuni account uses a custom 22 %
- *     rate identifier. Most accounts use "STANDARD".
+ * Auth: e-racuni's web-services API uses HTTP Basic over the tenant URL
+ *       plus an X-API-Token header issued in Nastavitve → API. Both are
+ *       set via env vars below — never hard-coded.
  *
- * If credentials are missing this returns `null` and the booking
- * confirmation email still goes out, just without a PDF attachment.
+ * Required env vars:
+ *   ERACUNI_API_BASE      = https://e-racuni.com/si12   (tenant slug)
+ *   ERACUNI_API_USER      = the API user you created in e-racuni
+ *   ERACUNI_API_PASSWORD  = that user's API password
+ *   ERACUNI_API_TOKEN     = the Web-Services token issued for that user
+ *
+ * Without any of these the client is a no-op and the confirmation email
+ * still goes out — just without an attached PDF.
+ *
+ * Docs: https://e-racuni.com/si12/developer
+ *
+ * NOTE: The exact REST endpoint / payload field names below are
+ * conservative defaults. After the first test, check Vercel runtime
+ * logs — if e-racuni returns 4xx the response body will tell us the
+ * exact path/field correction.
  */
 
 import type { Board, Booking } from "@/db/schema";
 import { vatBreakdown } from "./pricing";
 
-const API_URL =
-  process.env.ERACUNI_API_URL ?? "https://www.e-racuni.com/eRacuniWS/rest/v1";
-const API_KEY = process.env.ERACUNI_API_KEY;
-const COMPANY_ID = process.env.ERACUNI_COMPANY_ID;
+const API_BASE = process.env.ERACUNI_API_BASE; // e.g. https://e-racuni.com/si12
+const API_USER = process.env.ERACUNI_API_USER;
+const API_PASSWORD = process.env.ERACUNI_API_PASSWORD;
+const API_TOKEN = process.env.ERACUNI_API_TOKEN;
 const VAT_RATE_ID = process.env.ERACUNI_VAT_RATE_ID ?? "STANDARD";
 
 export type ProformaResult = {
@@ -27,6 +37,19 @@ export type ProformaResult = {
   pdf?: Buffer;
 };
 
+function configured(): boolean {
+  return !!(API_BASE && API_USER && API_PASSWORD && API_TOKEN);
+}
+
+function authHeaders(): HeadersInit {
+  const basic = Buffer.from(`${API_USER}:${API_PASSWORD}`).toString("base64");
+  return {
+    Accept: "application/json",
+    Authorization: `Basic ${basic}`,
+    "X-API-Token": API_TOKEN ?? "",
+  };
+}
+
 export async function createProforma({
   booking,
   board,
@@ -34,16 +57,16 @@ export async function createProforma({
   booking: Booking;
   board: Board;
 }): Promise<ProformaResult | null> {
-  if (!API_KEY || !COMPANY_ID) {
+  if (!configured()) {
     console.warn(
-      "[eracuni] ERACUNI_API_KEY or ERACUNI_COMPANY_ID missing — skipping proforma",
+      "[eracuni] missing one of ERACUNI_API_BASE / USER / PASSWORD / TOKEN — skipping",
     );
     return null;
   }
 
   const v = vatBreakdown(booking.total);
   const dueDate = new Date();
-  dueDate.setDate(dueDate.getDate() + 7); // 7-day payment window
+  dueDate.setDate(dueDate.getDate() + 7);
 
   const payload = {
     customer: {
@@ -74,16 +97,20 @@ export async function createProforma({
   };
 
   try {
-    const res = await fetch(`${API_URL}/companies/${COMPANY_ID}/proformas`, {
+    const res = await fetch(`${API_BASE}/api/v1/proformas`, {
       method: "POST",
       headers: {
+        ...authHeaders(),
         "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`,
       },
       body: JSON.stringify(payload),
     });
     if (!res.ok) {
-      console.error("[eracuni] create proforma failed", res.status, await res.text());
+      console.error(
+        "[eracuni] create proforma failed",
+        res.status,
+        await res.text(),
+      );
       return null;
     }
     const data = (await res.json()) as {
@@ -94,11 +121,11 @@ export async function createProforma({
 
     let pdf: Buffer | undefined;
     if (data.pdfUrl) {
-      const pdfRes = await fetch(data.pdfUrl, {
-        headers: { Authorization: `Bearer ${API_KEY}` },
-      });
+      const pdfRes = await fetch(data.pdfUrl, { headers: authHeaders() });
       if (pdfRes.ok) {
         pdf = Buffer.from(await pdfRes.arrayBuffer());
+      } else {
+        console.error("[eracuni] pdf fetch failed", pdfRes.status);
       }
     }
 
