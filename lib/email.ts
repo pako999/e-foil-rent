@@ -31,6 +31,7 @@ async function send(args: {
   to: { email: string; name?: string };
   subject: string;
   html: string;
+  text?: string;
   replyTo?: { email: string; name?: string };
   attachments?: Array<{ filename: string; content: Buffer; mime?: string }>;
 }) {
@@ -39,12 +40,29 @@ async function send(args: {
     .setFrom(new Sender(fromEmail, fromName))
     .setTo([new Recipient(args.to.email, args.to.name ?? args.to.email)])
     .setSubject(args.subject)
-    .setHtml(args.html);
-  if (args.replyTo) {
-    params.setReplyTo(
-      new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email),
-    );
-  }
+    .setHtml(args.html)
+    // Plain-text alternative drastically improves deliverability and is
+    // required by some receivers (Outlook/O365 score multipart messages
+    // much higher than HTML-only).
+    .setText(args.text ?? htmlToText(args.html))
+    // Reply-To defaults to the human inbox so replies don't bounce off
+    // the no-reply MailerSend sender domain.
+    .setReplyTo(
+      args.replyTo
+        ? new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email)
+        : new Sender("info@surf-store.com", "Surf-Store"),
+    )
+    // List-Unsubscribe + List-Id mark the message as transactional and
+    // help Gmail/Outlook keep it out of Promotions/Spam.
+    .setHeaders([
+      {
+        name: "List-Unsubscribe",
+        value: `<mailto:info@surf-store.com?subject=unsubscribe>`,
+      },
+      { name: "List-Id", value: `bookings.e-foiling.si` },
+      { name: "X-Entity-Ref-ID", value: cryptoRandom() },
+    ])
+    .setTags(["booking"]);
   if (args.attachments && args.attachments.length > 0) {
     params.setAttachments(
       args.attachments.map(
@@ -58,6 +76,28 @@ async function send(args: {
     );
   }
   await ms.email.send(params);
+}
+
+function cryptoRandom() {
+  return Math.random().toString(36).slice(2) + Date.now().toString(36);
+}
+
+function htmlToText(html: string): string {
+  return html
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>|<\/h\d>|<\/li>|<\/tr>/gi, "\n")
+    .replace(/<li[^>]*>/gi, "• ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 /**
@@ -322,8 +362,35 @@ function summaryTable(booking: Booking, board: Board, locale: EmailLocale) {
   `;
 }
 
+// Postal footer with a real address, contact, and a why-you-got-this line
+// is required for legitimate transactional email (CAN-SPAM, ZEPT-1) and
+// also a strong positive signal for Gmail/Outlook spam filters.
 function shell(inner: string) {
-  return `<!doctype html><html><body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:#0a0e1a;max-width:560px;margin:0 auto;padding:24px">${inner}</body></html>`;
+  const footer = `
+    <hr style="margin:32px 0 16px;border:none;border-top:1px solid #e5e7eb" />
+    <p style="font-size:12px;color:#6b7280;line-height:1.5;margin:0 0 8px">
+      Surf-Store.com — E-Foil school &amp; rental<br />
+      Sport Group d.o.o., Osojnikova ulica 4, 2000 Maribor, Slovenija · VAT SI72133449<br />
+      <a href="mailto:info@surf-store.com" style="color:#6b7280">info@surf-store.com</a>
+      · <a href="https://e-foiling.si" style="color:#6b7280">e-foiling.si</a>
+    </p>
+    <p style="font-size:11px;color:#9ca3af;margin:0">
+      This is a transactional message related to your booking with Surf-Store E-Foil.
+      You're receiving it because you submitted a reservation on e-foiling.si.
+    </p>
+  `;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Surf-Store E-Foil</title>
+</head>
+<body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:#0a0e1a;max-width:560px;margin:0 auto;padding:24px;background:#ffffff">
+${inner}
+${footer}
+</body>
+</html>`;
 }
 
 function escapeHtml(s: string) {
