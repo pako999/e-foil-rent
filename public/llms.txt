@@ -5,29 +5,33 @@
 ## What we offer
 
 - 30-minute taster (€70)
-- Day rental (€199) — credited toward purchase if you buy a board
-- Weekend (Sat–Sun, €350) — pickup Fri after 17:00, return Sun by 20:00 or Mon by 10:00
+- Day rental (€199) — 1-day rental fee credited toward purchase if you buy a board
+- Weekend Sat–Sun (€350) — pickup Fri after 17:00, return Sun by 20:00 or Mon by 10:00
 - 1 week rental (€1,100)
 - 2 weeks rental (€1,990)
 - Beginner course (2 h, €199)
 - Intermediate course (4 h split over 2 days, €400)
 - Private course (by arrangement)
 
-## Sections
+## Pages
 
-- [Home](/sl)
-- [Courses (Tečaji)](/sl/tecaji)
-- [Blog — SEO articles about e-foiling in Slovenia](/sl/blog)
-- [What is an e-foil](/sl/efoil)
-- [Duotone brand page](/sl/duotone)
-
-## Company
-
-Sport Group d.o.o. · Osojnikova 4, 2000 Maribor, Slovenia · VAT SI72133449 · info@surf-store.com · +386 71 604 980
+| Section | Slovenian | English |
+|---|---|---|
+| Home — booking, packages, pricing | /sl | /en |
+| Courses (Tečaji) | /sl/tecaji | /en/tecaji |
+| What is an e-foil — long-form guide | /sl/efoil | /en/efoil |
+| Duotone brand + maintenance videos | /sl/duotone | /en/duotone |
+| Blog — SEO articles | /sl/blog | /en/blog |
 
 ## Legal
 
-- [Terms of Service](/sl/legal/terms)
-- [Refund policy](/sl/legal/refund)
-- [Privacy (GDPR)](/sl/legal/privacy)
-- [Cookies](/sl/legal/cookies)
+| | Slovenian | English |
+|---|---|---|
+| Terms of Service | /sl/legal/terms | /en/legal/terms |
+| Refund policy | /sl/legal/refund | /en/legal/refund |
+| Privacy (GDPR) | /sl/legal/privacy | /en/legal/privacy |
+| Cookies | /sl/legal/cookies | /en/legal/cookies |
+
+## Company
+
+Sport Group d.o.o. · Osojnikova 4, 2000 Maribor, Slovenia · VAT SI72133449 · info@surf-store.com · +386 71 604 980 · Instagram: surfstore_com

@@ -282,10 +282,21 @@
       "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
     }
   },
+  "explore": {
+    "eyebrow": "Explore more",
+    "title": "EVERYTHING ABOUT E-FOILING IN ONE PLACE",
+    "readMore": "Read",
+    "items": {
+      "tecaji": { "title": "E-foil courses", "body": "Beginner, intermediate and private courses with a licensed instructor. From first lift-off to independent riding." },
+      "efoil": { "title": "What is an e-foil", "body": "A complete beginner's guide — how it works, what it costs, who it's for. In-depth explainer page." },
+      "duotone": { "title": "Duotone Foil", "body": "Everything about our rental gear — D/LAB carbon, Cruise AL, modular platform and 9 maintenance video guides." },
+      "blog": { "title": "Blog & guides", "body": "Best spots in Slovenia, 2026 pricing, gear reviews and practical tips for new riders." }
+    }
+  },
   "blog": {
     "meta": {
-      "title": "Blog — guides, prices, locations for e-foiling in Slovenia | Surf-Store",
-      "description": "Everything about e-foiling in Slovenia — beginner guides, prices, the best spots, gear comparisons. Surf-Store.com blog.",
+      "title": "E-foil blog — guides &amp; tips | Surf-Store",
+      "description": "Guides, prices, spots and tips for e-foiling in Slovenia. Everything about Duotone gear and the school in one place.",
       "keywords": "e-foil blog, e-foil Slovenia guide, e-foil news, e-foil tips"
     },
     "eyebrow": "Blog",
@@ -307,8 +318,8 @@
   },
   "tecaji": {
     "meta": {
-      "title": "E-foil courses — Lessons & school | Surf-Store.com Slovenia",
-      "description": "E-foil courses with a licensed instructor at Green Lake (Kidričevo), Gramoznica Soboško jezero (Murska Sobota) and Maribor. Beginner, intermediate and private courses. All gear included.",
+      "title": "E-foil courses & school | Surf-Store Slovenia",
+      "description": "Beginner, intermediate and private e-foil courses with a licensed instructor. Green Lake, Murska Sobota and Maribor.",
       "keywords": "e-foil course, e-foil school Slovenia, e-foil lessons, e-foil instructor, beginner e-foil course, private e-foil lesson, Duotone course"
     },
     "hero": {
@@ -457,7 +468,7 @@
   "efoil": {
     "meta": {
       "title": "E-Foil — what it is and how it works | Surf-Store.com",
-      "description": "An e-foil (electric hydrofoil) is an electric-motor board that lifts you above the water. Everything about e-foiling, learning, prices and rentals in Slovenia — Green Lake Kidričevo, Maribor, Ljubljana.",
+      "description": "What an e-foil is, how it works and what rental costs in Slovenia. A complete beginner's guide — Green Lake, Maribor, Ljubljana.",
       "keywords": "e-foil, efoil, electric foil, hydrofoil, eFoil Slovenia, e-foil rental, e-foil school, Duotone e-foil, Surf-Store"
     },
     "hero": {
@@ -600,7 +611,7 @@
   "duotone": {
     "meta": {
       "title": "Duotone Foil — E-Foil gear | Surf-Store.com",
-      "description": "Everything about Duotone foil gear — D/LAB carbon, aluminum and Cruise setups. Brand, tech and shop links."
+      "description": "Everything about Duotone foil gear — D/LAB carbon, aluminum and Cruise setups. Modular platform, maintenance videos, shop links."
     },
     "hero": {
       "eyebrow": "Brand spotlight",

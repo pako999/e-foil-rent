@@ -282,10 +282,21 @@
       "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
     }
   },
+  "explore": {
+    "eyebrow": "Razišči več",
+    "title": "VSE O E-FOILINGU NA ENEM MESTU",
+    "readMore": "Preberi",
+    "items": {
+      "tecaji": { "title": "Tečaji e-foila", "body": "Začetni, nadaljevalni in privatni tečaji z licenciranim inštruktorjem. Od prvega vzleta do samostojne vožnje." },
+      "efoil": { "title": "Kaj je e-foil", "body": "Popoln vodič za začetnike — kako deluje, koliko stane, komu je namenjen. SEO-strani z razlago." },
+      "duotone": { "title": "Duotone Foil", "body": "Vse o naši rental opremi — D/LAB karbon, Cruise AL, modularna platforma in 9 vodičev za vzdrževanje." },
+      "blog": { "title": "Blog & vodiči", "body": "Najboljše lokacije v Sloveniji, cene 2026, pregledi opreme in praktični nasveti za nove riderje." }
+    }
+  },
   "blog": {
     "meta": {
-      "title": "Blog — vodiči, cene, lokacije za e-foiling v Sloveniji | Surf-Store",
-      "description": "Vse o e-foilingu v Sloveniji — vodiči za začetnike, cene, najboljše lokacije, primerjave opreme. Blog Surf-Store.com.",
+      "title": "E-foil blog — vodiči in nasveti | Surf-Store",
+      "description": "Vodiči, cene, lokacije in nasveti za e-foiling v Sloveniji. Vse o Duotone opremi in šoli na enem mestu.",
       "keywords": "e-foil blog, e-foil Slovenija vodič, e-foil novice, e-foil nasveti"
     },
     "eyebrow": "Blog",
@@ -307,8 +318,8 @@
   },
   "tecaji": {
     "meta": {
-      "title": "Tečaji e-foila — Šola e-foilinga | Surf-Store.com Slovenija",
-      "description": "Tečaji e-foilinga z licenciranim inštruktorjem na Green Lake (Kidričevo), Gramoznici Soboško jezero (Murska Sobota) in Maribor. Začetni, nadaljevalni in privatni tečaji. Vključuje vso opremo.",
+      "title": "Tečaji e-foila — Šola e-foilinga | Surf-Store",
+      "description": "Začetni, nadaljevalni in privatni tečaji e-foilinga z licenciranim inštruktorjem. Green Lake, Murska Sobota, Maribor.",
       "keywords": "tečaj e-foil, šola e-foilinga, e-foil učenje Slovenija, e-foil inštruktor, začetni tečaj e-foil, privatni tečaj e-foil, Duotone tečaj"
     },
     "hero": {
@@ -457,7 +468,7 @@
   "efoil": {
     "meta": {
       "title": "E-Foil — kaj je in kako deluje | Surf-Store.com Slovenija",
-      "description": "E-foil (električni hidrofoil) je deska z električnim motorjem, ki te dvigne nad vodo. Vse o e-foilingu, učenju, ceni in najemu v Sloveniji — Green Lake Kidričevo, Maribor, Ljubljana.",
+      "description": "Kaj je e-foil, kako deluje in koliko stane najem v Sloveniji. Popoln vodič za začetnike — Green Lake, Maribor, Ljubljana.",
       "keywords": "e-foil, efoil, električni foil, hidrofoil, eFoil Slovenija, najem e-foil, šola e-foil, Duotone e-foil, Surf-Store"
     },
     "hero": {
@@ -600,7 +611,7 @@
   "duotone": {
     "meta": {
       "title": "Duotone Foil — E-Foil oprema | Surf-Store.com",
-      "description": "Vse o Duotone foil opremi — D/LAB karbon, aluminij in Cruise konfiguracije. Brand, tehnologija in povezave do trgovine."
+      "description": "Vse o Duotone foil opremi — D/LAB karbon, aluminij in Cruise konfiguracije. Modularna platforma, vodiči za vzdrževanje, povezave do trgovine."
     },
     "hero": {
       "eyebrow": "Brand v fokusu",
