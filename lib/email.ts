@@ -5,9 +5,11 @@ import { SITE } from "./content";
 
 const apiKey = process.env.MAILERSEND_API_TOKEN;
 const fromEmail =
-  process.env.MAILERSEND_FROM_EMAIL ?? "bookings@surf-store.com";
+  process.env.MAILERSEND_FROM_EMAIL ?? "bookings@efoil.surf-store.com";
 const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
-const adminEmail = process.env.ENQUIRY_TO_EMAIL ?? SITE.contactEmail;
+// Admin notifications always land here unless overridden by env var.
+const adminEmail =
+  process.env.ENQUIRY_TO_EMAIL ?? "info@surf-store.com";
 
 const ms = apiKey ? new MailerSend({ apiKey }) : null;
 
