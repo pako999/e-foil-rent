@@ -23,7 +23,7 @@ export function Video() {
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
-          <p className="text-graphite text-lg">{t("subtitle")}</p>
+          <p className="text-graphite text-xl sm:text-lg">{t("subtitle")}</p>
         </div>
         <div
           className="relative w-full aspect-video border-2 border-ink overflow-hidden bg-ink"

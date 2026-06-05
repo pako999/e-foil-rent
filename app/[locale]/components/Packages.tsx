@@ -27,7 +27,7 @@ export async function Packages({
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-4">
             {t("title")}
           </h2>
-          <p className="text-graphite text-lg">{t("subtitle")}</p>
+          <p className="text-graphite text-xl sm:text-lg">{t("subtitle")}</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -38,33 +38,33 @@ export async function Packages({
             return (
               <article
                 key={pkg.id}
-                className={`relative card card-hover p-6 flex flex-col ${
+                className={`relative card card-hover p-6 sm:p-6 flex flex-col ${
                   isBest ? "bg-gold" : "bg-paper"
                 }`}
               >
                 {isBest && (
-                  <span className="absolute -top-3 left-6 bg-ink text-gold text-xs font-display uppercase tracking-widest px-3 py-1" style={{ fontWeight: 800 }}>
+                  <span className="absolute -top-3 left-6 bg-ink text-gold text-sm sm:text-xs font-display uppercase tracking-widest px-3 py-1" style={{ fontWeight: 800 }}>
                     ★ {t("bestBadge")}
                   </span>
                 )}
                 <div className="flex items-start justify-between mb-4">
-                  <div className="text-4xl">{highlight.icon}</div>
-                  <span className="font-mono text-xs uppercase tracking-widest text-ink/60 border-2 border-ink px-2 py-0.5">
+                  <div className="text-5xl sm:text-4xl">{highlight.icon}</div>
+                  <span className="font-mono text-sm sm:text-xs uppercase tracking-widest text-ink/60 border-2 border-ink px-2 py-1 sm:py-0.5">
                     {t(`items.${pkg.id}.duration`)}
                   </span>
                 </div>
-                <h3 className="font-display uppercase tracking-tight text-2xl text-ink" style={{ fontWeight: 900 }}>
+                <h3 className="font-display uppercase tracking-tight text-3xl sm:text-2xl text-ink" style={{ fontWeight: 900 }}>
                   {t(`items.${pkg.id}.name`)}
                 </h3>
-                <p className="text-graphite text-sm mt-2 mb-5">
+                <p className="text-graphite text-base sm:text-sm mt-2 mb-5 leading-relaxed">
                   {t(`items.${pkg.id}.desc`)}
                 </p>
                 <div className="mb-5">
                   <div className="flex items-baseline gap-2">
-                    <span className="font-mono text-xs text-ink/60 uppercase">
+                    <span className="font-mono text-sm sm:text-xs text-ink/60 uppercase">
                       from
                     </span>
-                    <span className="font-display text-4xl text-ink" style={{ fontWeight: 900 }}>
+                    <span className="font-display text-5xl sm:text-4xl text-ink" style={{ fontWeight: 900 }}>
                       {formatPrice(price, intlLocale)}
                     </span>
                   </div>
@@ -75,13 +75,13 @@ export async function Packages({
                     const savings = fullDay - price;
                     const savingsPct = Math.round((savings / fullDay) * 100);
                     return (
-                      <div className="mt-2 space-y-0.5">
-                        <p className="font-mono text-xs text-ink/70">
+                      <div className="mt-3 sm:mt-2 space-y-1 sm:space-y-0.5">
+                        <p className="font-mono text-sm sm:text-xs text-ink/70">
                           {t("perDay", { price: formatPrice(perDay, intlLocale) })}
                         </p>
                         {savings > 0 && (
                           <p
-                            className={`font-display uppercase text-xs tracking-wide border-2 border-ink px-2 py-0.5 inline-block ${
+                            className={`font-display uppercase text-sm sm:text-xs tracking-wide border-2 border-ink px-2 py-1 sm:py-0.5 inline-block ${
                               isBest ? "bg-ink text-gold" : "bg-gold text-ink"
                             }`}
                             style={{ fontWeight: 800 }}
@@ -96,13 +96,13 @@ export async function Packages({
                     );
                   })()}
                 </div>
-                <ul className="space-y-2 mb-6 flex-1">
+                <ul className="space-y-3 sm:space-y-2 mb-6 flex-1">
                   {(["f1", "f2", "f3", "f4"] as const).map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-2 text-sm text-ink"
+                      className="flex items-start gap-3 sm:gap-2 text-base sm:text-sm text-ink leading-snug"
                     >
-                      <span className="w-5 h-5 mt-0.5 shrink-0 bg-ink text-gold flex items-center justify-center font-bold text-xs">
+                      <span className="w-6 h-6 sm:w-5 sm:h-5 mt-0.5 shrink-0 bg-ink text-gold flex items-center justify-center font-bold text-sm sm:text-xs">
                         ✓
                       </span>
                       {t(`items.${pkg.id}.${f}`)}
@@ -110,14 +110,14 @@ export async function Packages({
                   ))}
                 </ul>
                 {pkg.id === "day1" && (
-                  <p className="text-xs text-ink/80 mb-4 border-l-2 border-ink pl-3 italic">
+                  <p className="text-sm sm:text-xs text-ink/80 mb-4 border-l-2 border-ink pl-3 italic leading-relaxed">
                     💡 {t("items.day1.purchaseCredit")}
                   </p>
                 )}
                 <a
                   href="#book"
                   data-pkg-id={pkg.id}
-                  className={isBest ? "btn-ghost" : "btn-primary"}
+                  className={`${isBest ? "btn-ghost" : "btn-primary"} text-base sm:text-sm`}
                 >
                   {t("select")} →
                 </a>
@@ -128,8 +128,8 @@ export async function Packages({
 
         {/* Locations notice — applies to every package on the grid above. */}
         <div className="mt-10 border-2 border-ink bg-paper p-5 flex items-start gap-4">
-          <span className="text-2xl shrink-0">📍</span>
-          <p className="text-sm text-ink leading-relaxed">
+          <span className="text-3xl sm:text-2xl shrink-0">📍</span>
+          <p className="text-base sm:text-sm text-ink leading-relaxed">
             {t("locationsNotice")}
           </p>
         </div>

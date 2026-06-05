@@ -78,7 +78,7 @@ export default async function LegalPage({
         {/* BODY */}
         <article className="bg-paper border-b-2 border-ink">
           <div className="container-x py-12 max-w-3xl">
-            <p className="text-graphite text-lg leading-relaxed mb-8 italic border-l-4 border-gold pl-5">
+            <p className="text-graphite text-xl sm:text-lg leading-relaxed mb-8 italic border-l-4 border-gold pl-5">
               {t("intro")}
             </p>
             {sections.map((s, i) => (

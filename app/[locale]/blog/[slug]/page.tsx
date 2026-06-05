@@ -61,7 +61,7 @@ function Block({ block, locale }: { block: BlogBlock; locale: Locale }) {
   switch (block.kind) {
     case "p":
       return (
-        <p className="text-graphite text-lg leading-relaxed mb-5">
+        <p className="text-graphite text-xl sm:text-lg leading-relaxed mb-5">
           {block.text}
         </p>
       );
@@ -87,7 +87,7 @@ function Block({ block, locale }: { block: BlogBlock; locale: Locale }) {
       return (
         <ul className="space-y-2 mb-6 ml-1">
           {block.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-graphite text-lg">
+            <li key={i} className="flex items-start gap-3 text-graphite text-xl sm:text-lg">
               <span className="w-5 h-5 mt-1 shrink-0 bg-gold border-2 border-ink" />
               <span>{item}</span>
             </li>
@@ -98,7 +98,7 @@ function Block({ block, locale }: { block: BlogBlock; locale: Locale }) {
       return (
         <ol className="space-y-3 mb-6 ml-1">
           {block.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-graphite text-lg">
+            <li key={i} className="flex items-start gap-3 text-graphite text-xl sm:text-lg">
               <span className="shrink-0 w-7 h-7 bg-ink text-gold flex items-center justify-center font-display text-sm" style={{ fontWeight: 900 }}>
                 {i + 1}
               </span>

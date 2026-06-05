@@ -83,7 +83,7 @@ export default async function DuotonePage({
             <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink">
               {t("story.title")}
             </h2>
-            <div className="space-y-5 text-graphite text-lg leading-relaxed">
+            <div className="space-y-5 text-graphite text-xl sm:text-lg leading-relaxed">
               <p>{t("story.p1")}</p>
               <p>{t("story.p2")}</p>
               <p className="font-display uppercase text-ink text-xl tracking-tight" style={{ fontWeight: 800 }}>
@@ -100,7 +100,7 @@ export default async function DuotonePage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("range.title")}
               </h2>
-              <p className="text-graphite text-lg">{t("range.subtitle")}</p>
+              <p className="text-graphite text-xl sm:text-lg">{t("range.subtitle")}</p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {DUOTONE_PRODUCTS.map((p) => (
@@ -146,7 +146,7 @@ export default async function DuotonePage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-6">
                 {t("tech.title")}
               </h2>
-              <div className="space-y-4 text-graphite text-lg leading-relaxed">
+              <div className="space-y-4 text-graphite text-xl sm:text-lg leading-relaxed">
                 <p>{t("tech.p1")}</p>
                 <p>{t("tech.p2")}</p>
               </div>

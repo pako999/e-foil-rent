@@ -12,7 +12,7 @@ export async function Gallery() {
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
-          <p className="text-graphite text-lg">{t("subtitle")}</p>
+          <p className="text-graphite text-xl sm:text-lg">{t("subtitle")}</p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
           {GALLERY_IMAGES.map((img, i) => (

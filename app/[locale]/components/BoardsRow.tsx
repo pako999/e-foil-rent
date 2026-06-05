@@ -27,7 +27,7 @@ export async function BoardsRow({
             <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink">
               {t("subtitle")}
             </h2>
-            <p className="text-graphite text-lg mt-3">{t("tagline")}</p>
+            <p className="text-graphite text-xl sm:text-lg mt-3">{t("tagline")}</p>
           </div>
           <article className="grid md:grid-cols-2 border-2 border-ink overflow-hidden" style={{ boxShadow: "8px 8px 0 0 #1a1a1a" }}>
             <div className="aspect-[4/3] md:aspect-auto relative bg-cream border-b-2 md:border-b-0 md:border-r-2 border-ink overflow-hidden">

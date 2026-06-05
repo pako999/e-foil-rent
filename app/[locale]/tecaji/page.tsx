@@ -187,7 +187,7 @@ export default async function TecajiPage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("levels.title")}
               </h2>
-              <p className="text-graphite text-lg">{t("levels.subtitle")}</p>
+              <p className="text-graphite text-xl sm:text-lg">{t("levels.subtitle")}</p>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {LEVEL_KEYS.map((k, i) => (
@@ -245,7 +245,7 @@ export default async function TecajiPage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("what.title")}
               </h2>
-              <p className="text-graphite text-lg">{t("what.subtitle")}</p>
+              <p className="text-graphite text-xl sm:text-lg">{t("what.subtitle")}</p>
             </div>
             <ol className="grid md:grid-cols-5 gap-3">
               {STEP_KEYS.map((k, i) => (
@@ -305,7 +305,7 @@ export default async function TecajiPage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("locations.title")}
               </h2>
-              <p className="text-graphite text-lg">{t("locations.subtitle")}</p>
+              <p className="text-graphite text-xl sm:text-lg">{t("locations.subtitle")}</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {LOCATION_KEYS.map((k) => (

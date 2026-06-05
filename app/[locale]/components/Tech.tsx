@@ -30,7 +30,7 @@ export async function Tech() {
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
-          <p className="text-graphite text-lg mb-8">{t("subtitle")}</p>
+          <p className="text-graphite text-xl sm:text-lg mb-8">{t("subtitle")}</p>
           <div className="grid sm:grid-cols-2 gap-4">
             {TECH_FEATURES.map((key) => (
               <div key={key} className="flex items-start gap-3 p-4 border-2 border-ink bg-cream">

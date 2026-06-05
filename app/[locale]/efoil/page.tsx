@@ -142,10 +142,10 @@ export default async function EfoilPage({
             <p className="text-graphite text-xl leading-relaxed mb-6 font-medium">
               {t("what.lead")}
             </p>
-            <p className="text-graphite text-lg leading-relaxed mb-4">
+            <p className="text-graphite text-xl sm:text-lg leading-relaxed mb-4">
               {t("what.p1")}
             </p>
-            <p className="text-graphite text-lg leading-relaxed">
+            <p className="text-graphite text-xl sm:text-lg leading-relaxed">
               {t("what.p2")}
             </p>
           </article>
@@ -159,7 +159,7 @@ export default async function EfoilPage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("how.title")}
               </h2>
-              <p className="text-graphite text-lg">{t("how.subtitle")}</p>
+              <p className="text-graphite text-xl sm:text-lg">{t("how.subtitle")}</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
               {HOW_KEYS.map((k, i) => (
@@ -241,7 +241,7 @@ export default async function EfoilPage({
               <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
                 {t("learning.title")}
               </h2>
-              <p className="text-graphite text-lg">{t("learning.subtitle")}</p>
+              <p className="text-graphite text-xl sm:text-lg">{t("learning.subtitle")}</p>
             </div>
             <ol className="space-y-3">
               {LEARN_KEYS.map((k, i) => (
