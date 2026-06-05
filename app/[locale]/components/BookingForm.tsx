@@ -274,7 +274,7 @@ export function BookingSection({
                 <option value="" disabled>{t("selectBoardPlaceholder")}</option>
                 {boards.map((b) => (
                   <option key={b.id} value={b.id}>
-                    {b.name} — {formatPrice(b.dailyPrice, intlLocale)}/d
+                    {b.name}
                   </option>
                 ))}
               </select>
