@@ -7,6 +7,7 @@
   "nav": {
     "packages": "Packages",
     "tecaji": "Courses",
+    "blog": "Blog",
     "efoil": "E-Foil",
     "duotone": "Duotone",
     "boards": "Boards",
@@ -275,6 +276,29 @@
       "silent": { "title": "Silent motor", "body": "Brushless drive — all you hear is the water." },
       "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog — guides, prices, locations for e-foiling in Slovenia | Surf-Store",
+      "description": "Everything about e-foiling in Slovenia — beginner guides, prices, the best spots, gear comparisons. Surf-Store.com blog.",
+      "keywords": "e-foil blog, e-foil Slovenia guide, e-foil news, e-foil tips"
+    },
+    "eyebrow": "Blog",
+    "title": "E-FOIL BLOG",
+    "subtitle": "Guides, reviews and tips for everyone interested in e-foiling in Slovenia.",
+    "readingTime": "{minutes} min read",
+    "readMore": "Read article",
+    "backToBlog": "← All articles",
+    "publishedOn": "Published",
+    "categories": {
+      "guide": "Guide",
+      "howto": "How-to",
+      "price": "Pricing",
+      "locations": "Locations",
+      "gear": "Gear"
+    },
+    "share": "Share article",
+    "relatedTitle": "Related articles"
   },
   "tecaji": {
     "meta": {

@@ -18,6 +18,7 @@ export function Header({ locale }: { locale: Locale }) {
   const items: NavItem[] = [
     { kind: "anchor", href: `/${locale}#packages`, key: "packages" },
     { kind: "page", href: `/${locale}/tecaji`, key: "tecaji" },
+    { kind: "page", href: `/${locale}/blog`, key: "blog" },
     { kind: "page", href: `/${locale}/efoil`, key: "efoil" },
     { kind: "page", href: `/${locale}/duotone`, key: "duotone" },
     { kind: "anchor", href: `/${locale}#how`, key: "how" },

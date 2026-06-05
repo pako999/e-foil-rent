@@ -1,15 +1,15 @@
 import type { MetadataRoute } from "next";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
   const now = new Date();
-  const langs = { sl: `${base}/sl`, en: `${base}/en` };
 
-  const make = (path: string, priority: number) => [
+  const make = (path: string, priority: number, lastMod: Date = now) => [
     {
       url: `${base}/sl${path}`,
-      lastModified: now,
+      lastModified: lastMod,
       changeFrequency: "weekly" as const,
       priority,
       alternates: {
@@ -18,20 +18,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/en${path}`,
-      lastModified: now,
+      lastModified: lastMod,
       changeFrequency: "weekly" as const,
-      priority: priority - 0.1,
+      priority: Math.max(0.1, priority - 0.1),
       alternates: {
         languages: { sl: `${base}/sl${path}`, en: `${base}/en${path}` },
       },
     },
   ];
 
-  void langs;
-  return [
+  const staticEntries = [
     ...make("", 1),
     ...make("/tecaji", 0.95),
     ...make("/efoil", 0.9),
+    ...make("/blog", 0.9),
     ...make("/duotone", 0.8),
   ];
+
+  const blogEntries = BLOG_POSTS.flatMap((post) =>
+    make(`/blog/${post.slug}`, 0.7, new Date(post.publishedAt)),
+  );
+
+  return [...staticEntries, ...blogEntries];
 }

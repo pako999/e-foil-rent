@@ -7,6 +7,7 @@
   "nav": {
     "packages": "Paketi",
     "tecaji": "Tečaji",
+    "blog": "Blog",
     "efoil": "E-Foil",
     "duotone": "Duotone",
     "boards": "Deske",
@@ -275,6 +276,29 @@
       "silent": { "title": "Tih motor", "body": "Brezkrtačni motor — slišiš le šum vode." },
       "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
     }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog — vodiči, cene, lokacije za e-foiling v Sloveniji | Surf-Store",
+      "description": "Vse o e-foilingu v Sloveniji — vodiči za začetnike, cene, najboljše lokacije, primerjave opreme. Blog Surf-Store.com.",
+      "keywords": "e-foil blog, e-foil Slovenija vodič, e-foil novice, e-foil nasveti"
+    },
+    "eyebrow": "Blog",
+    "title": "E-FOIL BLOG",
+    "subtitle": "Vodiči, recenzije in nasveti za vse, ki te zanima e-foiling v Sloveniji.",
+    "readingTime": "{minutes} min branja",
+    "readMore": "Preberi članek",
+    "backToBlog": "← Vsi članki",
+    "publishedOn": "Objavljeno",
+    "categories": {
+      "guide": "Vodič",
+      "howto": "Kako",
+      "price": "Cene",
+      "locations": "Lokacije",
+      "gear": "Oprema"
+    },
+    "share": "Deli članek",
+    "relatedTitle": "Sorodni članki"
   },
   "tecaji": {
     "meta": {
