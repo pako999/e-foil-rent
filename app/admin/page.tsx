@@ -58,9 +58,12 @@ export default async function AdminPage({
   return (
     <html lang="en">
       <body style={{ fontFamily: "ui-sans-serif, system-ui", padding: 24, background: "#fafafa" }}>
-        <h1 style={{ fontSize: 28, marginBottom: 16 }}>Bookings ({rows.length})</h1>
+        <h1 style={{ fontSize: 28, marginBottom: 16 }}>
+          Bookings ({rows.length})
+        </h1>
         <p style={{ color: "#555", fontSize: 13, marginBottom: 24 }}>
-          Stopgap admin — replace with Clerk + a proper UI before going public.
+          Click 📅 next to any booking to download an .ics file and add it to
+          your calendar.
         </p>
         <table style={{ borderCollapse: "collapse", width: "100%", background: "#fff" }}>
           <thead>
@@ -167,6 +170,21 @@ function ActionForm({
           Cancel
         </button>
       )}
+      <a
+        href={`/api/bookings/${id}/ics`}
+        title="Download .ics → add to calendar"
+        style={{
+          ...btnStyle,
+          background: "#1a1a1a",
+          color: "#FFD600",
+          textDecoration: "none",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 4,
+        }}
+      >
+        📅 Calendar
+      </a>
       {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script
         // Client-side handler. Tiny, no framework.
