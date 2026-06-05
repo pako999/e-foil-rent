@@ -10,6 +10,7 @@ import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
 import { Video } from "../components/Video";
 import { MaintenanceVideos } from "../components/MaintenanceVideos";
+import { FoilSetupVideo } from "../components/FoilSetupVideo";
 import { DUOTONE_PRODUCTS, DUOTONE_VIDEOS, SITE } from "@/lib/content";
 import { locales, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
@@ -233,6 +234,7 @@ export default async function DuotonePage({
           </div>
         </section>
 
+        <FoilSetupVideo />
         <MaintenanceVideos locale={locale as Locale} />
         <StoreBanner />
       </main>

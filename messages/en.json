@@ -601,6 +601,12 @@
     "cities": "Maribor · Ljubljana · Celje",
     "note": "Free pickup in all three cities by arrangement."
   },
+  "setup": {
+    "eyebrow": "Foil setup",
+    "title": "HOW TO SET UP YOUR FOIL",
+    "subtitle": "Step-by-step video walkthrough for assembling the Duotone Foil Assist kit — from board and mast to battery harness and propeller.",
+    "playLabel": "Play video"
+  },
   "maintenance": {
     "eyebrow": "Equipment maintenance",
     "title": "FOIL ASSIST MAINTENANCE",

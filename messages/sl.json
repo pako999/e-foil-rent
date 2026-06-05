@@ -601,6 +601,12 @@
     "cities": "Maribor · Ljubljana · Celje",
     "note": "Brezplačen prevzem v vseh treh mestih po dogovoru."
   },
+  "setup": {
+    "eyebrow": "Sestava opreme",
+    "title": "KAKO SESTAVITI FOIL",
+    "subtitle": "Korak za korakom video vodič za sestavo Duotone Foil Assist seta — od deske in masta do bateriskega harnesa in propelerja.",
+    "playLabel": "Predvajaj video"
+  },
   "maintenance": {
     "eyebrow": "Vzdrževanje opreme",
     "title": "VZDRŽEVANJE FOIL ASSIST",
