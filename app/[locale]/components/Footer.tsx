@@ -56,7 +56,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             </a>
           </div>
           <div className="mt-6">
-            <LanguageSwitcher currentLocale={locale} />
+            <LanguageSwitcher currentLocale={locale} variant="dark" />
           </div>
         </div>
       </div>
