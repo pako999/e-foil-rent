@@ -22,19 +22,12 @@ export default async function AdminPage({
   searchParams: Promise<{ token?: string }>;
 }) {
   const { token } = await searchParams;
-  const expected = process.env.ADMIN_TOKEN;
 
-  // Optional `?token=…` path sets the cookie then redirects (one-time setup).
-  if (token && expected && token === expected) {
-    const jar = await cookies();
-    jar.set("admin_token", token, {
-      httpOnly: true,
-      sameSite: "lax",
-      secure: process.env.NODE_ENV === "production",
-      maxAge: 60 * 60 * 24 * 30,
-      path: "/",
-    });
-    redirect("/admin");
+  // Backwards-compat: old bookmarks of `/admin?token=…` are forwarded to
+  // the Route Handler that actually mutates the cookie. Next 15 forbids
+  // cookie writes from Server Components, so we can't do it here.
+  if (token) {
+    redirect(`/admin/signin?token=${encodeURIComponent(token)}`);
   }
 
   if (!(await authorize())) {
@@ -43,8 +36,9 @@ export default async function AdminPage({
         <body style={{ fontFamily: "sans-serif", padding: 48 }}>
           <h1>Admin — locked</h1>
           <p>
-            Append <code>?token=YOUR_ADMIN_TOKEN</code> to this URL to sign in.
-            The token is set via <code>ADMIN_TOKEN</code> in environment.
+            Append <code>/signin?token=YOUR_ADMIN_TOKEN</code> to this URL
+            (i.e. <code>/admin/signin?token=…</code>) to sign in. The token
+            is set via <code>ADMIN_TOKEN</code> in environment.
           </p>
         </body>
       </html>
