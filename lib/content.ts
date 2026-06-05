@@ -29,7 +29,7 @@ export const DUOTONE_PRODUCTS = [
   },
   {
     key: "al",
-    image: "/board-1.jpg",
+    image: "/board-1.webp",
     shopUrl: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
   },
   {
@@ -70,7 +70,7 @@ export const GALLERY_IMAGES = [
   { src: "/hero.jpg", alt: "Rider gliding above clear water near a tropical island" },
   { src: "/action-1.jpg", alt: "E-foil rider carving on a dark blue wave" },
   { src: "/board-2.jpg", alt: "Blue-shirt rider holding the throttle on a clean wave" },
-  { src: "/board-1.jpg", alt: "Two riders cruising over turquoise reef water" },
+  { src: "/board-1.webp", alt: "Two riders cruising over turquoise reef water" },
   { src: "/action-2.jpg", alt: "E-foiler in front of a breaking wave with cloud backdrop" },
   { src: "/board-3.jpg", alt: "Duotone foilboard detail" },
 ] as const;

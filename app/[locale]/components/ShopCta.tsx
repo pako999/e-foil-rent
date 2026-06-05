@@ -10,7 +10,7 @@ export async function ShopCta() {
         <div className="grid md:grid-cols-2 items-stretch border-2 border-ink overflow-hidden" style={{ boxShadow: "8px 8px 0 0 #1a1a1a" }}>
           <div className="relative min-h-[280px] md:min-h-[360px] bg-ink">
             <Image
-              src="/board-1.jpg"
+              src="/board-1.webp"
               alt="Duotone e-foil"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
