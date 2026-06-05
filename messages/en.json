@@ -704,11 +704,47 @@
     "companyLabel": "Company",
     "vatLabel": "VAT ID",
     "legalLabel": "Legal",
+    "manageCookies": "Manage cookies",
     "legal": {
       "terms": "Terms of Service",
       "refund": "Refund policy",
       "privacy": "Privacy (GDPR)",
       "cookies": "Cookies"
+    }
+  },
+  "consent": {
+    "banner": {
+      "aria": "Cookie consent banner",
+      "title": "We respect your privacy",
+      "body": "We use cookies so the site works, to remember your preferences and to understand how the site is used. Without your consent we only enable strictly necessary cookies.",
+      "learnMore": "More about cookies"
+    },
+    "acceptAll": "Accept all",
+    "rejectAll": "Reject all",
+    "customize": "Customise",
+    "categories": {
+      "necessary": {
+        "label": "Strictly necessary",
+        "body": "Required for the site to work — language, admin login, security. Without them the site is broken. No consent needed."
+      },
+      "functional": {
+        "label": "Functional",
+        "body": "Help the site remember your preferences (e.g. language choice) and make the experience smoother. The site still works without them, just less personalised."
+      },
+      "analytics": {
+        "label": "Analytics",
+        "body": "Anonymous traffic measurement (e.g. Google Analytics 4) — how many people visit, which pages are most read. Helps us improve the offering."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "body": "Enable personalised ads and ad-effectiveness measurement (e.g. Google Ads, Meta Pixel). Without these, ads will be generic and unrelated to your interests."
+      }
+    },
+    "settings": {
+      "title": "Cookie settings",
+      "intro": "Choose which cookies you allow. Your choice is stored for 12 months — you can change it anytime via the \"Manage cookies\" link in the footer.",
+      "save": "Save choice",
+      "policyLink": "Read the full cookie policy"
     }
   },
   "legal": {

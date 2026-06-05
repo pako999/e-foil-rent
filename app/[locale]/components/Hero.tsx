@@ -48,8 +48,8 @@ export async function Hero() {
             ×
           </span>
           <Image
-            src="/logo-third.png"
-            alt="Partner"
+            src="/Surfshop_logo.svg"
+            alt="Surfshop"
             width={360}
             height={72}
             className="h-5 sm:h-7 md:h-9 w-auto"

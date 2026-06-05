@@ -3,6 +3,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/i18n/request";
+import { ConsentInit } from "./components/ConsentInit";
+import { CookieBanner } from "./components/CookieBanner";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -23,6 +25,21 @@ export async function generateMetadata({
     metadataBase: new URL(siteUrl),
     title: t("title"),
     description: t("description"),
+    applicationName: "Surf-Store E-Foil",
+    authors: [{ name: "Sport Group d.o.o.", url: siteUrl }],
+    creator: "Sport Group d.o.o.",
+    publisher: "Sport Group d.o.o.",
+    manifest: "/site.webmanifest",
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [
+        { url: "/apple-touch-icon.png", sizes: "180x180" },
+      ],
+    },
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -36,19 +53,41 @@ export async function generateMetadata({
       description: t("description"),
       type: "website",
       url: `${siteUrl}/${locale}`,
-      siteName: "Surf-Store.com",
+      siteName: "Surf-Store.com — E-Foil",
       locale: locale === "sl" ? "sl_SI" : "en_GB",
       images: [
         {
-          url: "/hero-placeholder.svg",
+          url: "/opengraph-image.jpg",
           width: 1200,
           height: 630,
           alt: t("ogAlt"),
+          type: "image/jpeg",
         },
       ],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/opengraph-image.jpg"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
+
+export const viewport = {
+  themeColor: "#FFD600",
+};
 
 export default async function LocaleLayout({
   children,
@@ -65,6 +104,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* Google Consent Mode v2 default state — must run before any
+            analytics tag so vendors see a deterministic baseline. */}
+        <ConsentInit />
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
@@ -78,6 +120,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <CookieBanner locale={locale as Locale} />
         </NextIntlClientProvider>
       </body>
     </html>

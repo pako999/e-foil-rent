@@ -1,0 +1,33 @@
+# Surf-Store E-Foil
+
+> Surf-Store.com — e-foil school, rental and shop in Slovenia. Duotone Foil Cruise Set AL with Midwish 5'8 board. Main base at Green Lake, Kidričevo; pickup also in Maribor, Ljubljana and Celje.
+
+## What we offer
+
+- 30-minute taster (€70)
+- Day rental (€199) — credited toward purchase if you buy a board
+- Weekend (Sat–Sun, €350) — pickup Fri after 17:00, return Sun by 20:00 or Mon by 10:00
+- 1 week rental (€1,100)
+- 2 weeks rental (€1,990)
+- Beginner course (2 h, €199)
+- Intermediate course (4 h split over 2 days, €400)
+- Private course (by arrangement)
+
+## Sections
+
+- [Home](/sl)
+- [Courses (Tečaji)](/sl/tecaji)
+- [Blog — SEO articles about e-foiling in Slovenia](/sl/blog)
+- [What is an e-foil](/sl/efoil)
+- [Duotone brand page](/sl/duotone)
+
+## Company
+
+Sport Group d.o.o. · Osojnikova 4, 2000 Maribor, Slovenia · VAT SI72133449 · info@surf-store.com · +386 71 604 980
+
+## Legal
+
+- [Terms of Service](/sl/legal/terms)
+- [Refund policy](/sl/legal/refund)
+- [Privacy (GDPR)](/sl/legal/privacy)
+- [Cookies](/sl/legal/cookies)

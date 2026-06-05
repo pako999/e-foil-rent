@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ManageCookiesButton } from "./ManageCookiesButton";
 import { SITE, LEGAL_PAGES } from "@/lib/content";
 import type { Locale } from "@/i18n/request";
 
@@ -150,6 +151,9 @@ export async function Footer({ locale }: { locale: Locale }) {
                 </Link>
               </li>
             ))}
+            <li>
+              <ManageCookiesButton label={t("manageCookies")} />
+            </li>
           </ul>
         </div>
       </div>

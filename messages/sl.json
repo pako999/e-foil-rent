@@ -704,11 +704,47 @@
     "companyLabel": "Podjetje",
     "vatLabel": "ID za DDV",
     "legalLabel": "Pravne strani",
+    "manageCookies": "Upravljaj piškote",
     "legal": {
       "terms": "Splošni pogoji",
       "refund": "Vračilo denarja",
       "privacy": "GDPR / Zasebnost",
       "cookies": "Piškoti"
+    }
+  },
+  "consent": {
+    "banner": {
+      "aria": "Pasica za privolitev k piškotom",
+      "title": "Spoštujemo tvojo zasebnost",
+      "body": "Uporabljamo piškote, da stran deluje, si zapomnimo tvoje nastavitve in razumemo, kako uporabljaš stran. Brez tvoje privolitve omogočamo samo nujno potrebne piškote.",
+      "learnMore": "Več o piškotih"
+    },
+    "acceptAll": "Sprejmi vse",
+    "rejectAll": "Zavrni vse",
+    "customize": "Nastavi",
+    "categories": {
+      "necessary": {
+        "label": "Nujno potrebni",
+        "body": "Omogočajo osnovno delovanje strani — jezik, prijava v skrbniški del, varnost. Brez njih stran ne deluje pravilno. Ne potrebujejo privolitve."
+      },
+      "functional": {
+        "label": "Funkcionalni",
+        "body": "Pomagajo strani, da si zapomni tvoje nastavitve (npr. izbira jezika) in olajšajo uporabniško izkušnjo. Brez njih stran še vedno deluje, le manj prilagojeno."
+      },
+      "analytics": {
+        "label": "Analitični",
+        "body": "Anonimno merijo promet (npr. Google Analytics 4) — koliko ljudi obišče stran, katere strani so najbolj brane. Pomagajo nam izboljšati ponudbo."
+      },
+      "marketing": {
+        "label": "Marketinški",
+        "body": "Omogočajo personalizirane oglase in merjenje uspešnosti oglaševanja (npr. Google Ads, Meta Pixel). Brez njih bodo oglasi splošni in nepovezani s tvojimi interesi."
+      }
+    },
+    "settings": {
+      "title": "Nastavitve piškotov",
+      "intro": "Sam upravljaš, katere piškote dovoljuješ. Tvojo izbiro shranimo za 12 mesecev — kadarkoli jo lahko spremeniš preko povezave »Upravljaj piškote« v nogi strani.",
+      "save": "Shrani izbiro",
+      "policyLink": "Preberi celotno politiko piškotov"
     }
   },
   "legal": {
