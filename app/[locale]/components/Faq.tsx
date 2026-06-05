@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { FAQ_KEYS } from "@/lib/content";
+import { FAQ_GROUPS } from "@/lib/content";
 
 export async function Faq() {
   const t = await getTranslations("faq");
@@ -12,34 +12,42 @@ export async function Faq() {
             {t("title")}
           </h2>
         </div>
-        <div className="space-y-3">
-          {FAQ_KEYS.map((k) => (
-            <details
-              key={k}
-              className="group bg-paper border-2 border-ink overflow-hidden"
-            >
-              <summary className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4 font-display uppercase tracking-wide text-ink group-open:bg-gold transition-colors" style={{ fontWeight: 800 }}>
-                <span>{t(`items.${k}.q`)}</span>
-                <span className="shrink-0 w-7 h-7 bg-ink text-gold flex items-center justify-center transition group-open:rotate-45">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    className="w-4 h-4"
-                  >
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                </span>
-              </summary>
-              <div className="px-6 py-5 text-graphite leading-relaxed border-t-2 border-ink">
-                {t(`items.${k}.a`)}
-              </div>
-            </details>
-          ))}
-        </div>
+
+        {FAQ_GROUPS.map((group) => (
+          <div key={group.key} className="mb-10 last:mb-0">
+            <h3 className="font-display uppercase tracking-widest text-sm text-ink mb-4 pb-2 border-b-2 border-ink" style={{ fontWeight: 800 }}>
+              {t(`groups.${group.key}`)}
+            </h3>
+            <div className="space-y-3">
+              {group.items.map((k) => (
+                <details
+                  key={k}
+                  className="group bg-paper border-2 border-ink overflow-hidden"
+                >
+                  <summary className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4 font-display uppercase tracking-wide text-ink group-open:bg-gold transition-colors" style={{ fontWeight: 800 }}>
+                    <span>{t(`items.${k}.q`)}</span>
+                    <span className="shrink-0 w-7 h-7 bg-ink text-gold flex items-center justify-center transition group-open:rotate-45">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        className="w-4 h-4"
+                      >
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <div className="px-6 py-5 text-graphite leading-relaxed border-t-2 border-ink">
+                    {t(`items.${k}.a`)}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

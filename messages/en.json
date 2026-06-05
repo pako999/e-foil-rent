@@ -162,6 +162,10 @@
   "faq": {
     "eyebrow": "Frequently asked",
     "title": "FREQUENTLY ASKED",
+    "groups": {
+      "school": "School & location (Green Lake)",
+      "rental": "Equipment rental"
+    },
     "items": {
       "age": {
         "q": "How old do I need to be?",
@@ -169,7 +173,7 @@
       },
       "experience": {
         "q": "Do I need experience?",
-        "a": "No. 90% of our guests start from zero. A short intro takes ~15 minutes and covers everything you need."
+        "a": "No. 90 % of our guests start from zero. A short intro takes ~15 minutes and covers everything you need."
       },
       "weather": {
         "q": "What about bad weather?",
@@ -181,11 +185,39 @@
       },
       "weight": {
         "q": "Is there a weight limit?",
-        "a": "Boards work for 40–110 kg. For heavier riders we have the Duotone Downwinder SLS."
+        "a": "The board works for riders from 40 to 110 kg."
+      },
+      "pickup": {
+        "q": "How does pickup and return work?",
+        "a": "By arrangement — at our base on Green Lake or in one of the partner cities (Maribor, Ljubljana, Celje). At pickup we walk you through the gear, battery charging and safety procedures. Return is the same."
+      },
+      "cities": {
+        "q": "Which cities do you cover for pickup?",
+        "a": "Free pickup in Maribor, Ljubljana and Celje. For other Slovenian cities we can arrange delivery for a fee — email info@surf-store.com."
+      },
+      "ownSpot": {
+        "q": "Can I take the board to my own lake or to the sea?",
+        "a": "Yes — e-foil is allowed on most Slovenian lakes (check local rules — some protected areas need a permit). At sea you need a standard navigation permit, the same one already needed for WIN/SUP."
+      },
+      "deposit": {
+        "q": "Is there a deposit?",
+        "a": "For multi-day rentals (3+ days) we ask for a €500 deposit in cash or by card. It's returned right after we check the equipment back in, if there's no visible damage."
+      },
+      "charging": {
+        "q": "How do I charge the battery?",
+        "a": "With the included charger from any standard 220 V outlet. A full charge takes about 1 hour. You have two batteries — use one while the other charges."
+      },
+      "transport": {
+        "q": "What car do I need to transport it?",
+        "a": "The Duotone Foil Cruise set is roughly 1.75 m long. Fits in most vans, SUVs and estate cars with folded seats. For sedans we recommend a roof rack or a small trailer."
+      },
+      "damage": {
+        "q": "What happens if something gets damaged?",
+        "a": "Minor damage (scratches on the board) is covered by the deposit. Larger damage (broken foil, motor or battery) is charged at Duotone service rates. We recommend filming a short condition check before you go on the water."
       },
       "cancel": {
         "q": "What's your cancellation policy?",
-        "a": "Free cancellation up to 48 hours before. 48–24 hours: half price. Less than 24h: full price."
+        "a": "Free cancellation up to 48 hours before. 48–24 hours: half price. Less than 24 h: full price. Weather-related reschedules are free."
       }
     }
   },

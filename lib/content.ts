@@ -88,4 +88,28 @@ export const PACKAGE_HIGHLIGHTS = {
 } as const;
 
 export const REVIEW_KEYS = ["r1", "r2", "r3"] as const;
-export const FAQ_KEYS = ["age", "experience", "weather", "gear", "weight", "cancel"] as const;
+
+/**
+ * Two FAQ tracks: questions you'd ask before showing up at Green Lake
+ * (school/intro context), and questions specific to taking a board home
+ * via the rental program.
+ */
+export const FAQ_GROUPS = [
+  {
+    key: "school",
+    items: ["age", "experience", "weather", "gear", "weight"] as const,
+  },
+  {
+    key: "rental",
+    items: [
+      "pickup",
+      "cities",
+      "ownSpot",
+      "deposit",
+      "charging",
+      "transport",
+      "damage",
+      "cancel",
+    ] as const,
+  },
+] as const;

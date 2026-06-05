@@ -162,6 +162,10 @@
   "faq": {
     "eyebrow": "Pogosta vprašanja",
     "title": "POGOSTA VPRAŠANJA",
+    "groups": {
+      "school": "Šola in lokacija (Green Lake)",
+      "rental": "Najem opreme"
+    },
     "items": {
       "age": {
         "q": "Koliko moram biti star/a?",
@@ -181,11 +185,39 @@
       },
       "weight": {
         "q": "Ali je omejitev po teži?",
-        "a": "Deske so primerne za 40–110 kg. Za težje riderje imamo Duotone Downwinder SLS."
+        "a": "Deska je primerna za 40–110 kg vozniki."
+      },
+      "pickup": {
+        "q": "Kako poteka prevzem in vračilo?",
+        "a": "Po dogovoru — pri nas na Green Lake ali v enem od dogovorjenih mest (Maribor, Ljubljana, Celje). Pri prevzemu te kratko poučimo o opremi, polnjenju baterij in varnostnih ukrepih. Vračilo enako po dogovoru."
+      },
+      "cities": {
+        "q": "Katera mesta pokrivate za prevzem?",
+        "a": "Brezplačen prevzem v Mariboru, Ljubljani in Celju. Za druga mesta v Sloveniji se lahko dogovorimo za dostavo proti doplačilu — piši nam na info@surf-store.com."
+      },
+      "ownSpot": {
+        "q": "Ali lahko vzamem desko na svoje jezero ali morje?",
+        "a": "Da, e-foil je dovoljen na večini slovenskih jezer (preveri lokalne predpise — nekatera zaščitena območja zahtevajo dovoljenje). Na morju potrebuješ običajno dovoljenje za plovbo, ki ga imaš že kot rider WIN/SUP."
+      },
+      "deposit": {
+        "q": "Ali rabim plačati varščino?",
+        "a": "Za večdnevne najeme (3 dni in več) zahtevamo varščino 500 € v gotovini ali preko bančne kartice. Vrnemo jo takoj po pregledu vrnjene opreme, če ni vidnih poškodb."
+      },
+      "charging": {
+        "q": "Kako polnim baterijo?",
+        "a": "S priloženim polnilnikom iz katere koli standardne 220 V vtičnice. Eno polnjenje traja približno 1 uro. Imaš dve bateriji — eno uporabljaš, druga se polni."
+      },
+      "transport": {
+        "q": "Kakšen avto rabim za prevoz?",
+        "a": "Set Duotone Foil Cruise je dolg pribl. 1,75 m. Spravi se v večino kombi vozil, SUV in karavanov s sklopljenimi sedeži. Za osebne avtomobile priporočamo strešni nosilec ali prikolico."
+      },
+      "damage": {
+        "q": "Kaj če pride do poškodbe?",
+        "a": "Manjše poškodbe (praske na deski) krije polog. Večje poškodbe (lom foila, motorja, baterije) se obračunajo po servisnih cenah Duotone. Priporočamo, da preden vstopiš na vodo, posnameš kratko video kontrolo stanja opreme."
       },
       "cancel": {
         "q": "Kako delujejo odpovedi?",
-        "a": "Brezplačna odpoved do 48 ur pred terminom. Med 48 in 24 urami se zaračuna polovica cene. Manj kot 24 ur — celotna cena."
+        "a": "Brezplačna odpoved do 48 ur pred terminom. Med 48 in 24 urami se zaračuna polovica cene. Manj kot 24 ur — celotna cena. Ob slabem vremenu pa lahko prestavimo brezplačno."
       }
     }
   },
