@@ -204,9 +204,17 @@ export default async function TecajiPage({
                   <h3 className="font-display uppercase tracking-tight text-2xl text-ink mb-2" style={{ fontWeight: 900 }}>
                     {t(`levels.items.${k}.name`)}
                   </h3>
-                  <p className="text-graphite text-sm mb-5 italic">
+                  <p className="text-graphite text-sm mb-4 italic">
                     {t(`levels.items.${k}.target`)}
                   </p>
+                  <div className="mb-5 pb-5 border-b-2 border-ink/15">
+                    <p className="font-display text-4xl text-ink leading-none" style={{ fontWeight: 900 }}>
+                      {t(`levels.items.${k}.price`)}
+                    </p>
+                    <p className="font-mono text-xs text-ink/70 mt-2">
+                      {t(`levels.items.${k}.priceNote`)}
+                    </p>
+                  </div>
                   <ul className="space-y-2 mb-6 flex-1">
                     {(["f1", "f2", "f3", "f4"] as const).map((f) => (
                       <li key={f} className="flex items-start gap-2 text-sm text-ink">

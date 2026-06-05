@@ -318,7 +318,9 @@
       "items": {
         "beginner": {
           "name": "Beginner course",
-          "duration": "1–2 hours",
+          "duration": "2 hours",
+          "price": "€199",
+          "priceNote": "Flat price for 2 hours.",
           "target": "For anyone who has never stood on an e-foil.",
           "f1": "Briefing and basic controls",
           "f2": "Kneeling and standing start",
@@ -327,7 +329,9 @@
         },
         "intermediate": {
           "name": "Intermediate course",
-          "duration": "2–4 hours",
+          "duration": "4 hours · 2 days",
+          "price": "€400",
+          "priceNote": "Total 4 hours split across 2 days.",
           "target": "For riders who already fly and want more control.",
           "f1": "Longer flight without drop-outs",
           "f2": "Turns and direction changes",
@@ -336,7 +340,9 @@
         },
         "private": {
           "name": "Private course",
-          "duration": "By arrangement",
+          "duration": "On request",
+          "price": "On request",
+          "priceNote": "Pricing depends on length and scope.",
           "target": "1-on-1 with the instructor. Fastest progress.",
           "f1": "Custom programme",
           "f2": "Your own pace",
