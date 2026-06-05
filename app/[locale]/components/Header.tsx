@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
@@ -48,11 +49,18 @@ export function Header({ locale }: { locale: Locale }) {
       <div className="container-x flex items-center justify-between h-16 sm:h-20 gap-3">
         <Link
           href={`/${locale}`}
-          className="font-display uppercase tracking-tight text-lg sm:text-2xl md:text-3xl text-ink leading-none truncate"
-          style={{ fontWeight: 900 }}
+          className="block shrink-0"
           onClick={() => setOpen(false)}
+          aria-label="Surf-Store E-Foil"
         >
-          Surf-Store<span className="text-gold">.</span>E-Foil
+          <Image
+            src="/logo-surfstore.png"
+            alt="Surf-Store.com"
+            width={480}
+            height={120}
+            className="h-8 sm:h-10 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}

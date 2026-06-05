@@ -14,22 +14,21 @@ export async function Gallery() {
           </h2>
           <p className="text-graphite text-lg">{t("subtitle")}</p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
           {GALLERY_IMAGES.map((img, i) => (
-            <div
+            <figure
               key={i}
-              className={`relative overflow-hidden border-2 border-ink ${
-                i === 0 || i === 4 ? "md:row-span-2 aspect-[3/4]" : "aspect-square"
-              }`}
+              className="group relative aspect-[4/3] overflow-hidden border-2 border-ink bg-cream"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </figure>
           ))}
         </div>
       </div>
