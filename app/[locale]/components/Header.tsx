@@ -44,10 +44,10 @@ export function Header({ locale }: { locale: Locale }) {
       </div>
 
       {/* Main bar */}
-      <div className="container-x flex items-center justify-between h-20">
+      <div className="container-x flex items-center justify-between h-16 sm:h-20 gap-3">
         <Link
           href={`/${locale}`}
-          className="font-display uppercase tracking-tight text-2xl md:text-3xl text-ink leading-none"
+          className="font-display uppercase tracking-tight text-lg sm:text-2xl md:text-3xl text-ink leading-none truncate"
           style={{ fontWeight: 900 }}
           onClick={() => setOpen(false)}
         >

@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 export async function Hero() {
   const t = await getTranslations("hero");
   return (
-    <section className="relative bg-ink text-paper overflow-hidden border-b-2 border-ink min-h-[88vh] flex items-center">
+    <section className="relative bg-ink text-paper overflow-hidden border-b-2 border-ink min-h-[88vh] min-h-[88svh] flex items-center">
       <div className="absolute inset-0">
         <Image
           src="/hero.jpg"
@@ -22,17 +22,17 @@ export async function Hero() {
       <div className="relative container-x py-20 md:py-24 w-full">
         {/* Co-brand row — surf-store × Duotone. Source logos are dark grey,
             forced to white on this dark hero via the brightness/invert filter. */}
-        <div className="flex items-center gap-5 mb-8">
+        <div className="flex items-center gap-3 sm:gap-5 mb-8 flex-wrap">
           <Image
             src="/logo-surfstore.png"
             alt="Surf-Store.com"
             width={480}
             height={72}
-            className="h-9 md:h-10 w-auto"
+            className="h-6 sm:h-8 md:h-10 w-auto"
             style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
-          <span className="text-paper/40 font-display text-xl" style={{ fontWeight: 800 }}>
+          <span className="text-paper/40 font-display text-lg sm:text-xl" style={{ fontWeight: 800 }}>
             ×
           </span>
           <Image
@@ -40,7 +40,7 @@ export async function Hero() {
             alt="Duotone"
             width={360}
             height={72}
-            className="h-8 md:h-9 w-auto"
+            className="h-5 sm:h-7 md:h-9 w-auto"
             style={{ filter: "brightness(0) invert(1)" }}
             priority
           />

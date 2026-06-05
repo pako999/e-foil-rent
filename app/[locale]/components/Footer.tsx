@@ -16,7 +16,7 @@ export async function Footer({ locale }: { locale: Locale }) {
               alt="Surf-Store.com"
               width={480}
               height={72}
-              className="h-9 w-auto"
+              className="h-7 sm:h-8 md:h-9 w-auto"
               style={{ filter: "brightness(0) invert(1)" }}
             />
           </a>

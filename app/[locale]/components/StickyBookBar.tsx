@@ -41,17 +41,20 @@ export function StickyBookBar() {
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="bg-ink border-t-2 border-gold">
+      <div
+        className="bg-ink border-t-2 border-gold"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
         <div className="container-x flex items-center justify-between gap-4 py-3">
-          <div className="text-paper">
-            <p className="font-display uppercase text-sm tracking-wide leading-tight" style={{ fontWeight: 800 }}>
+          <div className="text-paper min-w-0">
+            <p className="font-display uppercase text-sm tracking-wide leading-tight truncate" style={{ fontWeight: 800 }}>
               {t("label")}
             </p>
             <p className="font-mono text-xs text-gold hidden sm:block">
               Green Lake, Kidričevo
             </p>
           </div>
-          <a href="#book" className="btn-primary text-sm px-5 py-2">
+          <a href="#book" className="btn-primary text-sm px-4 sm:px-5 py-2 whitespace-nowrap">
             {t("cta")} →
           </a>
         </div>
