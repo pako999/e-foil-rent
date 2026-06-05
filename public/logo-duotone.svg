@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" fill="none">
-  <!-- Stylised D mark -->
-  <path d="M4 6 L4 42 L22 42 C32 42 40 34 40 24 C40 14 32 6 22 6 L4 6 Z M12 14 L22 14 C28 14 32 18 32 24 C32 30 28 34 22 34 L12 34 L12 14 Z" fill="currentColor"/>
-  <!-- Wordmark -->
-  <text x="52" y="33" font-family="Arial Black, Helvetica Neue, sans-serif" font-weight="900" font-size="22" letter-spacing="2" fill="currentColor">DUOTONE</text>
-</svg>

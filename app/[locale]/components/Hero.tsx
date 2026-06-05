@@ -20,25 +20,28 @@ export async function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink/60 to-transparent" />
       </div>
       <div className="relative container-x py-20 md:py-24 w-full">
-        {/* Co-brand row — surf-store × Duotone */}
-        <div className="flex items-center gap-5 mb-8 text-paper">
+        {/* Co-brand row — surf-store × Duotone. Source logos are dark grey,
+            forced to white on this dark hero via the brightness/invert filter. */}
+        <div className="flex items-center gap-5 mb-8">
           <Image
-            src="/logo-surfstore.svg"
+            src="/logo-surfstore.png"
             alt="Surf-Store.com"
-            width={240}
-            height={36}
-            className="h-8 md:h-9 w-auto"
+            width={480}
+            height={72}
+            className="h-9 md:h-10 w-auto"
+            style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
           <span className="text-paper/40 font-display text-xl" style={{ fontWeight: 800 }}>
             ×
           </span>
           <Image
-            src="/logo-duotone.svg"
+            src="/logo-duotone.png"
             alt="Duotone"
-            width={180}
-            height={36}
+            width={360}
+            height={72}
             className="h-8 md:h-9 w-auto"
+            style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
         </div>

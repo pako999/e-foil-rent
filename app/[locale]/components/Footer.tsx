@@ -12,22 +12,24 @@ export async function Footer({ locale }: { locale: Locale }) {
         <div>
           <a href={SITE.mainSite} target="_blank" rel="noreferrer" aria-label="Surf-Store.com">
             <Image
-              src="/logo-surfstore.svg"
+              src="/logo-surfstore.png"
               alt="Surf-Store.com"
-              width={240}
-              height={36}
-              className="h-8 w-auto text-paper"
+              width={480}
+              height={72}
+              className="h-9 w-auto"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </a>
           <p className="text-paper/70 max-w-xs mt-4">{t("tagline")}</p>
           <div className="mt-6 flex items-center gap-3">
             <span className="font-mono text-xs text-paper/50">{t("partner")}</span>
             <Image
-              src="/logo-duotone.svg"
+              src="/logo-duotone.png"
               alt="Duotone"
-              width={120}
-              height={24}
-              className="h-5 w-auto text-paper/80"
+              width={360}
+              height={72}
+              className="h-6 w-auto opacity-90"
+              style={{ filter: "brightness(0) invert(1)" }}
             />
           </div>
           <a
