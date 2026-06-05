@@ -52,16 +52,11 @@ async function send(args: {
         ? new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email)
         : new Sender("info@surf-store.com", "Surf-Store"),
     )
-    // List-Unsubscribe + List-Id mark the message as transactional and
-    // help Gmail/Outlook keep it out of Promotions/Spam.
-    .setHeaders([
-      {
-        name: "List-Unsubscribe",
-        value: `<mailto:info@surf-store.com?subject=unsubscribe>`,
-      },
-      { name: "List-Id", value: `bookings.e-foiling.si` },
-      { name: "X-Entity-Ref-ID", value: cryptoRandom() },
-    ])
+    // MailerSend only accepts custom headers prefixed with `X-`; setting
+    // List-Unsubscribe / List-Id here causes a 422. We still keep an
+    // X-Entity-Ref-ID for Gmail thread-grouping; List-Unsubscribe is
+    // configured at the MailerSend domain level (Settings → Inbound).
+    .setHeaders([{ name: "X-Entity-Ref-ID", value: cryptoRandom() }])
     .setTags(["booking"]);
   if (args.attachments && args.attachments.length > 0) {
     params.setAttachments(

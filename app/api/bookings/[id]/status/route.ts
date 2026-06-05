@@ -22,6 +22,29 @@ function isAuthed(req: Request, cookieToken: string | undefined) {
  * the notes prefix the form leaves, or default to Slovenian. Falls back
  * to "sl" when nothing matches.
  */
+// MailerSend / fetch throws don't always include a useful `message`. Try
+// progressively richer fields so the admin alert shows something concrete
+// instead of the literal string "undefined".
+function formatErr(err: unknown): string {
+  if (!err) return "unknown";
+  if (typeof err === "string") return err;
+  const e = err as {
+    message?: string;
+    statusCode?: number;
+    body?: unknown;
+  };
+  if (e.message) return e.message;
+  if (e.statusCode) {
+    const body = e.body ? ` ${JSON.stringify(e.body).slice(0, 240)}` : "";
+    return `HTTP ${e.statusCode}${body}`;
+  }
+  try {
+    return JSON.stringify(err).slice(0, 240);
+  } catch {
+    return String(err);
+  }
+}
+
 function pickLocale(notes: string | null): "sl" | "en" | "de" {
   if (notes && /\[Package:/.test(notes)) {
     // existing fall-through, no language hint in the prefix
@@ -103,7 +126,7 @@ export async function POST(
           }
         } catch (err) {
           console.error("[status] createProforma failed", err);
-          sideEffects.error = `proforma: ${(err as Error).message}`;
+          sideEffects.error = `proforma: ${formatErr(err)}`;
         }
         try {
           await sendApprovalEmail({
@@ -115,7 +138,7 @@ export async function POST(
           sideEffects.emailSent = true;
         } catch (err) {
           console.error("[status] sendApprovalEmail failed", err);
-          sideEffects.error = `${sideEffects.error ? sideEffects.error + "; " : ""}email: ${(err as Error).message}`;
+          sideEffects.error = `${sideEffects.error ? sideEffects.error + "; " : ""}email: ${formatErr(err)}`;
         }
       } else {
         try {
@@ -123,7 +146,7 @@ export async function POST(
           sideEffects.emailSent = true;
         } catch (err) {
           console.error("[status] sendCancellationEmail failed", err);
-          sideEffects.error = `email: ${(err as Error).message}`;
+          sideEffects.error = `email: ${formatErr(err)}`;
         }
       }
     }
