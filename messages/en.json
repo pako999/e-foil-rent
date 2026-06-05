@@ -21,7 +21,7 @@
   "hero": {
     "eyebrow": "Surf-Store.com — Green Lake, Kidričevo",
     "title": "FLY ABOVE WATER",
-    "subtitle": "E-foil school & Duotone board rental",
+    "subtitle": "E-foil school, rental and shop — Duotone boards",
     "tagline": "COME, TRY IT, FALL IN LOVE WITH E-FOILING!",
     "ctaPrimary": "Book a session",
     "ctaSecondary": "See packages",
@@ -72,7 +72,8 @@
         "f1": "Full day board + foil",
         "f2": "Charger and spare battery",
         "f3": "Helmet and life vest included",
-        "f4": "Short intro (optional)"
+        "f4": "Short intro (optional)",
+        "purchaseCredit": "Try first, buy later. If you decide to buy, the 1-day rental fee is credited toward the board's price."
       },
       "weekend": {
         "name": "Weekend (Fri–Sun)",
@@ -646,6 +647,7 @@
   },
   "shop": {
     "eyebrow": "Buy your own",
+    "rentalCredit": "Try first, buy later — your 1-day rental is credited toward the board's price.",
     "title": "FELL IN LOVE? TAKE ONE HOME.",
     "body": "Find every Duotone e-foil set in our Surf-Store.com shop. Free shipping across Slovenia.",
     "cta": "Browse e-foil sets"

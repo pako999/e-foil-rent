@@ -21,7 +21,7 @@
   "hero": {
     "eyebrow": "Surf-Store.com — Green Lake, Kidričevo",
     "title": "LETI NAD VODO",
-    "subtitle": "Šola e-foila in izposoja Duotone desk",
+    "subtitle": "Šola e-foila, izposoja in nakup Duotone desk",
     "tagline": "PRIDI, PREIZKUSI, ZALJUBI SE V E-FOILING!",
     "ctaPrimary": "Rezerviraj termin",
     "ctaSecondary": "Cene & paketi",
@@ -72,7 +72,8 @@
         "f1": "Cel dan deske + foil",
         "f2": "Polnilnik in rezervna baterija",
         "f3": "Čelada in reševalni jopič vključena",
-        "f4": "Krajši uvod (po želji)"
+        "f4": "Krajši uvod (po želji)",
+        "purchaseCredit": "Probaj, potem kupi. Če se odločiš za nakup deske, znesek enodnevne izposoje odštejemo od končne cene."
       },
       "weekend": {
         "name": "Vikend (pet–ned)",
@@ -646,6 +647,7 @@
   },
   "shop": {
     "eyebrow": "Kupi svoj e-foil",
+    "rentalCredit": "Probaj, potem kupi — enodnevno izposojo ti odštejemo od cene deske.",
     "title": "ZALJUBLJEN? PELJI GA DOMOV.",
     "body": "Vse Duotone e-foil sete najdeš v naši trgovini Surf-Store.com. Brezplačna dostava po Sloveniji.",
     "cta": "Oglej si komplete v trgovini"

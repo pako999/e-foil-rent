@@ -18,6 +18,9 @@ export async function ShopCta() {
             />
           </div>
           <div className="bg-gold p-8 md:p-12 flex flex-col justify-center">
+            <p className="inline-block self-start font-display uppercase tracking-widest text-[10px] sm:text-xs text-gold bg-ink px-2 py-1 mb-4 border-2 border-ink" style={{ fontWeight: 800 }}>
+              ★ {t("rentalCredit")}
+            </p>
             <p className="eyebrow mb-3">🛒 // {t("eyebrow")}</p>
             <h2 className="h-display text-4xl md:text-5xl text-ink mb-4">
               {t("title")}

@@ -61,7 +61,7 @@ export async function BoardsRow({
                   </p>
                 </div>
               </div>
-              <a href={`#book?board=${board.id}`} data-board-id={board.id} className="btn-primary w-full">
+              <a href="#book" data-board-id={board.id} className="btn-primary w-full">
                 {t("bookCta")} →
               </a>
             </div>
@@ -120,7 +120,7 @@ export async function BoardsRow({
                   </span>
                 </div>
                 <a
-                  href={`#book?board=${board.id}`}
+                  href="#book"
                   data-board-id={board.id}
                   className="btn-sky w-full"
                 >

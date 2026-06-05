@@ -109,8 +109,13 @@ export async function Packages({
                     </li>
                   ))}
                 </ul>
+                {pkg.id === "day1" && (
+                  <p className="text-xs text-ink/80 mb-4 border-l-2 border-ink pl-3 italic">
+                    💡 {t("items.day1.purchaseCredit")}
+                  </p>
+                )}
                 <a
-                  href={`#book?pkg=${pkg.id}`}
+                  href="#book"
                   data-pkg-id={pkg.id}
                   className={isBest ? "btn-ghost" : "btn-primary"}
                 >

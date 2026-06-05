@@ -67,13 +67,38 @@ export function BookingSection({
     [boards, boardId],
   );
 
-  // Preselect board/package from URL hash (`#book?board=2&pkg=day3`).
+  // Preselect from URL params (?board=2&pkg=day3) — used for shareable links.
   useEffect(() => {
-    const params = new URLSearchParams(window.location.hash.split("?")[1] ?? "");
+    const params = new URLSearchParams(window.location.search);
     const id = Number(params.get("board"));
     if (id && boards.some((b) => b.id === id)) setBoardId(id);
     const pkg = params.get("pkg") as PackageId | null;
     if (pkg && PACKAGES.some((p) => p.id === pkg)) applyPackage(pkg);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boards]);
+
+  // Delegated click handler: when a "Rezerviraj" CTA elsewhere on the page
+  // has data-pkg-id or data-board-id, apply that selection. The plain
+  // href="#book" handles the scroll. This replaces the broken `#book?pkg=…`
+  // hash-query trick, which browsers parsed as part of the fragment ID
+  // and refused to scroll to.
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      const target = e.target as Element | null;
+      if (!target || !("closest" in target)) return;
+      const pkgEl = target.closest<HTMLElement>("[data-pkg-id]");
+      if (pkgEl) {
+        const id = pkgEl.dataset.pkgId as PackageId | undefined;
+        if (id && PACKAGES.some((p) => p.id === id)) applyPackage(id);
+      }
+      const boardEl = target.closest<HTMLElement>("[data-board-id]");
+      if (boardEl) {
+        const id = Number(boardEl.dataset.boardId);
+        if (id && boards.some((b) => b.id === id)) setBoardId(id);
+      }
+    }
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boards]);
 
