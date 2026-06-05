@@ -11,7 +11,7 @@ import {
   PACKAGES,
   type PackageId,
 } from "@/lib/pricing";
-import type { Locale } from "@/i18n/request";
+import { intlLocale as toIntlLocale, type Locale } from "@/i18n/request";
 
 type Status =
   | { kind: "idle" }
@@ -43,7 +43,7 @@ export function BookingSection({
   const t = useTranslations("booking");
   const tPkg = useTranslations("packages");
   const tPickup = useTranslations("pickup");
-  const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
+  const intlLocale = toIntlLocale(locale);
 
   const [boardId, setBoardId] = useState<number | "">(boards[0]?.id ?? "");
   const [startDate, setStartDate] = useState("");

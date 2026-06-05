@@ -7,26 +7,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
   const now = new Date();
 
-  const make = (path: string, priority: number, lastMod: Date = now) => [
-    {
-      url: `${base}/sl${path}`,
-      lastModified: lastMod,
-      changeFrequency: "weekly" as const,
-      priority,
-      alternates: {
-        languages: { sl: `${base}/sl${path}`, en: `${base}/en${path}` },
+  const languages = {
+    sl: `${base}/sl`,
+    en: `${base}/en`,
+    de: `${base}/de`,
+  } as const;
+
+  const make = (path: string, priority: number, lastMod: Date = now) => {
+    const langs = {
+      sl: `${languages.sl}${path}`,
+      en: `${languages.en}${path}`,
+      de: `${languages.de}${path}`,
+    };
+    return [
+      {
+        url: langs.sl,
+        lastModified: lastMod,
+        changeFrequency: "weekly" as const,
+        priority,
+        alternates: { languages: langs },
       },
-    },
-    {
-      url: `${base}/en${path}`,
-      lastModified: lastMod,
-      changeFrequency: "weekly" as const,
-      priority: Math.max(0.1, priority - 0.1),
-      alternates: {
-        languages: { sl: `${base}/sl${path}`, en: `${base}/en${path}` },
+      {
+        url: langs.en,
+        lastModified: lastMod,
+        changeFrequency: "weekly" as const,
+        priority: Math.max(0.1, priority - 0.1),
+        alternates: { languages: langs },
       },
-    },
-  ];
+      {
+        url: langs.de,
+        lastModified: lastMod,
+        changeFrequency: "weekly" as const,
+        priority: Math.max(0.1, priority - 0.1),
+        alternates: { languages: langs },
+      },
+    ];
+  };
 
   const staticEntries = [
     ...make("", 1),

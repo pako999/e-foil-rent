@@ -8,7 +8,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 import { SITE, TECAJI_LOCATIONS } from "@/lib/content";
 
@@ -38,6 +38,7 @@ export async function generateMetadata({
       languages: {
         sl: "/sl/tecaji",
         en: "/en/tecaji",
+        de: "/de/tecaji",
         "x-default": "/sl/tecaji",
       },
     },
@@ -47,7 +48,7 @@ export async function generateMetadata({
       type: "article",
       url: `${siteUrl}/${locale}/tecaji`,
       siteName: "Surf-Store.com",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
       images: [{ url: "/hero.jpg", width: 1200, height: 630, alt: "E-foil course" }],
     },
   };
@@ -71,7 +72,7 @@ export default async function TecajiPage({
     "@type": "Course",
     name: tMeta("title"),
     description: tMeta("description"),
-    inLanguage: locale === "sl" ? "sl-SI" : "en-GB",
+    inLanguage: intlLocale(locale as Locale),
     provider: {
       "@type": "Organization",
       name: "Surf-Store.com",

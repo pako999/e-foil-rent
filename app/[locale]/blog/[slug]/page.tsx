@@ -14,7 +14,7 @@ import {
   type BlogBlock,
   type BlogPost,
 } from "@/lib/blog-posts";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -39,6 +39,7 @@ export async function generateMetadata({
       languages: {
         sl: `/sl/blog/${slug}`,
         en: `/en/blog/${slug}`,
+        de: `/de/blog/${slug}`,
         "x-default": `/sl/blog/${slug}`,
       },
     },
@@ -48,7 +49,7 @@ export async function generateMetadata({
       type: "article",
       url: `${siteUrl}/${locale}/blog/${slug}`,
       siteName: "Surf-Store.com",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
       publishedTime: post.publishedAt,
       images: [
         { url: post.cover.src, width: 1200, height: 630, alt: post.cover.alt },
@@ -182,7 +183,7 @@ export default async function BlogPostPage({
     "@type": "Article",
     headline: c.metaTitle,
     description: c.metaDescription,
-    inLanguage: locale === "sl" ? "sl-SI" : "en-GB",
+    inLanguage: intlLocale(locale as Locale),
     image: `${siteUrl}${post.cover.src}`,
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,

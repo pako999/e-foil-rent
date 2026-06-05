@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, ogLocale, type Locale } from "@/i18n/request";
 import { ConsentInit } from "./components/ConsentInit";
 import { CookieBanner } from "./components/CookieBanner";
 import "../globals.css";
@@ -45,6 +45,7 @@ export async function generateMetadata({
       languages: {
         sl: "/sl",
         en: "/en",
+        de: "/de",
         "x-default": "/sl",
       },
     },
@@ -54,7 +55,7 @@ export async function generateMetadata({
       type: "website",
       url: `${siteUrl}/${locale}`,
       siteName: "Surf-Store.com — E-Foil",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
       images: [
         {
           url: "/opengraph-image.jpg",

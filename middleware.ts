@@ -17,21 +17,24 @@ const localePrefix = new RegExp(`^/(${locales.join("|")})(/|$)`);
 /**
  * Pick a locale for a fresh visitor:
  * - SI IP → Slovenian
+ * - DE / AT / CH IP → German
  * - everything else → English
  *
  * Vercel injects `x-vercel-ip-country` on production. Locally / on
  * self-hosted nodes that header is empty, so we fall through to the
  * configured default (sl).
  */
-function pickLocale(req: NextRequest): "sl" | "en" {
-  const country =
+function pickLocale(req: NextRequest): "sl" | "en" | "de" {
+  const country = (
     req.headers.get("x-vercel-ip-country") ??
     req.headers.get("cf-ipcountry") ??
-    "";
-  if (country.toUpperCase() === "SI") return "sl";
+    ""
+  ).toUpperCase();
+  if (country === "SI") return "sl";
+  if (country === "DE" || country === "AT" || country === "CH") return "de";
   // No geo signal at all → use the configured default so we don't ship a
   // dev-mode visitor to /en accidentally.
-  if (!country) return defaultLocale as "sl" | "en";
+  if (!country) return defaultLocale as "sl" | "en" | "de";
   return "en";
 }
 

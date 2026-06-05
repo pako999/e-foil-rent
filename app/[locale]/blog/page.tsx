@@ -9,7 +9,7 @@ import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
 import { BLOG_POSTS } from "@/lib/blog-posts";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -32,6 +32,7 @@ export async function generateMetadata({
       languages: {
         sl: "/sl/blog",
         en: "/en/blog",
+        de: "/de/blog",
         "x-default": "/sl/blog",
       },
     },
@@ -41,7 +42,7 @@ export async function generateMetadata({
       type: "website",
       url: `${siteUrl}/${locale}/blog`,
       siteName: "Surf-Store.com",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
     },
   };
 }

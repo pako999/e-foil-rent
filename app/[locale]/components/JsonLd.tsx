@@ -73,7 +73,7 @@ export function JsonLd({ boards }: { boards: Board[] }) {
     url: siteUrl,
     name: "Surf-Store — E-Foil",
     publisher: { "@id": `${siteUrl}#org` },
-    inLanguage: ["sl-SI", "en-GB"],
+    inLanguage: ["sl-SI", "en-GB", "de-DE"],
   };
 
   return (

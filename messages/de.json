@@ -1,0 +1,849 @@
+{
+  "meta": {
+    "title": "E-Foil Schule & Verleih | Surf-Store.com",
+    "description": "Duotone E-Foil Boards am Grünen See, Kidričevo, Slowenien. Komm vorbei, probier es aus, verlieb dich ins E-Foilen. Kurse und Verleih für Anfänger und Fortgeschrittene.",
+    "ogAlt": "E-Foil Ride am Grünen See, Kidričevo"
+  },
+  "nav": {
+    "packages": "Pakete",
+    "tecaji": "Kurse",
+    "blog": "Blog",
+    "efoil": "E-Foil",
+    "duotone": "Duotone",
+    "boards": "Boards",
+    "how": "So funktioniert's",
+    "specs": "Specs",
+    "location": "Standort",
+    "gallery": "Galerie",
+    "faq": "FAQ",
+    "book": "Buchen",
+    "language": "Sprache"
+  },
+  "hero": {
+    "eyebrow": "Surf-Store.com — Grüner See, Kidričevo",
+    "title": "FLIEG ÜBERS WASSER",
+    "subtitle": "E-Foil Schule, Verleih und Shop — Duotone Boards",
+    "tagline": "KOMM, PROBIER ES, VERLIEB DICH INS E-FOILEN!",
+    "ctaPrimary": "Session buchen",
+    "ctaSecondary": "Pakete ansehen",
+    "badge1": "Keine Erfahrung nötig.",
+    "badge2": "Die meisten fliegen in 1 Stunde.",
+    "badge3": "100 % elektrisch & lautlos."
+  },
+  "features": {
+    "electric": {
+      "title": "100 % elektrisch",
+      "body": "Kein Sprit, kein Motorlärm. Nur du, das Wasser und der Flug."
+    },
+    "silent": {
+      "title": "Lautlos & emissionsfrei",
+      "body": "Naturfreundlich — perfekt für Seen und Schutzgebiete."
+    },
+    "easy": {
+      "title": "Einfach zu reiten",
+      "body": "Die meisten fliegen in einer Stunde. Für jedes Alter geeignet."
+    }
+  },
+  "packages": {
+    "eyebrow": "Preise & Pakete",
+    "title": "WÄHL DEIN PAKET",
+    "subtitle": "Vom 30-Minuten-Schnupperkurs bis zum zweiwöchigen Urlaubsverleih — jedes Paket umfasst Board, Sicherheitsausrüstung und kurze Einführung.",
+    "locationsNotice": "Sessions finden an drei Standorten statt: Grüner See (Kidričevo), Gramoznica Soboško jezero (Murska Sobota) und Maribor. Der genaue Spot wird im Voraus abgestimmt.",
+    "fromPrice": "ab {price}",
+    "select": "Buchen",
+    "bestBadge": "Am beliebtesten",
+    "include": "Inklusive",
+    "perDay": "{price}/Tag",
+    "savings": "Spare {amount} ({pct} %)",
+    "vatNote": "inkl. 22 % MwSt.",
+    "items": {
+      "30min": {
+        "name": "30 Min — Schnupper",
+        "duration": "30 Minuten",
+        "desc": "Ein kurzer Geschmack vom Fliegen über dem Wasser. Perfekt für Neulinge, die erst mal reinschnuppern wollen.",
+        "f1": "Kurze Einweisung",
+        "f2": "Helm und Schwimmweste inklusive",
+        "f3": "Instruktor",
+        "f4": "Komplette Sicherheitsausrüstung",
+        "locationNote": "Nur an: Grüner See · Gramoznica Soboško jezero · Maribor (nach Absprache)"
+      },
+      "day1": {
+        "name": "Tagesverleih",
+        "duration": "1 Tag",
+        "desc": "Ganztägiger Verleih. Lass dir Zeit — üben, ausruhen, wieder fliegen.",
+        "f1": "Ganzer Tag Board + Foil",
+        "f2": "Ladegerät und Ersatzakku",
+        "f3": "Helm und Schwimmweste inklusive",
+        "f4": "Kurze Einweisung (optional)",
+        "purchaseCredit": "Erst testen, dann kaufen. Entscheidest du dich für den Kauf, wird die 1-Tages-Leihgebühr auf den Boardpreis angerechnet."
+      },
+      "weekend": {
+        "name": "Wochenende (Sa–So)",
+        "duration": "Sa–So",
+        "desc": "Abholung Freitag nach 17:00 Uhr, Rückgabe Sonntag bis 20:00 oder Montag bis 10:00 Uhr. Ein ganzes Wochenende reiten zum Festpreis.",
+        "f1": "Abholung Freitag nach 17:00",
+        "f2": "Rückgabe Sonntag bis 20:00 oder Montag bis 10:00",
+        "f3": "Ladegerät und Ersatzakku",
+        "f4": "Helm und Schwimmweste inklusive"
+      },
+      "week1": {
+        "name": "1 Woche",
+        "duration": "7 Tage",
+        "desc": "Eine volle Woche zum Festpreis. Ideal für einen Urlaub am See.",
+        "f1": "7 Tage Verleih, Festpreis",
+        "f2": "Ladegerät und Ersatzakku",
+        "f3": "Helm und Schwimmweste inklusive",
+        "f4": "Support vor Ort"
+      },
+      "week2": {
+        "name": "2 Wochen — VIP",
+        "duration": "14 Tage",
+        "desc": "Zwei Wochen volles Erlebnis. Bester Tagessatz.",
+        "f1": "14 Tage Verleih, Festpreis",
+        "f2": "Ladegerät und Ersatzakku",
+        "f3": "Helm und Schwimmweste inklusive",
+        "f4": "Priority Support"
+      }
+    }
+  },
+  "location": {
+    "title": "STANDORT",
+    "name": "Grüner See, Kidričevo",
+    "blurb": "Genieße die Freiheit des Fluges über dem Wasser am Grünen See.",
+    "directions": "Route anzeigen",
+    "address": "Grüner See, Kidričevo, Slowenien"
+  },
+  "boards": {
+    "title": "UNSERE AUSRÜSTUNG",
+    "subtitle": "DUOTONE FOIL CRUISE SET AL",
+    "tagline": "Mit dem Duotone Midwish 5'8 Board — unser Verleih-Setup.",
+    "perDay": "/Tag",
+    "fromWeek": "ab {price}/Woche",
+    "from30": "ab {price}/30 Min",
+    "bookCta": "Buchen"
+  },
+  "how": {
+    "title": "FÜR ALLE — ANFÄNGER BIS FORTGESCHRITTENE",
+    "subtitle": "Sessions nach Terminvereinbarung. In drei Schritten über das Wasser fliegen.",
+    "step1Title": "Termin wählen",
+    "step1Body": "Online buchen oder uns anschreiben — wir bestätigen innerhalb von 24 Stunden.",
+    "step2Title": "Kurze Einweisung",
+    "step2Body": "Der Instruktor erklärt Sicherheit, Balance und deinen ersten Lift-off.",
+    "step3Title": "Über dem Wasser fliegen",
+    "step3Body": "Lautloses Gleiten einen Meter über der Oberfläche. Eine neue Art, Wasser zu spüren."
+  },
+  "gallery": {
+    "eyebrow": "Galerie",
+    "title": "DAS IST UNSER TAG",
+    "subtitle": "Echte Rides, echte Momente. Ohne Filter."
+  },
+  "reviews": {
+    "eyebrow": "Bewertungen",
+    "title": "WAS RIDER SAGEN",
+    "items": {
+      "r1": {
+        "quote": "Bestes Erlebnis des Sommers! Nach 20 Minuten bin ich geflogen. Der Instruktor ist großartig.",
+        "author": "Maja",
+        "city": "Maribor"
+      },
+      "r2": {
+        "quote": "Lautlos, schnell, pure Magie. Habe das 3-Tages-Paket genommen und jeder Tag war wilder als der davor.",
+        "author": "Luka",
+        "city": "Ljubljana"
+      },
+      "r3": {
+        "quote": "Ein Familienausflug, den wir nie vergessen. Die Kinder liebten es, das Team war erstklassig.",
+        "author": "Andreja",
+        "city": "Celje"
+      }
+    }
+  },
+  "gift": {
+    "eyebrow": "Geschenk mit Sinn",
+    "title": "SCHENKE DEN FLUG",
+    "body": "Ein Gutschein für 30 Minuten Schnupper oder einen ganzen Tag Verleih. 12 Monate gültig.",
+    "cta": "Geschenkgutschein bestellen"
+  },
+  "faq": {
+    "eyebrow": "Häufig gefragt",
+    "title": "HÄUFIG GEFRAGT",
+    "groups": {
+      "school": "Schule & Standort (Grüner See)",
+      "rental": "Ausrüstungsverleih"
+    },
+    "items": {
+      "age": {
+        "q": "Wie alt muss ich sein?",
+        "a": "Mindestalter 14 Jahre (mit Einverständnis der Eltern), keine Altersgrenze nach oben. Unsere ältesten Rider sind 65+."
+      },
+      "experience": {
+        "q": "Brauche ich Erfahrung?",
+        "a": "Nein. 90 % unserer Gäste starten bei null. Eine kurze Einweisung dauert ca. 15 Minuten und deckt alles ab, was du brauchst."
+      },
+      "weather": {
+        "q": "Was bei schlechtem Wetter?",
+        "a": "Du kannst bis 12 Stunden vorher kostenlos verschieben. Bei Sturm oder starkem Wind schlagen wir einen anderen Termin vor."
+      },
+      "gear": {
+        "q": "Was soll ich mitbringen?",
+        "a": "Badesachen, Handtuch, Sonnencreme. Alles andere (Board, Helm, Weste, Neopren) ist inklusive."
+      },
+      "weight": {
+        "q": "Gibt es ein Gewichtslimit?",
+        "a": "Das Board funktioniert für Rider von 40 bis 110 kg."
+      },
+      "pickup": {
+        "q": "Wie laufen Abholung und Rückgabe?",
+        "a": "Nach Vereinbarung — an unserer Basis am Grünen See oder in einer der Partnerstädte (Maribor, Ljubljana, Celje). Bei der Abholung erklären wir Ausrüstung, Akkuladung und Sicherheitsabläufe. Die Rückgabe genauso."
+      },
+      "cities": {
+        "q": "Welche Städte deckt ihr für die Abholung ab?",
+        "a": "Kostenlose Abholung in Maribor, Ljubljana und Celje. Für andere slowenische Städte können wir gegen Gebühr eine Lieferung organisieren — schreib an info@surf-store.com."
+      },
+      "ownSpot": {
+        "q": "Kann ich das Board zu meinem eigenen See oder ans Meer mitnehmen?",
+        "a": "Ja — E-Foilen ist auf den meisten slowenischen Seen erlaubt (lokale Regeln prüfen — einige Schutzgebiete brauchen eine Genehmigung). Am Meer brauchst du eine normale Navigationsgenehmigung, dieselbe wie für WIN/SUP."
+      },
+      "deposit": {
+        "q": "Gibt es eine Kaution?",
+        "a": "Für jeden Verleih (1 Tag oder länger) verlangen wir 500 € Kaution in bar oder per Karte. Sie wird direkt nach Rückgabe und Prüfung der Ausrüstung erstattet, sofern keine sichtbaren Schäden vorliegen."
+      },
+      "charging": {
+        "q": "Wie lade ich den Akku?",
+        "a": "Mit dem mitgelieferten Ladegerät an jeder Standard-220V-Steckdose. Eine volle Ladung dauert ca. 1 Stunde. Du hast zwei Akkus — nutze einen, während der andere lädt."
+      },
+      "transport": {
+        "q": "Welches Auto brauche ich für den Transport?",
+        "a": "Das Duotone Foil Cruise Set ist ca. 1,75 m lang. Passt in die meisten Vans, SUVs und Kombis mit umgeklappten Sitzen. Für Limousinen empfehlen wir einen Dachträger oder kleinen Anhänger."
+      },
+      "damage": {
+        "q": "Was passiert bei Beschädigung?",
+        "a": "Kleine Schäden (Kratzer am Board) werden über die Kaution abgedeckt. Größere Schäden (gebrochenes Foil, Motor oder Akku) werden zu Duotone-Servicepreisen berechnet. Wir empfehlen, vor dem Wassergang einen kurzen Zustandscheck zu filmen."
+      },
+      "cancel": {
+        "q": "Wie ist eure Stornoregelung?",
+        "a": "Kostenlose Stornierung bis 48 Stunden vorher. 48–24 Stunden: halber Preis. Weniger als 24 h: voller Preis. Wetterbedingte Umbuchungen sind kostenlos."
+      }
+    }
+  },
+  "booking": {
+    "title": "SESSION BUCHEN",
+    "subtitle": "Wähle Board, Termine und Art — wir berechnen den Preis live.",
+    "quickPick": "Schnellauswahl",
+    "selectBoard": "Board wählen",
+    "selectBoardPlaceholder": "— wählen —",
+    "startDate": "Startdatum",
+    "endDate": "Enddatum",
+    "experience": "Dein Level",
+    "experienceBeginner": "Anfänger",
+    "experienceExperienced": "Fortgeschritten",
+    "type": "Buchungsart",
+    "typeRental": "Verleih",
+    "typeLesson": "Kurs",
+    "typeBoth": "Verleih + Kurs",
+    "name": "Vor- und Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "notes": "Anmerkungen (optional)",
+    "submit": "Buchung absenden",
+    "submitting": "Senden …",
+    "successTitle": "Buchung eingegangen!",
+    "successBody": "Wir haben dir eine Bestätigung per E-Mail geschickt. Wir bestätigen den Termin innerhalb von 24 Stunden.",
+    "errorTitle": "Etwas ist schiefgelaufen",
+    "errorGeneric": "Bitte erneut versuchen oder schreib uns an info@surf-store.com.",
+    "errorUnavailable": "Diese Termine sind nicht mehr verfügbar. Bitte wähle einen anderen Zeitraum.",
+    "priceTitle": "Preis",
+    "priceDays": "{days, plural, one {# Tag} other {# Tage}}",
+    "priceDiscount": "Rabatt",
+    "priceTotal": "Gesamt",
+    "netLabel": "Nettopreis",
+    "vatLabel": "MwSt. (22 %)",
+    "totalWithVat": "Gesamt inkl. MwSt.",
+    "vatIncluded": "Preis inkl. 22 % MwSt.",
+    "noDates": "Wähle Termine, um den Preis zu sehen.",
+    "honeypot": "Leer lassen"
+  },
+  "video": {
+    "eyebrow": "Live ansehen",
+    "title": "DAS IST E-FOILEN",
+    "subtitle": "Lautloses Gleiten einen Meter über dem Wasser — bis zu 40 km/h, keine Wellen nötig.",
+    "playLabel": "Video abspielen"
+  },
+  "tech": {
+    "eyebrow": "Tech",
+    "title": "WARUM E-FOIL?",
+    "subtitle": "Ein elektrisches Hydrofoil hebt dich übers Wasser. Fast null Widerstand. Fast null Lärm. Ein ganzer Tag Spaß.",
+    "items": {
+      "range": { "title": "Reichweite", "body": "Bis zu 2 Stunden Fahrzeit pro Ladung, je nach Fahrstil." },
+      "speed": { "title": "Geschwindigkeit", "body": "40+ km/h Spitze. Steuerung per Funktrigger." },
+      "battery": { "title": "Li-Ion Akku", "body": "Quick-Swap-Pack — 75 Min Ladezeit für einen vollen Flug." },
+      "weight": { "title": "Leichtes Board", "body": "Carbon-Konstruktion, 14–17 kg komplett mit Foil." },
+      "silent": { "title": "Lautloser Motor", "body": "Brushless Antrieb — du hörst nur das Wasser." },
+      "easy": { "title": "Schnell zu lernen", "body": "Smart-Throttle — sicher auch für Totalanfänger." }
+    }
+  },
+  "explore": {
+    "eyebrow": "Mehr entdecken",
+    "title": "ALLES ZUM E-FOILEN AN EINEM ORT",
+    "readMore": "Lesen",
+    "items": {
+      "tecaji": { "title": "E-Foil Kurse", "body": "Anfänger-, Aufbau- und Privatkurse mit lizenziertem Instruktor. Vom ersten Lift-off bis zum eigenständigen Riden." },
+      "efoil": { "title": "Was ist ein E-Foil", "body": "Der komplette Einsteiger-Guide — wie es funktioniert, was es kostet, für wen es ist. Ausführliche Erklärungsseite." },
+      "duotone": { "title": "Duotone Foil", "body": "Alles über unsere Verleih-Ausrüstung — D/LAB Carbon, Cruise AL, modulare Plattform und 9 Pflege-Videoanleitungen." },
+      "blog": { "title": "Blog & Guides", "body": "Die besten Spots in Slowenien, Preise 2026, Gear-Reviews und praktische Tipps für neue Rider." }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "E-Foil Blog — Guides &amp; Tipps | Surf-Store",
+      "description": "Guides, Preise, Spots und Tipps zum E-Foilen in Slowenien. Alles über Duotone Ausrüstung und die Schule an einem Ort.",
+      "keywords": "E-Foil Blog, E-Foil Slowenien Guide, E-Foil News, E-Foil Tipps"
+    },
+    "eyebrow": "Blog",
+    "title": "E-FOIL BLOG",
+    "subtitle": "Guides, Reviews und Tipps für alle, die sich für E-Foilen in Slowenien interessieren.",
+    "readingTime": "{minutes} Min Lesezeit",
+    "readMore": "Artikel lesen",
+    "backToBlog": "← Alle Artikel",
+    "publishedOn": "Veröffentlicht",
+    "categories": {
+      "guide": "Guide",
+      "howto": "How-to",
+      "price": "Preise",
+      "locations": "Spots",
+      "gear": "Ausrüstung"
+    },
+    "share": "Artikel teilen",
+    "relatedTitle": "Verwandte Artikel"
+  },
+  "tecaji": {
+    "meta": {
+      "title": "E-Foil Kurse & Schule | Surf-Store Slowenien",
+      "description": "Anfänger-, Aufbau- und Privatkurse mit lizenziertem Instruktor. Grüner See, Murska Sobota und Maribor.",
+      "keywords": "E-Foil Kurs, E-Foil Schule Slowenien, E-Foil Unterricht, E-Foil Instruktor, Anfängerkurs E-Foil, Privatkurs E-Foil, Duotone Kurs"
+    },
+    "hero": {
+      "eyebrow": "E-Foil Schule",
+      "title": "E-FOIL KURSE",
+      "subtitle": "Vom ersten Lift-off bis zum eigenständigen Riden — mit lizenziertem Instruktor und kompletter Ausrüstung.",
+      "ctaBook": "Kurs buchen",
+      "ctaScroll": "Kurse ansehen"
+    },
+    "why": {
+      "eyebrow": "Warum ein Kurs",
+      "title": "WARUM EIN KURS MIT INSTRUKTOR?",
+      "items": {
+        "fast": {
+          "title": "Schnellerer Fortschritt",
+          "body": "Mit Instruktor fliegen die meisten Rider in der ersten Stunde. Selbst lernen dauert oft einen zweiten Tag."
+        },
+        "safe": {
+          "title": "Sichere Umgebung",
+          "body": "Der Instruktor beobachtet vom Boot oder vom Ufer. Sicherheitsausrüstung und Abläufe sind immer bereit."
+        },
+        "feedback": {
+          "title": "Live-Korrekturen",
+          "body": "Der Instruktor erkennt Fehler (Stand, Balance, Gewichtsverlagerung), die du selbst nicht siehst, und korrigiert sie sofort."
+        },
+        "gear": {
+          "title": "Richtige Ausrüstung",
+          "body": "Boards, Wings und Masten werden auf dein Gewicht, deine Erfahrung und die Tagesbedingungen abgestimmt."
+        }
+      }
+    },
+    "levels": {
+      "eyebrow": "Levels",
+      "title": "KURS-LEVEL",
+      "subtitle": "Drei klare Stufen — vom absoluten Anfänger bis zur Technikfeinarbeit.",
+      "items": {
+        "beginner": {
+          "name": "Anfängerkurs",
+          "duration": "2 Stunden",
+          "price": "199 €",
+          "priceNote": "Pauschalpreis für 2 Stunden.",
+          "target": "Für alle, die noch nie auf einem E-Foil standen.",
+          "f1": "Briefing und Grundsteuerung",
+          "f2": "Kniend und stehend starten",
+          "f3": "Erster Lift-off und stabiles Riden",
+          "f4": "Komplette Ausrüstung inklusive"
+        },
+        "intermediate": {
+          "name": "Aufbaukurs",
+          "duration": "4 Stunden · 2 Tage",
+          "price": "400 €",
+          "priceNote": "Insgesamt 4 Stunden, aufgeteilt auf 2 Tage.",
+          "target": "Für Rider, die schon fliegen und mehr Kontrolle wollen.",
+          "f1": "Längerer Flug ohne Aussetzer",
+          "f2": "Kurven und Richtungswechsel",
+          "f3": "Technik der Gewichtsverlagerung",
+          "f4": "Video-Review der Session"
+        },
+        "private": {
+          "name": "Privatkurs",
+          "duration": "Auf Anfrage",
+          "price": "Auf Anfrage",
+          "priceNote": "Preis abhängig von Dauer und Umfang.",
+          "target": "1-zu-1 mit dem Instruktor. Schnellster Fortschritt.",
+          "f1": "Individuelles Programm",
+          "f2": "Dein eigenes Tempo",
+          "f3": "Flexible Termine",
+          "f4": "Ideal für Familien oder Paare"
+        }
+      }
+    },
+    "what": {
+      "eyebrow": "Was du lernst",
+      "title": "PROGRAMM ANFÄNGERKURS",
+      "subtitle": "Unser bewährtes 5-Schritte-Programm — 90 % der Gäste fliegen in der ersten Stunde.",
+      "steps": {
+        "s1": "Briefing — Sicherheit, Ausrüstung, Trigger-Kontrolle",
+        "s2": "Bauch- und Knieposition auf dem Board",
+        "s3": "Erstes stehendes Gleiten ohne Foil-Aktion",
+        "s4": "Gewichtsverlagerung — Lift-off und Stabilisierung",
+        "s5": "Längere Rides, erste Kurven"
+      }
+    },
+    "instructor": {
+      "eyebrow": "Instruktor",
+      "title": "DEIN INSTRUKTOR",
+      "p1": "Unsere Instruktoren sind durch die ISA (International Surfing Association) lizenziert und haben 5+ Jahre aktive Praxis auf dem Wasser.",
+      "p2": "Sie spezialisieren sich auf E-Foil, Wing-Foil und SUP — können also den Ansatz an deinen Background und deine Fitness anpassen.",
+      "p3": "Unterricht auf Slowenisch, Kroatisch, Englisch und Deutsch."
+    },
+    "included": {
+      "eyebrow": "Inklusive",
+      "title": "WAS IST DABEI",
+      "items": {
+        "board": "Duotone E-Foil Board und Foil",
+        "battery": "Voller Akku (Ersatz auf Wunsch)",
+        "safety": "Helm, Schwimmweste, Leash",
+        "wetsuit": "Neoprenanzug (saisonal)",
+        "insurance": "Grundversicherung der Ausrüstung",
+        "photos": "Foto-Erinnerung (auf Wunsch)"
+      }
+    },
+    "locations": {
+      "eyebrow": "Wo",
+      "title": "KURSSTANDORTE",
+      "subtitle": "Drei feste Spots in Slowenien — der genaue Veranstaltungsort wird per E-Mail oder Telefon abhängig von der Wettervorhersage abgestimmt.",
+      "openMap": "Auf Karte anzeigen",
+      "items": {
+        "greenLake": { "name": "Grüner See, Kidričevo", "note": "Hauptbasis — am besten für Anfänger (ruhiges Wasser)." },
+        "ms": { "name": "Gramoznica Soboško jezero, Murska Sobota", "note": "Ruhige Gewässer des Sobota-Kiessees — toll für Wochenendkurse." },
+        "maribor": { "name": "Maribor", "note": "Nach Absprache, geeignet für Gruppensessions." }
+      }
+    },
+    "faq": {
+      "eyebrow": "Häufig gefragt",
+      "title": "HÄUFIG GEFRAGT",
+      "items": {
+        "needSwim": {
+          "q": "Muss ich schwimmen können?",
+          "a": "Ja. Alle tragen eine Schwimmweste, aber Grundkenntnisse im Schwimmen sind trotzdem nötig."
+        },
+        "ageMin": {
+          "q": "Was ist das Mindestalter?",
+          "a": "Mindestalter 14 Jahre mit Einverständnis der Eltern. Unter 18-Jährige machen den Kurs mit einem Elternteil oder Erziehungsberechtigten."
+        },
+        "group": {
+          "q": "Gruppen- oder Privatkurs?",
+          "a": "Gruppe (max 4 Personen) ist günstiger und geselliger. Privat (1-zu-1) ist schneller und individuell zugeschnitten."
+        },
+        "weather": {
+          "q": "Was bei schlechtem Wetter?",
+          "a": "Kostenlose Umbuchung bis 12 Stunden vor dem Kurs. Bei Sturm bieten wir einen neuen Termin ohne Aufpreis."
+        },
+        "gift": {
+          "q": "Kann ich einen Kurs als Geschenk kaufen?",
+          "a": "Klar — wir stellen einen Gutschein aus, 12 Monate gültig. Schreib an info@surf-store.com."
+        }
+      }
+    },
+    "cta": {
+      "title": "BEREIT FÜR DEINEN ERSTEN FLUG?",
+      "body": "Termin buchen — wir bestätigen innerhalb von 24 Stunden.",
+      "button": "Kurs buchen"
+    }
+  },
+  "efoil": {
+    "meta": {
+      "title": "E-Foil — was es ist und wie es funktioniert | Surf-Store.com",
+      "description": "Was ein E-Foil ist, wie es funktioniert und was der Verleih in Slowenien kostet. Der komplette Einsteiger-Guide — Grüner See, Maribor, Ljubljana.",
+      "keywords": "E-Foil, eFoil, Electric Foil, Hydrofoil, eFoil Slowenien, E-Foil Verleih, E-Foil Schule, Duotone E-Foil, Surf-Store"
+    },
+    "hero": {
+      "eyebrow": "Alles übers E-Foilen",
+      "title": "E-FOIL",
+      "subtitle": "Ein elektrisches Board mit Hydrofoil-Flügel — der neueste Wassersport, der dich lautlos über die Wasseroberfläche hebt.",
+      "ctaRent": "Verleih buchen",
+      "ctaBuy": "Zum Shop"
+    },
+    "what": {
+      "eyebrow": "Was es ist",
+      "title": "WAS IST EIN E-FOIL?",
+      "lead": "Ein E-Foil (kurz für „Electric Hydrofoil\") ist ein modernes Board mit Elektromotor und einem Unterwasserflügel (dem Foil), der das gesamte Board über die Oberfläche hebt, sobald eine bestimmte Geschwindigkeit erreicht ist. Du reitest einen Meter über dem Wasser, ohne Wellenkontakt und mit fast keinem Widerstand.",
+      "p1": "Rider steuern es mit einem kabellosen Handtrigger, der die Motorleistung regelt. Der Akku ist ins Board integriert, der Motor sitzt unten am Hydrofoil-Mast — eingetaucht, direkt unterm Board.",
+      "p2": "Anders als beim klassischen Surfen, Segel-Foilen oder Wakeboarden braucht ein E-Foil keine Wellen, keinen Wind und kein Zugboot. Alles, was du brauchst, ist ein geladener Akku und ruhiges Wasser — einen See, das Meer oder einen breiten Fluss."
+    },
+    "how": {
+      "eyebrow": "So funktioniert's",
+      "title": "WIE EIN E-FOIL FUNKTIONIERT",
+      "subtitle": "Vier Komponenten, die zusammen das Gefühl des Fliegens erzeugen:",
+      "items": {
+        "board": {
+          "title": "Das Board",
+          "body": "Carbon- oder EPS-Konstruktion mit Track-System für schnelle Foil-Montage. 35–110 L Volumen je nach Fahrergewicht."
+        },
+        "foil": {
+          "title": "Das Hydrofoil",
+          "body": "Ein Unterwasserflügel. Sobald das Board schnell genug ist, erzeugt der Flügel Auftrieb und hebt das gesamte Setup in die Luft."
+        },
+        "motor": {
+          "title": "Motor + Propeller",
+          "body": "Ein bürstenloser Elektromotor (typisch 4–10 kW) mit ummanteltem Propeller, montiert oben am Foil direkt unterm Board."
+        },
+        "battery": {
+          "title": "Akku + Trigger",
+          "body": "Ein Li-Ion-Akku im Board versorgt den Motor. Ein kabelloser Trigger in deiner Hand steuert die Geschwindigkeit — sieben oder mehr Leistungsstufen."
+        }
+      }
+    },
+    "why": {
+      "eyebrow": "Warum E-Foil",
+      "title": "WARUM IST E-FOILEN SO POPULÄR GEWORDEN?",
+      "items": {
+        "silent": {
+          "title": "Fast lautlos",
+          "body": "Der Elektromotor ist flüsterleise — Rider hören nur das Wasser. Perfekt für Seen, Schutzgebiete und Morgensessions."
+        },
+        "noWaves": {
+          "title": "Keine Wellen nötig",
+          "body": "Keine Wellen, kein Wind, kein Zugboot nötig. Ruhiges Wasser reicht — flieg, wann und wo du willst."
+        },
+        "clean": {
+          "title": "Null Emissionen",
+          "body": "100 % elektrisch. Kein Sprit, kein Öl, kein Abgas. Umweltfreundlich und auf Schutzgebietsseen erlaubt."
+        },
+        "learn": {
+          "title": "Schnell zu lernen",
+          "body": "Die meisten Anfänger fliegen in 30–60 Minuten. Der Trigger hat eine programmierte Leistungskurve, die den ersten Lift-off leicht macht."
+        },
+        "range": {
+          "title": "Bis zu 2 Std Reichweite",
+          "body": "Ein voller Akku hält 30–90 Minuten intensives Riden oder bis zu 2 Stunden entspanntes Cruisen."
+        },
+        "ages": {
+          "title": "Jedes Alter",
+          "body": "Ab 14 Jahren (mit Elterneinverständnis) — keine Altersgrenze nach oben. Wir haben über 60-Jährige problemlos unterrichtet."
+        }
+      }
+    },
+    "forWhom": {
+      "eyebrow": "Für wen",
+      "title": "FÜR WEN IST ES?",
+      "p1": "Anfänger, die das Surfgefühl wollen, ohne auf Wellen oder teure Stunden zu warten. Nach 30 Minuten Briefing und einer Stunde auf dem Wasser fliegen die meisten.",
+      "p2": "Erfahrene Wassersportler (Kiter, Wingfoiler, Surfer), die eine neue Disziplin suchen — ein völlig anderes Wassergefühl und die Freiheit, auch ohne Bedingungen zu riden.",
+      "p3": "Familien und Gruppen, die eine Wasseraktivität suchen, bei der jeder Teilnehmer — vom Teenager bis zur Großmutter — am selben Tag lernen kann.",
+      "p4": "Gastgewerbe und Eventprofis, die es als Premium-Gästeerlebnis einsetzen."
+    },
+    "learning": {
+      "eyebrow": "Lernkurve",
+      "title": "DEIN ERSTER TAG AUF EINEM E-FOIL",
+      "subtitle": "Eine typische erste Stunde mit unserem Instruktor am Grünen See, Kidričevo:",
+      "steps": {
+        "s1": { "min": "0–10 Min", "title": "Briefing am Ufer", "body": "Ausrüstungs-Walkthrough, Sicherheit, Steuerung. Wie das Foil funktioniert und was beim Lift-off zu erwarten ist." },
+        "s2": { "min": "10–20 Min", "title": "Auf den Knien", "body": "Wir starten auf dem Bauch, dann auf den Knien. Gefühl für Trigger und Balance bekommen, bevor es zum Lift-off geht." },
+        "s3": { "min": "20–40 Min", "title": "Stehend", "body": "Aufstehen auf dem Board. Geradeaus auf der Oberfläche reiten, noch ohne Foil-Aktion." },
+        "s4": { "min": "40–60 Min", "title": "Erster Lift-off ⚡", "body": "Richtiges Gewicht + genug Speed = das Foil hebt dich. Der unvergessliche erste Flug über dem Wasser." }
+      },
+      "tip": "Fast 90 % unserer Gäste fliegen in der ersten Stunde. Ein paar brauchen weitere 30 Minuten — das ist völlig normal."
+    },
+    "safety": {
+      "eyebrow": "Sicherheit",
+      "title": "SICHERHEIT & AUSRÜSTUNG",
+      "items": {
+        "helmet": "Helm (Pflicht)",
+        "vest": "Auftriebsweste",
+        "leash": "Leash mit Kill-Switch",
+        "wetsuit": "Neoprenanzug (Oktober bis Mai)",
+        "first": "Instruktor während der gesamten Stunde im Wasser",
+        "prop": "Ummantelter Propeller — sicher eingehaust"
+      },
+      "note": "Alle unsere Instruktoren sind ISA-zertifiziert (International Surfing Association) mit 5+ Jahren Wassererfahrung."
+    },
+    "specs": {
+      "eyebrow": "Tech Specs",
+      "title": "TYPISCHE SPEZIFIKATIONEN",
+      "subtitle": "Unser Verleih-Setup — das Duotone Foil Cruise Set AL:",
+      "items": {
+        "speed": "Geschwindigkeit: bis 40+ km/h (7 Leistungsstufen)",
+        "range": "Laufzeit: 30–60 Minuten pro Ladung",
+        "battery": "Akku: 2× 159,6 Wh Li-Ion",
+        "charge": "Ladung 0–100 %: ca. 1 Stunde",
+        "weight": "Gewicht: 14–17 kg (komplettes Set)",
+        "rider": "Fahrergewicht: 40–110 kg",
+        "mast": "Mast: 80 cm Aluminium Cruise",
+        "wing": "Front-Wing: 900+ cm² (für optimale Akkulaufzeit)"
+      },
+      "linkSpecs": "Volle Specs →",
+      "linkDuotone": "Mehr über Duotone →"
+    },
+    "rent": {
+      "eyebrow": "Mieten und kaufen",
+      "title": "PROBIER ES — DANN ENTSCHEIDE",
+      "body": "Bei Surf-Store.com kannst du ein E-Foil erst mieten (30 Minuten, einen Tag, eine Woche), und wenn es dich packt, dein eigenes Set in unserem Shop kaufen. Kostenloser Versand in ganz Slowenien.",
+      "ctaRent": "Verleih & Schule",
+      "ctaShop": "E-Foil Sets im Shop"
+    }
+  },
+  "pickup": {
+    "label": "Verleih-Abholung möglich",
+    "cities": "Maribor · Ljubljana · Celje",
+    "note": "Kostenlose Abholung in allen drei Städten nach Absprache."
+  },
+  "maintenance": {
+    "eyebrow": "Ausrüstungspflege",
+    "title": "FOIL ASSIST WARTUNG",
+    "subtitle": "Kurze Videoanleitungen für korrekte Pflege und Wartung deiner Duotone Foil Assist 2026 Ausrüstung — vom Akkuladen bis zum Teiletausch.",
+    "playLabel": "Abspielen: {title}",
+    "openYoutube": "Auf YouTube öffnen"
+  },
+  "duotone": {
+    "meta": {
+      "title": "Duotone Foil — E-Foil Ausrüstung | Surf-Store.com",
+      "description": "Alles über Duotone Foil-Ausrüstung — D/LAB Carbon, Aluminium- und Cruise-Setups. Modulare Plattform, Pflegevideos, Shop-Links."
+    },
+    "hero": {
+      "eyebrow": "Marken-Spotlight",
+      "title": "DUOTONE FOIL",
+      "tagline": "Deutsche Ingenieurskunst. Maui-Feeling.",
+      "intro": "Duotone ist eine Premium-Wassersportmarke der Boards & More Gruppe aus Deutschland. Vom Kitesurfen über Wing-Foilen bis zum E-Foilen entwickelt Duotone Ausrüstung, die sowohl High-Performance als auch zugänglich ist. Jedes Produkt entsteht in Zusammenarbeit mit Weltmeistern — Sky Solbach, Jake Kelsick, Matchu Lopes — und wird in hawaiianischen und europäischen Gewässern getestet."
+    },
+    "story": {
+      "title": "DIE KURZE GESCHICHTE",
+      "p1": "Duotone hat sich 2018 von North Kiteboarding abgespalten und wurde zur eigenständigen Marke innerhalb der Boards & More Gruppe. Schnell baute sie eine der größten Wing-Foil-Reihen der Welt auf — von den ersten Wings bis zu kompletten Foil-Paketen.",
+      "p2": "Mit dem E-Foil bringt Duotone elektrischen Antrieb in dasselbe modulare System, das das Wing-Foil-Team reitet. Gleiche Masten, gleiche Front-Wings, gleiche Boards — einfach E-Harness und Akkus dazu.",
+      "p3": "Die Philosophie: eine modulare Plattform für jede Foil-Disziplin. Weniger Ausrüstung, mehr Zeit auf dem Wasser."
+    },
+    "range": {
+      "title": "DUOTONE FOIL RANGE",
+      "subtitle": "Drei Build-Stufen — vom absoluten Top-End bis zum Alltagsbegleiter.",
+      "items": {
+        "dlab": {
+          "name": "D/LAB Carbon",
+          "desc": "Der leichteste Build — voll Carbon, geringste Masse, schnellste Reaktion. Für Profis und Racer.",
+          "weight": "3,0 kg Mast",
+          "cta": "D/LAB ansehen"
+        },
+        "al": {
+          "name": "Foil Assist AL",
+          "desc": "Unser Verleih-Setup. Aluminiummast, robust und zuverlässig für den täglichen Einsatz.",
+          "weight": "3,45 kg Mast",
+          "cta": "AL-Set ansehen"
+        },
+        "cruise": {
+          "name": "Cruise Mast AL",
+          "desc": "Kürzerer 80-cm-Mast für einfacheres Lernen und seichtes Wasser. Ideal für Anfänger und Familienrides.",
+          "weight": "3,55 kg Mast",
+          "cta": "Cruise-Set ansehen"
+        }
+      }
+    },
+    "tech": {
+      "title": "EIN MODULARES SYSTEM",
+      "p1": "Jedes Duotone Foil-Set teilt sich dasselbe Track-System — Masten, Fuselages, Front- und Back-Wings tauschst du in Sekunden, ohne Werkzeug.",
+      "p2": "Heißt: Wenn du schon ein Duotone Wing-Foil besitzt, brauchst du nur eHarness + Akkus dazu, um elektrisch zu fahren. Ein Kit, zwei Disziplinen.",
+      "specsLink": "Volle Tech-Specs zum Verleih-Setup →"
+    },
+    "videos": {
+      "eyebrow": "Aus dem Duotone Archiv",
+      "title": "VIDEOBIBLIOTHEK",
+      "subtitle": "Offizieller Duotone YouTube-Kanal — Rides, How-tos und Reviews.",
+      "channelCta": "Duotone Kanal öffnen ↗"
+    },
+    "shop": {
+      "title": "VOLLE RANGE IM SHOP",
+      "body": "Duotone Foil-Sets, Zubehör und Ersatzteile bei Surf-Store.com. Kostenloser Versand in ganz Slowenien.",
+      "cta": "Zum Shop →"
+    }
+  },
+  "specs": {
+    "eyebrow": "Tech Specs",
+    "title": "DUOTONE E-FOIL ASSIST",
+    "model": "Aluminium-Build — unser Verleih-Setup. Komplettpaket: Board, Foil, Mast, E-Harness und Akkus.",
+    "buyCta": "In unserem Shop kaufen",
+    "footnote": "Alle Daten aus offiziellem Duotone Spec. Änderungen vorbehalten.",
+    "groups": {
+      "performance": "Leistung",
+      "battery": "Akku & Energie",
+      "mast": "Mast",
+      "wings": "Wings",
+      "harness": "Harness-Größen"
+    },
+    "labels": {
+      "runtime": "Max Laufzeit",
+      "speedLevels": "Geschwindigkeitsstufen",
+      "chargeTime": "Ladezeit (0–100 %)",
+      "cells": "Akkutyp",
+      "capacity": "Kapazität",
+      "voltage": "Spannung",
+      "energy": "Energie",
+      "batteryWeight": "Akkugewicht",
+      "harnessTotal": "eHarness mit Akkus",
+      "mastCruiseAl": "Foil Assist Cruise Mast AL",
+      "lenCruise": "Cruise-Mastlänge",
+      "frontWing": "Front-Wing",
+      "backWing": "Back-Wing PX",
+      "sizeSm": "Größe S/M",
+      "sizeLxxl": "Größe L/XXL"
+    }
+  },
+  "shop": {
+    "eyebrow": "Kauf dir dein eigenes",
+    "rentalCredit": "Erst testen, dann kaufen — deine 1-Tages-Leihe wird auf den Boardpreis angerechnet.",
+    "title": "VERLIEBT? NIMM EINS MIT NACH HAUSE.",
+    "body": "Jedes Duotone E-Foil Set in unserem Surf-Store.com Shop. Kostenloser Versand in ganz Slowenien.",
+    "cta": "E-Foil Sets entdecken"
+  },
+  "storeBanner": {
+    "eyebrow": "Online Shop",
+    "title": "ÜBER 2000 PRODUKTE TOP-MARKEN",
+    "body": "Surf-Store.com — Sloweniens führender Wassersport-Shop für E-Foil, Wingfoil, Kiteboarding und Windsurfing. Kostenloser Versand in ganz Slowenien.",
+    "cta": "Zum Shop",
+    "categoriesLabel": "// Kategorien",
+    "brandsLabel": "// Top-Marken"
+  },
+  "stickyBar": {
+    "label": "Bereit zu fliegen?",
+    "cta": "Jetzt buchen"
+  },
+  "footer": {
+    "tagline": "E-Foilen am Grünen See, Kidričevo.",
+    "contact": "Kontakt",
+    "follow": "Folge uns",
+    "rights": "Alle Rechte vorbehalten.",
+    "visitMain": "Zur Hauptseite",
+    "partner": "Offizieller Partner:",
+    "companyLabel": "Unternehmen",
+    "vatLabel": "USt-ID",
+    "legalLabel": "Rechtliches",
+    "manageCookies": "Cookies verwalten",
+    "legal": {
+      "terms": "AGB",
+      "refund": "Rückerstattung",
+      "privacy": "Datenschutz (DSGVO)",
+      "cookies": "Cookies"
+    }
+  },
+  "consent": {
+    "banner": {
+      "aria": "Cookie-Einwilligungs-Banner",
+      "title": "Wir respektieren deine Privatsphäre",
+      "body": "Wir verwenden Cookies, damit die Seite funktioniert, deine Einstellungen merken und verstehen, wie die Seite genutzt wird. Ohne deine Einwilligung aktivieren wir nur strikt notwendige Cookies.",
+      "learnMore": "Mehr zu Cookies"
+    },
+    "acceptAll": "Alle akzeptieren",
+    "rejectAll": "Alle ablehnen",
+    "customize": "Anpassen",
+    "categories": {
+      "necessary": {
+        "label": "Strikt notwendig",
+        "body": "Erforderlich für den Seitenbetrieb — Sprache, Admin-Login, Sicherheit. Ohne sie ist die Seite kaputt. Keine Einwilligung nötig."
+      },
+      "functional": {
+        "label": "Funktional",
+        "body": "Helfen der Seite, deine Einstellungen zu merken (z. B. Sprachwahl) und das Erlebnis flüssiger zu machen. Die Seite läuft auch ohne sie, nur weniger personalisiert."
+      },
+      "analytics": {
+        "label": "Analytics",
+        "body": "Anonyme Traffic-Messung (z. B. Google Analytics 4) — wie viele Leute besuchen die Seite, welche Seiten werden am meisten gelesen. Hilft uns, das Angebot zu verbessern."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "body": "Ermöglichen personalisierte Werbung und die Messung der Anzeigenwirksamkeit (z. B. Google Ads, Meta Pixel). Ohne diese sind Anzeigen generisch und ohne Bezug zu deinen Interessen."
+      }
+    },
+    "settings": {
+      "title": "Cookie-Einstellungen",
+      "intro": "Wähle, welche Cookies du erlaubst. Deine Wahl wird 12 Monate gespeichert — du kannst sie jederzeit über den Link „Cookies verwalten\" im Footer ändern.",
+      "save": "Wahl speichern",
+      "policyLink": "Vollständige Cookie-Richtlinie lesen"
+    }
+  },
+  "legal": {
+    "updatedOn": "Zuletzt aktualisiert",
+    "back": "← Zurück zur Startseite",
+    "terms": {
+      "meta": {
+        "title": "AGB | Surf-Store E-Foil",
+        "description": "Allgemeine Geschäftsbedingungen für E-Foil Verleih und Unterricht. Sport Group d.o.o., Maribor, Slowenien."
+      },
+      "title": "ALLGEMEINE GESCHÄFTSBEDINGUNGEN",
+      "updatedAt": "5. Juni 2026",
+      "intro": "Diese AGB regeln das Verhältnis zwischen Kunden und Sport Group d.o.o. (der „Anbieter\") für E-Foil Verleih, Kurse und Schul-Dienstleistungen. Mit einer Reservierung bestätigt der Kunde, diese AGB gelesen und vollständig akzeptiert zu haben.",
+      "sections": [
+        { "title": "1. Anbieter", "body": "E-Foil Verleih und Schul-Dienstleistungen werden betrieben von Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slowenien, USt-ID SI72133449. Hauptstandort: Grüner See, Kidričevo. Weitere Standorte nach Absprache: Maribor, Ljubljana, Celje, Gramoznica Soboško jezero (Murska Sobota)." },
+        { "title": "2. Gegenstand", "body": "Der Vertrag umfasst den Verleih von Duotone E-Foil Ausrüstung (Board, Foil, Akkus, Ladegerät) und/oder einen E-Foil Kurs mit lizenziertem Instruktor. Das konkrete Paket, die Termine und der Preis stehen in der Bestätigungs-E-Mail." },
+        { "title": "3. Buchung und Zahlung", "body": "Eine Reservierung wird gültig, sobald der Anbieter sie schriftlich bestätigt. Zahlung in bar, per Karte oder Banküberweisung. Für jeden Verleih (1 Tag oder länger) berechnet der Anbieter eine Kaution von 500 €, die nach schadenfreier Rückgabe vollständig erstattet wird." },
+        { "title": "4. Preise", "body": "Preise sind auf der Website angegeben und enthalten MwSt. Jedes Paket umfasst Board, Foil, zwei Akkus, Ladegerät, Helm, Schwimmweste und Neoprenanzug (saisonal). Ein Instruktor ist beim 30-Minuten-Schnupper und allen Kursen enthalten, nicht bei reinem Verleih." },
+        { "title": "5. Stornierung und Umbuchung", "body": "Kostenlose Stornierung oder Umbuchung bis 48 Stunden vor Beginn. 48–24 Stunden: 50 % Gebühr. Weniger als 24 Stunden: volle Gebühr. Bei schlechtem Wetter bucht der Anbieter kostenlos um." },
+        { "title": "6. Haftung und Sicherheit", "body": "Kunden müssen mindestens 14 Jahre alt sein (unter 18 mit Elterneinverständnis) und schwimmen können. Die gesamte Sicherheitsausrüstung ist zu tragen. Der Kunde verpflichtet sich, den Anweisungen des Instruktors und örtlichen Vorschriften zu folgen. Der Anbieter haftet nicht für Schäden durch Nichteinhaltung." },
+        { "title": "7. Sachschäden", "body": "Der Kunde haftet für Schäden durch fahrlässigen Gebrauch. Kleine Schäden werden von der Kaution abgezogen. Größere Schäden werden zu Duotone-Servicepreisen berechnet." },
+        { "title": "8. Streitigkeiten", "body": "Beschwerden schriftlich an info@surf-store.com; wir antworten innerhalb von 8 Tagen. Gerichtsstand: Maribor, Slowenien. Verbraucher können auch die EU-OS-Plattform nutzen." },
+        { "title": "9. Gültigkeit", "body": "Diese AGB gelten ab dem oben angegebenen Datum. Der Anbieter behält sich das Recht auf Änderungen vor; die aktuelle Fassung ist immer auf dieser Seite veröffentlicht." }
+      ]
+    },
+    "refund": {
+      "meta": {
+        "title": "Rückerstattungs- und Stornoregelung | Surf-Store E-Foil",
+        "description": "Stornierungs- und Rückerstattungsregelung für E-Foil Verleih und Kurse bei Sport Group d.o.o., Maribor."
+      },
+      "title": "RÜCKERSTATTUNGS- UND STORNOREGELUNG",
+      "updatedAt": "5. Juni 2026",
+      "intro": "Wir wollen sowohl gegenüber Kunden als auch gegenüber unserem Team fair sein. Hier siehst du, wann und wie du dein Geld zurückbekommst.",
+      "sections": [
+        { "title": "1. Kundenstornierung", "body": "Kostenlose Stornierung oder Umbuchung bis 48 Stunden vor Beginn. 48–24 Stunden: 50 %. Weniger als 24 Stunden: volle Gebühr. Umbuchungen sind immer kostenlos, wenn du uns rechtzeitig informierst." },
+        { "title": "2. Wetter", "body": "Bei gefährlichem Wetter (Sturm, Wind über 5 Beaufort, außergewöhnlicher Wellengang) buchen wir kostenlos um. Bedingungen werden anhand der offiziellen ARSO-Prognose beurteilt." },
+        { "title": "3. Anbieterstornierung", "body": "Wenn wir absagen (Wetter, Ausrüstungsausfall, Krankheit des Instruktors), bekommst du innerhalb von 7 Werktagen eine volle Rückerstattung oder eine kostenlose Umbuchung." },
+        { "title": "4. Rückgabe Kaution", "body": "Die 500-€-Kaution (jeder Verleih ab 1 Tag) wird bei schadenfreier Rückgabe vollständig erstattet. Teileinbehalt wird schriftlich aufgeschlüsselt." },
+        { "title": "5. Erstattungsprozess", "body": "E-Mail an info@surf-store.com mit Buchungsnummer und Grund. Wir antworten in 3 Werktagen; genehmigte Erstattungen kommen in 7 Tagen an." },
+        { "title": "6. Verbraucherrechte", "body": "Nichts hier schränkt deine gesetzlichen Verbraucherrechte nach dem slowenischen Verbraucherschutzgesetz (ZVPot-1) ein. Verbraucher können die EU-OS-Plattform nutzen." }
+      ]
+    },
+    "privacy": {
+      "meta": {
+        "title": "Datenschutzerklärung (DSGVO) | Surf-Store E-Foil",
+        "description": "Datenschutzerklärung und Umgang mit personenbezogenen Daten nach DSGVO. Sport Group d.o.o., Maribor."
+      },
+      "title": "DATENSCHUTZERKLÄRUNG (DSGVO)",
+      "updatedAt": "5. Juni 2026",
+      "intro": "Wir respektieren deine Privatsphäre. Diese Seite erklärt, welche personenbezogenen Daten wir erheben, warum, wie lange wir sie aufbewahren und welche Rechte du nach DSGVO und slowenischem ZVOP-2 hast.",
+      "sections": [
+        { "title": "1. Verantwortlicher", "body": "Sport Group d.o.o., Osojnikova 4, 2000 Maribor, USt-ID SI72133449. Kontakt Datenschutz: info@surf-store.com." },
+        { "title": "2. Was wir erheben", "body": "Buchungsdaten: Name, E-Mail, Telefon, Termine, Paket, Erfahrungsstufe. Browsing-Daten: IP, Browsertyp, besuchte Seiten, Zeitstempel. Kartenzahlungen werden ausschließlich von unserem Zahlungsdienstleister abgewickelt — wir speichern nur den Transaktionsbeleg." },
+        { "title": "3. Zwecke", "body": "Bestätigung von Reservierungen und Kommunikation; Erbringung der Dienstleistung; Rechnungsstellung; Beantwortung von Anfragen; gesetzliche Aufbewahrung im Rechnungswesen; Marketing nur mit deiner ausdrücklichen Einwilligung." },
+        { "title": "4. Rechtsgrundlage", "body": "Vertragserfüllung, gesetzliche Verpflichtung (Steuer), berechtigtes Interesse (Betrugsprävention) und Einwilligung (Marketing)." },
+        { "title": "5. Empfänger", "body": "Daten werden nicht an Dritte weitergegeben, außer wenn gesetzlich vorgeschrieben oder für die Dienstleistungserbringung nötig (Zahlungsanbieter, Buchhaltung, Resend für E-Mail)." },
+        { "title": "6. Aufbewahrung", "body": "Buchungsdaten 3 Jahre nach Leistung; Buchhaltungsdaten 10 Jahre; Marketing bis zum Widerruf der Einwilligung." },
+        { "title": "7. Deine Rechte", "body": "Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit und Widerspruch. E-Mail an info@surf-store.com — wir antworten innerhalb von 30 Tagen. Du kannst auch eine Beschwerde beim slowenischen Informationsbeauftragten einreichen (gp.ip@ip-rs.si)." },
+        { "title": "8. Sicherheit", "body": "Alle Übertragungen sind TLS-verschlüsselt; Datenbankzugriff ist beschränkt; Backups sind verschlüsselt." }
+      ]
+    },
+    "cookies": {
+      "meta": {
+        "title": "Cookie-Richtlinie | Surf-Store E-Foil",
+        "description": "Auf der Surf-Store E-Foil Website verwendete Cookies und wie du sie verwaltest."
+      },
+      "title": "COOKIE-RICHTLINIE",
+      "updatedAt": "5. Juni 2026",
+      "intro": "Diese Seite verwendet Cookies für Kernfunktionen und Traffic-Analyse. Die vollständige Liste findest du unten.",
+      "sections": [
+        { "title": "1. Was Cookies sind", "body": "Kleine Textdateien, die dein Browser speichert. Sie helfen der Seite, deine Einstellungen (Sprache) zu merken, und uns, die Nutzung zu verstehen." },
+        { "title": "2. Strikt notwendig", "body": "Erforderlich für den Seitenbetrieb; keine Einwilligung nötig. Wir verwenden: NEXT_LOCALE (Sprache), admin_token (nur Admin-Login), Session-Cookies." },
+        { "title": "3. Analytics", "body": "Wir verwenden derzeit keine Analytics-Cookies (Google Analytics, Meta Pixel etc.). Wenn wir später Analytics hinzufügen, zeigen wir vorher ein Einwilligungs-Banner." },
+        { "title": "4. Drittanbieter", "body": "Eingebettete Google Maps und YouTube verwenden Google-Cookies. Sie werden erst nach deiner Interaktion geladen (Klick auf Play bei einem Video). Siehe Datenschutzerklärungen von google.com und youtube.com." },
+        { "title": "5. Cookies verwalten", "body": "Du kannst Cookies jederzeit in deinem Browser löschen oder blockieren (Chrome → Einstellungen → Datenschutz; Firefox → Einstellungen → Datenschutz; Safari → Einstellungen → Datenschutz). Einige Funktionen können dadurch nicht mehr laufen." }
+      ]
+    }
+  }
+}

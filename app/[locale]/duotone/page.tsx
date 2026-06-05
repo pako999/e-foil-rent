@@ -30,6 +30,7 @@ export async function generateMetadata({
       languages: {
         sl: "/sl/duotone",
         en: "/en/duotone",
+        de: "/de/duotone",
         "x-default": "/sl/duotone",
       },
     },

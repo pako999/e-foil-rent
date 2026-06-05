@@ -9,7 +9,7 @@ import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
 import { SITE } from "@/lib/content";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -32,6 +32,7 @@ export async function generateMetadata({
       languages: {
         sl: "/sl/efoil",
         en: "/en/efoil",
+        de: "/de/efoil",
         "x-default": "/sl/efoil",
       },
     },
@@ -41,7 +42,7 @@ export async function generateMetadata({
       type: "article",
       url: `${siteUrl}/${locale}/efoil`,
       siteName: "Surf-Store.com",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
       images: [
         { url: "/action-1.jpg", width: 1200, height: 630, alt: "E-foil ride" },
       ],
@@ -73,7 +74,7 @@ export default async function EfoilPage({
     "@type": "Article",
     headline: tMeta("title"),
     description: tMeta("description"),
-    inLanguage: locale === "sl" ? "sl-SI" : "en-GB",
+    inLanguage: intlLocale(locale as Locale),
     author: { "@type": "Organization", name: "Surf-Store.com" },
     publisher: {
       "@type": "Organization",

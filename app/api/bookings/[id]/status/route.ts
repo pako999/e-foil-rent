@@ -22,7 +22,7 @@ function isAuthed(req: Request, cookieToken: string | undefined) {
  * the notes prefix the form leaves, or default to Slovenian. Falls back
  * to "sl" when nothing matches.
  */
-function pickLocale(notes: string | null): "sl" | "en" {
+function pickLocale(notes: string | null): "sl" | "en" | "de" {
   if (notes && /\[Package:/.test(notes)) {
     // existing fall-through, no language hint in the prefix
   }

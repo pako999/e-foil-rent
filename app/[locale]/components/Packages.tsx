@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { Board } from "@/db/schema";
 import { PACKAGES, packageTotal, formatPrice, type PackageId } from "@/lib/pricing";
 import { PACKAGE_HIGHLIGHTS } from "@/lib/content";
-import type { Locale } from "@/i18n/request";
+import { intlLocale as toIntlLocale, type Locale } from "@/i18n/request";
 
 function cheapestFor(pkgId: PackageId, boards: Board[]): number {
   const pkg = PACKAGES.find((p) => p.id === pkgId)!;
@@ -17,7 +17,7 @@ export async function Packages({
   locale: Locale;
 }) {
   const t = await getTranslations("packages");
-  const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
+  const intlLocale = toIntlLocale(locale);
 
   return (
     <section id="packages" className="bg-cream scroll-mt-20 border-b-2 border-ink">

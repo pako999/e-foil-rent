@@ -120,8 +120,9 @@ export async function POST(req: Request) {
   });
 }
 
-function pickLocale(req: Request): "sl" | "en" {
+function pickLocale(req: Request): "sl" | "en" | "de" {
   const ref = req.headers.get("referer") ?? "";
+  if (ref.includes("/de")) return "de";
   if (ref.includes("/en")) return "en";
   return "sl";
 }
