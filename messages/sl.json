@@ -6,6 +6,7 @@
   },
   "nav": {
     "packages": "Paketi",
+    "efoil": "E-Foil",
     "duotone": "Duotone",
     "boards": "Deske",
     "how": "Kako poteka",
@@ -245,6 +246,137 @@
       "weight": { "title": "Lahka deska", "body": "Karbonska konstrukcija, 14–17 kg s foilom." },
       "silent": { "title": "Tih motor", "body": "Brezkrtačni motor — slišiš le šum vode." },
       "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
+    }
+  },
+  "efoil": {
+    "meta": {
+      "title": "E-Foil — kaj je in kako deluje | Surf-Store.com Slovenija",
+      "description": "E-foil (električni hidrofoil) je deska z električnim motorjem, ki te dvigne nad vodo. Vse o e-foilingu, učenju, ceni in najemu v Sloveniji — Green Lake Kidričevo, Maribor, Ljubljana.",
+      "keywords": "e-foil, efoil, električni foil, hidrofoil, eFoil Slovenija, najem e-foil, šola e-foil, Duotone e-foil, Surf-Store"
+    },
+    "hero": {
+      "eyebrow": "Vse o E-Foilingu",
+      "title": "E-FOIL",
+      "subtitle": "Električna deska s hidro-krilom — najnovejši watersport šport, ki te tiho dvigne nad vodno gladino.",
+      "ctaRent": "Rezerviraj najem",
+      "ctaBuy": "Kupi v trgovini"
+    },
+    "what": {
+      "eyebrow": "Kaj je e-foil",
+      "title": "KAJ JE E-FOIL?",
+      "lead": "E-foil (kratko za »electric hydrofoil«) je sodobna vodna deska z električnim motorjem in podvodnim krilom (foilom), ki ob določeni hitrosti deska dvigne nad vodno gladino. Voziš en meter nad vodo, brez stika z valovi in skoraj brez upora.",
+      "p1": "Riderji ga upravljajo z brezžičnim ročnim sprožilcem, ki nadzira moč motorja. Baterija je vgrajena v telo deske, motor pa sedi na koncu hidrofoil masta — v vodi, neposredno pod desko.",
+      "p2": "Za razliko od klasičnega surfanja, jadrnega foilinga ali wakeboardinga e-foil ne potrebuje valov, vetra, ali vlečnega čolna. Potrebuješ samo polno baterijo in mirno površino vode — jezero, morje, večja reka."
+    },
+    "how": {
+      "eyebrow": "Kako deluje",
+      "title": "KAKO DELUJE E-FOIL",
+      "subtitle": "Štiri komponente, ki skupaj ustvarijo občutek letenja:",
+      "items": {
+        "board": {
+          "title": "Deska",
+          "body": "Karbonska ali EPS konstrukcija s tračnim sistemom za hitro pritrditev foila. Volumen 35–110 L glede na težo voznika."
+        },
+        "foil": {
+          "title": "Hidrofoil (foil)",
+          "body": "Krilo pod vodo. Ko se deska premika dovolj hitro, krilo ustvari vzgon in dvigne celotno desko v zrak."
+        },
+        "motor": {
+          "title": "Motor + propeler",
+          "body": "Brezkrtačni električni motor (običajno 4–10 kW) z zaščitenim propelerjem, nameščen na vrhu foila tik pod desko."
+        },
+        "battery": {
+          "title": "Baterija + sprožilec",
+          "body": "Li-ion baterija v deski napaja motor. Sprožilec v roki krmili hitrost — sedem ali več stopenj moči."
+        }
+      }
+    },
+    "why": {
+      "eyebrow": "Zakaj e-foil",
+      "title": "ZAKAJ JE E-FOIL POSTAL TAKO PRILJUBLJEN?",
+      "items": {
+        "silent": {
+          "title": "Skoraj brez hrupa",
+          "body": "Električni motor je tih — riderji slišijo le šum vode. Idealno za jezera, zaščitena območja in zgodnja jutra."
+        },
+        "noWaves": {
+          "title": "Brez potrebe po valovih",
+          "body": "Ne potrebuješ valov, vetra ali vlečnega čolna. Mirna voda zadošča — leti, ko želiš, kjer želiš."
+        },
+        "clean": {
+          "title": "Brez emisij",
+          "body": "100 % električno. Nič bencina, nič olja, nič izpušnih plinov. Prijazno do okolja in dovoljeno na zaščitenih jezerih."
+        },
+        "learn": {
+          "title": "Hitro učenje",
+          "body": "Večina začetnikov leti v 30–60 minutah. Sprožilec ima programirano krivuljo moči, ki olajša prvi vzlet."
+        },
+        "range": {
+          "title": "Doseg do 2 uri",
+          "body": "Polna baterija zdrži 30–90 minut intenzivne vožnje ali do 2 uri pri umirjenem krstarjenju."
+        },
+        "ages": {
+          "title": "Za vse starosti",
+          "body": "Primerno od 14. leta naprej (z dovoljenjem staršev) — brez zgornje meje. Tudi 60-letniki letijo brez težav."
+        }
+      }
+    },
+    "forWhom": {
+      "eyebrow": "Komu je namenjen",
+      "title": "KOMU JE NAMENJEN?",
+      "p1": "Začetnikom, ki si želijo občutek surfanja brez čakanja na valove ali drage tečaje. Po 30-minutnem brifu in eni uri vode večina ljudi že leti.",
+      "p2": "Izkušenim watersportašem (kiterji, wingfoilerji, surferji), ki želijo dodatno disciplino — popolnoma drugačen občutek za vodo in možnost vožnje tudi, ko ni pravih pogojev.",
+      "p3": "Družinam in skupinam, ki iščejo vodno aktivnost, kjer se vsak udeleženec — od najstnika do starega starša — lahko nauči v istem dnevu.",
+      "p4": "Strokovnjakom v turizmu, hotelirstvu in event organizaciji kot premium doživetje za goste."
+    },
+    "learning": {
+      "eyebrow": "Učna krivulja",
+      "title": "PRVI DAN NA E-FOILU",
+      "subtitle": "Tipičen potek prve ure z našim inštruktorjem na Green Lake, Kidričevo:",
+      "steps": {
+        "s1": { "min": "0–10 min", "title": "Brifing na obali", "body": "Spoznavanje opreme, varnost, kontrole. Razlaga, kako foil deluje, kaj pričakovati ob vzletu." },
+        "s2": { "min": "10–20 min", "title": "Klečeč start v vodi", "body": "Najprej vozimo deska na trebuhu, nato na kolenih. Občutek za sprožilec in ravnotežje brez vzleta." },
+        "s3": { "min": "20–40 min", "title": "Stoječa vožnja", "body": "Vstajanje na desko. Vožnja v ravni liniji brez foila — še vedno na vodni gladini." },
+        "s4": { "min": "40–60 min", "title": "Prvi vzlet ⚡", "body": "Pravilna teža + dovolj hitrosti = foil te dvigne. Občutek nepozabnega prvega letenja nad vodo." }
+      },
+      "tip": "Skoraj 90 % naših gostov leti v prvi uri. Ostali rabijo še 30 minut — to je popolnoma normalno."
+    },
+    "safety": {
+      "eyebrow": "Varnost",
+      "title": "VARNOST IN OPREMA",
+      "items": {
+        "helmet": "Čelada (obvezno)",
+        "vest": "Reševalni jopič",
+        "leash": "Privezi (kill switch)",
+        "wetsuit": "Neopren (od oktobra do maja)",
+        "first": "Inštruktor v vodi vse trajanje šole",
+        "prop": "Zaščitena propelerska enota — propeler je v ohišju z zaščitno mrežo"
+      },
+      "note": "Vsi naši rezervi imajo certifikat ISA (International Surfing Association) in več kot 5 let izkušenj na vodi."
+    },
+    "specs": {
+      "eyebrow": "Tehnične specifikacije",
+      "title": "TIPIČNE SPECIFIKACIJE",
+      "subtitle": "Naša rental konfiguracija — Duotone Foil Cruise Set AL:",
+      "items": {
+        "speed": "Hitrost: do 40+ km/h (7 stopenj)",
+        "range": "Čas vožnje: 30–60 minut na polnjenje",
+        "battery": "Baterija: 2× 159.6 Wh Li-ion",
+        "charge": "Polnjenje 0–100 %: ~1 ura",
+        "weight": "Teža: 14–17 kg (cel set)",
+        "rider": "Težnost voznika: 40–110 kg",
+        "mast": "Mast: 80 cm aluminij Cruise",
+        "wing": "Front wing: 900+ cm² (za optimalno baterijo)"
+      },
+      "linkSpecs": "Polne specifikacije →",
+      "linkDuotone": "Več o Duotone →"
+    },
+    "rent": {
+      "eyebrow": "Najem in nakup",
+      "title": "PROBAJ — POTEM SE ODLOČI",
+      "body": "Pri Surf-Store.com lahko e-foil najprej najameš (30 minut, dan, teden), nato pa, če te ujame, kupiš svoj komplet v naši trgovini. Brezplačna dostava po Sloveniji.",
+      "ctaRent": "Najem & šola",
+      "ctaShop": "E-foil seti v trgovini"
     }
   },
   "pickup": {

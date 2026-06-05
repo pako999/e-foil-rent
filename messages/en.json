@@ -6,6 +6,7 @@
   },
   "nav": {
     "packages": "Packages",
+    "efoil": "E-Foil",
     "duotone": "Duotone",
     "boards": "Boards",
     "how": "How it works",
@@ -245,6 +246,137 @@
       "weight": { "title": "Lightweight board", "body": "Carbon construction, 14–17 kg complete with foil." },
       "silent": { "title": "Silent motor", "body": "Brushless drive — all you hear is the water." },
       "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
+    }
+  },
+  "efoil": {
+    "meta": {
+      "title": "E-Foil — what it is and how it works | Surf-Store.com",
+      "description": "An e-foil (electric hydrofoil) is an electric-motor board that lifts you above the water. Everything about e-foiling, learning, prices and rentals in Slovenia — Green Lake Kidričevo, Maribor, Ljubljana.",
+      "keywords": "e-foil, efoil, electric foil, hydrofoil, eFoil Slovenia, e-foil rental, e-foil school, Duotone e-foil, Surf-Store"
+    },
+    "hero": {
+      "eyebrow": "Everything about e-foiling",
+      "title": "E-FOIL",
+      "subtitle": "An electric board with a hydrofoil wing — the newest watersport that silently lifts you above the surface.",
+      "ctaRent": "Book a rental",
+      "ctaBuy": "Visit the shop"
+    },
+    "what": {
+      "eyebrow": "What it is",
+      "title": "WHAT IS AN E-FOIL?",
+      "lead": "An e-foil (short for \"electric hydrofoil\") is a modern board with an electric motor and an underwater wing (the foil) that lifts the entire board above the surface once it reaches a certain speed. You ride one meter above the water, with no wave contact and almost no drag.",
+      "p1": "Riders control it with a wireless hand-held trigger that regulates motor power. The battery is built into the board and the motor sits at the bottom of the hydrofoil mast — submerged, directly under the board.",
+      "p2": "Unlike traditional surfing, sail foiling or wakeboarding, an e-foil needs no waves, no wind, and no tow boat. All you need is a charged battery and calm water — a lake, the sea, or a wide river."
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "HOW AN E-FOIL WORKS",
+      "subtitle": "Four components that together create the sensation of flight:",
+      "items": {
+        "board": {
+          "title": "The board",
+          "body": "Carbon or EPS construction with a track system for quick foil mounting. 35–110 L volume depending on rider weight."
+        },
+        "foil": {
+          "title": "The hydrofoil",
+          "body": "An underwater wing. Once the board moves fast enough, the wing generates lift and raises the entire setup into the air."
+        },
+        "motor": {
+          "title": "Motor + propeller",
+          "body": "A brushless electric motor (typically 4–10 kW) with a shrouded propeller, mounted at the top of the foil just under the board."
+        },
+        "battery": {
+          "title": "Battery + trigger",
+          "body": "A Li-ion battery in the board powers the motor. A wireless trigger in your hand controls speed — seven or more power steps."
+        }
+      }
+    },
+    "why": {
+      "eyebrow": "Why e-foil",
+      "title": "WHY HAS E-FOILING BECOME SO POPULAR?",
+      "items": {
+        "silent": {
+          "title": "Almost silent",
+          "body": "The electric motor is whisper-quiet — riders only hear the water. Perfect for lakes, protected areas and early-morning sessions."
+        },
+        "noWaves": {
+          "title": "No waves needed",
+          "body": "No waves, wind or tow boat required. Calm water is enough — fly whenever and wherever you want."
+        },
+        "clean": {
+          "title": "Zero emissions",
+          "body": "100 % electric. No fuel, no oil, no exhaust. Eco-friendly and permitted on protected lakes."
+        },
+        "learn": {
+          "title": "Quick to learn",
+          "body": "Most beginners are flying within 30–60 minutes. The trigger has a programmed power curve that makes the first lift-off easy."
+        },
+        "range": {
+          "title": "Up to 2-hour range",
+          "body": "A full battery lasts 30–90 minutes of intense riding, or up to 2 hours of relaxed cruising."
+        },
+        "ages": {
+          "title": "All ages",
+          "body": "Suitable from age 14 (with parental consent) onwards — no upper limit. We've taught riders over 60 without issue."
+        }
+      }
+    },
+    "forWhom": {
+      "eyebrow": "Who it's for",
+      "title": "WHO IS IT FOR?",
+      "p1": "Beginners who want the feeling of surfing without waiting for waves or expensive lessons. After a 30-minute brief and an hour on the water, most people are already flying.",
+      "p2": "Experienced watersport people (kiters, wingfoilers, surfers) looking for a new discipline — a completely different feel for water and the freedom to ride even when conditions aren't there.",
+      "p3": "Families and groups looking for a water activity where every participant — from teenager to grandparent — can learn in the same day.",
+      "p4": "Hospitality and event professionals using it as a premium guest experience."
+    },
+    "learning": {
+      "eyebrow": "Learning curve",
+      "title": "YOUR FIRST DAY ON AN E-FOIL",
+      "subtitle": "A typical first hour with our instructor at Green Lake, Kidričevo:",
+      "steps": {
+        "s1": { "min": "0–10 min", "title": "Briefing on shore", "body": "Equipment walkthrough, safety, controls. How the foil works and what to expect on lift-off." },
+        "s2": { "min": "10–20 min", "title": "On the knees", "body": "We start on the belly, then on the knees. Get a feel for the trigger and balance before any lift-off." },
+        "s3": { "min": "20–40 min", "title": "Standing", "body": "Stand up on the board. Ride straight on the surface, no foil action yet." },
+        "s4": { "min": "40–60 min", "title": "First lift-off ⚡", "body": "Right weight + enough speed = the foil lifts you. The unforgettable first flight above water." }
+      },
+      "tip": "Nearly 90 % of our guests are flying within the first hour. A few need another 30 minutes — that's completely normal."
+    },
+    "safety": {
+      "eyebrow": "Safety",
+      "title": "SAFETY & GEAR",
+      "items": {
+        "helmet": "Helmet (mandatory)",
+        "vest": "Buoyancy vest",
+        "leash": "Leash with kill switch",
+        "wetsuit": "Wetsuit (October to May)",
+        "first": "Instructor in the water for the entire lesson",
+        "prop": "Shrouded propeller — fully caged for safety"
+      },
+      "note": "All our instructors are ISA-certified (International Surfing Association) with 5+ years of on-water experience."
+    },
+    "specs": {
+      "eyebrow": "Tech specs",
+      "title": "TYPICAL SPECIFICATIONS",
+      "subtitle": "Our rental setup — the Duotone Foil Cruise Set AL:",
+      "items": {
+        "speed": "Speed: up to 40+ km/h (7 power steps)",
+        "range": "Runtime: 30–60 minutes per charge",
+        "battery": "Battery: 2× 159.6 Wh Li-ion",
+        "charge": "Charge 0–100 %: ~1 hour",
+        "weight": "Weight: 14–17 kg (complete set)",
+        "rider": "Rider weight: 40–110 kg",
+        "mast": "Mast: 80 cm aluminum Cruise",
+        "wing": "Front wing: 900+ cm² (for optimal battery)"
+      },
+      "linkSpecs": "Full specs →",
+      "linkDuotone": "More about Duotone →"
+    },
+    "rent": {
+      "eyebrow": "Rent and buy",
+      "title": "TRY IT — THEN DECIDE",
+      "body": "At Surf-Store.com you can rent an e-foil first (30 minutes, a day, a week), and if it grabs you, buy your own set in our shop. Free shipping across Slovenia.",
+      "ctaRent": "Rental & school",
+      "ctaShop": "E-foil sets in shop"
     }
   },
   "pickup": {
