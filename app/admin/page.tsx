@@ -205,9 +205,21 @@ function ActionForm({
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ status: act })
                 }).then(function(r){
-                  if (r.ok) location.reload();
-                  else alert('Update failed (' + r.status + ')');
-                });
+                  return r.json().then(function(data){
+                    if (!r.ok) { alert('Update failed (' + r.status + '): ' + (data && data.error || '')); return; }
+                    var s = data.sideEffects || {};
+                    var msgs = [];
+                    if (act === 'confirmed') {
+                      msgs.push(s.proformaCreated ? ('✓ e-racuni: ' + s.proformaNumber) : '✗ e-racuni proforma NOT created');
+                      msgs.push(s.emailSent ? '✓ approval email sent' : '✗ approval email FAILED');
+                    } else if (act === 'cancelled') {
+                      msgs.push(s.emailSent ? '✓ cancellation email sent' : '✗ cancellation email FAILED');
+                    }
+                    if (s.error) msgs.push('Error: ' + s.error);
+                    if (msgs.length) alert(msgs.join('\\n'));
+                    location.reload();
+                  });
+                }).catch(function(err){ alert('Network error: ' + err.message); });
               });
             })();
           `,
