@@ -26,7 +26,7 @@ export function LanguageSwitcher({
 
   return (
     <div
-      className="inline-flex items-center gap-3 font-display uppercase text-sm tracking-widest"
+      className="inline-flex items-center gap-3 font-display uppercase text-base sm:text-lg tracking-widest"
       style={{ fontWeight: 800 }}
     >
       {locales.map((loc, i) => (

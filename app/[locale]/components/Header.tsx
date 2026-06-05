@@ -64,7 +64,7 @@ export function Header({ locale }: { locale: Locale }) {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7 font-display uppercase text-base tracking-wide text-ink" style={{ fontWeight: 800 }}>
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 font-display uppercase text-lg xl:text-xl tracking-wide text-ink" style={{ fontWeight: 800 }}>
           {items.map((it) =>
             it.kind === "page" ? (
               <Link
@@ -86,10 +86,10 @@ export function Header({ locale }: { locale: Locale }) {
           )}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 sm:gap-4">
           <a
             href={`/${locale}#book`}
-            className="hidden md:inline-flex btn-primary px-5 py-2.5 text-base"
+            className="hidden md:inline-flex btn-primary px-6 py-3 text-lg"
           >
             {t("book")} →
           </a>
@@ -123,13 +123,13 @@ export function Header({ locale }: { locale: Locale }) {
       {/* Mobile drawer */}
       {open && (
         <div className="lg:hidden border-t-2 border-ink bg-paper">
-          <nav className="container-x py-4 flex flex-col font-display uppercase text-lg tracking-wide text-ink divide-y-2 divide-ink/10" style={{ fontWeight: 800 }}>
+          <nav className="container-x py-4 flex flex-col font-display uppercase text-xl tracking-wide text-ink divide-y-2 divide-ink/10" style={{ fontWeight: 800 }}>
             {items.map((it) =>
               it.kind === "page" ? (
                 <Link
                   key={it.key}
                   href={it.href}
-                  className="py-3 hover:text-gold"
+                  className="py-4 hover:text-gold"
                   onClick={() => setOpen(false)}
                 >
                   {t(it.key)}
@@ -138,7 +138,7 @@ export function Header({ locale }: { locale: Locale }) {
                 <a
                   key={it.key}
                   href={it.href}
-                  className="py-3 hover:text-gold"
+                  className="py-4 hover:text-gold"
                   onClick={() => setOpen(false)}
                 >
                   {t(it.key)}
@@ -147,7 +147,7 @@ export function Header({ locale }: { locale: Locale }) {
             )}
             <a
               href={`/${locale}#book`}
-              className="btn-primary w-full mt-4 text-base"
+              className="btn-primary w-full mt-4 text-lg"
               onClick={() => setOpen(false)}
             >
               {t("book")} →
