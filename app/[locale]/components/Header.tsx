@@ -64,13 +64,13 @@ export function Header({ locale }: { locale: Locale }) {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 font-display uppercase text-lg xl:text-xl tracking-wide text-ink" style={{ fontWeight: 800 }}>
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-5 2xl:gap-6 font-display uppercase text-sm xl:text-base 2xl:text-lg tracking-wide text-ink whitespace-nowrap" style={{ fontWeight: 800 }}>
           {items.map((it) =>
             it.kind === "page" ? (
               <Link
                 key={it.key}
                 href={it.href}
-                className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gold hover:after:w-full after:transition-all"
+                className="relative whitespace-nowrap hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gold hover:after:w-full after:transition-all"
               >
                 {t(it.key)}
               </Link>
@@ -78,7 +78,7 @@ export function Header({ locale }: { locale: Locale }) {
               <a
                 key={it.key}
                 href={it.href}
-                className="relative hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gold hover:after:w-full after:transition-all"
+                className="relative whitespace-nowrap hover:text-gold transition-colors after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-gold hover:after:w-full after:transition-all"
               >
                 {t(it.key)}
               </a>
@@ -89,7 +89,7 @@ export function Header({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-3 sm:gap-4">
           <a
             href={`/${locale}#book`}
-            className="hidden md:inline-flex btn-primary px-6 py-3 text-lg"
+            className="hidden md:inline-flex btn-primary px-4 lg:px-5 xl:px-6 py-2.5 xl:py-3 text-sm xl:text-base 2xl:text-lg whitespace-nowrap"
           >
             {t("book")} →
           </a>
