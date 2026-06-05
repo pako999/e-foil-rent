@@ -1,9 +1,14 @@
 -- Migration: discount_codes
--- Run against your Neon database.
+-- Safe to re-run: every statement uses IF NOT EXISTS / DO blocks.
+-- Run against your Neon database via the SQL Editor in the Neon console.
 
-CREATE TYPE discount_source AS ENUM ('exit_intent', 'admin');
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'discount_source') THEN
+    CREATE TYPE discount_source AS ENUM ('exit_intent', 'admin');
+  END IF;
+END $$;
 
-CREATE TABLE discount_codes (
+CREATE TABLE IF NOT EXISTS discount_codes (
   code text PRIMARY KEY,
   percent_off integer NOT NULL,
   source discount_source NOT NULL,
@@ -15,5 +20,5 @@ CREATE TABLE discount_codes (
   created_at timestamptz NOT NULL DEFAULT now()
 );
 
-CREATE INDEX discount_codes_email_idx ON discount_codes (email);
-CREATE INDEX discount_codes_active_idx ON discount_codes (active);
+CREATE INDEX IF NOT EXISTS discount_codes_email_idx ON discount_codes (email);
+CREATE INDEX IF NOT EXISTS discount_codes_active_idx ON discount_codes (active);
