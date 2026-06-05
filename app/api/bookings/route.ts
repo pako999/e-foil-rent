@@ -104,10 +104,14 @@ export async function POST(req: Request) {
   const booking = inserted[0]!;
 
   const locale = pickLocale(req);
-  // Fire-and-forget; don't block the response on email provider latency.
-  void sendBookingEmails({ booking, board, locale }).catch((err) =>
-    console.error("[email] send failed", err),
-  );
+  // Await — on Vercel serverless `void`/fire-and-forget tasks can get
+  // killed before they finish, especially on cold starts. ~500 ms delay
+  // for the customer is fine; reliable email is the priority.
+  try {
+    await sendBookingEmails({ booking, board, locale });
+  } catch (err) {
+    console.error("[email] send failed", err);
+  }
 
   return NextResponse.json({
     ok: true,
