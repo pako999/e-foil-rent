@@ -590,6 +590,14 @@
     "cities": "Maribor · Ljubljana · Celje",
     "note": "Free pickup in all three cities by arrangement."
   },
+  "maintenance": {
+    "eyebrow": "Equipment maintenance",
+    "title": "FOIL ASSIST MAINTENANCE",
+    "subtitle": "Short video guides for proper care and maintenance of your Duotone Foil Assist 2026 gear — from battery charging to part replacement.",
+    "videoLabel": "Guide {n}",
+    "playLabel": "Play guide {n}",
+    "openYoutube": "Open on YouTube"
+  },
   "duotone": {
     "meta": {
       "title": "Duotone Foil — E-Foil gear | Surf-Store.com",

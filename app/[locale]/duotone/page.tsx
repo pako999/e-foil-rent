@@ -9,6 +9,7 @@ import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
 import { Video } from "../components/Video";
+import { MaintenanceVideos } from "../components/MaintenanceVideos";
 import { DUOTONE_PRODUCTS, DUOTONE_VIDEOS, SITE } from "@/lib/content";
 import { locales, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
@@ -231,6 +232,7 @@ export default async function DuotonePage({
           </div>
         </section>
 
+        <MaintenanceVideos />
         <StoreBanner />
       </main>
       <Footer locale={locale as Locale} />

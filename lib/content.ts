@@ -61,6 +61,23 @@ export const DUOTONE_VIDEOS: readonly string[] = [
   "Wj6xwO_FDqU",
 ];
 
+/**
+ * Step-by-step Duotone Foil Assist 2026 maintenance tutorials.
+ * Rendered as a facade grid on the Duotone page — iframes only load when
+ * a viewer clicks play, keeping the page light.
+ */
+export const MAINTENANCE_VIDEOS: readonly string[] = [
+  "M6NtxFwxnPs",
+  "QTArwk0Blk0",
+  "KY1s5Fed2KA",
+  "v8hQrPCXc6A",
+  "gQz92ums0Y8",
+  "wmf_gCskdVY",
+  "5efZimTfaFo",
+  "OxjL0Fqw568",
+  "IggvHGNFvLQ",
+];
+
 export const LOCATION = {
   name: "Green Lake, Kidričevo",
   address: "Green Lake, Kidričevo, Slovenija",
