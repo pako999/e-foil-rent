@@ -7,6 +7,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
+import { StoreBanner } from "../components/StoreBanner";
 import { SITE } from "@/lib/content";
 import { locales, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
@@ -352,6 +353,8 @@ export default async function EfoilPage({
             </div>
           </div>
         </section>
+
+        <StoreBanner />
       </main>
       <Footer locale={locale as Locale} />
       <StickyBookBar />

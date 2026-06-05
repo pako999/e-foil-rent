@@ -7,6 +7,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
+import { StoreBanner } from "../components/StoreBanner";
 import { Video } from "../components/Video";
 import { DUOTONE_PRODUCTS, DUOTONE_VIDEOS, SITE } from "@/lib/content";
 import { locales, type Locale } from "@/i18n/request";
@@ -229,6 +230,8 @@ export default async function DuotonePage({
             </a>
           </div>
         </section>
+
+        <StoreBanner />
       </main>
       <Footer locale={locale as Locale} />
       <StickyBookBar />
