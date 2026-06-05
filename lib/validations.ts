@@ -7,6 +7,10 @@ const isoDate = z
 export const bookingInput = z
   .object({
     boardId: z.coerce.number().int().positive(),
+    packageId: z
+      .enum(["30min", "day1", "weekend", "week1", "week2"])
+      .nullable()
+      .optional(),
     customerName: z.string().trim().min(2).max(120),
     email: z.string().trim().toLowerCase().email().max(200),
     phone: z.string().trim().min(5).max(40),

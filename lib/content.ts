@@ -82,8 +82,7 @@ export const TECH_FEATURES = ["range", "speed", "battery", "weight", "silent", "
 export const PACKAGE_HIGHLIGHTS = {
   "30min": { icon: "⚡", best: false },
   day1: { icon: "🏄", best: false },
-  day2: { icon: "🌊", best: false },
-  day3: { icon: "🔥", best: true },
+  weekend: { icon: "🔥", best: true },
   week1: { icon: "🏖️", best: false },
   week2: { icon: "🏝️", best: false },
 } as const;

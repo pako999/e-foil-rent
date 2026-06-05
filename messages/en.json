@@ -56,55 +56,46 @@
         "duration": "30 minutes",
         "desc": "A quick taste of flying above water. Perfect for newcomers who want a feel before committing.",
         "f1": "Short instructional brief",
-        "f2": "All safety gear",
+        "f2": "Helmet and life vest included",
         "f3": "Instructor in the water",
-        "f4": "Photo memento",
+        "f4": "All safety gear",
         "locationNote": "Only at: Green Lake · Kamešnica · Murska Sobota · Maribor (by arrangement)"
       },
       "day1": {
-        "name": "1 day",
+        "name": "Day rental",
         "duration": "1 day",
         "desc": "Full day rental. Take your time — practice, rest, fly again.",
         "f1": "Full day board + foil",
-        "f2": "Charger + spare battery",
-        "f3": "Life vest and helmet",
+        "f2": "Charger and spare battery",
+        "f3": "Helmet and life vest included",
         "f4": "Short intro (optional)"
       },
-      "day2": {
-        "name": "2 days",
-        "duration": "2 days",
-        "desc": "Two full days for real progress. Day two is when it clicks.",
-        "f1": "2 days rental",
-        "f2": "Free gear storage",
-        "f3": "Charger + spare battery",
-        "f4": "All safety gear"
-      },
-      "day3": {
-        "name": "3 days — 10% off",
-        "duration": "3 days",
-        "desc": "Our most popular package. Enough time to master take-off and first turns.",
-        "f1": "3 days rental (−10%)",
-        "f2": "1 hour of instruction free",
-        "f3": "Storage + transport",
-        "f4": "Photo/video memento"
+      "weekend": {
+        "name": "Weekend (Fri–Sun)",
+        "duration": "Fri–Sun",
+        "desc": "Pickup Friday afternoon, return Sunday evening or Monday morning. Three days of water for one fixed price.",
+        "f1": "Pickup Friday afternoon",
+        "f2": "Return Sunday evening or Monday morning",
+        "f3": "Charger and spare battery",
+        "f4": "Helmet and life vest included"
       },
       "week1": {
         "name": "1 week",
         "duration": "7 days",
         "desc": "A full week at a fixed price. Ideal for a lakeside holiday.",
         "f1": "7 days rental, fixed price",
-        "f2": "2 hours of instruction free",
-        "f3": "24/7 on-site support",
-        "f4": "Photo/video pack"
+        "f2": "Charger and spare battery",
+        "f3": "Helmet and life vest included",
+        "f4": "On-site support"
       },
       "week2": {
         "name": "2 weeks — VIP",
         "duration": "14 days",
-        "desc": "Two-week full experience. Private instructor, flexible scheduling.",
-        "f1": "14 days rental",
-        "f2": "Private instructor (3h)",
-        "f3": "Premium board of choice",
-        "f4": "Photo/video production"
+        "desc": "Two-week full experience. Best per-day rate.",
+        "f1": "14 days rental, fixed price",
+        "f2": "Charger and spare battery",
+        "f3": "Helmet and life vest included",
+        "f4": "Priority support"
       }
     }
   },
@@ -482,6 +473,14 @@
     "title": "FELL IN LOVE? TAKE ONE HOME.",
     "body": "Find every Duotone e-foil set in our Surf-Store.com shop. Free shipping across Slovenia.",
     "cta": "Browse e-foil sets"
+  },
+  "storeBanner": {
+    "eyebrow": "Online shop",
+    "title": "OVER 2000 PRODUCTS FROM TOP BRANDS",
+    "body": "Surf-Store.com — Slovenia's leading watersports shop for E-Foil, Wingfoil, Kiteboarding and Windsurfing. Free shipping across Slovenia.",
+    "cta": "Visit the shop",
+    "categoriesLabel": "// Categories",
+    "brandsLabel": "// Top brands"
   },
   "stickyBar": {
     "label": "Ready to fly?",

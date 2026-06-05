@@ -13,8 +13,8 @@
  *      dailyPrice with the tier discount applied to the leftover days only.
  *   3. Monotonic clamp: a booking of N days is never cheaper than N-1 days.
  *
- * Discount tiers live here as exported constants so they can be tuned
- * without rewriting the algorithm.
+ * Fixed-price packages (e.g. weekend promo, 2-week discount) bypass this
+ * entire ladder by setting `fixedTotal` on the package definition.
  */
 
 export type DiscountTier = {
@@ -55,8 +55,6 @@ export function tierFor(days: number): DiscountTier {
   for (const tier of DAY_DISCOUNT_TIERS) {
     if (days >= tier.minDays && days <= tier.maxDays) return tier;
   }
-  // Anything >= 7 lands in the weekly regime; the leftover-day part picks
-  // up its own tier from this same table.
   return DAY_DISCOUNT_TIERS[DAY_DISCOUNT_TIERS.length - 1];
 }
 
@@ -64,7 +62,6 @@ function applyPct(amount: number, pct: number): number {
   return Math.round((amount * pct) / 100);
 }
 
-/** Raw quote calculation, before the monotonic clamp. */
 function quoteRaw({ days, dailyPrice, weeklyPrice }: PricingInput): Quote {
   if (days < 1) {
     return {
@@ -93,7 +90,6 @@ function quoteRaw({ days, dailyPrice, weeklyPrice }: PricingInput): Quote {
     };
   }
 
-  // 7+ days: weeks at weekly price + remainder at daily with tier discount.
   const weeks = Math.floor(days / DAYS_PER_WEEK);
   const remainder = days - weeks * DAYS_PER_WEEK;
 
@@ -119,20 +115,11 @@ function quoteRaw({ days, dailyPrice, weeklyPrice }: PricingInput): Quote {
   };
 }
 
-/**
- * Public entry point: applies the monotonic clamp so a longer booking
- * never costs less than a shorter one. The clamp inflates `total` only;
- * `subtotal` and `discount` are re-derived to stay self-consistent.
- */
 export function quote(input: PricingInput): Quote {
   const raw = quoteRaw(input);
   if (raw.days <= 1) return raw;
-
   const prev = quote({ ...input, days: raw.days - 1 });
   if (raw.total >= prev.total) return raw;
-
-  // Inflate to match previous-day total, preserve gross subtotal,
-  // recompute discount + pct.
   const total = prev.total;
   const discount = Math.max(0, raw.subtotal - total);
   const discountPct =
@@ -140,7 +127,6 @@ export function quote(input: PricingInput): Quote {
   return { ...raw, total, discount, discountPct };
 }
 
-/** Inclusive day count between two ISO date strings (YYYY-MM-DD). */
 export function inclusiveDays(startISO: string, endISO: string): number {
   const start = Date.parse(startISO + "T00:00:00Z");
   const end = Date.parse(endISO + "T00:00:00Z");
@@ -148,7 +134,6 @@ export function inclusiveDays(startISO: string, endISO: string): number {
   return Math.round((end - start) / 86_400_000) + 1;
 }
 
-/** Format integer cents as a localized EUR string. */
 export function formatPrice(cents: number, locale = "sl-SI"): string {
   return new Intl.NumberFormat(locale, {
     style: "currency",
@@ -159,15 +144,12 @@ export function formatPrice(cents: number, locale = "sl-SI"): string {
 
 /* ─────────────────────────────────────────────────────────────────────
  * Package presets — fixed-duration rentals shown as marketing cards.
- * Each package compiles to either a half-hour single-session price or
- * a multi-day quote via `quote()`.
  * ──────────────────────────────────────────────────────────────────── */
 
 export type PackageId =
   | "30min"
   | "day1"
-  | "day2"
-  | "day3"
+  | "weekend"
   | "week1"
   | "week2";
 
@@ -175,15 +157,16 @@ export type PackageDef = {
   id: PackageId;
   days: number; // 0 for the 30-min taster
   isHalfHour?: boolean;
+  /** Locks the total at this price in cents, ignoring board daily/weekly rates. */
+  fixedTotal?: number;
 };
 
 export const PACKAGES: readonly PackageDef[] = [
   { id: "30min", days: 0, isHalfHour: true },
   { id: "day1", days: 1 },
-  { id: "day2", days: 2 },
-  { id: "day3", days: 3 },
+  { id: "weekend", days: 3, fixedTotal: 35000 }, // €350 Fri–Sun
   { id: "week1", days: 7 },
-  { id: "week2", days: 14 },
+  { id: "week2", days: 14, fixedTotal: 199000 }, // €1990 (vs 2× weekly = €2200)
 ];
 
 export type BoardPricing = {
@@ -193,10 +176,15 @@ export type BoardPricing = {
 };
 
 export function packageTotal(pkg: PackageDef, board: BoardPricing): number {
+  if (pkg.fixedTotal !== undefined) return pkg.fixedTotal;
   if (pkg.isHalfHour) return board.halfHourPrice;
   return quote({
     days: pkg.days,
     dailyPrice: board.dailyPrice,
     weeklyPrice: board.weeklyPrice,
   }).total;
+}
+
+export function packageById(id: PackageId): PackageDef | undefined {
+  return PACKAGES.find((p) => p.id === id);
 }

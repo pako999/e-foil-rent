@@ -21,8 +21,7 @@ type Status =
 const QUICK_PACKAGES: { id: PackageId; labelKey: string }[] = [
   { id: "30min", labelKey: "30min" },
   { id: "day1", labelKey: "day1" },
-  { id: "day2", labelKey: "day2" },
-  { id: "day3", labelKey: "day3" },
+  { id: "weekend", labelKey: "weekend" },
   { id: "week1", labelKey: "week1" },
   { id: "week2", labelKey: "week2" },
 ];
@@ -122,10 +121,20 @@ export function BookingSection({
         })
       : null;
 
-  // For 30-min taster, show the board's halfHourPrice instead of day-based.
+  // Fixed-price packages (weekend, 2-week) override the day-based calc.
+  const activePkgDef = activePkg
+    ? PACKAGES.find((p) => p.id === activePkg)
+    : null;
   const isHalfHour = activePkg === "30min";
-  const displayTotal =
-    isHalfHour && board ? board.halfHourPrice : q?.total ?? 0;
+  const fixedTotal =
+    activePkgDef && activePkgDef.fixedTotal !== undefined
+      ? activePkgDef.fixedTotal
+      : null;
+  const displayTotal = fixedTotal !== null
+    ? fixedTotal
+    : isHalfHour && board
+      ? board.halfHourPrice
+      : q?.total ?? 0;
 
   const rangeHasBlocked = useMemo(() => {
     if (!startDate || !endDate || days <= 0) return false;
@@ -152,6 +161,7 @@ export function BookingSection({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           boardId: board.id,
+          packageId: activePkg ?? null,
           customerName,
           email,
           phone,
@@ -409,7 +419,7 @@ export function BookingSection({
           <p className="font-display uppercase tracking-widest text-xs text-gold mb-3" style={{ fontWeight: 800 }}>
             💸 {t("priceTitle")}
           </p>
-          {board && (isHalfHour || q) ? (
+          {board && (isHalfHour || q || fixedTotal !== null) ? (
             <div>
               <p className="font-display text-5xl text-gold" style={{ fontWeight: 900 }}>
                 {formatPrice(displayTotal, intlLocale)}
@@ -417,9 +427,13 @@ export function BookingSection({
               <p className="font-mono text-sm text-paper/70 mt-2">
                 {isHalfHour
                   ? "30 min · " + board.name
-                  : `${t("priceDays", { days: q!.days })} · ${formatPrice(q!.dailyPrice, intlLocale)}/d`}
+                  : fixedTotal !== null && activePkgDef
+                    ? `${activePkgDef.days} dni · ${board.name}`
+                    : q
+                      ? `${t("priceDays", { days: q.days })} · ${formatPrice(q.dailyPrice, intlLocale)}/d`
+                      : ""}
               </p>
-              {!isHalfHour && q && q.discount > 0 && (
+              {fixedTotal === null && !isHalfHour && q && q.discount > 0 && (
                 <p className="font-mono text-sm text-gold mt-1">
                   −{q.discountPct}% {t("priceDiscount")} (−
                   {formatPrice(q.discount, intlLocale)})

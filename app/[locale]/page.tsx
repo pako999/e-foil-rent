@@ -19,6 +19,7 @@ import { ShopCta } from "./components/ShopCta";
 import { GiftVoucher } from "./components/GiftVoucher";
 import { Faq } from "./components/Faq";
 import { BookingSection } from "./components/BookingForm";
+import { StoreBanner } from "./components/StoreBanner";
 import { StickyBookBar } from "./components/StickyBookBar";
 import { Footer } from "./components/Footer";
 import { JsonLd } from "./components/JsonLd";
@@ -55,6 +56,7 @@ export default async function HomePage({
         <GiftVoucher />
         <Faq />
         <BookingSection boards={boards} locale={locale as Locale} />
+        <StoreBanner />
       </main>
       <Footer locale={locale as Locale} />
       <StickyBookBar />

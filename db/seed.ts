@@ -10,8 +10,8 @@ const seed = async () => {
         "Naša rental konfiguracija. Aluminijasta Cruise mast (80 cm), Duotone Midwish 5'8 deska. Robustna, zanesljiva in primerna za začetnike.",
       imageUrl: "/board-1.jpg",
       halfHourPrice: 7000, // €70
-      dailyPrice: 20000, // €200
-      weeklyPrice: 105000, // €1050 (≈ €150/day)
+      dailyPrice: 19900, // €199
+      weeklyPrice: 110000, // €1100
       unitsAvailable: 1,
       sortOrder: 1,
     },

@@ -56,55 +56,46 @@
         "duration": "30 minut",
         "desc": "Hiter okus letenja nad vodo. Idealno za začetnike, ki bi radi občutek pred polnim terminom.",
         "f1": "Kratek inštruktažni brief",
-        "f2": "Vsa varnostna oprema",
+        "f2": "Čelada in reševalni jopič vključena",
         "f3": "Inštruktor v vodi",
-        "f4": "Foto spomin",
+        "f4": "Vsa varnostna oprema",
         "locationNote": "Na voljo samo: Green Lake · Kamešnica · Murska Sobota · Maribor (po dogovoru)"
       },
       "day1": {
-        "name": "1 dan",
+        "name": "Dnevni najem",
         "duration": "1 dan",
         "desc": "Cel dan izposoje. Vzemi si čas — vadi, počivaj, leti znova.",
         "f1": "Cel dan deske + foil",
-        "f2": "Polnilnik + rezervna baterija",
-        "f3": "Reševalni jopič in čelada",
+        "f2": "Polnilnik in rezervna baterija",
+        "f3": "Čelada in reševalni jopič vključena",
         "f4": "Krajši uvod (po želji)"
       },
-      "day2": {
-        "name": "2 dni",
-        "duration": "2 dni",
-        "desc": "Dva polna dni za pravo napredovanje. Drugi dan je vse v hrbtu.",
-        "f1": "2 dni izposoje",
-        "f2": "Brezplačno shranjevanje opreme",
-        "f3": "Polnilnik + rezervna baterija",
-        "f4": "Vse varnostna oprema"
-      },
-      "day3": {
-        "name": "3 dni — 10% popust",
-        "duration": "3 dni",
-        "desc": "Najbolj priljubljen paket. Dovolj časa, da osvojiš vzlet in prve obrate.",
-        "f1": "3 dni izposoje (−10%)",
-        "f2": "1 ura inštrukcije gratis",
-        "f3": "Shranjevanje + transport",
-        "f4": "Foto/video spomin"
+      "weekend": {
+        "name": "Vikend (pet–ned)",
+        "duration": "Pet–Ned",
+        "desc": "Petek popoldne prevzem, nedelja zvečer ali ponedeljek zjutraj vračilo. Tri dni vode za eno fiksno ceno.",
+        "f1": "Prevzem v petek popoldne",
+        "f2": "Vračilo v nedeljo zvečer ali ponedeljek zjutraj",
+        "f3": "Polnilnik in rezervna baterija",
+        "f4": "Čelada in reševalni jopič vključena"
       },
       "week1": {
         "name": "1 teden",
         "duration": "7 dni",
         "desc": "Cel teden, fiksna cena. Idealno za dopust ob jezeru.",
         "f1": "7 dni izposoje, fiksna cena",
-        "f2": "2 uri inštrukcije gratis",
-        "f3": "Podpora na lokaciji 24/7",
-        "f4": "Foto/video paket"
+        "f2": "Polnilnik in rezervna baterija",
+        "f3": "Čelada in reševalni jopič vključena",
+        "f4": "Podpora na lokaciji"
       },
       "week2": {
         "name": "2 tedna — VIP",
         "duration": "14 dni",
-        "desc": "Dvotedensko vsestransko doživetje. Zasebni inštruktor in prilagodljiv urnik.",
-        "f1": "14 dni izposoje",
-        "f2": "Zasebni inštruktor (3 h)",
-        "f3": "Premium oprema na izbiro",
-        "f4": "Foto/video produkcija"
+        "desc": "Dvotedensko vsestransko doživetje. Najboljša cena na dan.",
+        "f1": "14 dni izposoje, fiksna cena",
+        "f2": "Polnilnik in rezervna baterija",
+        "f3": "Čelada in reševalni jopič vključena",
+        "f4": "Prednostna podpora"
       }
     }
   },
@@ -482,6 +473,14 @@
     "title": "ZALJUBLJEN? PELJI GA DOMOV.",
     "body": "Vse Duotone e-foil sete najdeš v naši trgovini Surf-Store.com. Brezplačna dostava po Sloveniji.",
     "cta": "Oglej si komplete v trgovini"
+  },
+  "storeBanner": {
+    "eyebrow": "Spletna trgovina",
+    "title": "VEČ KOT 2000 PRODUKTOV TOP BRANDOV",
+    "body": "Surf-Store.com — vodilna slovenska watersports trgovina za E-Foil, Wingfoil, Kiteboarding in Windsurfing. Brezplačna dostava po Sloveniji.",
+    "cta": "Obišči trgovino",
+    "categoriesLabel": "// Kategorije",
+    "brandsLabel": "// Top brandi"
   },
   "stickyBar": {
     "label": "Pripravljen za let?",

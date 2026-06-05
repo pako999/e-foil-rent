@@ -3,7 +3,7 @@ import { db } from "@/db";
 import { bookings } from "@/db/schema";
 import { bookingInput } from "@/lib/validations";
 import { getBoardById, isRangeAvailable } from "@/lib/queries";
-import { inclusiveDays, quote } from "@/lib/pricing";
+import { inclusiveDays, quote, packageById } from "@/lib/pricing";
 import { rateLimit, ipFromRequest } from "@/lib/rate-limit";
 import { sendBookingEmails } from "@/lib/email";
 
@@ -61,11 +61,25 @@ export async function POST(req: Request) {
   }
 
   // Server-authoritative price calc — never trust the client total.
-  const q = quote({
+  // Fixed-price packages (weekend, 2-week promo) override the day ladder
+  // ONLY when the booked range actually matches the package's day count.
+  const pkg = data.packageId ? packageById(data.packageId) : undefined;
+  const baseQuote = quote({
     days,
     dailyPrice: board.dailyPrice,
     weeklyPrice: board.weeklyPrice,
   });
+  const useFixed =
+    pkg?.fixedTotal !== undefined && pkg.days === days;
+  const q = useFixed
+    ? {
+        ...baseQuote,
+        subtotal: pkg!.fixedTotal!,
+        discount: 0,
+        total: pkg!.fixedTotal!,
+        discountPct: 0,
+      }
+    : baseQuote;
 
   const inserted = await db
     .insert(bookings)
