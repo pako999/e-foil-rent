@@ -49,11 +49,10 @@ export async function Hero() {
           </span>
           <Image
             src="/Surfshop_logo.svg"
-            alt="Surfshop"
+            alt="Surfshop Ljubljana"
             width={360}
             height={72}
             className="h-5 sm:h-7 md:h-9 w-auto"
-            style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
         </div>
