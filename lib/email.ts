@@ -1,6 +1,6 @@
-import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
+import { MailerSend, EmailParams, Sender, Recipient, Attachment } from "mailersend";
 import type { Board, Booking } from "@/db/schema";
-import { formatPrice } from "./pricing";
+import { formatPrice, vatBreakdown } from "./pricing";
 import { SITE } from "./content";
 
 const apiKey = process.env.MAILERSEND_API_TOKEN;
@@ -22,6 +22,7 @@ async function send(args: {
   subject: string;
   html: string;
   replyTo?: { email: string; name?: string };
+  attachments?: Array<{ filename: string; content: Buffer; mime?: string }>;
 }) {
   if (!ms) return;
   const params = new EmailParams()
@@ -34,7 +35,140 @@ async function send(args: {
       new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email),
     );
   }
+  if (args.attachments && args.attachments.length > 0) {
+    params.setAttachments(
+      args.attachments.map(
+        (a) =>
+          new Attachment(
+            a.content.toString("base64"),
+            a.filename,
+            "attachment",
+          ),
+      ),
+    );
+  }
   await ms.email.send(params);
+}
+
+/**
+ * Sent automatically when an admin clicks "Confirm" on a booking.
+ * Optionally attaches a PDF proforma created via lib/eracuni.
+ */
+export async function sendApprovalEmail({
+  booking,
+  board,
+  locale,
+  proforma,
+}: SendArgs & {
+  proforma?: { documentNumber: string; pdf?: Buffer };
+}) {
+  if (!ms) {
+    console.warn("[email] MAILERSEND_API_TOKEN missing — skipping approval");
+    return;
+  }
+  const total = formatPrice(booking.total, locale === "sl" ? "sl-SI" : "en-IE");
+  const v = vatBreakdown(booking.total);
+  const tNet = formatPrice(v.net, "sl-SI");
+  const tVat = formatPrice(v.vat, "sl-SI");
+  const tGross = formatPrice(v.gross, "sl-SI");
+  const docLine = proforma
+    ? `<p>V prilogi je predračun <strong>${escapeHtml(proforma.documentNumber)}</strong>. Prosimo, da znesek poravnaš v naslednjih 7 dneh, da ostane termin rezerviran.</p>`
+    : `<p>Za poravnavo bomo ločeno poslali predračun.</p>`;
+  const docLineEn = proforma
+    ? `<p>The attached file is proforma invoice <strong>${escapeHtml(proforma.documentNumber)}</strong>. Please settle it within 7 days to keep the slot reserved.</p>`
+    : `<p>We will send the proforma invoice separately.</p>`;
+
+  const html =
+    locale === "sl"
+      ? shell(`
+        <h2>Rezervacija potrjena ✅</h2>
+        <p>Pozdravljen/a ${escapeHtml(booking.customerName)}!</p>
+        <p>Vaš termin je <strong>potrjen</strong>. Veselimo se srečanja na vodi.</p>
+        ${summaryTable(booking, board, "sl")}
+        <p style="margin-top:24px"><strong>Skupaj: ${total}</strong></p>
+        <table style="margin-top:8px;border-collapse:collapse;font-size:13px;color:#555">
+          <tr><td style="padding:2px 12px">Cena brez DDV</td><td style="padding:2px 12px">${tNet}</td></tr>
+          <tr><td style="padding:2px 12px">DDV (22 %)</td><td style="padding:2px 12px">${tVat}</td></tr>
+          <tr><td style="padding:2px 12px;border-top:1px solid #ddd">Skupaj z DDV</td><td style="padding:2px 12px;border-top:1px solid #ddd"><strong>${tGross}</strong></td></tr>
+        </table>
+        ${docLine}
+        <p style="color:#555;font-size:13px;margin-top:24px">${SITE.contactEmail} · ${SITE.phone} · ${SITE.mainSite}</p>
+      `)
+      : shell(`
+        <h2>Booking confirmed ✅</h2>
+        <p>Hi ${escapeHtml(booking.customerName)},</p>
+        <p>Your slot is <strong>confirmed</strong>. Looking forward to seeing you on the water.</p>
+        ${summaryTable(booking, board, "en")}
+        <p style="margin-top:24px"><strong>Total: ${total}</strong></p>
+        <table style="margin-top:8px;border-collapse:collapse;font-size:13px;color:#555">
+          <tr><td style="padding:2px 12px">Net</td><td style="padding:2px 12px">${tNet}</td></tr>
+          <tr><td style="padding:2px 12px">VAT (22 %)</td><td style="padding:2px 12px">${tVat}</td></tr>
+          <tr><td style="padding:2px 12px;border-top:1px solid #ddd">Total incl. VAT</td><td style="padding:2px 12px;border-top:1px solid #ddd"><strong>${tGross}</strong></td></tr>
+        </table>
+        ${docLineEn}
+        <p style="color:#555;font-size:13px;margin-top:24px">${SITE.contactEmail} · ${SITE.phone} · ${SITE.mainSite}</p>
+      `);
+
+  const attachments = proforma?.pdf
+    ? [
+        {
+          filename: `predracun-${proforma.documentNumber}.pdf`,
+          content: proforma.pdf,
+          mime: "application/pdf",
+        },
+      ]
+    : undefined;
+
+  await send({
+    to: { email: booking.email, name: booking.customerName },
+    subject:
+      locale === "sl"
+        ? `Rezervacija potrjena — ${board.name}`
+        : `Booking confirmed — ${board.name}`,
+    html,
+    attachments,
+  });
+}
+
+/**
+ * Sent when an admin clicks "Cancel" on a booking.
+ */
+export async function sendCancellationEmail({
+  booking,
+  board,
+  locale,
+}: SendArgs) {
+  if (!ms) {
+    console.warn("[email] MAILERSEND_API_TOKEN missing — skipping cancel");
+    return;
+  }
+  const html =
+    locale === "sl"
+      ? shell(`
+        <h2>Rezervacija odpovedana</h2>
+        <p>Pozdravljen/a ${escapeHtml(booking.customerName)},</p>
+        <p>Žal smo bili primorani <strong>odpovedati</strong> vaš termin za ${escapeHtml(board.name)}.</p>
+        ${summaryTable(booking, board, "sl")}
+        <p style="margin-top:24px">Če imaš vprašanja, nam piši — z veseljem najdemo nov termin.</p>
+        <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.phone}</p>
+      `)
+      : shell(`
+        <h2>Booking cancelled</h2>
+        <p>Hi ${escapeHtml(booking.customerName)},</p>
+        <p>We had to <strong>cancel</strong> your booking for ${escapeHtml(board.name)}.</p>
+        ${summaryTable(booking, board, "en")}
+        <p style="margin-top:24px">If you have questions, write us back — happy to find a new slot.</p>
+        <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.phone}</p>
+      `);
+
+  await send({
+    to: { email: booking.email, name: booking.customerName },
+    subject:
+      locale === "sl"
+        ? `Rezervacija odpovedana — ${board.name}`
+        : `Booking cancelled — ${board.name}`,
+    html,
+  });
 }
 
 export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
