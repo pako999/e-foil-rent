@@ -76,11 +76,11 @@
         "purchaseCredit": "Probaj, potem kupi. Če se odločiš za nakup deske, znesek enodnevne izposoje odštejemo od končne cene."
       },
       "weekend": {
-        "name": "Vikend (pet–ned)",
-        "duration": "Pet–Ned",
-        "desc": "Petek popoldne prevzem, nedelja zvečer ali ponedeljek zjutraj vračilo. Tri dni vode za eno fiksno ceno.",
-        "f1": "Prevzem v petek popoldne",
-        "f2": "Vračilo v nedeljo zvečer ali ponedeljek zjutraj",
+        "name": "Vikend (sob–ned)",
+        "duration": "Sob–Ned",
+        "desc": "Prevzem v petek po 17:00, vračilo v nedeljo do 20:00 ali ponedeljek do 10:00. Polni vikend vožnje za fiksno ceno.",
+        "f1": "Prevzem v petek po 17:00",
+        "f2": "Vračilo nedelja do 20:00 ali ponedeljek do 10:00",
         "f3": "Polnilnik in rezervna baterija",
         "f4": "Čelada in reševalni jopič vključena"
       },

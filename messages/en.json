@@ -76,11 +76,11 @@
         "purchaseCredit": "Try first, buy later. If you decide to buy, the 1-day rental fee is credited toward the board's price."
       },
       "weekend": {
-        "name": "Weekend (Fri–Sun)",
-        "duration": "Fri–Sun",
-        "desc": "Pickup Friday afternoon, return Sunday evening or Monday morning. Three days of water for one fixed price.",
-        "f1": "Pickup Friday afternoon",
-        "f2": "Return Sunday evening or Monday morning",
+        "name": "Weekend (Sat–Sun)",
+        "duration": "Sat–Sun",
+        "desc": "Pickup Friday after 17:00, return Sunday by 20:00 or Monday by 10:00. A full weekend of riding for one fixed price.",
+        "f1": "Pickup Friday after 17:00",
+        "f2": "Return Sunday by 20:00 or Monday by 10:00",
         "f3": "Charger and spare battery",
         "f4": "Helmet and life vest included"
       },

@@ -164,7 +164,7 @@ export type PackageDef = {
 export const PACKAGES: readonly PackageDef[] = [
   { id: "30min", days: 0, isHalfHour: true },
   { id: "day1", days: 1 },
-  { id: "weekend", days: 3, fixedTotal: 35000 }, // €350 Fri–Sun
+  { id: "weekend", days: 2, fixedTotal: 35000 }, // €350 Sat–Sun (pickup Fri 17:00, return Sun 20:00 / Mon 10:00)
   { id: "week1", days: 7 },
   { id: "week2", days: 14, fixedTotal: 199000 }, // €1990 (vs 2× weekly = €2200)
 ];
