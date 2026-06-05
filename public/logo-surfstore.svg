@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" fill="none">
+  <!-- Wave mark -->
+  <path d="M4 30 Q 12 22 20 30 T 36 30" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Wordmark -->
+  <text x="48" y="33" font-family="Arial Black, Helvetica Neue, sans-serif" font-weight="900" font-size="22" letter-spacing="0" fill="currentColor">SURF-STORE</text>
+  <text x="246" y="33" font-family="Arial Black, Helvetica Neue, sans-serif" font-weight="900" font-size="22" letter-spacing="0" fill="#FFD600">.</text>
+  <text x="256" y="33" font-family="Arial, Helvetica Neue, sans-serif" font-weight="700" font-size="22" letter-spacing="0" fill="currentColor">COM</text>
+</svg>

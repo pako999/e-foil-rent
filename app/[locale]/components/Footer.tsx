@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { SITE } from "@/lib/content";
 import type { Locale } from "@/i18n/request";
@@ -9,10 +10,26 @@ export async function Footer({ locale }: { locale: Locale }) {
     <footer className="bg-ink text-paper pb-16 lg:pb-0 border-t-2 border-ink">
       <div className="container-x py-16 grid md:grid-cols-3 gap-12">
         <div>
-          <p className="font-display uppercase tracking-tight text-2xl mb-3" style={{ fontWeight: 900 }}>
-            Surf-Store<span className="text-gold">.</span>com
-          </p>
-          <p className="text-paper/70 max-w-xs">{t("tagline")}</p>
+          <a href={SITE.mainSite} target="_blank" rel="noreferrer" aria-label="Surf-Store.com">
+            <Image
+              src="/logo-surfstore.svg"
+              alt="Surf-Store.com"
+              width={240}
+              height={36}
+              className="h-8 w-auto text-paper"
+            />
+          </a>
+          <p className="text-paper/70 max-w-xs mt-4">{t("tagline")}</p>
+          <div className="mt-6 flex items-center gap-3">
+            <span className="font-mono text-xs text-paper/50">{t("partner")}</span>
+            <Image
+              src="/logo-duotone.svg"
+              alt="Duotone"
+              width={120}
+              height={24}
+              className="h-5 w-auto text-paper/80"
+            />
+          </div>
           <a
             href={SITE.mainSite}
             target="_blank"

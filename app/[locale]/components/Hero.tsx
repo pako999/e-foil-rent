@@ -20,6 +20,28 @@ export async function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink/60 to-transparent" />
       </div>
       <div className="relative container-x py-20 md:py-24 w-full">
+        {/* Co-brand row — surf-store × Duotone */}
+        <div className="flex items-center gap-5 mb-8 text-paper">
+          <Image
+            src="/logo-surfstore.svg"
+            alt="Surf-Store.com"
+            width={240}
+            height={36}
+            className="h-8 md:h-9 w-auto"
+            priority
+          />
+          <span className="text-paper/40 font-display text-xl" style={{ fontWeight: 800 }}>
+            ×
+          </span>
+          <Image
+            src="/logo-duotone.svg"
+            alt="Duotone"
+            width={180}
+            height={36}
+            className="h-8 md:h-9 w-auto"
+            priority
+          />
+        </div>
         <p className="inline-flex items-center gap-2 font-display uppercase tracking-widest text-xs text-gold mb-6 border-2 border-gold px-3 py-1.5 bg-ink/40 backdrop-blur-sm">
           📍 {t("eyebrow")}
         </p>
