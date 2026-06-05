@@ -50,6 +50,8 @@
     "select": "Rezerviraj",
     "bestBadge": "Najbolj priljubljeno",
     "include": "Vključeno",
+    "perDay": "{price}/dan",
+    "savings": "Prihranek {amount} ({pct}%)",
     "items": {
       "30min": {
         "name": "30 min — Taster",

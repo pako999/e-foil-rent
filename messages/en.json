@@ -50,6 +50,8 @@
     "select": "Book",
     "bestBadge": "Most popular",
     "include": "Included",
+    "perDay": "{price}/day",
+    "savings": "Save {amount} ({pct}%)",
     "items": {
       "30min": {
         "name": "30 min — Taster",
