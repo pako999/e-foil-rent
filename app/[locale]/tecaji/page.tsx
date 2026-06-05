@@ -10,13 +10,12 @@ import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
 import { locales, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
-import { SITE } from "@/lib/content";
+import { SITE, TECAJI_LOCATIONS } from "@/lib/content";
 
 const WHY_KEYS = ["fast", "safe", "feedback", "gear"] as const;
 const LEVEL_KEYS = ["beginner", "intermediate", "private"] as const;
 const STEP_KEYS = ["s1", "s2", "s3", "s4", "s5"] as const;
 const INCLUDED_KEYS = ["board", "battery", "safety", "wetsuit", "insurance", "photos"] as const;
-const LOCATION_KEYS = ["greenLake", "ms", "kamesnica", "maribor"] as const;
 const FAQ_KEYS = ["needSwim", "ageMin", "group", "weather", "gift"] as const;
 
 export async function generateMetadata({
@@ -308,16 +307,40 @@ export default async function TecajiPage({
               <p className="text-graphite text-xl sm:text-lg">{t("locations.subtitle")}</p>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
-              {LOCATION_KEYS.map((k) => (
-                <article key={k} className="border-2 border-ink p-5 bg-paper">
-                  <h3 className="font-display uppercase tracking-tight text-xl text-ink mb-1" style={{ fontWeight: 900 }}>
-                    {t(`locations.items.${k}.name`)}
-                  </h3>
-                  <p className="text-graphite text-sm">
-                    {t(`locations.items.${k}.note`)}
-                  </p>
-                </article>
-              ))}
+              {TECAJI_LOCATIONS.map((loc) => {
+                const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.mapsQuery)}`;
+                const embedSrc = `https://www.google.com/maps?q=${encodeURIComponent(loc.mapsQuery)}&output=embed`;
+                return (
+                  <article key={loc.key} className="border-2 border-ink bg-paper overflow-hidden flex flex-col">
+                    <div className="aspect-video w-full border-b-2 border-ink">
+                      <iframe
+                        src={embedSrc}
+                        title={t(`locations.items.${loc.key}.name`)}
+                        className="w-full h-full"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                    </div>
+                    <div className="p-5 flex-1 flex flex-col">
+                      <h3 className="font-display uppercase tracking-tight text-xl text-ink mb-1" style={{ fontWeight: 900 }}>
+                        {t(`locations.items.${loc.key}.name`)}
+                      </h3>
+                      <p className="text-graphite text-base sm:text-sm mb-4 flex-1">
+                        {t(`locations.items.${loc.key}.note`)}
+                      </p>
+                      <a
+                        href={mapsLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-block font-display uppercase text-xs tracking-wide text-ink border-b-2 border-gold pb-0.5 w-fit hover:text-gold"
+                        style={{ fontWeight: 800 }}
+                      >
+                        {t("locations.openMap")} ↗
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>

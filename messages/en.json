@@ -48,7 +48,7 @@
     "eyebrow": "Prices & packages",
     "title": "PICK YOUR PACKAGE",
     "subtitle": "From a 30-minute taster to a two-week vacation rental — every package includes the board, safety gear and a short intro.",
-    "locationsNotice": "Sessions run at four locations only: Green Lake (Kidričevo), Murska Sobota, Kamešnica and Maribor. Exact spot is arranged in advance.",
+    "locationsNotice": "Sessions run at three locations: Green Lake (Kidričevo), Gramoznica Soboško jezero (Murska Sobota) and Maribor. Exact spot is arranged in advance.",
     "fromPrice": "from {price}",
     "select": "Book",
     "bestBadge": "Most popular",
@@ -65,7 +65,7 @@
         "f2": "Helmet and life vest included",
         "f3": "Instructor",
         "f4": "All safety gear",
-        "locationNote": "Only at: Green Lake · Kamešnica · Murska Sobota · Maribor (by arrangement)"
+        "locationNote": "Only at: Green Lake · Gramoznica Soboško jezero · Maribor (by arrangement)"
       },
       "day1": {
         "name": "Day rental",
@@ -308,7 +308,7 @@
   "tecaji": {
     "meta": {
       "title": "E-foil courses — Lessons & school | Surf-Store.com Slovenia",
-      "description": "E-foil courses with a licensed instructor at Green Lake (Kidričevo), Murska Sobota, Kamešnica and Maribor. Beginner, intermediate and private courses. All gear included.",
+      "description": "E-foil courses with a licensed instructor at Green Lake (Kidričevo), Gramoznica Soboško jezero (Murska Sobota) and Maribor. Beginner, intermediate and private courses. All gear included.",
       "keywords": "e-foil course, e-foil school Slovenia, e-foil lessons, e-foil instructor, beginner e-foil course, private e-foil lesson, Duotone course"
     },
     "hero": {
@@ -414,11 +414,11 @@
     "locations": {
       "eyebrow": "Where",
       "title": "COURSE LOCATIONS",
-      "subtitle": "Four permanent spots across Slovenia — exact venue is arranged by email or phone based on the weather forecast.",
+      "subtitle": "Three permanent spots across Slovenia — exact venue is arranged by email or phone based on the weather forecast.",
+      "openMap": "Show on map",
       "items": {
         "greenLake": { "name": "Green Lake, Kidričevo", "note": "Main base — best for beginners (calm water)." },
-        "ms": { "name": "Murska Sobota", "note": "Sobota Lake — great for weekend courses." },
-        "kamesnica": { "name": "Kamešnica", "note": "Smaller lake, ideal for private courses." },
+        "ms": { "name": "Gramoznica Soboško jezero, Murska Sobota", "note": "Calm waters of the Sobota gravel-pit lake — great for weekend courses." },
         "maribor": { "name": "Maribor", "note": "By arrangement, suitable for group sessions." }
       }
     },
@@ -764,7 +764,7 @@
       "updatedAt": "5 June 2026",
       "intro": "These terms govern the relationship between the customer and Sport Group d.o.o. (the \"Provider\") for e-foil rental, courses and school services. By making a reservation the customer confirms they have read and accept these terms in full.",
       "sections": [
-        { "title": "1. Provider", "body": "E-foil rental and school services are operated by Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slovenia, VAT ID SI72133449. Main location: Green Lake, Kidričevo. Additional locations by arrangement: Maribor, Ljubljana, Celje, Murska Sobota, Kamešnica." },
+        { "title": "1. Provider", "body": "E-foil rental and school services are operated by Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slovenia, VAT ID SI72133449. Main location: Green Lake, Kidričevo. Additional locations by arrangement: Maribor, Ljubljana, Celje, Gramoznica Soboško jezero (Murska Sobota)." },
         { "title": "2. Subject", "body": "The contract covers rental of Duotone e-foil equipment (board, foil, batteries, charger) and/or an e-foil course with a licensed instructor. The specific package, dates and price are set out in the confirmation email." },
         { "title": "3. Booking and payment", "body": "A reservation becomes valid once confirmed by the Provider in writing. Payment is accepted in cash, by card or by bank transfer. For multi-day rentals (3 days+) the Provider charges a €500 deposit, fully refunded after a damage-free return." },
         { "title": "4. Prices", "body": "Prices are listed on the website and include VAT. Each package includes board, foil, two batteries, charger, helmet, life vest and a wetsuit (seasonal). An instructor is included with the 30-minute taster and all courses, not with stand-alone rentals." },

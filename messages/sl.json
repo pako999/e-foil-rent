@@ -48,7 +48,7 @@
     "eyebrow": "Cenik & paketi",
     "title": "IZBERI SVOJ PAKET",
     "subtitle": "Od 30-minutne pokušine do dvotedenskega počitniškega doživetja — vsak paket vključuje desko, varnostno opremo in kratek uvod.",
-    "locationsNotice": "Termini potekajo izključno na štirih lokacijah: Green Lake (Kidričevo), Murska Sobota, Kamešnica in Maribor. Točno mesto se dogovori vnaprej.",
+    "locationsNotice": "Termini potekajo na treh lokacijah: Green Lake (Kidričevo), Gramoznica Soboško jezero (Murska Sobota) in Maribor. Točno mesto se dogovori vnaprej.",
     "fromPrice": "od {price}",
     "select": "Rezerviraj",
     "bestBadge": "Najbolj priljubljeno",
@@ -65,7 +65,7 @@
         "f2": "Čelada in reševalni jopič vključena",
         "f3": "Inštruktor",
         "f4": "Vsa varnostna oprema",
-        "locationNote": "Na voljo samo: Green Lake · Kamešnica · Murska Sobota · Maribor (po dogovoru)"
+        "locationNote": "Na voljo samo: Green Lake · Gramoznica Soboško jezero · Maribor (po dogovoru)"
       },
       "day1": {
         "name": "Dnevni najem",
@@ -308,7 +308,7 @@
   "tecaji": {
     "meta": {
       "title": "Tečaji e-foila — Šola e-foilinga | Surf-Store.com Slovenija",
-      "description": "Tečaji e-foilinga z licenciranim inštruktorjem na Green Lake (Kidričevo), Murska Sobota, Kamešnica in Maribor. Začetni, nadaljevalni in privatni tečaji. Vključuje vso opremo.",
+      "description": "Tečaji e-foilinga z licenciranim inštruktorjem na Green Lake (Kidričevo), Gramoznici Soboško jezero (Murska Sobota) in Maribor. Začetni, nadaljevalni in privatni tečaji. Vključuje vso opremo.",
       "keywords": "tečaj e-foil, šola e-foilinga, e-foil učenje Slovenija, e-foil inštruktor, začetni tečaj e-foil, privatni tečaj e-foil, Duotone tečaj"
     },
     "hero": {
@@ -414,11 +414,11 @@
     "locations": {
       "eyebrow": "Kje izvajamo",
       "title": "LOKACIJE IZVAJANJA TEČAJEV",
-      "subtitle": "Štiri stalne lokacije po Sloveniji — termin se dogovori po e-pošti ali telefonu glede na vremensko napoved.",
+      "subtitle": "Tri stalne lokacije po Sloveniji — termin se dogovori po e-pošti ali telefonu glede na vremensko napoved.",
+      "openMap": "Pokaži na zemljevidu",
       "items": {
         "greenLake": { "name": "Green Lake, Kidričevo", "note": "Glavna baza — najboljša izbira za začetnike (mirne vode)." },
-        "ms": { "name": "Murska Sobota", "note": "Soboško jezero — odlično za vikend tečaje." },
-        "kamesnica": { "name": "Kamešnica", "note": "Manjše jezero, idealno za privatne tečaje." },
+        "ms": { "name": "Gramoznica Soboško jezero, Murska Sobota", "note": "Mirne vode soboške gramoznice — odlično za vikend tečaje." },
         "maribor": { "name": "Maribor", "note": "Po dogovoru, primerno za skupinske termine." }
       }
     },
@@ -766,7 +766,7 @@
       "sections": [
         {
           "title": "1. Ponudnik",
-          "body": "Storitve izposoje in šole e-foila izvaja Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slovenija, davčna številka SI72133449. Glavna lokacija izvajanja: Green Lake, Kidričevo. Dodatne lokacije po dogovoru: Maribor, Ljubljana, Celje, Murska Sobota in Kamešnica."
+          "body": "Storitve izposoje in šole e-foila izvaja Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slovenija, davčna številka SI72133449. Glavna lokacija izvajanja: Green Lake, Kidričevo. Dodatne lokacije po dogovoru: Maribor, Ljubljana, Celje in Gramoznica Soboško jezero (Murska Sobota)."
         },
         {
           "title": "2. Predmet pogodbe",

@@ -89,6 +89,16 @@ export const GALLERY_IMAGES = [
 
 export const TECH_FEATURES = ["range", "speed", "battery", "weight", "silent", "easy"] as const;
 
+/**
+ * Course / school locations. The mapsQuery is the string that gets dropped
+ * into a Google Maps "search" URL — no API key required.
+ */
+export const TECAJI_LOCATIONS = [
+  { key: "greenLake", mapsQuery: "Green Lake, Kidričevo" },
+  { key: "ms", mapsQuery: "Gramoznica Soboško jezero, Murska Sobota" },
+  { key: "maribor", mapsQuery: "Maribor, Slovenija" },
+] as const;
+
 // Featured packages shown in the marketing grid. The "best" flag highlights
 // one card with the sun-accent stripe.
 export const PACKAGE_HIGHLIGHTS = {
