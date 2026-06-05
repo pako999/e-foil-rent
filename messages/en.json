@@ -6,6 +6,7 @@
   },
   "nav": {
     "packages": "Packages",
+    "tecaji": "Courses",
     "efoil": "E-Foil",
     "duotone": "Duotone",
     "boards": "Boards",
@@ -46,6 +47,7 @@
     "eyebrow": "Prices & packages",
     "title": "PICK YOUR PACKAGE",
     "subtitle": "From a 30-minute taster to a two-week vacation rental — every package includes the board, safety gear and a short intro.",
+    "locationsNotice": "Sessions run at four locations only: Green Lake (Kidričevo), Murska Sobota, Kamešnica and Maribor. Exact spot is arranged in advance.",
     "fromPrice": "from {price}",
     "select": "Book",
     "bestBadge": "Most popular",
@@ -271,6 +273,149 @@
       "weight": { "title": "Lightweight board", "body": "Carbon construction, 14–17 kg complete with foil." },
       "silent": { "title": "Silent motor", "body": "Brushless drive — all you hear is the water." },
       "easy": { "title": "Quick to learn", "body": "Smart throttle control — safe for total beginners." }
+    }
+  },
+  "tecaji": {
+    "meta": {
+      "title": "E-foil courses — Lessons & school | Surf-Store.com Slovenia",
+      "description": "E-foil courses with a licensed instructor at Green Lake (Kidričevo), Murska Sobota, Kamešnica and Maribor. Beginner, intermediate and private courses. All gear included.",
+      "keywords": "e-foil course, e-foil school Slovenia, e-foil lessons, e-foil instructor, beginner e-foil course, private e-foil lesson, Duotone course"
+    },
+    "hero": {
+      "eyebrow": "E-foil school",
+      "title": "E-FOIL COURSES",
+      "subtitle": "From your first lift-off to independent riding — with a licensed instructor and all gear included.",
+      "ctaBook": "Book a course",
+      "ctaScroll": "See courses"
+    },
+    "why": {
+      "eyebrow": "Why take a course",
+      "title": "WHY TAKE A COURSE WITH AN INSTRUCTOR?",
+      "items": {
+        "fast": {
+          "title": "Faster progress",
+          "body": "With an instructor most riders fly within the first hour. Self-taught learning often takes a second day."
+        },
+        "safe": {
+          "title": "Safe environment",
+          "body": "The instructor watches from a boat or the shore. Safety gear and protocols are always ready."
+        },
+        "feedback": {
+          "title": "Live corrections",
+          "body": "The instructor catches mistakes (stance, balance, weight shift) you can't see yourself and fixes them on the spot."
+        },
+        "gear": {
+          "title": "Right gear",
+          "body": "Boards, wings and masts are tuned to your weight, experience and the day's conditions."
+        }
+      }
+    },
+    "levels": {
+      "eyebrow": "Levels",
+      "title": "COURSE LEVELS",
+      "subtitle": "Three clear tiers — from absolute beginner to technique refinement.",
+      "items": {
+        "beginner": {
+          "name": "Beginner course",
+          "duration": "1–2 hours",
+          "target": "For anyone who has never stood on an e-foil.",
+          "f1": "Briefing and basic controls",
+          "f2": "Kneeling and standing start",
+          "f3": "First lift-off and stable riding",
+          "f4": "All gear included"
+        },
+        "intermediate": {
+          "name": "Intermediate course",
+          "duration": "2–4 hours",
+          "target": "For riders who already fly and want more control.",
+          "f1": "Longer flight without drop-outs",
+          "f2": "Turns and direction changes",
+          "f3": "Weight-transfer technique",
+          "f4": "Video session review"
+        },
+        "private": {
+          "name": "Private course",
+          "duration": "By arrangement",
+          "target": "1-on-1 with the instructor. Fastest progress.",
+          "f1": "Custom programme",
+          "f2": "Your own pace",
+          "f3": "Flexible scheduling",
+          "f4": "Great for families or couples"
+        }
+      }
+    },
+    "what": {
+      "eyebrow": "What you'll learn",
+      "title": "BEGINNER COURSE PROGRAMME",
+      "subtitle": "Our proven 5-step programme — 90 % of guests fly within the first hour.",
+      "steps": {
+        "s1": "Briefing — safety, gear, trigger control",
+        "s2": "Belly and kneeling position on the board",
+        "s3": "First standing slide without the foil",
+        "s4": "Weight transfer — lift-off and stabilization",
+        "s5": "Longer rides, first turns"
+      }
+    },
+    "instructor": {
+      "eyebrow": "Instructor",
+      "title": "YOUR INSTRUCTOR",
+      "p1": "Our instructors are licensed by the ISA (International Surfing Association) and have 5+ years of active practice on the water.",
+      "p2": "They specialize in e-foiling, wing-foiling and SUP — meaning they can adapt the approach to your background and fitness level.",
+      "p3": "Lessons run in Slovenian, Croatian, English and German."
+    },
+    "included": {
+      "eyebrow": "Included",
+      "title": "WHAT'S INCLUDED",
+      "items": {
+        "board": "Duotone e-foil board and foil",
+        "battery": "Full battery (spare if needed)",
+        "safety": "Helmet, life vest, leash",
+        "wetsuit": "Wetsuit (seasonal)",
+        "insurance": "Basic equipment insurance",
+        "photos": "Photo memento (on request)"
+      }
+    },
+    "locations": {
+      "eyebrow": "Where",
+      "title": "COURSE LOCATIONS",
+      "subtitle": "Four permanent spots across Slovenia — exact venue is arranged by email or phone based on the weather forecast.",
+      "items": {
+        "greenLake": { "name": "Green Lake, Kidričevo", "note": "Main base — best for beginners (calm water)." },
+        "ms": { "name": "Murska Sobota", "note": "Sobota Lake — great for weekend courses." },
+        "kamesnica": { "name": "Kamešnica", "note": "Smaller lake, ideal for private courses." },
+        "maribor": { "name": "Maribor", "note": "By arrangement, suitable for group sessions." }
+      }
+    },
+    "faq": {
+      "eyebrow": "Frequently asked",
+      "title": "FREQUENTLY ASKED",
+      "items": {
+        "needSwim": {
+          "q": "Do I need to know how to swim?",
+          "a": "Yes. Everyone wears a life vest, but basic swimming is still required."
+        },
+        "ageMin": {
+          "q": "What's the minimum age?",
+          "a": "Minimum age is 14 with parental consent. Riders under 18 take the course with a parent or guardian."
+        },
+        "group": {
+          "q": "Group or private course?",
+          "a": "Group (max 4 people) is cheaper and more social. Private (1-on-1) is faster and tailored."
+        },
+        "weather": {
+          "q": "What if the weather is bad?",
+          "a": "Free reschedule up to 12 hours before the lesson. In a storm we offer a new date at no extra cost."
+        },
+        "gift": {
+          "q": "Can I buy a course as a gift?",
+          "a": "Absolutely — we issue a gift voucher valid for 12 months. Email info@surf-store.com."
+        }
+      }
+    },
+    "cta": {
+      "title": "READY FOR YOUR FIRST FLIGHT?",
+      "body": "Book a slot — we confirm within 24 hours.",
+      "button": "Book a course"
     }
   },
   "efoil": {

@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   void langs;
   return [
     ...make("", 1),
+    ...make("/tecaji", 0.95),
     ...make("/efoil", 0.9),
     ...make("/duotone", 0.8),
   ];

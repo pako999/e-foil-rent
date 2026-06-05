@@ -17,11 +17,11 @@ export function Header({ locale }: { locale: Locale }) {
 
   const items: NavItem[] = [
     { kind: "anchor", href: `/${locale}#packages`, key: "packages" },
+    { kind: "page", href: `/${locale}/tecaji`, key: "tecaji" },
     { kind: "page", href: `/${locale}/efoil`, key: "efoil" },
     { kind: "page", href: `/${locale}/duotone`, key: "duotone" },
     { kind: "anchor", href: `/${locale}#how`, key: "how" },
     { kind: "anchor", href: `/${locale}#specs`, key: "specs" },
-    { kind: "anchor", href: `/${locale}#gallery`, key: "gallery" },
     { kind: "anchor", href: `/${locale}#faq`, key: "faq" },
   ];
 

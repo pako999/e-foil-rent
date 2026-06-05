@@ -109,11 +109,6 @@ export async function Packages({
                     </li>
                   ))}
                 </ul>
-                {pkg.id === "30min" && (
-                  <p className="text-xs text-ink/70 mb-4 border-l-2 border-ink pl-3 italic">
-                    {t("items.30min.locationNote")}
-                  </p>
-                )}
                 <a
                   href={`#book?pkg=${pkg.id}`}
                   data-pkg-id={pkg.id}
@@ -124,6 +119,14 @@ export async function Packages({
               </article>
             );
           })}
+        </div>
+
+        {/* Locations notice — applies to every package on the grid above. */}
+        <div className="mt-10 border-2 border-ink bg-paper p-5 flex items-start gap-4">
+          <span className="text-2xl shrink-0">📍</span>
+          <p className="text-sm text-ink leading-relaxed">
+            {t("locationsNotice")}
+          </p>
         </div>
       </div>
     </section>

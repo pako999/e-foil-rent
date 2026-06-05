@@ -6,6 +6,7 @@
   },
   "nav": {
     "packages": "Paketi",
+    "tecaji": "Tečaji",
     "efoil": "E-Foil",
     "duotone": "Duotone",
     "boards": "Deske",
@@ -46,6 +47,7 @@
     "eyebrow": "Cenik & paketi",
     "title": "IZBERI SVOJ PAKET",
     "subtitle": "Od 30-minutne pokušine do dvotedenskega počitniškega doživetja — vsak paket vključuje desko, varnostno opremo in kratek uvod.",
+    "locationsNotice": "Termini potekajo izključno na štirih lokacijah: Green Lake (Kidričevo), Murska Sobota, Kamešnica in Maribor. Točno mesto se dogovori vnaprej.",
     "fromPrice": "od {price}",
     "select": "Rezerviraj",
     "bestBadge": "Najbolj priljubljeno",
@@ -271,6 +273,149 @@
       "weight": { "title": "Lahka deska", "body": "Karbonska konstrukcija, 14–17 kg s foilom." },
       "silent": { "title": "Tih motor", "body": "Brezkrtačni motor — slišiš le šum vode." },
       "easy": { "title": "Hitro učenje", "body": "Inteligentna kontrola moči — varno za začetnike." }
+    }
+  },
+  "tecaji": {
+    "meta": {
+      "title": "Tečaji e-foila — Šola e-foilinga | Surf-Store.com Slovenija",
+      "description": "Tečaji e-foilinga z licenciranim inštruktorjem na Green Lake (Kidričevo), Murska Sobota, Kamešnica in Maribor. Začetni, nadaljevalni in privatni tečaji. Vključuje vso opremo.",
+      "keywords": "tečaj e-foil, šola e-foilinga, e-foil učenje Slovenija, e-foil inštruktor, začetni tečaj e-foil, privatni tečaj e-foil, Duotone tečaj"
+    },
+    "hero": {
+      "eyebrow": "Šola e-foilinga",
+      "title": "TEČAJI E-FOILA",
+      "subtitle": "Od prvega vzleta do samostojne vožnje — z licenciranim inštruktorjem in vso opremo vključeno.",
+      "ctaBook": "Rezerviraj tečaj",
+      "ctaScroll": "Spoznaj tečaje"
+    },
+    "why": {
+      "eyebrow": "Zakaj tečaj",
+      "title": "ZAKAJ NA TEČAJ Z INŠTRUKTORJEM?",
+      "items": {
+        "fast": {
+          "title": "Hitrejši napredek",
+          "body": "Z vodstvom inštruktorja boš v prvi uri večinoma že letel. Brez tečaja se učenje pogosto raztegne na dva dni."
+        },
+        "safe": {
+          "title": "Varno okolje",
+          "body": "Inštruktor sledi dogajanju s čolna ali z brega. Reševalna oprema in postopki so vedno na razpolago."
+        },
+        "feedback": {
+          "title": "Sprotne korekcije",
+          "body": "Inštruktor opazi napake (drža, ravnotežje, premik teže), ki jih sam ne moreš zaznati — in jih popravi takoj."
+        },
+        "gear": {
+          "title": "Pravilna oprema",
+          "body": "Različne deske, foilna krila in masta nastavimo glede na tvojo težo, izkušnje in dnevne pogoje."
+        }
+      }
+    },
+    "levels": {
+      "eyebrow": "Ravni",
+      "title": "RAVNI TEČAJEV",
+      "subtitle": "Tri jasne stopnje — od popolnega začetnika do izpopolnjevanja tehnike.",
+      "items": {
+        "beginner": {
+          "name": "Začetni tečaj",
+          "duration": "1–2 uri",
+          "target": "Za vse, ki še niso stali na e-foilu.",
+          "f1": "Brifing in osnovne kontrole",
+          "f2": "Klečeč in stoječi start",
+          "f3": "Prvi vzlet in stabilna vožnja",
+          "f4": "Vsa oprema vključena"
+        },
+        "intermediate": {
+          "name": "Nadaljevalni tečaj",
+          "duration": "2–4 ure",
+          "target": "Za riderje, ki že letijo in želijo več kontrole.",
+          "f1": "Daljše drsenje brez izpadov",
+          "f2": "Obrati in spremembe smeri",
+          "f3": "Tehnika prenosa teže",
+          "f4": "Video analiza vožnje"
+        },
+        "private": {
+          "name": "Privatni tečaj",
+          "duration": "Po dogovoru",
+          "target": "1-na-1 z inštruktorjem. Najhitrejši napredek.",
+          "f1": "Prilagojen program",
+          "f2": "Lastno tempo",
+          "f3": "Fleksibilni termini",
+          "f4": "Idealno za družine ali pare"
+        }
+      }
+    },
+    "what": {
+      "eyebrow": "Kaj se naučiš",
+      "title": "PROGRAM ZAČETNEGA TEČAJA",
+      "subtitle": "Naš preverjen 5-stopenjski program — 90 % gostov leti znotraj prve ure.",
+      "steps": {
+        "s1": "Brifing — varnost, oprema, kontrola sprožilca",
+        "s2": "Položaj na deski leže in klečé",
+        "s3": "Prvo stoječe drsenje brez foila",
+        "s4": "Prenos teže — vzlet in stabilizacija",
+        "s5": "Daljša vožnja, prvi obrati"
+      }
+    },
+    "instructor": {
+      "eyebrow": "Inštruktor",
+      "title": "TVOJ INŠTRUKTOR",
+      "p1": "Naši inštruktorji so licencirani po standardih ISA (International Surfing Association) z več kot 5 leti aktivne prakse na vodi.",
+      "p2": "Specializirani so za e-foiling, wing-foiling in SUP — kar pomeni, da znajo prilagoditi pristop tvojemu ozadju in fizični pripravljenosti.",
+      "p3": "Razlaga poteka v slovenščini, hrvaščini, angleščini in nemščini."
+    },
+    "included": {
+      "eyebrow": "Vključeno",
+      "title": "KAJ JE VKLJUČENO V CENO",
+      "items": {
+        "board": "Duotone e-foil deska in foil",
+        "battery": "Polna baterija (po potrebi rezerva)",
+        "safety": "Čelada, reševalni jopič, povodec",
+        "wetsuit": "Neopren (sezonsko)",
+        "insurance": "Osnovno zavarovanje opreme",
+        "photos": "Foto spomin (po želji)"
+      }
+    },
+    "locations": {
+      "eyebrow": "Kje izvajamo",
+      "title": "LOKACIJE IZVAJANJA TEČAJEV",
+      "subtitle": "Štiri stalne lokacije po Sloveniji — termin se dogovori po e-pošti ali telefonu glede na vremensko napoved.",
+      "items": {
+        "greenLake": { "name": "Green Lake, Kidričevo", "note": "Glavna baza — najboljša izbira za začetnike (mirne vode)." },
+        "ms": { "name": "Murska Sobota", "note": "Soboško jezero — odlično za vikend tečaje." },
+        "kamesnica": { "name": "Kamešnica", "note": "Manjše jezero, idealno za privatne tečaje." },
+        "maribor": { "name": "Maribor", "note": "Po dogovoru, primerno za skupinske termine." }
+      }
+    },
+    "faq": {
+      "eyebrow": "Pogosta vprašanja",
+      "title": "POGOSTA VPRAŠANJA",
+      "items": {
+        "needSwim": {
+          "q": "Ali moram znati plavati?",
+          "a": "Da. Reševalni jopič nosijo vsi udeleženci, kljub temu je osnovno znanje plavanja obvezno."
+        },
+        "ageMin": {
+          "q": "Od katere starosti dalje?",
+          "a": "Najnižja starost 14 let z dovoljenjem staršev. Otroci pod 18 let na tečaju s starši ali skrbnikom."
+        },
+        "group": {
+          "q": "Skupinski ali privatni tečaj?",
+          "a": "Skupinski (max 4 udeleženci) je cenejši in družabnejši. Privatni (1-na-1) je hitrejši in bolj prilagojen."
+        },
+        "weather": {
+          "q": "Kaj če bo slabo vreme?",
+          "a": "Brezplačna prestavitev termina do 12 ur pred načrtovano šolo. Ob nevihti predlagamo nov datum brez doplačila."
+        },
+        "gift": {
+          "q": "Lahko tečaj kupim kot darilo?",
+          "a": "Seveda — izdamo darilni bon z veljavnostjo 12 mesecev. Piši na info@surf-store.com."
+        }
+      }
+    },
+    "cta": {
+      "title": "PRIPRAVLJEN ZA PRVI VZLET?",
+      "body": "Rezerviraj termin — potrdimo ga v 24 urah.",
+      "button": "Rezerviraj tečaj"
     }
   },
   "efoil": {
