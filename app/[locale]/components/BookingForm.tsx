@@ -7,6 +7,7 @@ import {
   inclusiveDays,
   quote,
   formatPrice,
+  vatBreakdown,
   PACKAGES,
   type PackageId,
 } from "@/lib/pricing";
@@ -464,12 +465,27 @@ export function BookingSection({
                   {formatPrice(q.discount, intlLocale)})
                 </p>
               )}
-              <div className="mt-6 pt-6 border-t-2 border-gold/30 flex justify-between font-display uppercase tracking-wide" style={{ fontWeight: 800 }}>
-                <span>{t("priceTotal")}</span>
-                <span className="text-gold">
-                  {formatPrice(displayTotal, intlLocale)}
-                </span>
-              </div>
+              {(() => {
+                const v = vatBreakdown(displayTotal);
+                return (
+                  <div className="mt-6 pt-6 border-t-2 border-gold/30 space-y-2">
+                    <div className="flex justify-between font-mono text-sm text-paper/70">
+                      <span>{t("netLabel")}</span>
+                      <span>{formatPrice(v.net, intlLocale)}</span>
+                    </div>
+                    <div className="flex justify-between font-mono text-sm text-paper/70">
+                      <span>{t("vatLabel")}</span>
+                      <span>{formatPrice(v.vat, intlLocale)}</span>
+                    </div>
+                    <div className="flex justify-between font-display uppercase tracking-wide pt-3 mt-1 border-t-2 border-gold/30" style={{ fontWeight: 800 }}>
+                      <span>{t("totalWithVat")}</span>
+                      <span className="text-gold">
+                        {formatPrice(v.gross, intlLocale)}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           ) : (
             <p className="text-paper/70">{t("noDates")}</p>

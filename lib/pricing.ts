@@ -142,6 +142,18 @@ export function formatPrice(cents: number, locale = "sl-SI"): string {
   }).format(cents / 100);
 }
 
+/** Slovenian standard VAT rate. Public-facing prices already include VAT. */
+export const VAT_RATE = 0.22;
+
+/**
+ * Split a gross (consumer-facing, VAT-inclusive) price into net + VAT
+ * components. Returns integer cents so the two reconstruct exactly.
+ */
+export function vatBreakdown(grossCents: number) {
+  const net = Math.round(grossCents / (1 + VAT_RATE));
+  return { net, vat: grossCents - net, gross: grossCents };
+}
+
 /* ─────────────────────────────────────────────────────────────────────
  * Package presets — fixed-duration rentals shown as marketing cards.
  * ──────────────────────────────────────────────────────────────────── */

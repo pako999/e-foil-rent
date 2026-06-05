@@ -68,6 +68,9 @@ export async function Packages({
                       {formatPrice(price, intlLocale)}
                     </span>
                   </div>
+                  <p className="font-mono text-xs text-ink/50 mt-1">
+                    {t("vatNote")}
+                  </p>
                   {pkg.days >= 3 && boards[0] && (() => {
                     const board = boards[0]!;
                     const perDay = Math.round(price / pkg.days);

@@ -55,6 +55,7 @@
     "include": "Included",
     "perDay": "{price}/day",
     "savings": "Save {amount} ({pct}%)",
+    "vatNote": "incl. 22 % VAT",
     "items": {
       "30min": {
         "name": "30 min — Taster",
@@ -255,6 +256,10 @@
     "priceDays": "{days, plural, one {# day} other {# days}}",
     "priceDiscount": "Discount",
     "priceTotal": "Total",
+    "netLabel": "Net price",
+    "vatLabel": "VAT (22 %)",
+    "totalWithVat": "Total incl. VAT",
+    "vatIncluded": "Price includes 22 % VAT",
     "noDates": "Pick dates to see the price.",
     "honeypot": "Leave empty"
   },

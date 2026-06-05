@@ -55,6 +55,7 @@
     "include": "Vključeno",
     "perDay": "{price}/dan",
     "savings": "Prihranek {amount} ({pct}%)",
+    "vatNote": "z 22 % DDV",
     "items": {
       "30min": {
         "name": "30 min — Taster",
@@ -255,6 +256,10 @@
     "priceDays": "{days, plural, one {# dan} two {# dni} few {# dni} other {# dni}}",
     "priceDiscount": "Popust",
     "priceTotal": "Skupaj",
+    "netLabel": "Cena brez DDV",
+    "vatLabel": "DDV (22 %)",
+    "totalWithVat": "Skupaj z DDV",
+    "vatIncluded": "Cena vključuje 22 % DDV",
     "noDates": "Izberi datume za izračun cene.",
     "honeypot": "Pusti prazno"
   },
