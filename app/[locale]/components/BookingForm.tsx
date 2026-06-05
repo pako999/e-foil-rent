@@ -33,6 +33,17 @@ function addDaysISO(isoStart: string, days: number): string {
   return d.toISOString().slice(0, 10);
 }
 
+// Find the next Saturday on or after `fromISO`. Used when the user clicks
+// the "weekend" quick pick on a weekday — we want the booking to land on
+// an actual Sat–Sun, not today + 1.
+function nextSaturdayISO(fromISO: string): string {
+  const d = new Date(fromISO + "T00:00:00Z");
+  const dow = d.getUTCDay(); // 0=Sun, 6=Sat
+  const daysUntilSat = (6 - dow + 7) % 7; // 0 if already Saturday
+  d.setUTCDate(d.getUTCDate() + daysUntilSat);
+  return d.toISOString().slice(0, 10);
+}
+
 export function BookingSection({
   boards,
   locale,
@@ -130,6 +141,12 @@ export function BookingSection({
       setStartDate(today);
       setEndDate(today);
       setBookingType("rental_lesson");
+    } else if (id === "weekend") {
+      // Weekend = Sat → Sun. If user is on a weekday, jump to upcoming
+      // Saturday so the fixed price actually matches the rental window.
+      const start = nextSaturdayISO(startDate || today);
+      setStartDate(start);
+      setEndDate(addDaysISO(start, pkg.days));
     } else {
       const start = startDate || today;
       setStartDate(start);
@@ -138,6 +155,26 @@ export function BookingSection({
   }
 
   const days = inclusiveDays(startDate, endDate);
+
+  // Auto-detect packages from the picked date range. Lets users get the
+  // fixed weekend price (€350) by simply selecting Sat → Sun in the
+  // calendar instead of having to remember to click the chip. Same idea
+  // for 1-day / 1-week / 2-week ranges.
+  useEffect(() => {
+    if (activePkg === "30min") return; // taster has its own semantics
+    if (!startDate || !endDate || days <= 0) {
+      setActivePkg(null);
+      return;
+    }
+    const startDow = new Date(startDate + "T00:00:00Z").getUTCDay();
+    let inferred: PackageId | null = null;
+    if (days === 2 && startDow === 6) inferred = "weekend";
+    else if (days === 14) inferred = "week2";
+    else if (days === 7) inferred = "week1";
+    else if (days === 1) inferred = "day1";
+    setActivePkg(inferred);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, endDate, days]);
   const q =
     board && days > 0
       ? quote({
@@ -202,6 +239,14 @@ export function BookingSection({
 
       if (res.ok) {
         setStatus({ kind: "ok" });
+        // The success panel replaces the form which sits below the fold,
+        // so without an explicit scroll the user sees only the empty space
+        // that was the form. Defer until the new DOM is committed.
+        requestAnimationFrame(() => {
+          document
+            .getElementById("book")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
         return;
       }
       const data = await res.json().catch(() => ({}));
