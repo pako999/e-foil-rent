@@ -22,17 +22,17 @@ export async function Hero() {
       <div className="relative container-x py-20 md:py-24 w-full">
         {/* Co-brand row — surf-store × Duotone. Source logos are dark grey,
             forced to white on this dark hero via the brightness/invert filter. */}
-        <div className="flex items-center gap-3 sm:gap-5 mb-8 flex-wrap">
+        <div className="flex items-center gap-2 sm:gap-4 mb-8 flex-wrap max-w-full">
           <Image
             src="/logo-surfstore.png"
             alt="Surf-Store.com"
             width={480}
             height={72}
-            className="h-6 sm:h-8 md:h-10 w-auto"
+            className="h-5 sm:h-7 md:h-10 w-auto max-w-[40%] sm:max-w-none object-contain"
             style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
-          <span className="text-paper/40 font-display text-lg sm:text-xl" style={{ fontWeight: 800 }}>
+          <span className="text-paper/40 font-display text-base sm:text-xl" style={{ fontWeight: 800 }}>
             ×
           </span>
           <Image
@@ -40,11 +40,11 @@ export async function Hero() {
             alt="Duotone"
             width={360}
             height={72}
-            className="h-5 sm:h-7 md:h-9 w-auto"
+            className="h-4 sm:h-6 md:h-9 w-auto max-w-[30%] sm:max-w-none object-contain"
             style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
-          <span className="text-paper/40 font-display text-lg sm:text-xl" style={{ fontWeight: 800 }}>
+          <span className="text-paper/40 font-display text-base sm:text-xl" style={{ fontWeight: 800 }}>
             ×
           </span>
           <Image
@@ -52,7 +52,7 @@ export async function Hero() {
             alt="Surfshop Ljubljana"
             width={360}
             height={72}
-            className="h-5 sm:h-7 md:h-9 w-auto"
+            className="h-4 sm:h-6 md:h-9 w-auto max-w-[30%] sm:max-w-none object-contain"
             priority
           />
         </div>

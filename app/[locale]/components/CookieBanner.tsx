@@ -107,6 +107,17 @@ export function CookieBanner({ locale }: { locale: Locale }) {
       ...choices,
     });
 
+  // Lock background scroll while the settings modal is open so the page
+  // underneath doesn't drift.
+  useEffect(() => {
+    if (!showSettings) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [showSettings]);
+
   if (!visible) return null;
 
   return (
@@ -126,7 +137,7 @@ export function CookieBanner({ locale }: { locale: Locale }) {
           role="dialog"
           aria-modal="true"
           aria-labelledby="cookie-settings-title"
-          className="fixed inset-x-3 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 top-1/2 -translate-y-1/2 z-[70] w-auto sm:w-[min(600px,calc(100vw-3rem))] max-h-[85vh] overflow-y-auto bg-paper border-2 border-ink"
+          className="fixed left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-[70] w-[calc(100vw-1.5rem)] sm:w-[min(600px,calc(100vw-3rem))] max-h-[85vh] overflow-y-auto bg-paper border-2 border-ink"
           style={{ boxShadow: "8px 8px 0 0 #1a1a1a" }}
         >
           <div className="p-6 sm:p-8">
@@ -195,15 +206,15 @@ export function CookieBanner({ locale }: { locale: Locale }) {
         }`}
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        <div className="container-x py-4 sm:py-5 grid lg:grid-cols-[1fr,auto] gap-4 items-center">
+        <div className="container-x py-4 sm:py-5 grid lg:grid-cols-[1fr,auto] gap-3 sm:gap-4 items-start lg:items-center">
           <div>
             <p
-              className="font-display uppercase tracking-tight text-lg sm:text-xl text-ink mb-1"
+              className="font-display uppercase tracking-tight text-base sm:text-lg lg:text-xl text-ink mb-1"
               style={{ fontWeight: 900 }}
             >
               🍪 {t("banner.title")}
             </p>
-            <p className="text-sm text-graphite leading-relaxed">
+            <p className="text-xs sm:text-sm text-graphite leading-relaxed">
               {t("banner.body")}{" "}
               <Link
                 href={`/${locale}/legal/cookies`}
@@ -213,18 +224,18 @@ export function CookieBanner({ locale }: { locale: Locale }) {
               </Link>
             </p>
           </div>
-          <div className="flex flex-wrap gap-2 lg:flex-nowrap shrink-0">
-            <button type="button" onClick={rejectAll} className="btn-outline text-xs px-4 py-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full lg:w-auto lg:flex lg:flex-row shrink-0">
+            <button type="button" onClick={rejectAll} className="btn-outline text-xs px-3 py-2 w-full">
               {t("rejectAll")}
             </button>
             <button
               type="button"
               onClick={() => setShowSettings(true)}
-              className="btn-outline text-xs px-4 py-2"
+              className="btn-outline text-xs px-3 py-2 w-full"
             >
               {t("customize")}
             </button>
-            <button type="button" onClick={acceptAll} className="btn-primary text-xs px-4 py-2">
+            <button type="button" onClick={acceptAll} className="btn-primary text-xs px-3 py-2 w-full">
               {t("acceptAll")} →
             </button>
           </div>
