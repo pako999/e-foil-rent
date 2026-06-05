@@ -206,7 +206,7 @@
       },
       "deposit": {
         "q": "Ali rabim plačati varščino?",
-        "a": "Za večdnevne najeme (3 dni in več) zahtevamo varščino 500 € v gotovini ali preko bančne kartice. Vrnemo jo takoj po pregledu vrnjene opreme, če ni vidnih poškodb."
+        "a": "Pri najemu (1 dan in več) zahtevamo varščino 500 € v gotovini ali preko bančne kartice. Vrnemo jo takoj po pregledu vrnjene opreme, če ni vidnih poškodb."
       },
       "charging": {
         "q": "Kako polnim baterijo?",
@@ -594,8 +594,7 @@
     "eyebrow": "Vzdrževanje opreme",
     "title": "VZDRŽEVANJE FOIL ASSIST",
     "subtitle": "Kratki video vodiči za pravilno nego in vzdrževanje vaše Duotone Foil Assist 2026 opreme — od polnjenja baterij do zamenjave delov.",
-    "videoLabel": "Vodič {n}",
-    "playLabel": "Predvajaj vodič {n}",
+    "playLabel": "Predvajaj: {title}",
     "openYoutube": "Odpri na YouTube"
   },
   "duotone": {
@@ -782,7 +781,7 @@
         },
         {
           "title": "3. Rezervacija in plačilo",
-          "body": "Rezervacija je veljavna, ko ponudnik termin pisno potrdi (e-pošta). Plačilo je možno gotovinsko, s kartico ali z bančnim nakazilom. Pri večdnevnih najemih (3 dni in več) ponudnik zaračuna varščino 500 €, ki se po pregledu vrnjene opreme brez vidnih poškodb v celoti vrne."
+          "body": "Rezervacija je veljavna, ko ponudnik termin pisno potrdi (e-pošta). Plačilo je možno gotovinsko, s kartico ali z bančnim nakazilom. Pri najemu (1 dan in več) ponudnik zaračuna varščino 500 €, ki se po pregledu vrnjene opreme brez vidnih poškodb v celoti vrne."
         },
         {
           "title": "4. Cene",
@@ -837,7 +836,7 @@
         },
         {
           "title": "4. Vračilo varščine",
-          "body": "Varščina 500 € (za večdnevne najeme) se vrne v celoti takoj po pregledu vrnjene opreme, če ni vidnih poškodb. Pri manjših poškodbah ponudnik zadrži ustrezen del varščine in stranki pisno utemelji odbitek. Vračilo se izvede s povratnim nakazilom na bančno kartico ali na TRR."
+          "body": "Varščina 500 € (za najem 1 dan in več) se vrne v celoti takoj po pregledu vrnjene opreme, če ni vidnih poškodb. Pri manjših poškodbah ponudnik zadrži ustrezen del varščine in stranki pisno utemelji odbitek. Vračilo se izvede s povratnim nakazilom na bančno kartico ali na TRR."
         },
         {
           "title": "5. Postopek povračila",

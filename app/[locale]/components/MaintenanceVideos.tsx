@@ -4,14 +4,15 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { MAINTENANCE_VIDEOS } from "@/lib/content";
+import type { Locale } from "@/i18n/request";
 
 /**
- * 8-up Duotone Foil Assist maintenance video grid. Each card is a YouTube
- * facade — only the lightweight `maxresdefault.jpg` thumbnail loads
- * upfront; the iframe mounts on click so we don't ship 8 embeds on first
- * paint.
+ * 9-up Duotone Foil Assist maintenance video grid. Each card is a YouTube
+ * facade — only the lightweight `hqdefault.jpg` thumbnail loads
+ * upfront; the iframe mounts on click so we don't ship 9 embeds on first
+ * paint. Per-video titles come from MAINTENANCE_VIDEOS in lib/content.ts.
  */
-export function MaintenanceVideos() {
+export function MaintenanceVideos({ locale }: { locale: Locale }) {
   const t = useTranslations("maintenance");
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
 
@@ -35,19 +36,20 @@ export function MaintenanceVideos() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {MAINTENANCE_VIDEOS.map((id, i) => {
-            const isOpen = openIds.has(id);
-            const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+          {MAINTENANCE_VIDEOS.map((v, i) => {
+            const isOpen = openIds.has(v.id);
+            const thumb = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
+            const title = locale === "sl" ? v.sl : v.en;
             return (
               <article
-                key={id}
+                key={v.id}
                 className="border-2 border-ink bg-paper overflow-hidden flex flex-col"
               >
                 <div className="relative aspect-video bg-ink">
                   {isOpen ? (
                     <iframe
-                      src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
-                      title={t("videoLabel", { n: i + 1 })}
+                      src={`https://www.youtube.com/embed/${v.id}?autoplay=1&rel=0`}
+                      title={title}
                       className="absolute inset-0 w-full h-full"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -55,9 +57,9 @@ export function MaintenanceVideos() {
                   ) : (
                     <button
                       type="button"
-                      onClick={() => open(id)}
+                      onClick={() => open(v.id)}
                       className="group absolute inset-0 w-full h-full cursor-pointer"
-                      aria-label={t("playLabel", { n: i + 1 })}
+                      aria-label={t("playLabel", { title })}
                     >
                       <Image
                         src={thumb}
@@ -85,18 +87,25 @@ export function MaintenanceVideos() {
                     </button>
                   )}
                 </div>
-                <div className="px-4 py-3 border-t-2 border-ink flex items-center justify-between">
-                  <span
-                    className="font-display uppercase tracking-widest text-xs text-ink"
-                    style={{ fontWeight: 800 }}
-                  >
-                    {String(i + 1).padStart(2, "0")} · {t("videoLabel", { n: i + 1 })}
-                  </span>
+                <div className="px-4 py-3 border-t-2 border-ink flex items-start justify-between gap-2">
+                  <div className="min-w-0">
+                    <span
+                      className="font-mono text-[10px] text-ink/50 uppercase tracking-widest block"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3
+                      className="font-display uppercase text-sm leading-tight text-ink"
+                      style={{ fontWeight: 800 }}
+                    >
+                      {title}
+                    </h3>
+                  </div>
                   <a
-                    href={`https://www.youtube.com/watch?v=${id}`}
+                    href={`https://www.youtube.com/watch?v=${v.id}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-xs text-ink/60 hover:text-ink"
+                    className="font-mono text-xs text-ink/60 hover:text-ink shrink-0 mt-1"
                     aria-label={t("openYoutube")}
                   >
                     ↗
@@ -110,3 +119,4 @@ export function MaintenanceVideos() {
     </section>
   );
 }
+

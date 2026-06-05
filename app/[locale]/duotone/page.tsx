@@ -232,7 +232,7 @@ export default async function DuotonePage({
           </div>
         </section>
 
-        <MaintenanceVideos />
+        <MaintenanceVideos locale={locale as Locale} />
         <StoreBanner />
       </main>
       <Footer locale={locale as Locale} />

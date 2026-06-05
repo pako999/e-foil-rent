@@ -206,7 +206,7 @@
       },
       "deposit": {
         "q": "Is there a deposit?",
-        "a": "For multi-day rentals (3+ days) we ask for a €500 deposit in cash or by card. It's returned right after we check the equipment back in, if there's no visible damage."
+        "a": "For any rental (1 day or longer) we ask for a €500 deposit in cash or by card. It's returned right after we check the equipment back in, if there's no visible damage."
       },
       "charging": {
         "q": "How do I charge the battery?",
@@ -594,8 +594,7 @@
     "eyebrow": "Equipment maintenance",
     "title": "FOIL ASSIST MAINTENANCE",
     "subtitle": "Short video guides for proper care and maintenance of your Duotone Foil Assist 2026 gear — from battery charging to part replacement.",
-    "videoLabel": "Guide {n}",
-    "playLabel": "Play guide {n}",
+    "playLabel": "Play: {title}",
     "openYoutube": "Open on YouTube"
   },
   "duotone": {
@@ -774,7 +773,7 @@
       "sections": [
         { "title": "1. Provider", "body": "E-foil rental and school services are operated by Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slovenia, VAT ID SI72133449. Main location: Green Lake, Kidričevo. Additional locations by arrangement: Maribor, Ljubljana, Celje, Gramoznica Soboško jezero (Murska Sobota)." },
         { "title": "2. Subject", "body": "The contract covers rental of Duotone e-foil equipment (board, foil, batteries, charger) and/or an e-foil course with a licensed instructor. The specific package, dates and price are set out in the confirmation email." },
-        { "title": "3. Booking and payment", "body": "A reservation becomes valid once confirmed by the Provider in writing. Payment is accepted in cash, by card or by bank transfer. For multi-day rentals (3 days+) the Provider charges a €500 deposit, fully refunded after a damage-free return." },
+        { "title": "3. Booking and payment", "body": "A reservation becomes valid once confirmed by the Provider in writing. Payment is accepted in cash, by card or by bank transfer. For any rental (1 day or longer) the Provider charges a €500 deposit, fully refunded after a damage-free return." },
         { "title": "4. Prices", "body": "Prices are listed on the website and include VAT. Each package includes board, foil, two batteries, charger, helmet, life vest and a wetsuit (seasonal). An instructor is included with the 30-minute taster and all courses, not with stand-alone rentals." },
         { "title": "5. Cancellation and reschedules", "body": "Free cancellation or reschedule up to 48 hours before start. 48–24 hours: 50 % charge. Less than 24 hours: full charge. In case of bad weather the Provider reschedules free of charge." },
         { "title": "6. Liability and safety", "body": "Customers must be at least 14 years old (under 18 with parental consent) and able to swim. All safety equipment must be worn. The customer agrees to follow the instructor's directions and local regulations. The Provider is not liable for damages resulting from non-compliance." },
@@ -795,7 +794,7 @@
         { "title": "1. Customer cancellation", "body": "Free cancellation or reschedule up to 48 hours before start. 48–24 hours: 50 %. Less than 24 hours: full charge. Reschedules are always free if you notify us in time." },
         { "title": "2. Weather", "body": "In dangerous weather (storm, winds over 5 Beaufort, exceptional swell) we reschedule free of charge. Conditions are assessed against the official ARSO forecast." },
         { "title": "3. Provider cancellation", "body": "If we cancel (weather, equipment failure, instructor illness), you get a full refund within 7 business days or a free reschedule." },
-        { "title": "4. Deposit return", "body": "The €500 deposit on multi-day rentals is refunded in full upon damage-free return. Partial retention is itemised in writing." },
+        { "title": "4. Deposit return", "body": "The €500 deposit (any rental of 1 day or longer) is refunded in full upon damage-free return. Partial retention is itemised in writing." },
         { "title": "5. Refund process", "body": "Email info@surf-store.com with your booking number and reason. We respond in 3 business days; approved refunds clear in 7." },
         { "title": "6. Consumer rights", "body": "Nothing here restricts your statutory consumer rights under Slovenian Consumer Protection Act (ZVPot-1). Consumers may use the EU ODR platform." }
       ]

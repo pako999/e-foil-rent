@@ -65,18 +65,57 @@ export const DUOTONE_VIDEOS: readonly string[] = [
  * Step-by-step Duotone Foil Assist 2026 maintenance tutorials.
  * Rendered as a facade grid on the Duotone page — iframes only load when
  * a viewer clicks play, keeping the page light.
+ *
+ * Titles below are placeholder topics. Replace `sl` / `en` once you've
+ * watched each video and know its exact subject.
  */
-export const MAINTENANCE_VIDEOS: readonly string[] = [
-  "M6NtxFwxnPs",
-  "QTArwk0Blk0",
-  "KY1s5Fed2KA",
-  "v8hQrPCXc6A",
-  "gQz92ums0Y8",
-  "wmf_gCskdVY",
-  "5efZimTfaFo",
-  "OxjL0Fqw568",
-  "IggvHGNFvLQ",
-];
+export const MAINTENANCE_VIDEOS = [
+  {
+    id: "M6NtxFwxnPs",
+    sl: "Pregled Foil Assist sistema",
+    en: "Foil Assist system overview",
+  },
+  {
+    id: "QTArwk0Blk0",
+    sl: "Sestavljanje masta in foila",
+    en: "Mast and foil assembly",
+  },
+  {
+    id: "KY1s5Fed2KA",
+    sl: "Polnjenje in nega baterije",
+    en: "Battery charging and care",
+  },
+  {
+    id: "v8hQrPCXc6A",
+    sl: "Namestitev eHarnessa",
+    en: "eHarness installation",
+  },
+  {
+    id: "gQz92ums0Y8",
+    sl: "Čiščenje in vzdrževanje propelerja",
+    en: "Propeller cleaning and care",
+  },
+  {
+    id: "wmf_gCskdVY",
+    sl: "Pravilno spiranje po vožnji",
+    en: "Post-ride rinsing",
+  },
+  {
+    id: "5efZimTfaFo",
+    sl: "Shranjevanje in transport",
+    en: "Storage and transport",
+  },
+  {
+    id: "OxjL0Fqw568",
+    sl: "Menjava rezervnih delov",
+    en: "Spare parts replacement",
+  },
+  {
+    id: "IggvHGNFvLQ",
+    sl: "Posodobitev programske opreme",
+    en: "Firmware update",
+  },
+] as const;
 
 export const LOCATION = {
   name: "Green Lake, Kidričevo",
