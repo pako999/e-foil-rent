@@ -700,6 +700,179 @@
     "follow": "Sledi nam",
     "rights": "Vse pravice pridržane.",
     "visitMain": "Obišči glavno spletno mesto",
-    "partner": "Uradni partner:"
+    "partner": "Uradni partner:",
+    "companyLabel": "Podjetje",
+    "vatLabel": "ID za DDV",
+    "legalLabel": "Pravne strani",
+    "legal": {
+      "terms": "Splošni pogoji",
+      "refund": "Vračilo denarja",
+      "privacy": "GDPR / Zasebnost",
+      "cookies": "Piškoti"
+    }
+  },
+  "legal": {
+    "updatedOn": "Zadnja sprememba",
+    "back": "← Nazaj na domačo stran",
+    "terms": {
+      "meta": {
+        "title": "Splošni pogoji poslovanja | Surf-Store E-Foil",
+        "description": "Splošni pogoji za izposojo e-foil opreme in tečaje. Sport Group d.o.o., Maribor."
+      },
+      "title": "SPLOŠNI POGOJI POSLOVANJA",
+      "updatedAt": "5. junij 2026",
+      "intro": "Ti splošni pogoji urejajo razmerje med stranko in družbo Sport Group d.o.o. (v nadaljevanju: ponudnik) pri storitvah izposoje e-foil opreme, tečajev in šole e-foilinga. Z rezervacijo termina stranka potrjuje, da je s temi pogoji seznanjena in jih sprejema v celoti.",
+      "sections": [
+        {
+          "title": "1. Ponudnik",
+          "body": "Storitve izposoje in šole e-foila izvaja Sport Group d.o.o., Osojnikova 4, 2000 Maribor, Slovenija, davčna številka SI72133449. Glavna lokacija izvajanja: Green Lake, Kidričevo. Dodatne lokacije po dogovoru: Maribor, Ljubljana, Celje, Murska Sobota in Kamešnica."
+        },
+        {
+          "title": "2. Predmet pogodbe",
+          "body": "Predmet pogodbe je izposoja Duotone e-foil opreme (deska, foil, baterije, polnilnik) in/ali izvedba tečaja e-foilinga z licenciranim inštruktorjem. Konkretni paket, datumi in cena so navedeni v potrditveni e-pošti, ki jo stranka prejme po rezervaciji."
+        },
+        {
+          "title": "3. Rezervacija in plačilo",
+          "body": "Rezervacija je veljavna, ko ponudnik termin pisno potrdi (e-pošta). Plačilo je možno gotovinsko, s kartico ali z bančnim nakazilom. Pri večdnevnih najemih (3 dni in več) ponudnik zaračuna varščino 500 €, ki se po pregledu vrnjene opreme brez vidnih poškodb v celoti vrne."
+        },
+        {
+          "title": "4. Cene",
+          "body": "Cene so navedene v ceniku na spletni strani in vključujejo DDV. Cena vključuje desko, foil, dve bateriji, polnilnik, čelado, reševalni jopič in neopren (sezonsko). Inštruktor je vključen pri 30-minutnem tasterju in tečajih, ne pa pri samostojnem najemu opreme."
+        },
+        {
+          "title": "5. Odpovedi in prestavitve",
+          "body": "Stranka lahko termin brezplačno odpove ali prestavi do 48 ur pred dogovorjenim začetkom. Pri odpovedi med 48 in 24 urami se zaračuna 50 % cene. Pri odpovedi manj kot 24 ur pred terminom se zaračuna celotna cena. V primeru slabih vremenskih razmer ponudnik termin brezplačno prestavi v dogovoru s stranko."
+        },
+        {
+          "title": "6. Odgovornost in varnost",
+          "body": "Stranka mora biti stara najmanj 14 let (do 18 leta z dovoljenjem staršev) in mora znati plavati. Stranka je dolžna nositi vso predpisano varnostno opremo (čelada, reševalni jopič, povodec z izklopnim stikalom). Stranka se zavezuje, da bo e-foil uporabljala v skladu z navodili inštruktorja in lokalnimi predpisi. Ponudnik ne odgovarja za škodo, ki nastane zaradi neupoštevanja navodil ali kršitve teh pogojev."
+        },
+        {
+          "title": "7. Poškodbe opreme",
+          "body": "Stranka je odgovorna za škodo na opremi, ki je posledica malomarne uporabe. Manjše poškodbe (praske na deski) se obračunajo iz varščine. Večje poškodbe (lom foila, motorja, baterije) se obračunajo po servisnih cenah Duotone. Ponudnik svetuje pred uporabo posnetek kratkega video pregleda stanja opreme."
+        },
+        {
+          "title": "8. Zavarovanje",
+          "body": "Osnovno zavarovanje opreme je vključeno v ceno najema. Za osebno zavarovanje (telesne poškodbe) si stranka uredi sama oziroma s priporočilom ponudnika."
+        },
+        {
+          "title": "9. Pritožbe in reševanje sporov",
+          "body": "Morebitne pritožbe stranka pošlje pisno na info@surf-store.com. Ponudnik bo odgovoril v 8 dneh. V primeru, da spora ni mogoče rešiti sporazumno, je za reševanje pristojno sodišče v Mariboru. Stranka — potrošnik se lahko obrne tudi na evropsko platformo za zunajsodno reševanje potrošniških sporov ODR."
+        },
+        {
+          "title": "10. Veljavnost",
+          "body": "Ti pogoji veljajo od datuma objave, navedenega na vrhu strani. Ponudnik si pridržuje pravico do njihove spremembe; aktualna različica je vedno objavljena na tej strani."
+        }
+      ]
+    },
+    "refund": {
+      "meta": {
+        "title": "Vračilo denarja in odpovedi | Surf-Store E-Foil",
+        "description": "Politika odpovedi in vračila denarja pri Sport Group d.o.o. — najem e-foila in tečaji v Sloveniji."
+      },
+      "title": "VRAČILO DENARJA IN ODPOVEDI",
+      "updatedAt": "5. junij 2026",
+      "intro": "Pri Sport Group d.o.o. želimo biti čim bolj pošteni do strank in do svoje ekipe. Ta dokument jasno pojasnjuje, kdaj in kako dobiš denar nazaj.",
+      "sections": [
+        {
+          "title": "1. Odpoved s strani stranke",
+          "body": "Brezplačna odpoved ali prestavitev termina do 48 ur pred začetkom. Med 48 in 24 urami zaračunamo 50 % cene paketa. Pri odpovedi manj kot 24 ur pred terminom zaračunamo celotno ceno paketa. V vseh primerih lahko termin prestaviš na drug datum brez doplačila, če nas obvestiš pravočasno."
+        },
+        {
+          "title": "2. Vremenske razmere",
+          "body": "V primeru nevarnih vremenskih razmer (nevihta, močan veter nad 5 boforjev, izredno visok val) ponudnik termin brezplačno prestavi v dogovoru s stranko. Vremenske razmere ocenjuje ponudnik glede na uradno napoved ARSO."
+        },
+        {
+          "title": "3. Odpoved s strani ponudnika",
+          "body": "Če termin odpove ponudnik (zaradi vremena, okvare opreme ali bolezni inštruktorja), stranki povrnemo celoten znesek v 7 delovnih dneh ali brezplačno prestavimo termin po dogovoru."
+        },
+        {
+          "title": "4. Vračilo varščine",
+          "body": "Varščina 500 € (za večdnevne najeme) se vrne v celoti takoj po pregledu vrnjene opreme, če ni vidnih poškodb. Pri manjših poškodbah ponudnik zadrži ustrezen del varščine in stranki pisno utemelji odbitek. Vračilo se izvede s povratnim nakazilom na bančno kartico ali na TRR."
+        },
+        {
+          "title": "5. Postopek povračila",
+          "body": "Zahtevek za vračilo denarja pošljite po e-pošti na info@surf-store.com z navedbo številke rezervacije in razloga. Ponudnik bo odgovoril v 3 delovnih dneh. Odobrena povračila izvedemo v 7 delovnih dneh."
+        },
+        {
+          "title": "6. Pravice potrošnikov",
+          "body": "Te določbe ne posegajo v zakonske pravice potrošnikov po Zakonu o varstvu potrošnikov (ZVPot-1). V primeru spora se stranka — potrošnik lahko obrne tudi na evropsko platformo ODR."
+        }
+      ]
+    },
+    "privacy": {
+      "meta": {
+        "title": "Politika zasebnosti (GDPR) | Surf-Store E-Foil",
+        "description": "Politika zasebnosti in obdelava osebnih podatkov v skladu z GDPR. Sport Group d.o.o., Maribor."
+      },
+      "title": "POLITIKA ZASEBNOSTI (GDPR)",
+      "updatedAt": "5. junij 2026",
+      "intro": "Spoštujemo tvojo zasebnost. Ta dokument pojasni, katere osebne podatke zbiramo, zakaj, kako dolgo jih hranimo in kakšne pravice imaš v skladu s Splošno uredbo o varstvu podatkov (GDPR) in slovenskim ZVOP-2.",
+      "sections": [
+        {
+          "title": "1. Upravljavec podatkov",
+          "body": "Upravljavec osebnih podatkov je Sport Group d.o.o., Osojnikova 4, 2000 Maribor, davčna številka SI72133449. Stik za vprašanja glede zasebnosti: info@surf-store.com."
+        },
+        {
+          "title": "2. Katere podatke zbiramo",
+          "body": "Pri rezervaciji termina zbiramo: ime in priimek, e-pošto, telefonsko številko, izbrane datume in tip termina, raven izkušenj. Pri obisku spletne strani samodejno zbiramo: IP-naslov, vrsto brskalnika, ogledane strani, čas obiska. Pri plačilu s kartico podatke obdeluje izključno naš plačilni ponudnik (Stripe / banka) — mi shranjujemo le potrdilo o transakciji."
+        },
+        {
+          "title": "3. Nameni obdelave",
+          "body": "Tvoje podatke uporabljamo za: (a) potrditev rezervacije in komunikacijo o terminu; (b) izvedbo storitve in izstavitev računa; (c) odgovore na povpraševanja; (d) zakonsko hrambo davčnih dokumentov; (e) zgolj na podlagi tvoje izrecne privolitve za pošiljanje promocijskih sporočil."
+        },
+        {
+          "title": "4. Pravna podlaga",
+          "body": "Obdelava temelji na: izvajanju pogodbe (rezervacija in storitev), zakonski obveznosti (davčni predpisi), legitimnem interesu (zaščita pred zlorabami) in tvoji privolitvi (marketing)."
+        },
+        {
+          "title": "5. Prejemniki podatkov",
+          "body": "Tvoji podatki se ne posredujejo tretjim osebam, razen kjer to zahteva zakon ali za izvedbo storitve (npr. plačilni procesor, računovodski servis, ponudnik e-pošte Resend). Vsi pogodbeni obdelovalci so vezani z varovanjem podatkov v skladu z GDPR."
+        },
+        {
+          "title": "6. Rok hrambe",
+          "body": "Rezervacijske podatke hranimo 3 leta po koncu storitve. Računovodske podatke hranimo 10 let v skladu z zakonom. Marketinški podatki ostanejo do tvojega preklica privolitve."
+        },
+        {
+          "title": "7. Tvoje pravice",
+          "body": "Po GDPR imaš pravico do: dostopa do svojih podatkov, popravka, izbrisa (»pravica do pozabe«), omejitve obdelave, prenosljivosti in ugovora. Zahtevek pošlji na info@surf-store.com — odgovorili bomo v 30 dneh. Imaš tudi pravico do pritožbe pri Informacijskem pooblaščencu RS (gp.ip@ip-rs.si)."
+        },
+        {
+          "title": "8. Varnost podatkov",
+          "body": "Tehnične in organizacijske ukrepe za zaščito tvojih podatkov sproti posodabljamo. Vsi prenosi so šifrirani s TLS-om, dostop do podatkovne baze je omejen, varnostne kopije so šifrirane."
+        }
+      ]
+    },
+    "cookies": {
+      "meta": {
+        "title": "Politika piškotkov | Surf-Store E-Foil",
+        "description": "Kateri piškotki se uporabljajo na spletni strani Surf-Store E-Foil in kako jih lahko upravljaš."
+      },
+      "title": "POLITIKA PIŠKOTKOV",
+      "updatedAt": "5. junij 2026",
+      "intro": "Spletna stran e-foil.surf-store.com (oziroma uradna domena) uporablja piškotke za zagotavljanje osnovnih funkcionalnosti in analitike obiska. Spodaj najdeš seznam vseh piškotkov, njihov namen in kako jih upravljaš.",
+      "sections": [
+        {
+          "title": "1. Kaj so piškotki",
+          "body": "Piškotki so majhne tekstovne datoteke, ki jih spletna stran shrani v tvoj brskalnik. Pomagajo, da si stran zapomni tvoje nastavitve (npr. izbrani jezik) in da razumemo, kako se naša stran uporablja."
+        },
+        {
+          "title": "2. Nujno potrebni piškotki",
+          "body": "Brez teh piškotkov stran ne deluje pravilno. Ne potrebujejo tvoje privolitve. Uporabljamo: NEXT_LOCALE (jezik), admin_token (prijava v skrbniški del, samo za skrbnike), session piškotek varnostne seje."
+        },
+        {
+          "title": "3. Analitični piškotki",
+          "body": "Trenutno ne uporabljamo analitičnih piškotkov (Google Analytics, Meta Pixel, ipd.). Če bomo v prihodnje uvedli analitiko, te bomo o tem obvestili s pasico za privolitev."
+        },
+        {
+          "title": "4. Piškotki tretjih oseb",
+          "body": "Na strani so vgrajeni: zemljevid Google Maps (kateri uporablja Google piškotke za delovanje), video predvajalnik YouTube (Google piškotki). Ti piškotki se naložijo šele po tvoji interakciji (kliku na video). Politika tretjih oseb: maps.google.com, youtube.com."
+        },
+        {
+          "title": "5. Upravljanje piškotkov",
+          "body": "Piškotke lahko v svojem brskalniku kadarkoli izbrišeš ali blokiraš. Navodila: Chrome (Settings → Privacy and security), Firefox (Settings → Privacy), Safari (Preferences → Privacy). Pri blokiranju piškotkov nekatere funkcije strani morda ne bodo delovale pravilno."
+        }
+      ]
+    }
   }
 }

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog-posts";
+import { LEGAL_PAGES } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base =
@@ -39,5 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     make(`/blog/${post.slug}`, 0.7, new Date(post.publishedAt)),
   );
 
-  return [...staticEntries, ...blogEntries];
+  const legalEntries = LEGAL_PAGES.flatMap((slug) =>
+    make(`/legal/${slug}`, 0.3),
+  );
+
+  return [...staticEntries, ...blogEntries, ...legalEntries];
 }

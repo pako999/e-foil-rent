@@ -11,11 +11,23 @@ export const SITE = {
   shop: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
   videoId: "Wj6xwO_FDqU",
   duotoneYouTube: "https://www.youtube.com/@duotone.wingfoiling",
+  phone: "+386 71 604 980",
+  phoneRaw: "+38671604980",
+  company: {
+    name: "Sport Group d.o.o.",
+    address: "Osojnikova 4",
+    postal: "2000 Maribor",
+    country: "Slovenija",
+    vatId: "SI72133449",
+    countryCode: "SI",
+  },
   social: {
-    instagram: "https://www.instagram.com/surfstoreslovenia",
-    facebook: "https://www.facebook.com/surfstoreslovenia",
+    instagram: "https://www.instagram.com/surfstore_com",
   },
 } as const;
+
+export const LEGAL_PAGES = ["terms", "refund", "privacy", "cookies"] as const;
+export type LegalSlug = (typeof LEGAL_PAGES)[number];
 
 /**
  * Duotone product range — links to the relevant category on surf-store.com.

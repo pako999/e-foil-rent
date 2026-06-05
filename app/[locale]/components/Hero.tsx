@@ -44,6 +44,18 @@ export async function Hero() {
             style={{ filter: "brightness(0) invert(1)" }}
             priority
           />
+          <span className="text-paper/40 font-display text-lg sm:text-xl" style={{ fontWeight: 800 }}>
+            ×
+          </span>
+          <Image
+            src="/logo-third.png"
+            alt="Partner"
+            width={360}
+            height={72}
+            className="h-5 sm:h-7 md:h-9 w-auto"
+            style={{ filter: "brightness(0) invert(1)" }}
+            priority
+          />
         </div>
         <p className="inline-flex items-center gap-2 font-display uppercase tracking-widest text-xs text-gold mb-6 border-2 border-gold px-3 py-1.5 bg-ink/40 backdrop-blur-sm">
           📍 {t("eyebrow")}
