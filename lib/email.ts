@@ -1,13 +1,15 @@
-import { Resend } from "resend";
+import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 import type { Board, Booking } from "@/db/schema";
 import { formatPrice } from "./pricing";
 import { SITE } from "./content";
 
-const apiKey = process.env.RESEND_API_KEY;
-const fromEmail = process.env.RESEND_FROM_EMAIL ?? "bookings@surf-store.com";
+const apiKey = process.env.MAILERSEND_API_TOKEN;
+const fromEmail =
+  process.env.MAILERSEND_FROM_EMAIL ?? "bookings@surf-store.com";
+const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
 const adminEmail = process.env.ENQUIRY_TO_EMAIL ?? SITE.contactEmail;
 
-const resend = apiKey ? new Resend(apiKey) : null;
+const ms = apiKey ? new MailerSend({ apiKey }) : null;
 
 type SendArgs = {
   booking: Booking;
@@ -15,9 +17,31 @@ type SendArgs = {
   locale: "sl" | "en";
 };
 
+async function send(args: {
+  to: { email: string; name?: string };
+  subject: string;
+  html: string;
+  replyTo?: { email: string; name?: string };
+}) {
+  if (!ms) return;
+  const params = new EmailParams()
+    .setFrom(new Sender(fromEmail, fromName))
+    .setTo([new Recipient(args.to.email, args.to.name ?? args.to.email)])
+    .setSubject(args.subject)
+    .setHtml(args.html);
+  if (args.replyTo) {
+    params.setReplyTo(
+      new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email),
+    );
+  }
+  await ms.email.send(params);
+}
+
 export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
-  if (!resend) {
-    console.warn("[email] RESEND_API_KEY missing — skipping send");
+  if (!ms) {
+    console.warn(
+      "[email] MAILERSEND_API_TOKEN missing — skipping send",
+    );
     return;
   }
 
@@ -25,18 +49,16 @@ export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
   const admin = renderAdmin({ booking, board });
 
   await Promise.allSettled([
-    resend.emails.send({
-      from: fromEmail,
-      to: booking.email,
+    send({
+      to: { email: booking.email, name: booking.customerName },
       subject: customer.subject,
       html: customer.html,
     }),
-    resend.emails.send({
-      from: fromEmail,
-      to: adminEmail,
+    send({
+      to: { email: adminEmail, name: "Surf-Store admin" },
       subject: admin.subject,
       html: admin.html,
-      replyTo: booking.email,
+      replyTo: { email: booking.email, name: booking.customerName },
     }),
   ]);
 }
