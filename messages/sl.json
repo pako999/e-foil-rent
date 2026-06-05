@@ -445,8 +445,8 @@
     "groups": {
       "performance": "Zmogljivost",
       "battery": "Baterija & energija",
-      "mast": "Mast in foil",
-      "compat": "Kompatibilnost",
+      "mast": "Mast",
+      "wings": "Krila",
       "harness": "Velikosti pasu (harness)"
     },
     "labels": {
@@ -461,9 +461,8 @@
       "harnessTotal": "eHarness z baterijami",
       "mastCruiseAl": "Foil Assist Cruise Mast AL",
       "lenCruise": "Dolžina Cruise mast",
-      "frontWing": "Front wing",
-      "backWing": "Back Wing Stabilizer PX",
-      "minVolume": "Min. volumen boarda",
+      "frontWing": "Sprednje krilo",
+      "backWing": "Zadnje krilo PX",
       "sizeSm": "Velikost S/M",
       "sizeLxxl": "Velikost L/XXL"
     }

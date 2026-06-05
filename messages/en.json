@@ -445,8 +445,8 @@
     "groups": {
       "performance": "Performance",
       "battery": "Battery & energy",
-      "mast": "Mast & foil",
-      "compat": "Compatibility",
+      "mast": "Mast",
+      "wings": "Wings",
       "harness": "Harness sizes"
     },
     "labels": {
@@ -462,8 +462,7 @@
       "mastCruiseAl": "Foil Assist Cruise Mast AL",
       "lenCruise": "Cruise mast length",
       "frontWing": "Front wing",
-      "backWing": "Back wing stabilizer PX",
-      "minVolume": "Min board volume",
+      "backWing": "Back wing PX",
       "sizeSm": "Size S/M",
       "sizeLxxl": "Size L/XXL"
     }

@@ -30,13 +30,14 @@ const GROUPS: Group[] = [
     specs: [
       { labelKey: "mastCruiseAl", value: "3.55 kg" },
       { labelKey: "lenCruise", value: "80 cm" },
-      { labelKey: "frontWing", value: "1600 cm²" },
-      { labelKey: "backWing", value: "225 cm²" },
     ],
   },
   {
-    titleKey: "compat",
-    specs: [{ labelKey: "minVolume", value: "35 L+" }],
+    titleKey: "wings",
+    specs: [
+      { labelKey: "frontWing", value: "1600 cm²" },
+      { labelKey: "backWing", value: "225 cm²" },
+    ],
   },
   {
     titleKey: "harness",
