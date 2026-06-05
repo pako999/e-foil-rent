@@ -4,7 +4,7 @@ import { LEGAL_PAGES } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
   const now = new Date();
 
   const languages = {

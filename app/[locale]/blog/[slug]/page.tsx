@@ -11,6 +11,7 @@ import { StoreBanner } from "../../components/StoreBanner";
 import {
   BLOG_POSTS,
   getPostBySlug,
+  localizeBlog,
   type BlogBlock,
   type BlogPost,
 } from "@/lib/blog-posts";
@@ -26,9 +27,9 @@ export async function generateMetadata({
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const post = getPostBySlug(slug);
   if (!post) notFound();
-  const c = locale === "sl" ? post.sl : post.en;
+  const c = localizeBlog(post, locale as Locale);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
 
   return {
     title: c.metaTitle,
@@ -174,9 +175,9 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
   const t = await getTranslations("blog");
-  const c = locale === "sl" ? post.sl : post.en;
+  const c = localizeBlog(post, locale as Locale);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
 
   const articleLd = {
     "@context": "https://schema.org",
@@ -266,7 +267,7 @@ export default async function BlogPostPage({
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {fallback.map((p) => {
-                  const rc = locale === "sl" ? p.sl : p.en;
+                  const rc = localizeBlog(p, locale as Locale);
                   return (
                     <Link
                       key={p.slug}

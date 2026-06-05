@@ -31,7 +31,7 @@ export async function GET(req: Request) {
 
   const token = process.env.MAILERSEND_API_TOKEN;
   const fromEmail =
-    process.env.MAILERSEND_FROM_EMAIL ?? "bookings@efoil.surf-store.com";
+    process.env.MAILERSEND_FROM_EMAIL ?? "bookings@e-foiling.si";
   const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
   const adminEmail = process.env.ENQUIRY_TO_EMAIL ?? "info@surf-store.com";
 

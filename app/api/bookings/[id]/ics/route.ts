@@ -95,7 +95,7 @@ export async function GET(
   );
 
   const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-  const uid = `booking-${b.id}@efoil.surf-store.com`;
+  const uid = `booking-${b.id}@e-foiling.si`;
   const dtStart = icsDate(b.startDate);
   // DTEND is exclusive in ICS — add 1 day to make a YYYY-MM-DD..YYYY-MM-DD
   // booking display as an all-day range covering both endpoints.

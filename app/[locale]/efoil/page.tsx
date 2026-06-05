@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "efoil.meta" });
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
 
   return {
     title: t("title"),
@@ -66,7 +66,7 @@ export default async function EfoilPage({
   const t = await getTranslations("efoil");
   const tMeta = await getTranslations("efoil.meta");
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
 
   // Article + FAQ schema for richer Google results.
   const articleJsonLd = {
