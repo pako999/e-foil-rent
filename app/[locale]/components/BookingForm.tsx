@@ -297,8 +297,8 @@ export function BookingSection({
 
   return (
     <section id="book" className="bg-paper border-b-2 border-ink scroll-mt-20">
-      <div className="container-x py-20 grid lg:grid-cols-[1fr,360px] gap-12">
-        <div>
+      <div className="container-x py-12 sm:py-16 lg:py-20 grid lg:grid-cols-[1fr,360px] gap-8 lg:gap-12">
+        <div className="min-w-0 order-2 lg:order-1">
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
@@ -478,11 +478,11 @@ export function BookingSection({
               <label htmlFor="discount" className="label">
                 {t("discountLabel")}
               </label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   id="discount"
                   type="text"
-                  className="field flex-1 uppercase tracking-widest"
+                  className="field flex-1 min-w-0 uppercase tracking-widest"
                   placeholder="XXXX-XXXX"
                   value={discountCode}
                   onChange={(e) => {
@@ -579,7 +579,7 @@ export function BookingSection({
           </form>
         </div>
 
-        <aside className="bg-ink text-paper p-8 h-fit lg:sticky lg:top-24 border-2 border-ink" style={{ boxShadow: "8px 8px 0 0 #FFD600" }}>
+        <aside className="bg-ink text-paper p-6 sm:p-8 h-fit lg:sticky lg:top-24 border-2 border-ink order-1 lg:order-2" style={{ boxShadow: "6px 6px 0 0 #FFD600" }}>
           <p className="font-display uppercase tracking-widest text-xs text-gold mb-3" style={{ fontWeight: 800 }}>
             💸 {t("priceTitle")}
           </p>
