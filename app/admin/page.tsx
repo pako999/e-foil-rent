@@ -166,6 +166,16 @@ export default async function AdminPage({
             >
               Discount codes →
             </a>
+            <a
+              href="/admin/subscribers"
+              style={{
+                fontSize: 13,
+                color: "#1a1a1a",
+                textDecoration: "underline",
+              }}
+            >
+              Subscribers →
+            </a>
             <form method="POST" action="/admin/signout" style={{ margin: 0 }}>
             <button
               type="submit"

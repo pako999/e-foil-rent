@@ -798,6 +798,8 @@
     "okBody": "Koda za 10 % popust je na poti. Vneseš jo v polje «Koda za popust» pri rezervaciji.",
     "close": "Zapri",
     "privacy": "Brez spama, brez deljenja podatkov. Email uporabimo samo za pošiljanje kode.",
+    "consent": "Strinjam se s prejemanjem občasnih promocijskih sporočil od Surf-Store E-Foil (novi paketi, akcije, dogodki). Soglasje lahko kadarkoli prekličem. Več v",
+    "privacyLink": "politiki zasebnosti",
     "errGeneric": "Nekaj je šlo narobe. Poskusi znova.",
     "errRate": "Preveč poskusov. Počakaj malo in poskusi znova."
   },

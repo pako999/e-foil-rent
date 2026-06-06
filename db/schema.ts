@@ -103,6 +103,28 @@ export const discountSource = pgEnum("discount_source", [
   "admin",
 ]);
 
+export const subscribers = pgTable(
+  "subscribers",
+  {
+    id: serial("id").primaryKey(),
+    email: text("email").notNull().unique(),
+    // Granular GDPR marketing consent — must be explicit opt-in. False
+    // means the visitor only wanted the one-time transactional code and
+    // we may NOT email them anything else.
+    marketingConsent: boolean("marketing_consent").notNull().default(false),
+    consentSource: text("consent_source"), // e.g. "exit_intent"
+    consentedAt: timestamp("consented_at", { withTimezone: true }),
+    unsubscribedAt: timestamp("unsubscribed_at", { withTimezone: true }),
+    locale: text("locale"), // best-effort, for future localised campaigns
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => ({
+    consentIdx: index("subscribers_consent_idx").on(t.marketingConsent),
+  }),
+);
+
 export const discountCodes = pgTable(
   "discount_codes",
   {
@@ -133,3 +155,5 @@ export type NewBooking = typeof bookings.$inferInsert;
 export type BlockedDate = typeof blockedDates.$inferSelect;
 export type DiscountCode = typeof discountCodes.$inferSelect;
 export type NewDiscountCode = typeof discountCodes.$inferInsert;
+export type Subscriber = typeof subscribers.$inferSelect;
+export type NewSubscriber = typeof subscribers.$inferInsert;

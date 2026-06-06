@@ -25,6 +25,7 @@ export function ExitIntentPopup({ locale }: { locale: Locale }) {
   const t = useTranslations("exitIntent");
   const [state, setState] = useState<State>({ kind: "hidden" });
   const [email, setEmail] = useState("");
+  const [marketingConsent, setMarketingConsent] = useState(false);
   const [website, setWebsite] = useState(""); // honeypot
   const armedRef = useRef(false);
 
@@ -69,7 +70,12 @@ export function ExitIntentPopup({ locale }: { locale: Locale }) {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, locale, website }),
+        body: JSON.stringify({
+          email,
+          locale,
+          marketingConsent,
+          website,
+        }),
       });
       if (res.ok) {
         setState({ kind: "ok" });
@@ -158,6 +164,26 @@ export function ExitIntentPopup({ locale }: { locale: Locale }) {
               style={{ position: "absolute", left: "-10000px" }}
               aria-hidden="true"
             />
+            <label className="mt-4 flex items-start gap-3 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={marketingConsent}
+                onChange={(e) => setMarketingConsent(e.target.checked)}
+                className="mt-0.5 w-5 h-5 border-2 border-ink shrink-0 accent-gold cursor-pointer"
+              />
+              <span className="text-xs text-graphite leading-snug">
+                {t("consent")}{" "}
+                <a
+                  href={`/${locale}/legal/privacy`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline hover:text-ink"
+                >
+                  {t("privacyLink")}
+                </a>
+                .
+              </span>
+            </label>
             {state.kind === "err" && (
               <p className="mt-3 text-sm text-red-700 font-mono">{state.message}</p>
             )}

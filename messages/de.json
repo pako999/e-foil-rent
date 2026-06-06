@@ -798,6 +798,8 @@
     "okBody": "Dein 10 %-Code ist unterwegs. Trag ihn beim Buchen ins Feld „Rabattcode\" ein.",
     "close": "Schließen",
     "privacy": "Kein Spam, keine Weitergabe. Wir verwenden deine E-Mail nur zum Versenden des Codes.",
+    "consent": "Ich willige ein, gelegentlich Werbe-E-Mails von Surf-Store E-Foil zu erhalten (neue Pakete, Aktionen, Events). Die Einwilligung kann ich jederzeit widerrufen. Mehr in der",
+    "privacyLink": "Datenschutzerklärung",
     "errGeneric": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
     "errRate": "Zu viele Versuche. Bitte kurz warten und erneut probieren."
   },

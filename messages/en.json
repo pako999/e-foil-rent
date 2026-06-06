@@ -798,6 +798,8 @@
     "okBody": "Your 10% off code is on the way. Paste it in the \"Discount code\" field at checkout.",
     "close": "Close",
     "privacy": "No spam, no sharing. We only use your email to send the code.",
+    "consent": "I agree to receive occasional promotional emails from Surf-Store E-Foil (new packages, offers, events). I can withdraw consent at any time. More in the",
+    "privacyLink": "privacy policy",
     "errGeneric": "Something went wrong. Please try again.",
     "errRate": "Too many attempts. Please wait a bit and try again."
   },
