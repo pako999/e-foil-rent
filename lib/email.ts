@@ -263,11 +263,20 @@ export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
   const customer = renderCustomer({ booking, board, locale });
   const admin = renderAdmin({ booking, board });
 
-  await Promise.allSettled([
+  // Use allSettled so a customer-email rejection doesn't prevent the
+  // admin notification (and vice-versa). But inspect the results — the
+  // previous version silently swallowed BOTH rejections, leaving the
+  // booking POST thinking everything was fine while MailerSend was
+  // rejecting both messages. Now we re-throw with both reasons so the
+  // bookings route surfaces them in its emailError response field.
+  const results = await Promise.allSettled([
     send({
       to: { email: booking.email, name: booking.customerName },
       subject: customer.subject,
       html: customer.html,
+      // Replies from the customer go to the human inbox, not the
+      // MailerSend sending domain (which doesn't receive mail).
+      replyTo: { email: adminEmail, name: "Surf-Store E-Foil" },
     }),
     send({
       to: { email: adminEmail, name: "Surf-Store admin" },
@@ -276,6 +285,21 @@ export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
       replyTo: { email: booking.email, name: booking.customerName },
     }),
   ]);
+
+  const labels = ["customer", "admin"] as const;
+  const failures = results
+    .map((r, i) =>
+      r.status === "rejected"
+        ? `${labels[i]}: ${(r.reason as Error)?.message ?? String(r.reason)}`
+        : null,
+    )
+    .filter((s): s is string => s !== null);
+  if (failures.length > 0) {
+    // Log so Vercel runtime logs always capture it, even if the caller
+    // doesn't surface the thrown error.
+    console.error("[email] booking send failures", failures);
+    throw new Error(failures.join("; "));
+  }
 }
 
 /**
