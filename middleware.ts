@@ -14,8 +14,17 @@ const intlMiddleware = createMiddleware({
 
 const localePrefix = new RegExp(`^/(${locales.join("|")})(/|$)`);
 
+// Detected via User-Agent. Crawlers from these tools should crawl the
+// Slovenian version as the primary one — they typically hit the site
+// from US IPs which the geo logic would otherwise send to /en, causing
+// Google to index the English version as the canonical homepage.
+const BOT_UA =
+  /Googlebot|Google-InspectionTool|Bingbot|AdsBot|Slurp|DuckDuckBot|Yandex|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|Applebot|GPTBot|ClaudeBot|PerplexityBot|CCBot|Bytespider/i;
+
 /**
  * Pick a locale for a fresh visitor:
+ * - Search-engine / social bot → defaultLocale (so Slovenian is indexed
+ *   as the primary version regardless of crawl-IP geography)
  * - SI IP → Slovenian
  * - DE / AT / CH IP → German
  * - everything else → English
@@ -25,6 +34,9 @@ const localePrefix = new RegExp(`^/(${locales.join("|")})(/|$)`);
  * configured default (sl).
  */
 function pickLocale(req: NextRequest): "sl" | "en" | "de" {
+  const ua = req.headers.get("user-agent") ?? "";
+  if (BOT_UA.test(ua)) return defaultLocale as "sl" | "en" | "de";
+
   const country = (
     req.headers.get("x-vercel-ip-country") ??
     req.headers.get("cf-ipcountry") ??
