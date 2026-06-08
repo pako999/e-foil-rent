@@ -8,7 +8,7 @@ const seed = async () => {
       name: "Duotone Foil Cruise Set AL — Midwish 5'8",
       description:
         "Naša rental konfiguracija. Aluminijasta Cruise mast (80 cm), Duotone Midwish 5'8 deska. Robustna, zanesljiva in primerna za začetnike.",
-      imageUrl: "/foilboard-duotone.webp",
+      imageUrl: "/efoil_duotone.webp",
       halfHourPrice: 7000, // €70
       dailyPrice: 19900, // €199
       weeklyPrice: 90000, // €900 (matches the week1 fixed package)
