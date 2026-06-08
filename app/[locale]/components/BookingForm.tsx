@@ -78,6 +78,7 @@ export function BookingSection({
     | { kind: "err"; reason: string }
   >({ kind: "idle" });
   const [website, setWebsite] = useState("");
+  const [termsAgreed, setTermsAgreed] = useState(false);
   const [unavailable, setUnavailable] = useState<Set<string>>(new Set());
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -564,6 +565,28 @@ export function BookingSection({
               </div>
             )}
 
+            <label className="flex items-start gap-3 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={termsAgreed}
+                onChange={(e) => setTermsAgreed(e.target.checked)}
+                required
+                className="mt-0.5 w-5 h-5 border-2 border-ink shrink-0 accent-gold cursor-pointer"
+              />
+              <span className="text-sm text-graphite leading-snug">
+                {t("termsAgree")}{" "}
+                <a
+                  href={`/${locale}/legal/terms`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline hover:text-ink font-semibold"
+                >
+                  {t("termsLink")}
+                </a>
+                .
+              </span>
+            </label>
+
             <button
               type="submit"
               className="btn-primary"
@@ -571,7 +594,8 @@ export function BookingSection({
                 status.kind === "submitting" ||
                 !board ||
                 days <= 0 ||
-                rangeHasBlocked
+                rangeHasBlocked ||
+                !termsAgreed
               }
             >
               {status.kind === "submitting" ? t("submitting") : t("submit")} →

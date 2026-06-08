@@ -264,6 +264,8 @@
     "honeypot": "Pusti prazno",
     "priceOriginal": "Originalna cena",
     "priceCodeDiscount": "Popust (koda {code}) −{pct} %",
+    "termsAgree": "Strinjam se s",
+    "termsLink": "splošnimi pogoji poslovanja",
     "discountLabel": "Koda za popust (neobvezno)",
     "discountApply": "Uporabi",
     "discountApplied": "Koda velja — {pct} % popusta uporabljen.",
