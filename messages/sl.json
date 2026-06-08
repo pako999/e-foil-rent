@@ -264,6 +264,8 @@
     "honeypot": "Pusti prazno",
     "priceOriginal": "Originalna cena",
     "priceCodeDiscount": "Popust (koda {code}) −{pct} %",
+    "company": "Podjetje (neobvezno)",
+    "vatId": "Davčna številka",
     "termsAgree": "Strinjam se s",
     "termsLink": "splošnimi pogoji poslovanja",
     "discountLabel": "Koda za popust (neobvezno)",

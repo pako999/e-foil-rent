@@ -264,6 +264,8 @@
     "honeypot": "Leave empty",
     "priceOriginal": "Original price",
     "priceCodeDiscount": "Discount (code {code}) −{pct}%",
+    "company": "Company (optional)",
+    "vatId": "VAT ID",
     "termsAgree": "I agree to the",
     "termsLink": "terms of service",
     "discountLabel": "Discount code (optional)",

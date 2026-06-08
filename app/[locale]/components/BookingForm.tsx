@@ -69,6 +69,8 @@ export function BookingSection({
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [company, setCompany] = useState("");
+  const [vatId, setVatId] = useState("");
   const [notes, setNotes] = useState("");
   const [discountCode, setDiscountCode] = useState("");
   const [discountStatus, setDiscountStatus] = useState<
@@ -232,7 +234,16 @@ export function BookingSection({
     if (!board || days <= 0 || rangeHasBlocked) return;
     setStatus({ kind: "submitting" });
 
-    const pkgNote = activePkg ? `[Package: ${activePkg}] ` : "";
+    // Pack the optional B2B fields into the notes column so the admin
+    // sees them next to the booking without a schema change.
+    const prefix = [
+      activePkg && `[Package: ${activePkg}]`,
+      company.trim() && `[Company: ${company.trim()}]`,
+      vatId.trim() && `[VAT: ${vatId.trim()}]`,
+    ]
+      .filter(Boolean)
+      .join(" ");
+    const pkgNote = prefix ? prefix + " " : "";
 
     try {
       const res = await fetch("/api/bookings", {
@@ -427,7 +438,9 @@ export function BookingSection({
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="name" className="label">{t("name")}</label>
+                <label htmlFor="name" className="label">
+                  {t("name")} <span className="text-red-700">*</span>
+                </label>
                 <input
                   id="name"
                   type="text"
@@ -440,7 +453,9 @@ export function BookingSection({
                 />
               </div>
               <div>
-                <label htmlFor="email" className="label">{t("email")}</label>
+                <label htmlFor="email" className="label">
+                  {t("email")} <span className="text-red-700">*</span>
+                </label>
                 <input
                   id="email"
                   type="email"
@@ -452,8 +467,43 @@ export function BookingSection({
                 />
               </div>
             </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="company" className="label">
+                  {t("company")}
+                </label>
+                <input
+                  id="company"
+                  type="text"
+                  className="field"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  autoComplete="organization"
+                />
+              </div>
+              {company.trim().length > 0 && (
+                <div>
+                  <label htmlFor="vatId" className="label">
+                    {t("vatId")}
+                  </label>
+                  <input
+                    id="vatId"
+                    type="text"
+                    className="field"
+                    value={vatId}
+                    onChange={(e) => setVatId(e.target.value)}
+                    placeholder="SI12345678"
+                    autoComplete="off"
+                  />
+                </div>
+              )}
+            </div>
+
             <div>
-              <label htmlFor="phone" className="label">{t("phone")}</label>
+              <label htmlFor="phone" className="label">
+                {t("phone")} <span className="text-red-700">*</span>
+              </label>
               <input
                 id="phone"
                 type="tel"

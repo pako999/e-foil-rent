@@ -264,6 +264,8 @@
     "honeypot": "Leer lassen",
     "priceOriginal": "Originalpreis",
     "priceCodeDiscount": "Rabatt (Code {code}) −{pct} %",
+    "company": "Firma (optional)",
+    "vatId": "USt-ID",
     "termsAgree": "Ich akzeptiere die",
     "termsLink": "Allgemeinen Geschäftsbedingungen",
     "discountLabel": "Rabattcode (optional)",
