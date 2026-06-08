@@ -56,7 +56,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Kaj je e-foil? Popoln vodič za začetnike v 2026",
       excerpt: "Vse, kar moraš vedeti o e-foilingu — kako deluje, kdo ga lahko vozi, kje ga preizkusiš v Sloveniji.",
       metaTitle: "Kaj je e-foil? Popoln vodič za začetnike 2026 | Surf-Store",
-      metaDescription: "E-foil je električna deska s podvodnim krilom, ki te dvigne nad gladino. Kako deluje, koliko stane in kje ga preizkusiš v Sloveniji — Surf-Store.com.",
+      metaDescription: "E-foil je električna deska s podvodnim krilom, ki te dvigne nad gladino. Vodič: delovanje, cene in lokacije v Sloveniji.",
       keywords: "kaj je e-foil, e-foil za začetnike, električni hidrofoil, e-foil Slovenija, kako deluje e-foil, e-foil vodič",
       blocks: [
         { kind: "p", text: "E-foil (kratko za »electric hydrofoil«) je sodobna vodna deska z električnim motorjem in podvodnim krilom — t. i. foilom — ki ob določeni hitrosti celotno desko dvigne nad gladino. Občutek je nekje med surfanjem, drsenjem in letenjem: tiho, brez stika z valovi, skoraj brez upora." },
@@ -101,7 +101,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "What is an e-foil? Complete 2026 beginner's guide",
       excerpt: "Everything you need to know about e-foiling — how it works, who can ride it, where to try it in Slovenia.",
       metaTitle: "What is an e-foil? Complete 2026 beginner's guide | Surf-Store",
-      metaDescription: "An e-foil is an electric board with an underwater wing that lifts you above the surface. How it works, what it costs, and where to try it in Slovenia.",
+      metaDescription: "An e-foil is an electric board with an underwater wing that lifts you above the water. How it works, what it costs, where to try it in Slovenia.",
       keywords: "what is an e-foil, e-foil beginners, electric hydrofoil, e-foil Slovenia, how e-foil works",
       blocks: [
         { kind: "p", text: "An e-foil (short for \"electric hydrofoil\") is a modern board with an electric motor and a submerged wing — the foil — that lifts the whole board above the water once it reaches a certain speed. It feels somewhere between surfing, sailing and flying: silent, no wave contact, almost no drag." },
@@ -122,7 +122,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Was ist ein E-Foil? Der komplette Einsteiger-Guide 2026",
       excerpt: "Alles, was du über E-Foilen wissen musst — wie es funktioniert, wer es fahren kann, wo du es in Slowenien ausprobierst.",
       metaTitle: "Was ist ein E-Foil? Kompletter Einsteiger-Guide 2026 | Surf-Store",
-      metaDescription: "Ein E-Foil ist ein elektrisches Board mit Unterwasserflügel, das dich über die Wasseroberfläche hebt. Wie es funktioniert, was es kostet und wo du es in Slowenien testest — Surf-Store.com.",
+      metaDescription: "Ein E-Foil ist ein elektrisches Board mit Unterwasserflügel, das dich übers Wasser hebt. Wie es funktioniert, was es kostet, wo testen in Slowenien.",
       keywords: "was ist ein E-Foil, E-Foil für Anfänger, elektrisches Hydrofoil, E-Foil Slowenien, wie funktioniert E-Foil, E-Foil Guide",
       blocks: [
         { kind: "p", text: "Ein E-Foil (kurz für „Electric Hydrofoil\") ist ein modernes Wasserboard mit Elektromotor und einem Unterwasserflügel — dem sogenannten Foil — der das gesamte Board ab einer bestimmten Geschwindigkeit über die Wasseroberfläche hebt. Das Gefühl liegt irgendwo zwischen Surfen, Gleiten und Fliegen: lautlos, kein Wellenkontakt, fast kein Widerstand." },
@@ -176,7 +176,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Kako se naučiti e-foilanja v 1 dnevu — 5 korakov do prvega vzleta",
       excerpt: "Preverjen 5-stopenjski program, ki ga uporabljamo v naši šoli. Brez izkušenj, brez strahu, brez čakanja.",
       metaTitle: "Kako se naučiti e-foilanja v 1 dnevu — 5 korakov | Surf-Store",
-      metaDescription: "Preverjeni 5-stopenjski program e-foil tečaja. 90 % gostov leti že po prvi uri. Najdi vse korake, nasvete in cene.",
+      metaDescription: "Preverjen 5-stopenjski program e-foil tečaja v Sloveniji. 90 % gostov leti že po prvi uri. Vsi koraki, nasveti in cene 2026.",
       keywords: "kako se naučiti e-foilanja, e-foil učenje, e-foil tečaj, prvi vzlet, e-foil začetnik, šola e-foilinga",
       blocks: [
         { kind: "p", text: "E-foilanje izgleda kot magija — človek tiho lebdi 1 meter nad vodo, brez valov in brez napora. V resnici pa je veščina, ki jo večina ljudi obvlada v 60 minutah z dobrim inštruktorjem. Tukaj je preverjen 5-stopenjski program, ki ga uporabljamo na vseh naših tečajih." },
@@ -211,7 +211,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "How to learn e-foiling in 1 day — 5 steps to your first flight",
       excerpt: "Our proven 5-step programme. No experience needed. 90 % of guests fly within the first hour.",
       metaTitle: "How to learn e-foiling in 1 day — 5 steps | Surf-Store",
-      metaDescription: "Our proven 5-step e-foil course programme. 90 % of guests fly within the first hour.",
+      metaDescription: "Our proven 5-step e-foil course programme. 90 % of guests fly within the first hour. All steps, tips and 2026 prices in one guide.",
       keywords: "how to learn e-foiling, e-foil lessons, e-foil course, first flight, e-foil for beginners",
       blocks: [
         { kind: "p", text: "E-foiling looks like magic — silently flying 1 meter above the water. In reality it's a skill most people master in 60 minutes with a good instructor. Here is the proven 5-step programme we use in all our courses." },
@@ -232,7 +232,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "E-Foilen an einem Tag lernen — 5 Schritte zum ersten Lift-off",
       excerpt: "Unser bewährtes 5-Schritte-Programm. Ohne Erfahrung, ohne Angst, ohne Wartezeit.",
       metaTitle: "E-Foilen lernen in 1 Tag — 5 Schritte | Surf-Store",
-      metaDescription: "Bewährtes 5-Schritte-E-Foil-Kursprogramm. 90 % der Gäste fliegen nach der ersten Stunde. Alle Schritte, Tipps und Preise.",
+      metaDescription: "Bewährtes 5-Schritte-E-Foil-Kursprogramm. 90 % der Gäste fliegen in der ersten Stunde. Alle Schritte, Tipps und Preise 2026.",
       keywords: "E-Foilen lernen, E-Foil Unterricht, E-Foil Kurs, erster Lift-off, E-Foil Anfänger, E-Foil Schule",
       blocks: [
         { kind: "p", text: "E-Foilen sieht aus wie Magie — jemand schwebt lautlos 1 Meter über dem Wasser, ohne Wellen, ohne Anstrengung. Tatsächlich ist es eine Fertigkeit, die die meisten Leute mit einem guten Instruktor in 60 Minuten beherrschen. Hier ist das bewährte 5-Schritte-Programm, das wir in allen unseren Kursen verwenden." },
@@ -276,7 +276,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Koliko stane najem e-foila v Sloveniji? Pregled cen 2026",
       excerpt: "Od 30-minutnega tasterja do dvotedenskega najema. Vse cene, paketi in skriti stroški jasno na enem mestu.",
       metaTitle: "Cena najema e-foila v Sloveniji 2026 — pregled | Surf-Store",
-      metaDescription: "Koliko stane najem e-foila v Sloveniji? Cene od 70 € (30 min) do 1.990 € (2 tedna). Vse vključeno, brez skritih stroškov.",
+      metaDescription: "Koliko stane najem e-foila v Sloveniji 2026? Cene od 70 € (30 min) do 1.990 € (2 tedna). Vse vključeno, brez skritih stroškov.",
       keywords: "cena e-foil, najem e-foil cena, koliko stane e-foil, e-foil paketi, e-foil Slovenija cenik, najem e-foil Slovenija",
       blocks: [
         { kind: "p", text: "Najem e-foila v Sloveniji je v 2026 še vedno razmeroma nov koncept, zato so razlike v cenah med ponudniki precejšnje. V tem članku razložimo, kaj plačaš in kaj dobiš, ter kako se naši paketi primerjajo z drugimi watersports doživetji." },
@@ -317,7 +317,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "What does e-foil rental cost in Slovenia? 2026 price guide",
       excerpt: "From a 30-minute taster to a two-week rental. All pricing and packages transparently in one place.",
       metaTitle: "E-foil rental price Slovenia 2026 — guide | Surf-Store",
-      metaDescription: "How much does e-foil rental cost in Slovenia? From €70 (30 min) to €1,990 (2 weeks). All-inclusive.",
+      metaDescription: "How much does e-foil rental cost in Slovenia in 2026? From €70 (30 min) to €1,990 (2 weeks). All-inclusive, no hidden fees.",
       keywords: "e-foil price, e-foil rental cost, e-foil Slovenia pricing, e-foil packages",
       blocks: [
         { kind: "p", text: "E-foil rental in Slovenia is still a fairly new concept in 2026, so prices vary between providers. Here is what you pay and what you get with Surf-Store.com." },
@@ -336,7 +336,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Was kostet E-Foil-Verleih in Slowenien? Preisübersicht 2026",
       excerpt: "Vom 30-Minuten-Schnupper bis zum zweiwöchigen Verleih. Alle Preise, Pakete und versteckten Kosten transparent an einem Ort.",
       metaTitle: "E-Foil Verleih Preis Slowenien 2026 — Übersicht | Surf-Store",
-      metaDescription: "Was kostet der E-Foil-Verleih in Slowenien? Preise von 70 € (30 Min) bis 1.990 € (2 Wochen). Alles inklusive, keine versteckten Kosten.",
+      metaDescription: "Was kostet E-Foil-Verleih in Slowenien 2026? Preise von 70 € (30 Min) bis 1.990 € (2 Wochen). Alles inklusive, ohne versteckte Kosten.",
       keywords: "E-Foil Preis, E-Foil Verleih Preis, E-Foil Slowenien Preise, E-Foil Pakete, E-Foil Verleih Slowenien",
       blocks: [
         { kind: "p", text: "Der E-Foil-Verleih in Slowenien ist auch 2026 ein relativ neues Konzept, deshalb sind die Preisunterschiede zwischen den Anbietern groß. In diesem Artikel erklären wir, was du zahlst, was du bekommst und wie unsere Pakete im Vergleich zu anderen Wassersport-Erlebnissen abschneiden." },
@@ -386,7 +386,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "5 najboljših lokacij za e-foil v Sloveniji",
       excerpt: "Od Green Lake do morja — kje voziti e-foil, kakšni so pogoji in kaj morate vedeti o lokalnih pravilih.",
       metaTitle: "Kje e-foilati v Sloveniji? 5 najboljših lokacij 2026 | Surf-Store",
-      metaDescription: "Pregled 5 najboljših slovenskih lokacij za e-foil — Green Lake, Bohinjsko, Velenjsko, Soboško jezero in Adriatik. Pogoji, pravila, dovoljenja.",
+      metaDescription: "5 najboljših lokacij za e-foil v Sloveniji: Green Lake, Bohinjsko, Velenjsko, Soboško jezero in Adriatik. Pogoji, pravila, dovoljenja.",
       keywords: "e-foil lokacije Slovenija, kje e-foilati Slovenija, jezera za e-foil, Green Lake Kidričevo, e-foil Bohinj, e-foil morje",
       blocks: [
         { kind: "p", text: "Slovenija je z mirnimi jezeri in tihimi zalivi popolna za e-foiling. V tem članku predstavljamo 5 najboljših lokacij, kjer lahko sami ali z našim inštruktorjem preizkusiš svoj prvi let nad vodo. Pri vsaki lokaciji navedemo tudi pravila in dovoljenja, ki so trenutno v veljavi." },
@@ -428,7 +428,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "5 best e-foil spots in Slovenia",
       excerpt: "From Green Lake to the Adriatic — where to ride, what conditions to expect, and local rules.",
       metaTitle: "Where to e-foil in Slovenia? 5 best spots 2026 | Surf-Store",
-      metaDescription: "5 best Slovenian e-foil spots — Green Lake, Bohinj, Velenje, Murska Sobota and the Adriatic. Conditions, rules, permits.",
+      metaDescription: "5 best e-foil spots in Slovenia: Green Lake, Bohinj, Velenje, Murska Sobota and the Adriatic. Conditions, rules and permits explained.",
       keywords: "e-foil locations Slovenia, e-foil spots, Green Lake Kidricevo, Slovenia e-foil",
       blocks: [
         { kind: "p", text: "With calm lakes and quiet coves, Slovenia is perfect for e-foiling. Here are 5 of the best spots." },
@@ -449,7 +449,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Die 5 besten E-Foil-Spots in Slowenien",
       excerpt: "Vom Grünen See bis zur Adria — wo du E-Foilen kannst, welche Bedingungen dich erwarten und was du über die lokalen Regeln wissen musst.",
       metaTitle: "Wo E-Foilen in Slowenien? Die 5 besten Spots 2026 | Surf-Store",
-      metaDescription: "Übersicht der 5 besten slowenischen E-Foil-Spots — Grüner See, Bohinjer See, Velenje, Soboško jezero und Adria. Bedingungen, Regeln, Genehmigungen.",
+      metaDescription: "Die 5 besten E-Foil-Spots in Slowenien: Grüner See, Bohinj, Velenje, Soboško jezero und Adria. Bedingungen, Regeln und Genehmigungen.",
       keywords: "E-Foil Spots Slowenien, wo E-Foilen Slowenien, Seen für E-Foil, Grüner See Kidričevo, E-Foil Bohinj, E-Foil Meer",
       blocks: [
         { kind: "p", text: "Slowenien ist mit ruhigen Seen und stillen Buchten perfekt fürs E-Foilen. In diesem Artikel stellen wir die 5 besten Spots vor, an denen du allein oder mit unserem Instruktor deinen ersten Flug überm Wasser ausprobieren kannst. Bei jedem Spot nennen wir auch die aktuell gültigen Regeln und Genehmigungen." },
@@ -500,7 +500,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Duotone Foil Cruise Set AL — pregled, mnenje in tehnične specifikacije 2026",
       excerpt: "Test po 200 urah uporabe. Komu se splača, kakšne so pomanjkljivosti in zakaj je ta set naša izbira za rental.",
       metaTitle: "Duotone Foil Cruise Set AL — pregled in mnenje 2026 | Surf-Store",
-      metaDescription: "Pregled Duotone Foil Cruise Set AL — celotne specifikacije, test po 200 urah, primerjava z D/LAB karbonom. Za koga je ta set primeren.",
+      metaDescription: "Iskren pregled Duotone Foil Cruise Set AL po 200 urah: specifikacije, primerjava z D/LAB karbonom, za koga se splača.",
       keywords: "Duotone Foil Cruise Set AL, Duotone e-foil pregled, Duotone foil mnenje, Cruise mast AL, Duotone Midwish 5'8",
       blocks: [
         { kind: "p", text: "Duotone Foil Cruise Set AL je aluminijasta različica Duotonovega foil sistema — robustna, dostopnejša in popolnoma kompatibilna z D/LAB karbonsko mast. V Surf-Store.com smo ta set izbrali kot našo primarno rental konfiguracijo. Po 200+ urah uporabe v različnih pogojih predstavljamo iskren pregled." },
@@ -550,7 +550,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Duotone Foil Cruise Set AL — review and 2026 specs",
       excerpt: "Tested over 200 hours. Who it suits, where it falls short, why we picked it for our rental fleet.",
       metaTitle: "Duotone Foil Cruise Set AL review 2026 | Surf-Store",
-      metaDescription: "Honest 200-hour review of the Duotone Foil Cruise Set AL — full specs, comparison with the D/LAB carbon mast.",
+      metaDescription: "Honest 200-hour review of the Duotone Foil Cruise Set AL: full specs, comparison with the D/LAB carbon mast, who it's for.",
       keywords: "Duotone Foil Cruise Set AL, Duotone e-foil review, Cruise mast AL, Duotone Midwish 5'8",
       blocks: [
         { kind: "p", text: "Duotone Foil Cruise Set AL is the aluminum version of Duotone's foil system — rugged, affordable, fully compatible with the D/LAB carbon mast." },
@@ -572,7 +572,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Duotone Foil Cruise Set AL — Review, Meinung und Tech-Specs 2026",
       excerpt: "Test nach 200 Stunden Einsatz. Für wen es sich lohnt, welche Schwächen es hat und warum dieses Set unsere Verleih-Wahl ist.",
       metaTitle: "Duotone Foil Cruise Set AL — Review und Meinung 2026 | Surf-Store",
-      metaDescription: "Review des Duotone Foil Cruise Set AL — komplette Specs, Test nach 200 Stunden, Vergleich mit dem D/LAB Carbon. Für wen sich das Set eignet.",
+      metaDescription: "Ehrlicher 200-Stunden-Test des Duotone Foil Cruise Set AL: komplette Specs, Vergleich mit D/LAB Carbon, für wen das Set passt.",
       keywords: "Duotone Foil Cruise Set AL, Duotone E-Foil Review, Duotone Foil Meinung, Cruise Mast AL, Duotone Midwish 5'8",
       blocks: [
         { kind: "p", text: "Das Duotone Foil Cruise Set AL ist die Aluminium-Variante von Duotones Foilsystem — robust, günstiger und voll kompatibel mit dem D/LAB Carbon-Mast. Bei Surf-Store.com haben wir dieses Set als unser primäres Verleih-Setup gewählt. Nach 200+ Stunden Einsatz unter verschiedenen Bedingungen liefern wir hier eine ehrliche Review." },
