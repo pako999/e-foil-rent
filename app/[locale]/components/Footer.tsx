@@ -182,11 +182,7 @@ export async function Footer({ locale }: { locale: Locale }) {
             © {new Date().getFullYear()} {SITE.company.name} — {t("rights")}
           </span>
           <span className="sm:justify-self-center text-center">
-            Built with{" "}
-            <span className="text-gold" aria-hidden="true">
-              ♥
-            </span>{" "}
-            by{" "}
+            Powered by{" "}
             <a
               href="https://futurecode.si"
               target="_blank"
