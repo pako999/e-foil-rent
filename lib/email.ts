@@ -7,9 +7,11 @@ const apiKey = process.env.MAILERSEND_API_TOKEN;
 const fromEmail =
   process.env.MAILERSEND_FROM_EMAIL ?? "bookings@e-foiling.si";
 const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
-// Admin notifications always land here unless overridden by env var.
+// Admin notifications + Reply-To target. Defaults to the real surf-store
+// inbox because e-foiling.si has no MX records — any mail sent TO
+// @e-foiling.si bounces. Override via env once MX is set up.
 const adminEmail =
-  process.env.ENQUIRY_TO_EMAIL ?? "info@e-foiling.si";
+  process.env.ENQUIRY_TO_EMAIL ?? "info@surf-store.com";
 
 const ms = apiKey ? new MailerSend({ apiKey }) : null;
 
