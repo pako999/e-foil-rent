@@ -72,7 +72,7 @@
         "duration": "1 Tag",
         "desc": "Ganztägiger Verleih. Lass dir Zeit — üben, ausruhen, wieder fliegen.",
         "f1": "Ganzer Tag Board + Foil",
-        "f2": "Ladegerät und Ersatzakku",
+        "f2": "Ladegerät und Ersatzakku (2× 60 Min Fahrt, ~60 Min Laden)",
         "f3": "Helm und Schwimmweste inklusive",
         "f4": "Kurze Einweisung (optional)",
         "purchaseCredit": "Erst testen, dann kaufen. Entscheidest du dich für den Kauf, wird die 1-Tages-Leihgebühr auf den Boardpreis angerechnet."
@@ -83,7 +83,7 @@
         "desc": "Abholung Freitag nach 17:00 Uhr, Rückgabe Sonntag bis 20:00 oder Montag bis 10:00 Uhr. Ein ganzes Wochenende reiten zum Festpreis.",
         "f1": "Abholung Freitag nach 17:00",
         "f2": "Rückgabe Sonntag bis 20:00 oder Montag bis 10:00",
-        "f3": "Ladegerät und Ersatzakku",
+        "f3": "Ladegerät und Ersatzakku (2× 60 Min Fahrt, ~60 Min Laden)",
         "f4": "Helm und Schwimmweste inklusive"
       },
       "week1": {
@@ -91,7 +91,7 @@
         "duration": "7 Tage",
         "desc": "Eine volle Woche zum Festpreis. Ideal für einen Urlaub am See.",
         "f1": "7 Tage Verleih, Festpreis",
-        "f2": "Ladegerät und Ersatzakku",
+        "f2": "Ladegerät und Ersatzakku (2× 60 Min Fahrt, ~60 Min Laden)",
         "f3": "Helm und Schwimmweste inklusive",
         "f4": "Support vor Ort"
       },
@@ -100,7 +100,7 @@
         "duration": "14 Tage",
         "desc": "Zwei Wochen volles Erlebnis. Bester Tagessatz.",
         "f1": "14 Tage Verleih, Festpreis",
-        "f2": "Ladegerät und Ersatzakku",
+        "f2": "Ladegerät und Ersatzakku (2× 60 Min Fahrt, ~60 Min Laden)",
         "f3": "Helm und Schwimmweste inklusive",
         "f4": "Priority Support"
       }

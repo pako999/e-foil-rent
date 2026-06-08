@@ -177,8 +177,8 @@ export const PACKAGES: readonly PackageDef[] = [
   { id: "30min", days: 0, isHalfHour: true },
   { id: "day1", days: 1 },
   { id: "weekend", days: 2, fixedTotal: 35000 }, // €350 Sat–Sun (pickup Fri 17:00, return Sun 20:00 / Mon 10:00)
-  { id: "week1", days: 7 },
-  { id: "week2", days: 14, fixedTotal: 199000 }, // €1990 (vs 2× weekly = €2200)
+  { id: "week1", days: 7, fixedTotal: 90000 }, // €900 (vs 7× daily = €1393)
+  { id: "week2", days: 14, fixedTotal: 170000 }, // €1700 (vs 14× daily = €2786)
 ];
 
 export type BoardPricing = {

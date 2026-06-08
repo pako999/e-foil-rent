@@ -72,7 +72,7 @@
         "duration": "1 dan",
         "desc": "Cel dan izposoje. Vzemi si čas — vadi, počivaj, leti znova.",
         "f1": "Cel dan deske + foil",
-        "f2": "Polnilnik in rezervna baterija",
+        "f2": "Polnilnik in rezervna baterija (2× 60 min vožnje, polnjenje ~60 min)",
         "f3": "Čelada in reševalni jopič vključena",
         "f4": "Krajši uvod (po želji)",
         "purchaseCredit": "Probaj, potem kupi. Če se odločiš za nakup deske, znesek enodnevne izposoje odštejemo od končne cene."
@@ -83,7 +83,7 @@
         "desc": "Prevzem v petek po 17:00, vračilo v nedeljo do 20:00 ali ponedeljek do 10:00. Polni vikend vožnje za fiksno ceno.",
         "f1": "Prevzem v petek po 17:00",
         "f2": "Vračilo nedelja do 20:00 ali ponedeljek do 10:00",
-        "f3": "Polnilnik in rezervna baterija",
+        "f3": "Polnilnik in rezervna baterija (2× 60 min vožnje, polnjenje ~60 min)",
         "f4": "Čelada in reševalni jopič vključena"
       },
       "week1": {
@@ -91,7 +91,7 @@
         "duration": "7 dni",
         "desc": "Cel teden, fiksna cena. Idealno za dopust ob jezeru.",
         "f1": "7 dni izposoje, fiksna cena",
-        "f2": "Polnilnik in rezervna baterija",
+        "f2": "Polnilnik in rezervna baterija (2× 60 min vožnje, polnjenje ~60 min)",
         "f3": "Čelada in reševalni jopič vključena",
         "f4": "Podpora na lokaciji"
       },
@@ -100,7 +100,7 @@
         "duration": "14 dni",
         "desc": "Dvotedensko vsestransko doživetje. Najboljša cena na dan.",
         "f1": "14 dni izposoje, fiksna cena",
-        "f2": "Polnilnik in rezervna baterija",
+        "f2": "Polnilnik in rezervna baterija (2× 60 min vožnje, polnjenje ~60 min)",
         "f3": "Čelada in reševalni jopič vključena",
         "f4": "Prednostna podpora"
       }

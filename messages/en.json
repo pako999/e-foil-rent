@@ -72,7 +72,7 @@
         "duration": "1 day",
         "desc": "Full day rental. Take your time — practice, rest, fly again.",
         "f1": "Full day board + foil",
-        "f2": "Charger and spare battery",
+        "f2": "Charger and spare battery (2× 60 min rides, ~60 min charge)",
         "f3": "Helmet and life vest included",
         "f4": "Short intro (optional)",
         "purchaseCredit": "Try first, buy later. If you decide to buy, the 1-day rental fee is credited toward the board's price."
@@ -83,7 +83,7 @@
         "desc": "Pickup Friday after 17:00, return Sunday by 20:00 or Monday by 10:00. A full weekend of riding for one fixed price.",
         "f1": "Pickup Friday after 17:00",
         "f2": "Return Sunday by 20:00 or Monday by 10:00",
-        "f3": "Charger and spare battery",
+        "f3": "Charger and spare battery (2× 60 min rides, ~60 min charge)",
         "f4": "Helmet and life vest included"
       },
       "week1": {
@@ -91,7 +91,7 @@
         "duration": "7 days",
         "desc": "A full week at a fixed price. Ideal for a lakeside holiday.",
         "f1": "7 days rental, fixed price",
-        "f2": "Charger and spare battery",
+        "f2": "Charger and spare battery (2× 60 min rides, ~60 min charge)",
         "f3": "Helmet and life vest included",
         "f4": "On-site support"
       },
@@ -100,7 +100,7 @@
         "duration": "14 days",
         "desc": "Two-week full experience. Best per-day rate.",
         "f1": "14 days rental, fixed price",
-        "f2": "Charger and spare battery",
+        "f2": "Charger and spare battery (2× 60 min rides, ~60 min charge)",
         "f3": "Helmet and life vest included",
         "f4": "Priority support"
       }

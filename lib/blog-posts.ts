@@ -276,7 +276,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Koliko stane najem e-foila v Sloveniji? Pregled cen 2026",
       excerpt: "Od 30-minutnega tasterja do dvotedenskega najema. Vse cene, paketi in skriti stroški jasno na enem mestu.",
       metaTitle: "Cena najema e-foila v Sloveniji 2026 — pregled | Surf-Store",
-      metaDescription: "Koliko stane najem e-foila v Sloveniji 2026? Cene od 70 € (30 min) do 1.990 € (2 tedna). Vse vključeno, brez skritih stroškov.",
+      metaDescription: "Koliko stane najem e-foila v Sloveniji 2026? Cene od 70 € (30 min) do 1.700 € (2 tedna). Vse vključeno, brez skritih stroškov.",
       keywords: "cena e-foil, najem e-foil cena, koliko stane e-foil, e-foil paketi, e-foil Slovenija cenik, najem e-foil Slovenija",
       blocks: [
         { kind: "p", text: "Najem e-foila v Sloveniji je v 2026 še vedno razmeroma nov koncept, zato so razlike v cenah med ponudniki precejšnje. V tem članku razložimo, kaj plačaš in kaj dobiš, ter kako se naši paketi primerjajo z drugimi watersports doživetji." },
@@ -285,13 +285,13 @@ export const BLOG_POSTS: readonly BlogPost[] = [
           "30 min — Taster: 70 €",
           "Dnevni najem (24 h): 199 €",
           "Vikend (sob–ned, prevzem petek po 17:00): 350 €",
-          "1 teden (7 dni, fiksna cena): 1.100 € (157 €/dan)",
-          "2 tedna — VIP: 1.990 € (142 €/dan)"
+          "1 teden (7 dni, fiksna cena): 900 € (129 €/dan)",
+          "2 tedna — VIP: 1.700 € (121 €/dan)"
         ]},
         { kind: "p", text: "Vse cene vključujejo desko Duotone Midwish 5'8, Foil Cruise Set AL, dve bateriji, polnilnik, čelado, reševalni jopič in neopren (sezonsko). Inštruktor je vključen pri 30-minutnem tasterju in tečajih." },
         { kind: "image", src: "/action-2.jpg", alt: "E-foil v akciji" },
         { kind: "h2", text: "Zakaj cena raste z dnevi padajoče?" },
-        { kind: "p", text: "Cena na dan se zmanjšuje, ker dlje kot je oprema pri tebi, manjši so naši logistični stroški (prevzem, pregled, polnjenje). Pri tedenskem najemu plačaš 157 € na dan namesto 199 € — to je 21 % popust. Pri dvotedenskem 142 € na dan (29 % popust)." },
+        { kind: "p", text: "Cena na dan se zmanjšuje, ker dlje kot je oprema pri tebi, manjši so naši logistični stroški (prevzem, pregled, polnjenje). Pri tedenskem najemu plačaš 129 € na dan namesto 199 € — to je 35 % popust. Pri dvotedenskem 121 € na dan (39 % popust)." },
         { kind: "h2", text: "Kaj NI vključeno?" },
         { kind: "p", text: "Iskreno: zelo malo." },
         { kind: "ul", items: [
@@ -317,7 +317,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "What does e-foil rental cost in Slovenia? 2026 price guide",
       excerpt: "From a 30-minute taster to a two-week rental. All pricing and packages transparently in one place.",
       metaTitle: "E-foil rental price Slovenia 2026 — guide | Surf-Store",
-      metaDescription: "How much does e-foil rental cost in Slovenia in 2026? From €70 (30 min) to €1,990 (2 weeks). All-inclusive, no hidden fees.",
+      metaDescription: "How much does e-foil rental cost in Slovenia in 2026? From €70 (30 min) to €1,700 (2 weeks). All-inclusive, no hidden fees.",
       keywords: "e-foil price, e-foil rental cost, e-foil Slovenia pricing, e-foil packages",
       blocks: [
         { kind: "p", text: "E-foil rental in Slovenia is still a fairly new concept in 2026, so prices vary between providers. Here is what you pay and what you get with Surf-Store.com." },
@@ -326,8 +326,8 @@ export const BLOG_POSTS: readonly BlogPost[] = [
           "30-min taster: €70",
           "Day rental (24 h): €199",
           "Weekend (Sat–Sun): €350",
-          "1 week: €1,100 (€157/day)",
-          "2 weeks — VIP: €1,990 (€142/day)"
+          "1 week: €900 (€129/day)",
+          "2 weeks — VIP: €1,700 (€121/day)"
         ]},
         { kind: "cta", text: "Ready to book?", href: "/", label: "Go to booking" }
       ]
@@ -336,7 +336,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
       title: "Was kostet E-Foil-Verleih in Slowenien? Preisübersicht 2026",
       excerpt: "Vom 30-Minuten-Schnupper bis zum zweiwöchigen Verleih. Alle Preise, Pakete und versteckten Kosten transparent an einem Ort.",
       metaTitle: "E-Foil Verleih Preis Slowenien 2026 — Übersicht | Surf-Store",
-      metaDescription: "Was kostet E-Foil-Verleih in Slowenien 2026? Preise von 70 € (30 Min) bis 1.990 € (2 Wochen). Alles inklusive, ohne versteckte Kosten.",
+      metaDescription: "Was kostet E-Foil-Verleih in Slowenien 2026? Preise von 70 € (30 Min) bis 1.700 € (2 Wochen). Alles inklusive, ohne versteckte Kosten.",
       keywords: "E-Foil Preis, E-Foil Verleih Preis, E-Foil Slowenien Preise, E-Foil Pakete, E-Foil Verleih Slowenien",
       blocks: [
         { kind: "p", text: "Der E-Foil-Verleih in Slowenien ist auch 2026 ein relativ neues Konzept, deshalb sind die Preisunterschiede zwischen den Anbietern groß. In diesem Artikel erklären wir, was du zahlst, was du bekommst und wie unsere Pakete im Vergleich zu anderen Wassersport-Erlebnissen abschneiden." },
@@ -345,13 +345,13 @@ export const BLOG_POSTS: readonly BlogPost[] = [
           "30 Min — Schnupper: 70 €",
           "Tagesverleih (24 h): 199 €",
           "Wochenende (Sa–So, Abholung Freitag nach 17:00): 350 €",
-          "1 Woche (7 Tage, Festpreis): 1.100 € (157 €/Tag)",
-          "2 Wochen — VIP: 1.990 € (142 €/Tag)"
+          "1 Woche (7 Tage, Festpreis): 900 € (129 €/Tag)",
+          "2 Wochen — VIP: 1.700 € (121 €/Tag)"
         ]},
         { kind: "p", text: "Alle Preise enthalten das Board Duotone Midwish 5'8, das Foil Cruise Set AL, zwei Akkus, Ladegerät, Helm, Schwimmweste und Neoprenanzug (saisonal). Der Instruktor ist im 30-Minuten-Schnupper und in allen Kursen enthalten." },
         { kind: "image", src: "/action-2.jpg", alt: "E-Foil in Aktion" },
         { kind: "h2", text: "Warum sinkt der Tagespreis mit zunehmender Mietdauer?" },
-        { kind: "p", text: "Der Tagespreis sinkt, weil je länger die Ausrüstung bei dir ist, desto geringer unsere Logistikkosten (Übergabe, Prüfung, Laden). Beim Wochenverleih zahlst du 157 € pro Tag statt 199 € — das sind 21 % Rabatt. Bei zwei Wochen 142 € pro Tag (29 % Rabatt)." },
+        { kind: "p", text: "Der Tagespreis sinkt, weil je länger die Ausrüstung bei dir ist, desto geringer unsere Logistikkosten (Übergabe, Prüfung, Laden). Beim Wochenverleih zahlst du 129 € pro Tag statt 199 € — das sind 35 % Rabatt. Bei zwei Wochen 121 € pro Tag (39 % Rabatt)." },
         { kind: "h2", text: "Was ist NICHT enthalten?" },
         { kind: "p", text: "Ehrlich gesagt: sehr wenig." },
         { kind: "ul", items: [
