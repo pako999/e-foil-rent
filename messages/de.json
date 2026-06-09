@@ -288,7 +288,28 @@
     "eyebrow": "Unsere Ausrüstung",
     "title": "DUOTONE FOIL CRUISE SET AL",
     "subtitle": "Unser komplettes Verleih-Kit — Midwish 5'8 Board, Aluminium-Cruise-Mast, Motor und zwei Akkus.",
-    "alt": "Duotone Foil Cruise Set Complete AL inklusive Board"
+    "alt": "Duotone Foil Cruise Set Complete AL inklusive Board",
+    "advEyebrow": "Warum Duotone",
+    "advTitle": "VORTEILE DES DUOTONE FOIL CRUISE SET AL",
+    "advSubtitle": "Warum wir Duotone für unseren Verleih-Park gewählt haben — und warum du es schon bei der ersten Fahrt spürst.",
+    "adv": {
+      "weight": {
+        "title": "Nur 11,9 kg — leichtestes seiner Klasse",
+        "body": "Das komplette Set (Board + Foil + Akku) wiegt nur 11,9 kg. Konkurrenz-E-Foils starten bei 16 kg und gehen bis 22 kg. Das sind 4–10 kg weniger vom Auto zum Wasser und auf dem Dachträger."
+      },
+      "battery": {
+        "title": "Akku im Gurt, nicht im Board",
+        "body": "Duotones einzigartige Lösung: Der Akku sitzt in einem Hüftgurt um deine Taille. Das Board bleibt leicht und sauber — das Fahrgefühl ist wie bei einem echten (nicht-elektrischen) Foilboard, ohne zusätzliches Akkugewicht im Deck."
+      },
+      "modular": {
+        "title": "Modulares Duotone-System",
+        "body": "Mast, Wings und Fuselage sind mit der gesamten Duotone-Foil-Plattform kompatibel. Tausche Wings je nach Bedingungen — das Kit wächst mit deinem Können. Weniger Ausrüstung, mehr Zeit auf dem Wasser."
+      },
+      "runtime": {
+        "title": "2 Akkus = unbegrenzte Fahrzeit",
+        "body": "Jeder Akku gibt dir ~60 Min intensive Fahrt. Während du fährst, lädt der zweite in ~60 Min — ein ganzer Nachmittag auf dem Wasser ohne Wartezeit."
+      }
+    }
   },
   "tech": {
     "eyebrow": "Tech",

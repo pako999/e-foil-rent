@@ -288,7 +288,28 @@
     "eyebrow": "Our gear",
     "title": "DUOTONE FOIL CRUISE SET AL",
     "subtitle": "Our complete rental kit — Midwish 5'8 board, aluminium Cruise mast, motor and two batteries.",
-    "alt": "Duotone Foil Cruise Set Complete AL including the board"
+    "alt": "Duotone Foil Cruise Set Complete AL including the board",
+    "advEyebrow": "Why Duotone",
+    "advTitle": "WHY THE DUOTONE FOIL CRUISE SET AL WINS",
+    "advSubtitle": "Why we chose Duotone for our rental fleet — and why you'll feel it on the very first ride.",
+    "adv": {
+      "weight": {
+        "title": "Only 11.9 kg — lightest in its class",
+        "body": "The complete set (board + foil + battery) weighs just 11.9 kg. Competing e-foils start at 16 kg and go up to 22 kg. That's 4–10 kg less to carry from car to water, and an easier load on the roof rack."
+      },
+      "battery": {
+        "title": "Battery in the harness, not in the board",
+        "body": "Duotone's signature trick: the battery sits in a hip harness around your waist. The board stays light and clean — the ride feels like a real (non-electric) foil board, with no battery weight stuck inside the deck."
+      },
+      "modular": {
+        "title": "One modular Duotone platform",
+        "body": "Mast, wings and fuselage are compatible with the whole Duotone foil platform. Swap wings to match conditions, and the kit grows with your skill level. Less gear, more time on the water."
+      },
+      "runtime": {
+        "title": "2 batteries = endless ride time",
+        "body": "Each battery gives you ~60 min of intense riding. While you ride, the spare charges in ~60 min — a whole afternoon on the water with no waiting."
+      }
+    }
   },
   "tech": {
     "eyebrow": "Tech",

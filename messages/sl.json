@@ -288,7 +288,28 @@
     "eyebrow": "Naša oprema",
     "title": "DUOTONE FOIL CRUISE SET AL",
     "subtitle": "Naš celoten najemni komplet — deska Midwish 5'8, aluminijasta Cruise mast, motor in dve bateriji.",
-    "alt": "Duotone Foil Cruise Set Complete AL z desko"
+    "alt": "Duotone Foil Cruise Set Complete AL z desko",
+    "advEyebrow": "Zakaj Duotone",
+    "advTitle": "PREDNOSTI DUOTONE FOIL CRUISE SET AL",
+    "advSubtitle": "Zakaj smo izbrali Duotone za naš najemni park — in zakaj boš to opazil že po prvi vožnji.",
+    "adv": {
+      "weight": {
+        "title": "Samo 11,9 kg — najlažji v razredu",
+        "body": "Celoten set (deska + foil + baterija) tehta samo 11,9 kg. Konkurenčni e-foili začnejo pri 16 kg in gredo do 22 kg. To pomeni 4–10 kg manj za nošenje od avta do vode in lažji prevoz na strehi."
+      },
+      "battery": {
+        "title": "Baterija v pasu, ne v deski",
+        "body": "Edinstvena Duotone rešitev: baterija sedi v pasnem harnessu okoli kolkov. Deska ostane lahka in čista — občutek vožnje je kot pri pravi (ne-električni) foil deski, brez dodatne teže baterije v deski."
+      },
+      "modular": {
+        "title": "Modularen sistem Duotone",
+        "body": "Mast, krila in fuselage so kompatibilni s celotno Duotone foil platformo. Lahko menjaš krila glede na pogoje, oprema raste s tvojim napredkom. Manj opreme, več časa na vodi."
+      },
+      "runtime": {
+        "title": "2 bateriji = neomejena vožnja",
+        "body": "Vsaka baterija ti da ~60 min intenzivne vožnje. Med vožnjo se druga polni ~60 min — celo popoldne na vodi brez čakanja."
+      }
+    }
   },
   "tech": {
     "eyebrow": "Tehnologija",

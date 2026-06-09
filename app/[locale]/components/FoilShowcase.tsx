@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
+const ADVANTAGE_KEYS = ["weight", "battery", "modular", "runtime"] as const;
+
 /**
  * Product-shot section: shows the full Duotone Foil Assist Cruise Set
- * (board + foil + harness) inline below the hero video. The source
- * image has a near-white studio background; we drop it visually with
- * CSS `mix-blend-mode: multiply` against the cream section background
- * — no server-side image processing required.
+ * on a gold background (CSS multiply blend strips the studio white)
+ * and lists the four headline advantages over competing e-foils.
  */
 export async function FoilShowcase() {
   const t = await getTranslations("foilShowcase");
@@ -37,6 +37,44 @@ export async function FoilShowcase() {
             style={{ mixBlendMode: "multiply" }}
             priority={false}
           />
+        </div>
+
+        <div className="mt-12 sm:mt-16">
+          <p className="font-display uppercase tracking-widest text-xs text-ink mb-3" style={{ fontWeight: 800 }}>
+            ⚡ // {t("advEyebrow")}
+          </p>
+          <h3 className="h-display text-3xl sm:text-4xl text-ink mb-2">
+            {t("advTitle")}
+          </h3>
+          <p className="text-ink/80 mb-10 max-w-2xl">{t("advSubtitle")}</p>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {ADVANTAGE_KEYS.map((k, i) => (
+              <article
+                key={k}
+                className="bg-paper border-2 border-ink p-6 flex items-start gap-4"
+                style={{ boxShadow: "6px 6px 0 0 #1a1a1a" }}
+              >
+                <span
+                  className="shrink-0 w-12 h-12 bg-ink text-gold flex items-center justify-center font-display text-xl"
+                  style={{ fontWeight: 900 }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h4
+                    className="font-display uppercase tracking-tight text-lg sm:text-xl text-ink mb-1"
+                    style={{ fontWeight: 900 }}
+                  >
+                    {t(`adv.${k}.title`)}
+                  </h4>
+                  <p className="text-graphite text-sm leading-relaxed">
+                    {t(`adv.${k}.body`)}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
