@@ -27,7 +27,7 @@ export async function generateMetadata({
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "tecaji.meta" });
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   return {
     title: t("title"),
@@ -64,7 +64,7 @@ export default async function TecajiPage({
   const t = await getTranslations("tecaji");
   const tMeta = await getTranslations("tecaji.meta");
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   // Course schema for rich snippets in Google.
   const courseJsonLd = {

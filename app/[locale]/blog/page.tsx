@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "blog.meta" });
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   return {
     title: t("title"),

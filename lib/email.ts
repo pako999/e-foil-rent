@@ -344,7 +344,7 @@ export async function sendDiscountCodeEmail({
           <strong>«Koda za popust»</strong>, znesek se samodejno zniža za
           ${percentOff} %.</p>
           ${expiry ? `<p>Koda velja do <strong>${expiry}</strong> in se lahko uporabi enkrat.</p>` : ""}
-          <p style="margin-top:24px"><a href="https://e-foiling.si/sl#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Rezerviraj termin →</a></p>
+          <p style="margin-top:24px"><a href="https://www.e-foiling.si/sl#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Rezerviraj termin →</a></p>
         `),
       };
     }
@@ -360,7 +360,7 @@ export async function sendDiscountCodeEmail({
           <strong>„Rabattcode"</strong> ein und der Betrag wird automatisch
           um ${percentOff} % reduziert.</p>
           ${expiry ? `<p>Der Code ist gültig bis <strong>${expiry}</strong> und kann einmal eingelöst werden.</p>` : ""}
-          <p style="margin-top:24px"><a href="https://e-foiling.si/de#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Termin reservieren →</a></p>
+          <p style="margin-top:24px"><a href="https://www.e-foiling.si/de#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Termin reservieren →</a></p>
         `),
       };
     }
@@ -375,7 +375,7 @@ export async function sendDiscountCodeEmail({
         <strong>"Discount code"</strong> field on the booking form and the
         total will drop by ${percentOff}% automatically.</p>
         ${expiry ? `<p>Valid until <strong>${expiry}</strong>, single use.</p>` : ""}
-        <p style="margin-top:24px"><a href="https://e-foiling.si/en#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Book a session →</a></p>
+        <p style="margin-top:24px"><a href="https://www.e-foiling.si/en#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Book a session →</a></p>
       `),
     };
   })();
@@ -485,7 +485,7 @@ function shell(inner: string) {
       Surf-Store.com — E-Foil school &amp; rental<br />
       Sport Group d.o.o., Osojnikova ulica 4, 2000 Maribor, Slovenija · VAT SI72133449<br />
       <a href="mailto:info@e-foiling.si" style="color:#6b7280">info@e-foiling.si</a>
-      · <a href="https://e-foiling.si" style="color:#6b7280">e-foiling.si</a>
+      · <a href="https://www.e-foiling.si" style="color:#6b7280">e-foiling.si</a>
     </p>
     <p style="font-size:11px;color:#9ca3af;margin:0">
       This is a transactional message related to your booking with Surf-Store E-Foil.

@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!post) notFound();
   const c = localizeBlog(post, locale as Locale);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   return {
     title: c.metaTitle,
@@ -177,7 +177,7 @@ export default async function BlogPostPage({
   const t = await getTranslations("blog");
   const c = localizeBlog(post, locale as Locale);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://e-foiling.si";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   const articleLd = {
     "@context": "https://schema.org",
