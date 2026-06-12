@@ -30,9 +30,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/legal/${slug}`,
       languages: {
-        sl: `/sl/legal/${slug}`,
-        en: `/en/legal/${slug}`,
-        de: `/de/legal/${slug}`,
+        "sl-SI": `/sl/legal/${slug}`,
+        "en-GB": `/en/legal/${slug}`,
+        "de-DE": `/de/legal/${slug}`,
         "x-default": `/sl/legal/${slug}`,
       },
     },

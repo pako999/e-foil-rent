@@ -36,9 +36,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/tecaji`,
       languages: {
-        sl: "/sl/tecaji",
-        en: "/en/tecaji",
-        de: "/de/tecaji",
+        "sl-SI": "/sl/tecaji",
+        "en-GB": "/en/tecaji",
+        "de-DE": "/de/tecaji",
         "x-default": "/sl/tecaji",
       },
     },

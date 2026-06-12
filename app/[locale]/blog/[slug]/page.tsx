@@ -38,9 +38,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/blog/${slug}`,
       languages: {
-        sl: `/sl/blog/${slug}`,
-        en: `/en/blog/${slug}`,
-        de: `/de/blog/${slug}`,
+        "sl-SI": `/sl/blog/${slug}`,
+        "en-GB": `/en/blog/${slug}`,
+        "de-DE": `/de/blog/${slug}`,
         "x-default": `/sl/blog/${slug}`,
       },
     },

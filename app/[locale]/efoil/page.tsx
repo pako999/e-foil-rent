@@ -30,9 +30,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/efoil`,
       languages: {
-        sl: "/sl/efoil",
-        en: "/en/efoil",
-        de: "/de/efoil",
+        "sl-SI": "/sl/efoil",
+        "en-GB": "/en/efoil",
+        "de-DE": "/de/efoil",
         "x-default": "/sl/efoil",
       },
     },

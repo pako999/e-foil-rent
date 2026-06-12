@@ -63,14 +63,17 @@ export default function middleware(req: NextRequest) {
   if (cookieLocale && (locales as readonly string[]).includes(cookieLocale)) {
     const url = req.nextUrl.clone();
     url.pathname = `/${cookieLocale}${pathname === "/" ? "" : pathname}`;
-    return NextResponse.redirect(url);
+    // 308 = permanent + preserves method. Google treats it the same as
+    // 301 and merges SEO signals into the destination — 307 (default)
+    // keeps the root URL as a separate, weakly-ranked entry.
+    return NextResponse.redirect(url, 308);
   }
 
   // Fresh visitor → geo-based redirect.
   const target = pickLocale(req);
   const url = req.nextUrl.clone();
   url.pathname = `/${target}${pathname === "/" ? "" : pathname}`;
-  return NextResponse.redirect(url);
+  return NextResponse.redirect(url, 308);
 }
 
 export const config = {

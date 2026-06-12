@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { locales, ogLocale, type Locale } from "@/i18n/request";
+import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { ConsentInit } from "./components/ConsentInit";
 import { CookieBanner } from "./components/CookieBanner";
 import { ExitIntentPopup } from "./components/ExitIntentPopup";
@@ -44,9 +44,11 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}`,
       languages: {
-        sl: "/sl",
-        en: "/en",
-        de: "/de",
+        // Full BCP47 codes so google.si understands the Slovenian page is
+        // for Slovenian users, not for any "sl" speaker abroad.
+        "sl-SI": "/sl",
+        "en-GB": "/en",
+        "de-DE": "/de",
         "x-default": "/sl",
       },
     },
@@ -104,7 +106,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={intlLocale(locale as Locale)}>
       <head>
         {/* Google Consent Mode v2 default state — must run before any
             analytics tag so vendors see a deterministic baseline. */}

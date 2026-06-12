@@ -29,9 +29,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/duotone`,
       languages: {
-        sl: "/sl/duotone",
-        en: "/en/duotone",
-        de: "/de/duotone",
+        "sl-SI": "/sl/duotone",
+        "en-GB": "/en/duotone",
+        "de-DE": "/de/duotone",
         "x-default": "/sl/duotone",
       },
     },

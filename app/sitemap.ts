@@ -14,28 +14,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   } as const;
 
   const make = (path: string, priority: number, lastMod: Date = now) => {
+    // BCP47 keys (sl-SI / en-GB / de-DE) so Google maps the alternates to
+    // regional searchers — bare "sl" is technically valid but a weaker
+    // localisation signal than the language-region pair.
     const langs = {
-      sl: `${languages.sl}${path}`,
-      en: `${languages.en}${path}`,
-      de: `${languages.de}${path}`,
+      "sl-SI": `${languages.sl}${path}`,
+      "en-GB": `${languages.en}${path}`,
+      "de-DE": `${languages.de}${path}`,
     };
     return [
       {
-        url: langs.sl,
+        url: langs["sl-SI"],
         lastModified: lastMod,
         changeFrequency: "weekly" as const,
         priority,
         alternates: { languages: langs },
       },
       {
-        url: langs.en,
+        url: langs["en-GB"],
         lastModified: lastMod,
         changeFrequency: "weekly" as const,
         priority: Math.max(0.1, priority - 0.1),
         alternates: { languages: langs },
       },
       {
-        url: langs.de,
+        url: langs["de-DE"],
         lastModified: lastMod,
         changeFrequency: "weekly" as const,
         priority: Math.max(0.1, priority - 0.1),

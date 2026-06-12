@@ -30,9 +30,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/blog`,
       languages: {
-        sl: "/sl/blog",
-        en: "/en/blog",
-        de: "/de/blog",
+        "sl-SI": "/sl/blog",
+        "en-GB": "/en/blog",
+        "de-DE": "/de/blog",
         "x-default": "/sl/blog",
       },
     },
