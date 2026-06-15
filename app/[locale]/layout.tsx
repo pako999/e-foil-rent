@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { ConsentInit } from "./components/ConsentInit";
 import { CookieBanner } from "./components/CookieBanner";
+import { ExitIntentPopup } from "./components/ExitIntentPopup";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -19,7 +20,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "meta" });
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   return {
     metadataBase: new URL(siteUrl),
@@ -43,8 +44,11 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}`,
       languages: {
-        sl: "/sl",
-        en: "/en",
+        // Full BCP47 codes so google.si understands the Slovenian page is
+        // for Slovenian users, not for any "sl" speaker abroad.
+        "sl-SI": "/sl",
+        "en-GB": "/en",
+        "de-DE": "/de",
         "x-default": "/sl",
       },
     },
@@ -54,7 +58,7 @@ export async function generateMetadata({
       type: "website",
       url: `${siteUrl}/${locale}`,
       siteName: "Surf-Store.com — E-Foil",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
       images: [
         {
           url: "/opengraph-image.jpg",
@@ -102,7 +106,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={intlLocale(locale as Locale)}>
       <head>
         {/* Google Consent Mode v2 default state — must run before any
             analytics tag so vendors see a deterministic baseline. */}
@@ -121,6 +125,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
           <CookieBanner locale={locale as Locale} />
+          <ExitIntentPopup locale={locale as Locale} />
         </NextIntlClientProvider>
       </body>
     </html>

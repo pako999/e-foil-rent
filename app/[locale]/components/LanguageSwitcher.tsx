@@ -13,7 +13,7 @@ export function LanguageSwitcher({
   variant?: "light" | "dark";
 }) {
   const pathname = usePathname();
-  const rest = pathname.replace(/^\/(sl|en)(?=\/|$)/, "") || "/";
+  const rest = pathname.replace(/^\/(sl|en|de)(?=\/|$)/, "") || "/";
   const dark = variant === "dark";
 
   const activeClass = dark

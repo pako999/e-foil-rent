@@ -11,7 +11,7 @@ import {
   PACKAGES,
   type PackageId,
 } from "@/lib/pricing";
-import type { Locale } from "@/i18n/request";
+import { intlLocale as toIntlLocale, type Locale } from "@/i18n/request";
 
 type Status =
   | { kind: "idle" }
@@ -33,6 +33,17 @@ function addDaysISO(isoStart: string, days: number): string {
   return d.toISOString().slice(0, 10);
 }
 
+// Find the next Saturday on or after `fromISO`. Used when the user clicks
+// the "weekend" quick pick on a weekday — we want the booking to land on
+// an actual Sat–Sun, not today + 1.
+function nextSaturdayISO(fromISO: string): string {
+  const d = new Date(fromISO + "T00:00:00Z");
+  const dow = d.getUTCDay(); // 0=Sun, 6=Sat
+  const daysUntilSat = (6 - dow + 7) % 7; // 0 if already Saturday
+  d.setUTCDate(d.getUTCDate() + daysUntilSat);
+  return d.toISOString().slice(0, 10);
+}
+
 export function BookingSection({
   boards,
   locale,
@@ -43,7 +54,7 @@ export function BookingSection({
   const t = useTranslations("booking");
   const tPkg = useTranslations("packages");
   const tPickup = useTranslations("pickup");
-  const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
+  const intlLocale = toIntlLocale(locale);
 
   const [boardId, setBoardId] = useState<number | "">(boards[0]?.id ?? "");
   const [startDate, setStartDate] = useState("");
@@ -58,8 +69,18 @@ export function BookingSection({
   const [customerName, setCustomerName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [company, setCompany] = useState("");
+  const [vatId, setVatId] = useState("");
   const [notes, setNotes] = useState("");
+  const [discountCode, setDiscountCode] = useState("");
+  const [discountStatus, setDiscountStatus] = useState<
+    | { kind: "idle" }
+    | { kind: "checking" }
+    | { kind: "ok"; percentOff: number; code: string }
+    | { kind: "err"; reason: string }
+  >({ kind: "idle" });
   const [website, setWebsite] = useState("");
+  const [termsAgreed, setTermsAgreed] = useState(false);
   const [unavailable, setUnavailable] = useState<Set<string>>(new Set());
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -130,6 +151,12 @@ export function BookingSection({
       setStartDate(today);
       setEndDate(today);
       setBookingType("rental_lesson");
+    } else if (id === "weekend") {
+      // Weekend = Sat → Sun. If user is on a weekday, jump to upcoming
+      // Saturday so the fixed price actually matches the rental window.
+      const start = nextSaturdayISO(startDate || today);
+      setStartDate(start);
+      setEndDate(addDaysISO(start, pkg.days));
     } else {
       const start = startDate || today;
       setStartDate(start);
@@ -138,6 +165,26 @@ export function BookingSection({
   }
 
   const days = inclusiveDays(startDate, endDate);
+
+  // Auto-detect packages from the picked date range. Lets users get the
+  // fixed weekend price (€350) by simply selecting Sat → Sun in the
+  // calendar instead of having to remember to click the chip. Same idea
+  // for 1-day / 1-week / 2-week ranges.
+  useEffect(() => {
+    if (activePkg === "30min") return; // taster has its own semantics
+    if (!startDate || !endDate || days <= 0) {
+      setActivePkg(null);
+      return;
+    }
+    const startDow = new Date(startDate + "T00:00:00Z").getUTCDay();
+    let inferred: PackageId | null = null;
+    if (days === 2 && startDow === 6) inferred = "weekend";
+    else if (days === 14) inferred = "week2";
+    else if (days === 7) inferred = "week1";
+    else if (days === 1) inferred = "day1";
+    setActivePkg(inferred);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, endDate, days]);
   const q =
     board && days > 0
       ? quote({
@@ -156,11 +203,19 @@ export function BookingSection({
     activePkgDef && activePkgDef.fixedTotal !== undefined
       ? activePkgDef.fixedTotal
       : null;
-  const displayTotal = fixedTotal !== null
-    ? fixedTotal
-    : isHalfHour && board
-      ? board.halfHourPrice
-      : q?.total ?? 0;
+  const preCodeTotal =
+    fixedTotal !== null
+      ? fixedTotal
+      : isHalfHour && board
+        ? board.halfHourPrice
+        : q?.total ?? 0;
+  // Discount code reduces the running total in the side panel so the
+  // user sees what they'll actually pay before submitting.
+  const codeDiscount =
+    discountStatus.kind === "ok"
+      ? Math.round((preCodeTotal * discountStatus.percentOff) / 100)
+      : 0;
+  const displayTotal = Math.max(0, preCodeTotal - codeDiscount);
 
   const rangeHasBlocked = useMemo(() => {
     if (!startDate || !endDate || days <= 0) return false;
@@ -179,7 +234,16 @@ export function BookingSection({
     if (!board || days <= 0 || rangeHasBlocked) return;
     setStatus({ kind: "submitting" });
 
-    const pkgNote = activePkg ? `[Package: ${activePkg}] ` : "";
+    // Pack the optional B2B fields into the notes column so the admin
+    // sees them next to the booking without a schema change.
+    const prefix = [
+      activePkg && `[Package: ${activePkg}]`,
+      company.trim() && `[Company: ${company.trim()}]`,
+      vatId.trim() && `[VAT: ${vatId.trim()}]`,
+    ]
+      .filter(Boolean)
+      .join(" ");
+    const pkgNote = prefix ? prefix + " " : "";
 
     try {
       const res = await fetch("/api/bookings", {
@@ -196,12 +260,29 @@ export function BookingSection({
           experienceLevel,
           bookingType,
           notes: (pkgNote + (notes || "")).trim() || null,
+          discountCode:
+            discountStatus.kind === "ok" ? discountStatus.code : null,
           website,
         }),
       });
 
       if (res.ok) {
+        const ok = await res.json().catch(() => ({}));
+        // Email delivery failures show up here as a side-channel so the
+        // owner can grep them in the browser console without surfacing
+        // them to customers (the booking is saved either way).
+        if (ok?.emailError) {
+          console.error("[booking] saved, but email failed:", ok.emailError);
+        }
         setStatus({ kind: "ok" });
+        // The success panel replaces the form which sits below the fold,
+        // so without an explicit scroll the user sees only the empty space
+        // that was the form. Defer until the new DOM is committed.
+        requestAnimationFrame(() => {
+          document
+            .getElementById("book")
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
         return;
       }
       const data = await res.json().catch(() => ({}));
@@ -228,8 +309,8 @@ export function BookingSection({
 
   return (
     <section id="book" className="bg-paper border-b-2 border-ink scroll-mt-20">
-      <div className="container-x py-20 grid lg:grid-cols-[1fr,360px] gap-12">
-        <div>
+      <div className="container-x py-12 sm:py-16 lg:py-20 grid lg:grid-cols-[1fr,360px] gap-8 lg:gap-12">
+        <div className="min-w-0 order-2 lg:order-1">
           <h2 className="h-display text-4xl sm:text-5xl md:text-6xl text-ink mb-3">
             {t("title")}
           </h2>
@@ -274,7 +355,7 @@ export function BookingSection({
                 <option value="" disabled>{t("selectBoardPlaceholder")}</option>
                 {boards.map((b) => (
                   <option key={b.id} value={b.id}>
-                    {b.name} — {formatPrice(b.dailyPrice, intlLocale)}/d
+                    {b.name}
                   </option>
                 ))}
               </select>
@@ -357,7 +438,9 @@ export function BookingSection({
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="name" className="label">{t("name")}</label>
+                <label htmlFor="name" className="label">
+                  {t("name")} <span className="text-red-700">*</span>
+                </label>
                 <input
                   id="name"
                   type="text"
@@ -370,7 +453,9 @@ export function BookingSection({
                 />
               </div>
               <div>
-                <label htmlFor="email" className="label">{t("email")}</label>
+                <label htmlFor="email" className="label">
+                  {t("email")} <span className="text-red-700">*</span>
+                </label>
                 <input
                   id="email"
                   type="email"
@@ -382,8 +467,43 @@ export function BookingSection({
                 />
               </div>
             </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="company" className="label">
+                  {t("company")}
+                </label>
+                <input
+                  id="company"
+                  type="text"
+                  className="field"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  autoComplete="organization"
+                />
+              </div>
+              {company.trim().length > 0 && (
+                <div>
+                  <label htmlFor="vatId" className="label">
+                    {t("vatId")}
+                  </label>
+                  <input
+                    id="vatId"
+                    type="text"
+                    className="field"
+                    value={vatId}
+                    onChange={(e) => setVatId(e.target.value)}
+                    placeholder="SI12345678"
+                    autoComplete="off"
+                  />
+                </div>
+              )}
+            </div>
+
             <div>
-              <label htmlFor="phone" className="label">{t("phone")}</label>
+              <label htmlFor="phone" className="label">
+                {t("phone")} <span className="text-red-700">*</span>
+              </label>
               <input
                 id="phone"
                 type="tel"
@@ -403,6 +523,75 @@ export function BookingSection({
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
               />
+            </div>
+
+            <div>
+              <label htmlFor="discount" className="label">
+                {t("discountLabel")}
+              </label>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <input
+                  id="discount"
+                  type="text"
+                  className="field flex-1 min-w-0 uppercase tracking-widest"
+                  placeholder="XXXX-XXXX"
+                  value={discountCode}
+                  onChange={(e) => {
+                    setDiscountCode(e.target.value.toUpperCase());
+                    if (discountStatus.kind !== "idle") {
+                      setDiscountStatus({ kind: "idle" });
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={async () => {
+                    if (!discountCode.trim()) return;
+                    setDiscountStatus({ kind: "checking" });
+                    try {
+                      const res = await fetch("/api/validate-code", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ code: discountCode.trim() }),
+                      });
+                      const data = await res.json();
+                      if (data?.ok) {
+                        setDiscountStatus({
+                          kind: "ok",
+                          percentOff: data.percentOff,
+                          code: data.code,
+                        });
+                      } else {
+                        setDiscountStatus({
+                          kind: "err",
+                          reason: data?.reason ?? "not_found",
+                        });
+                      }
+                    } catch {
+                      setDiscountStatus({ kind: "err", reason: "not_found" });
+                    }
+                  }}
+                  disabled={
+                    !discountCode.trim() || discountStatus.kind === "checking"
+                  }
+                  className="border-2 border-ink bg-paper px-4 font-display uppercase text-sm hover:bg-gold disabled:opacity-60 whitespace-nowrap"
+                  style={{ fontWeight: 800 }}
+                >
+                  {discountStatus.kind === "checking"
+                    ? "…"
+                    : t("discountApply")}
+                </button>
+              </div>
+              {discountStatus.kind === "ok" && (
+                <p className="mt-1 text-sm text-ink font-mono">
+                  ✓ {t("discountApplied", { pct: discountStatus.percentOff })}
+                </p>
+              )}
+              {discountStatus.kind === "err" && (
+                <p className="mt-1 text-sm text-red-700 font-mono">
+                  ✗ {t(`discountErr.${discountStatus.reason}` as never)}
+                </p>
+              )}
             </div>
 
             <div className="hp-field" aria-hidden="true">
@@ -426,6 +615,28 @@ export function BookingSection({
               </div>
             )}
 
+            <label className="flex items-start gap-3 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={termsAgreed}
+                onChange={(e) => setTermsAgreed(e.target.checked)}
+                required
+                className="mt-0.5 w-5 h-5 border-2 border-ink shrink-0 accent-gold cursor-pointer"
+              />
+              <span className="text-sm text-graphite leading-snug">
+                {t("termsAgree")}{" "}
+                <a
+                  href={`/${locale}/legal/terms`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline hover:text-ink font-semibold"
+                >
+                  {t("termsLink")}
+                </a>
+                .
+              </span>
+            </label>
+
             <button
               type="submit"
               className="btn-primary"
@@ -433,7 +644,8 @@ export function BookingSection({
                 status.kind === "submitting" ||
                 !board ||
                 days <= 0 ||
-                rangeHasBlocked
+                rangeHasBlocked ||
+                !termsAgreed
               }
             >
               {status.kind === "submitting" ? t("submitting") : t("submit")} →
@@ -441,7 +653,7 @@ export function BookingSection({
           </form>
         </div>
 
-        <aside className="bg-ink text-paper p-8 h-fit lg:sticky lg:top-24 border-2 border-ink" style={{ boxShadow: "8px 8px 0 0 #FFD600" }}>
+        <aside className="bg-ink text-paper p-6 sm:p-8 h-fit lg:sticky lg:top-24 border-2 border-ink order-1 lg:order-2" style={{ boxShadow: "6px 6px 0 0 #FFD600" }}>
           <p className="font-display uppercase tracking-widest text-xs text-gold mb-3" style={{ fontWeight: 800 }}>
             💸 {t("priceTitle")}
           </p>
@@ -464,6 +676,23 @@ export function BookingSection({
                   −{q.discountPct}% {t("priceDiscount")} (−
                   {formatPrice(q.discount, intlLocale)})
                 </p>
+              )}
+              {discountStatus.kind === "ok" && codeDiscount > 0 && (
+                <div className="mt-3 pt-3 border-t-2 border-gold/30 space-y-1">
+                  <div className="flex justify-between font-mono text-sm text-paper/70">
+                    <span>{t("priceOriginal")}</span>
+                    <span>{formatPrice(preCodeTotal, intlLocale)}</span>
+                  </div>
+                  <div className="flex justify-between font-mono text-sm text-gold">
+                    <span>
+                      {t("priceCodeDiscount", {
+                        pct: discountStatus.percentOff,
+                        code: discountStatus.code,
+                      })}
+                    </span>
+                    <span>−{formatPrice(codeDiscount, intlLocale)}</span>
+                  </div>
+                </div>
               )}
               {(() => {
                 const v = vatBreakdown(displayTotal);

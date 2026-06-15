@@ -2,7 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { Board } from "@/db/schema";
 import { formatPrice } from "@/lib/pricing";
-import type { Locale } from "@/i18n/request";
+import { intlLocale as toIntlLocale, type Locale } from "@/i18n/request";
 
 export async function BoardsRow({
   boards,
@@ -12,7 +12,7 @@ export async function BoardsRow({
   locale: Locale;
 }) {
   const t = await getTranslations("boards");
-  const intlLocale = locale === "sl" ? "sl-SI" : "en-IE";
+  const intlLocale = toIntlLocale(locale);
 
   if (boards.length === 0) return null;
 

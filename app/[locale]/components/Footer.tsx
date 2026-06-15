@@ -177,11 +177,24 @@ export async function Footer({ locale }: { locale: Locale }) {
       </div>
 
       <div className="border-t-2 border-paper/10 py-4">
-        <div className="container-x flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-mono text-paper/50">
-          <span>
+        <div className="container-x grid gap-2 text-xs font-mono text-paper/50 sm:grid-cols-3 sm:items-center">
+          <span className="sm:justify-self-start">
             © {new Date().getFullYear()} {SITE.company.name} — {t("rights")}
           </span>
-          <span>{SITE.company.vatId} · {SITE.company.address}, {SITE.company.postal}</span>
+          <span className="sm:justify-self-center text-center">
+            Powered by{" "}
+            <a
+              href="https://futurecode.si"
+              target="_blank"
+              rel="noreferrer"
+              className="text-paper/80 hover:text-gold underline-offset-2 hover:underline"
+            >
+              Futurecode.si
+            </a>
+          </span>
+          <span className="sm:justify-self-end sm:text-right">
+            {SITE.company.vatId} · {SITE.company.address}, {SITE.company.postal}
+          </span>
         </div>
       </div>
     </footer>

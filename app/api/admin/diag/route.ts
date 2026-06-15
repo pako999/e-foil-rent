@@ -6,7 +6,6 @@ import {
   Sender,
   Recipient,
 } from "mailersend";
-import { SITE } from "@/lib/content";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -32,9 +31,9 @@ export async function GET(req: Request) {
 
   const token = process.env.MAILERSEND_API_TOKEN;
   const fromEmail =
-    process.env.MAILERSEND_FROM_EMAIL ?? "bookings@surf-store.com";
+    process.env.MAILERSEND_FROM_EMAIL ?? "bookings@e-foiling.si";
   const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
-  const adminEmail = process.env.ENQUIRY_TO_EMAIL ?? SITE.contactEmail;
+  const adminEmail = process.env.ENQUIRY_TO_EMAIL ?? "info@surf-store.com";
 
   const config = {
     MAILERSEND_API_TOKEN_present: !!token,

@@ -19,6 +19,14 @@ export const bookingInput = z
     experienceLevel: z.enum(["beginner", "experienced"]),
     bookingType: z.enum(["rental", "lesson", "rental_lesson"]),
     notes: z.string().trim().max(2000).optional().nullable(),
+    // Optional discount code (e.g. exit-intent 10 % code).
+    discountCode: z
+      .string()
+      .trim()
+      .toUpperCase()
+      .max(40)
+      .optional()
+      .nullable(),
     // Honeypot — bots fill this; real users never see it.
     website: z.string().max(0).optional().or(z.literal("")),
   })

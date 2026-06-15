@@ -11,6 +11,7 @@ import { LocationBlock } from "./components/LocationBlock";
 import { BoardsRow } from "./components/BoardsRow";
 import { HowItWorks } from "./components/HowItWorks";
 import { Video } from "./components/Video";
+import { FoilShowcase } from "./components/FoilShowcase";
 import { Tech } from "./components/Tech";
 import { TechSpecs } from "./components/TechSpecs";
 import { Gallery } from "./components/Gallery";
@@ -45,6 +46,7 @@ export default async function HomePage({
         <PickupBanner />
         <FeatureBadges />
         <Video />
+        <FoilShowcase />
         <Packages boards={boards} locale={locale as Locale} />
         <Tech />
         <TechSpecs />

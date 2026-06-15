@@ -41,6 +41,15 @@ function configured(): boolean {
   return !!(API_BASE && API_USER && API_PASSWORD && API_TOKEN);
 }
 
+function missingEnvVars(): string[] {
+  const missing: string[] = [];
+  if (!API_BASE) missing.push("ERACUNI_API_BASE");
+  if (!API_USER) missing.push("ERACUNI_API_USER");
+  if (!API_PASSWORD) missing.push("ERACUNI_API_PASSWORD");
+  if (!API_TOKEN) missing.push("ERACUNI_API_TOKEN");
+  return missing;
+}
+
 function authHeaders(): HeadersInit {
   const basic = Buffer.from(`${API_USER}:${API_PASSWORD}`).toString("base64");
   return {
@@ -58,10 +67,10 @@ export async function createProforma({
   board: Board;
 }): Promise<ProformaResult | null> {
   if (!configured()) {
-    console.warn(
-      "[eracuni] missing one of ERACUNI_API_BASE / USER / PASSWORD / TOKEN — skipping",
-    );
-    return null;
+    const missing = missingEnvVars().join(", ");
+    // Throw so the admin route surfaces the reason in its alert; the
+    // approval email still goes out because the caller catches this.
+    throw new Error(`missing Vercel env vars: ${missing}`);
   }
 
   const v = vatBreakdown(booking.total);
@@ -96,8 +105,10 @@ export async function createProforma({
     },
   };
 
+  const endpoint = `${API_BASE}/api/v1/proformas`;
+  let res: Response;
   try {
-    const res = await fetch(`${API_BASE}/api/v1/proformas`, {
+    res = await fetch(endpoint, {
       method: "POST",
       headers: {
         ...authHeaders(),
@@ -105,37 +116,43 @@ export async function createProforma({
       },
       body: JSON.stringify(payload),
     });
-    if (!res.ok) {
-      console.error(
-        "[eracuni] create proforma failed",
-        res.status,
-        await res.text(),
-      );
-      return null;
-    }
-    const data = (await res.json()) as {
-      id: string;
-      documentNumber: string;
-      pdfUrl?: string;
-    };
-
-    let pdf: Buffer | undefined;
-    if (data.pdfUrl) {
-      const pdfRes = await fetch(data.pdfUrl, { headers: authHeaders() });
-      if (pdfRes.ok) {
-        pdf = Buffer.from(await pdfRes.arrayBuffer());
-      } else {
-        console.error("[eracuni] pdf fetch failed", pdfRes.status);
-      }
-    }
-
-    return {
-      documentId: data.id,
-      documentNumber: data.documentNumber,
-      pdf,
-    };
   } catch (err) {
-    console.error("[eracuni] request failed", err);
-    return null;
+    throw new Error(
+      `network to ${endpoint}: ${(err as Error)?.message ?? err}`,
+    );
   }
+
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(
+      `HTTP ${res.status} at ${endpoint}${body ? ` — ${body.slice(0, 240)}` : ""}`,
+    );
+  }
+
+  const data = (await res.json().catch(() => null)) as {
+    id?: string;
+    documentNumber?: string;
+    pdfUrl?: string;
+  } | null;
+  if (!data?.id || !data.documentNumber) {
+    throw new Error(
+      `unexpected response shape from ${endpoint}: ${JSON.stringify(data).slice(0, 240)}`,
+    );
+  }
+
+  let pdf: Buffer | undefined;
+  if (data.pdfUrl) {
+    const pdfRes = await fetch(data.pdfUrl, { headers: authHeaders() });
+    if (pdfRes.ok) {
+      pdf = Buffer.from(await pdfRes.arrayBuffer());
+    } else {
+      console.error("[eracuni] pdf fetch failed", pdfRes.status);
+    }
+  }
+
+  return {
+    documentId: data.id,
+    documentNumber: data.documentNumber,
+    pdf,
+  };
 }

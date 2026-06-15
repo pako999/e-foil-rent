@@ -3,7 +3,7 @@ import type { Board } from "@/db/schema";
 
 export function JsonLd({ boards }: { boards: Board[] }) {
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   // Sports location with our packages as Offer entries.
   const location = {
@@ -73,7 +73,7 @@ export function JsonLd({ boards }: { boards: Board[] }) {
     url: siteUrl,
     name: "Surf-Store — E-Foil",
     publisher: { "@id": `${siteUrl}#org` },
-    inLanguage: ["sl-SI", "en-GB"],
+    inLanguage: ["sl-SI", "en-GB", "de-DE"],
   };
 
   return (

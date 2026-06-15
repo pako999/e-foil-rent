@@ -8,8 +8,8 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
-import { BLOG_POSTS } from "@/lib/blog-posts";
-import { locales, type Locale } from "@/i18n/request";
+import { BLOG_POSTS, localizeBlog } from "@/lib/blog-posts";
+import { locales, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "blog.meta" });
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   return {
     title: t("title"),
@@ -30,8 +30,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/blog`,
       languages: {
-        sl: "/sl/blog",
-        en: "/en/blog",
+        "sl-SI": "/sl/blog",
+        "en-GB": "/en/blog",
+        "de-DE": "/de/blog",
         "x-default": "/sl/blog",
       },
     },
@@ -41,7 +42,7 @@ export async function generateMetadata({
       type: "website",
       url: `${siteUrl}/${locale}/blog`,
       siteName: "Surf-Store.com",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
     },
   };
 }
@@ -59,7 +60,7 @@ export default async function BlogIndex({
     b.publishedAt.localeCompare(a.publishedAt),
   );
   const [featured, ...rest] = posts;
-  const isSL = locale === "sl";
+  const featuredC = localizeBlog(featured, locale as Locale);
 
   return (
     <>
@@ -102,10 +103,10 @@ export default async function BlogIndex({
                     {featured.publishedAt} · {t("readingTime", { minutes: featured.readingMinutes })}
                   </p>
                   <h2 className="font-display uppercase tracking-tight text-3xl md:text-4xl text-ink mb-3" style={{ fontWeight: 900 }}>
-                    {(isSL ? featured.sl : featured.en).title}
+                    {featuredC.title}
                   </h2>
                   <p className="text-graphite mb-6">
-                    {(isSL ? featured.sl : featured.en).excerpt}
+                    {featuredC.excerpt}
                   </p>
                   <span className="font-display uppercase text-sm tracking-wide text-ink border-b-2 border-gold pb-1 w-fit" style={{ fontWeight: 800 }}>
                     {t("readMore")} →
@@ -122,7 +123,7 @@ export default async function BlogIndex({
             <div className="container-x py-16">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {rest.map((post) => {
-                  const c = isSL ? post.sl : post.en;
+                  const c = localizeBlog(post, locale as Locale);
                   return (
                     <Link
                       key={post.slug}

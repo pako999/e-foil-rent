@@ -5,31 +5,52 @@ import { SITE } from "./content";
 
 const apiKey = process.env.MAILERSEND_API_TOKEN;
 const fromEmail =
-  process.env.MAILERSEND_FROM_EMAIL ?? "bookings@surf-store.com";
+  process.env.MAILERSEND_FROM_EMAIL ?? "bookings@e-foiling.si";
 const fromName = process.env.MAILERSEND_FROM_NAME ?? "Surf-Store E-Foil";
-const adminEmail = process.env.ENQUIRY_TO_EMAIL ?? SITE.contactEmail;
+// Admin notifications + Reply-To target. Defaults to the real surf-store
+// inbox because e-foiling.si has no MX records — any mail sent TO
+// @e-foiling.si bounces. Override via env once MX is set up.
+const adminEmail =
+  process.env.ENQUIRY_TO_EMAIL ?? "info@surf-store.com";
 
 const ms = apiKey ? new MailerSend({ apiKey }) : null;
+
+type EmailLocale = "sl" | "en" | "de";
 
 type SendArgs = {
   booking: Booking;
   board: Board;
-  locale: "sl" | "en";
+  locale: EmailLocale;
 };
+
+function intlFor(locale: EmailLocale): string {
+  if (locale === "sl") return "sl-SI";
+  if (locale === "de") return "de-DE";
+  return "en-IE";
+}
 
 async function send(args: {
   to: { email: string; name?: string };
   subject: string;
   html: string;
+  text?: string;
   replyTo?: { email: string; name?: string };
   attachments?: Array<{ filename: string; content: Buffer; mime?: string }>;
 }) {
-  if (!ms) return;
+  if (!ms) {
+    console.warn("[email] MAILERSEND_API_TOKEN missing — skipping send");
+    return;
+  }
+  // Build the minimum-viable payload first; every extra setter is a
+  // potential 422 (Reply-To off-domain, tag not whitelisted, …) so we add
+  // them defensively and let the core message go out even if an
+  // enhancement is rejected.
   const params = new EmailParams()
     .setFrom(new Sender(fromEmail, fromName))
     .setTo([new Recipient(args.to.email, args.to.name ?? args.to.email)])
     .setSubject(args.subject)
-    .setHtml(args.html);
+    .setHtml(args.html)
+    .setText(args.text ?? htmlToText(args.html));
   if (args.replyTo) {
     params.setReplyTo(
       new Sender(args.replyTo.email, args.replyTo.name ?? args.replyTo.email),
@@ -47,7 +68,42 @@ async function send(args: {
       ),
     );
   }
-  await ms.email.send(params);
+  try {
+    await ms.email.send(params);
+  } catch (err) {
+    // Re-throw with a useful message — the MailerSend SDK throws an
+    // object literal whose `.message` is undefined, which surfaces as
+    // the literal string "undefined" in our admin alerts.
+    const e = err as {
+      message?: string;
+      statusCode?: number;
+      body?: unknown;
+    };
+    const detail =
+      e?.message ??
+      `HTTP ${e?.statusCode ?? "?"} ${
+        e?.body ? JSON.stringify(e.body).slice(0, 300) : ""
+      }`;
+    throw new Error(`MailerSend: ${detail}`);
+  }
+}
+
+function htmlToText(html: string): string {
+  return html
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>|<\/h\d>|<\/li>|<\/tr>/gi, "\n")
+    .replace(/<li[^>]*>/gi, "• ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 /**
@@ -66,7 +122,7 @@ export async function sendApprovalEmail({
     console.warn("[email] MAILERSEND_API_TOKEN missing — skipping approval");
     return;
   }
-  const total = formatPrice(booking.total, locale === "sl" ? "sl-SI" : "en-IE");
+  const total = formatPrice(booking.total, intlFor(locale));
   const v = vatBreakdown(booking.total);
   const tNet = formatPrice(v.net, "sl-SI");
   const tVat = formatPrice(v.vat, "sl-SI");
@@ -77,10 +133,11 @@ export async function sendApprovalEmail({
   const docLineEn = proforma
     ? `<p>The attached file is proforma invoice <strong>${escapeHtml(proforma.documentNumber)}</strong>. Please settle it within 7 days to keep the slot reserved.</p>`
     : `<p>We will send the proforma invoice separately.</p>`;
+  const docLineDe = proforma
+    ? `<p>Im Anhang ist die Rechnung Nr. <strong>${escapeHtml(proforma.documentNumber)}</strong>. Bitte begleiche den Betrag innerhalb von 7 Tagen, damit der Termin reserviert bleibt.</p>`
+    : `<p>Die Rechnung senden wir separat zu.</p>`;
 
-  const html =
-    locale === "sl"
-      ? shell(`
+  const slHtml = shell(`
         <h2>Rezervacija potrjena ✅</h2>
         <p>Pozdravljen/a ${escapeHtml(booking.customerName)}!</p>
         <p>Vaš termin je <strong>potrjen</strong>. Veselimo se srečanja na vodi.</p>
@@ -93,8 +150,8 @@ export async function sendApprovalEmail({
         </table>
         ${docLine}
         <p style="color:#555;font-size:13px;margin-top:24px">${SITE.contactEmail} · ${SITE.phone} · ${SITE.mainSite}</p>
-      `)
-      : shell(`
+      `);
+  const enHtml = shell(`
         <h2>Booking confirmed ✅</h2>
         <p>Hi ${escapeHtml(booking.customerName)},</p>
         <p>Your slot is <strong>confirmed</strong>. Looking forward to seeing you on the water.</p>
@@ -108,6 +165,21 @@ export async function sendApprovalEmail({
         ${docLineEn}
         <p style="color:#555;font-size:13px;margin-top:24px">${SITE.contactEmail} · ${SITE.phone} · ${SITE.mainSite}</p>
       `);
+  const deHtml = shell(`
+        <h2>Buchung bestätigt ✅</h2>
+        <p>Hallo ${escapeHtml(booking.customerName)},</p>
+        <p>Dein Termin ist <strong>bestätigt</strong>. Wir freuen uns aufs Wiedersehen am Wasser.</p>
+        ${summaryTable(booking, board, "de")}
+        <p style="margin-top:24px"><strong>Gesamt: ${total}</strong></p>
+        <table style="margin-top:8px;border-collapse:collapse;font-size:13px;color:#555">
+          <tr><td style="padding:2px 12px">Netto</td><td style="padding:2px 12px">${tNet}</td></tr>
+          <tr><td style="padding:2px 12px">MwSt. (22 %)</td><td style="padding:2px 12px">${tVat}</td></tr>
+          <tr><td style="padding:2px 12px;border-top:1px solid #ddd">Gesamt inkl. MwSt.</td><td style="padding:2px 12px;border-top:1px solid #ddd"><strong>${tGross}</strong></td></tr>
+        </table>
+        ${docLineDe}
+        <p style="color:#555;font-size:13px;margin-top:24px">${SITE.contactEmail} · ${SITE.phone} · ${SITE.mainSite}</p>
+      `);
+  const html = locale === "sl" ? slHtml : locale === "de" ? deHtml : enHtml;
 
   const attachments = proforma?.pdf
     ? [
@@ -124,7 +196,9 @@ export async function sendApprovalEmail({
     subject:
       locale === "sl"
         ? `Rezervacija potrjena — ${board.name}`
-        : `Booking confirmed — ${board.name}`,
+        : locale === "de"
+          ? `Buchung bestätigt — ${board.name}`
+          : `Booking confirmed — ${board.name}`,
     html,
     attachments,
   });
@@ -142,17 +216,15 @@ export async function sendCancellationEmail({
     console.warn("[email] MAILERSEND_API_TOKEN missing — skipping cancel");
     return;
   }
-  const html =
-    locale === "sl"
-      ? shell(`
+  const slHtml = shell(`
         <h2>Rezervacija odpovedana</h2>
         <p>Pozdravljen/a ${escapeHtml(booking.customerName)},</p>
         <p>Žal smo bili primorani <strong>odpovedati</strong> vaš termin za ${escapeHtml(board.name)}.</p>
         ${summaryTable(booking, board, "sl")}
         <p style="margin-top:24px">Če imaš vprašanja, nam piši — z veseljem najdemo nov termin.</p>
         <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.phone}</p>
-      `)
-      : shell(`
+      `);
+  const enHtml = shell(`
         <h2>Booking cancelled</h2>
         <p>Hi ${escapeHtml(booking.customerName)},</p>
         <p>We had to <strong>cancel</strong> your booking for ${escapeHtml(board.name)}.</p>
@@ -160,13 +232,24 @@ export async function sendCancellationEmail({
         <p style="margin-top:24px">If you have questions, write us back — happy to find a new slot.</p>
         <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.phone}</p>
       `);
+  const deHtml = shell(`
+        <h2>Buchung storniert</h2>
+        <p>Hallo ${escapeHtml(booking.customerName)},</p>
+        <p>Wir mussten deine Buchung für ${escapeHtml(board.name)} leider <strong>stornieren</strong>.</p>
+        ${summaryTable(booking, board, "de")}
+        <p style="margin-top:24px">Bei Fragen schreib uns — wir finden gern einen neuen Termin.</p>
+        <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.phone}</p>
+      `);
+  const html = locale === "sl" ? slHtml : locale === "de" ? deHtml : enHtml;
 
   await send({
     to: { email: booking.email, name: booking.customerName },
     subject:
       locale === "sl"
         ? `Rezervacija odpovedana — ${board.name}`
-        : `Booking cancelled — ${board.name}`,
+        : locale === "de"
+          ? `Buchung storniert — ${board.name}`
+          : `Booking cancelled — ${board.name}`,
     html,
   });
 }
@@ -182,11 +265,20 @@ export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
   const customer = renderCustomer({ booking, board, locale });
   const admin = renderAdmin({ booking, board });
 
-  await Promise.allSettled([
+  // Use allSettled so a customer-email rejection doesn't prevent the
+  // admin notification (and vice-versa). But inspect the results — the
+  // previous version silently swallowed BOTH rejections, leaving the
+  // booking POST thinking everything was fine while MailerSend was
+  // rejecting both messages. Now we re-throw with both reasons so the
+  // bookings route surfaces them in its emailError response field.
+  const results = await Promise.allSettled([
     send({
       to: { email: booking.email, name: booking.customerName },
       subject: customer.subject,
       html: customer.html,
+      // Replies from the customer go to the human inbox, not the
+      // MailerSend sending domain (which doesn't receive mail).
+      replyTo: { email: adminEmail, name: "Surf-Store E-Foil" },
     }),
     send({
       to: { email: adminEmail, name: "Surf-Store admin" },
@@ -195,10 +287,108 @@ export async function sendBookingEmails({ booking, board, locale }: SendArgs) {
       replyTo: { email: booking.email, name: booking.customerName },
     }),
   ]);
+
+  const labels = ["customer", "admin"] as const;
+  const failures = results
+    .map((r, i) =>
+      r.status === "rejected"
+        ? `${labels[i]}: ${(r.reason as Error)?.message ?? String(r.reason)}`
+        : null,
+    )
+    .filter((s): s is string => s !== null);
+  if (failures.length > 0) {
+    // Log so Vercel runtime logs always capture it, even if the caller
+    // doesn't surface the thrown error.
+    console.error("[email] booking send failures", failures);
+    throw new Error(failures.join("; "));
+  }
+}
+
+/**
+ * Sent from the exit-intent popup: gives the visitor a one-time discount
+ * code (10 % by default) they can paste into the booking form.
+ */
+export async function sendDiscountCodeEmail({
+  email,
+  code,
+  percentOff,
+  expiresAt,
+  locale,
+}: {
+  email: string;
+  code: string;
+  percentOff: number;
+  expiresAt: Date | null;
+  locale: EmailLocale;
+}) {
+  if (!ms) {
+    console.warn("[email] MAILERSEND_API_TOKEN missing — skipping discount");
+    return;
+  }
+  const expiry = expiresAt
+    ? new Intl.DateTimeFormat(intlFor(locale), { dateStyle: "long" }).format(
+        expiresAt,
+      )
+    : null;
+
+  const body = (() => {
+    if (locale === "sl") {
+      return {
+        subject: `Tvoja ${percentOff} % koda za popust pri Surf-Store E-Foil`,
+        html: shell(`
+          <h2>Tvoja ${percentOff} % koda za popust</h2>
+          <p>Hvala, ker si se prijavil/a na naše obvestilo. Tu je tvoja
+          osebna koda za rezervacijo pri Surf-Store E-Foil:</p>
+          <p style="font-size:28px;font-family:ui-monospace,monospace;background:#FFD600;border:2px solid #1a1a1a;padding:18px 24px;display:inline-block;font-weight:800;letter-spacing:2px">${escapeHtml(code)}</p>
+          <p style="margin-top:24px">Vneseš jo pri rezervaciji v polje
+          <strong>«Koda za popust»</strong>, znesek se samodejno zniža za
+          ${percentOff} %.</p>
+          ${expiry ? `<p>Koda velja do <strong>${expiry}</strong> in se lahko uporabi enkrat.</p>` : ""}
+          <p style="margin-top:24px"><a href="https://www.e-foiling.si/sl#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Rezerviraj termin →</a></p>
+        `),
+      };
+    }
+    if (locale === "de") {
+      return {
+        subject: `Dein ${percentOff} % Rabattcode für Surf-Store E-Foil`,
+        html: shell(`
+          <h2>Dein ${percentOff} % Rabattcode</h2>
+          <p>Danke für die Anmeldung. Hier ist dein persönlicher Code für
+          eine Buchung bei Surf-Store E-Foil:</p>
+          <p style="font-size:28px;font-family:ui-monospace,monospace;background:#FFD600;border:2px solid #1a1a1a;padding:18px 24px;display:inline-block;font-weight:800;letter-spacing:2px">${escapeHtml(code)}</p>
+          <p style="margin-top:24px">Gib ihn beim Buchen ins Feld
+          <strong>„Rabattcode"</strong> ein und der Betrag wird automatisch
+          um ${percentOff} % reduziert.</p>
+          ${expiry ? `<p>Der Code ist gültig bis <strong>${expiry}</strong> und kann einmal eingelöst werden.</p>` : ""}
+          <p style="margin-top:24px"><a href="https://www.e-foiling.si/de#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Termin reservieren →</a></p>
+        `),
+      };
+    }
+    return {
+      subject: `Your ${percentOff}% discount code for Surf-Store E-Foil`,
+      html: shell(`
+        <h2>Your ${percentOff}% discount code</h2>
+        <p>Thanks for signing up. Here is your personal code for a booking
+        with Surf-Store E-Foil:</p>
+        <p style="font-size:28px;font-family:ui-monospace,monospace;background:#FFD600;border:2px solid #1a1a1a;padding:18px 24px;display:inline-block;font-weight:800;letter-spacing:2px">${escapeHtml(code)}</p>
+        <p style="margin-top:24px">Paste it into the
+        <strong>"Discount code"</strong> field on the booking form and the
+        total will drop by ${percentOff}% automatically.</p>
+        ${expiry ? `<p>Valid until <strong>${expiry}</strong>, single use.</p>` : ""}
+        <p style="margin-top:24px"><a href="https://www.e-foiling.si/en#book" style="display:inline-block;background:#FFD600;border:2px solid #1a1a1a;padding:12px 18px;color:#1a1a1a;text-decoration:none;font-weight:800;text-transform:uppercase">Book a session →</a></p>
+      `),
+    };
+  })();
+
+  await send({
+    to: { email },
+    subject: body.subject,
+    html: body.html,
+  });
 }
 
 function renderCustomer({ booking, board, locale }: SendArgs) {
-  const total = formatPrice(booking.total, locale === "sl" ? "sl-SI" : "en-IE");
+  const total = formatPrice(booking.total, intlFor(locale));
   if (locale === "sl") {
     return {
       subject: `Rezervacija prejeta — ${board.name}`,
@@ -207,6 +397,18 @@ function renderCustomer({ booking, board, locale }: SendArgs) {
         <p>Prejeli smo tvojo rezervacijo. Potrdimo jo v 24 urah.</p>
         ${summaryTable(booking, board, "sl")}
         <p style="margin-top:24px">Skupaj: <strong>${total}</strong></p>
+        <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.mainSite}</p>
+      `),
+    };
+  }
+  if (locale === "de") {
+    return {
+      subject: `Buchung eingegangen — ${board.name}`,
+      html: shell(`
+        <h2>Danke für deine Buchung!</h2>
+        <p>Wir haben deine Anfrage erhalten und bestätigen sie innerhalb von 24 Stunden.</p>
+        ${summaryTable(booking, board, "de")}
+        <p style="margin-top:24px">Gesamt: <strong>${total}</strong></p>
         <p style="color:#555;font-size:13px">${SITE.contactEmail} · ${SITE.mainSite}</p>
       `),
     };
@@ -237,7 +439,7 @@ function renderAdmin({ booking, board }: Omit<SendArgs, "locale">) {
   };
 }
 
-function summaryTable(booking: Booking, board: Board, locale: "sl" | "en") {
+function summaryTable(booking: Booking, board: Board, locale: EmailLocale) {
   const t =
     locale === "sl"
       ? {
@@ -247,13 +449,21 @@ function summaryTable(booking: Booking, board: Board, locale: "sl" | "en") {
           type: "Tip",
           level: "Raven",
         }
-      : {
-          board: "Board",
-          dates: "Dates",
-          days: "Days",
-          type: "Type",
-          level: "Level",
-        };
+      : locale === "de"
+        ? {
+            board: "Board",
+            dates: "Termine",
+            days: "Tage",
+            type: "Art",
+            level: "Level",
+          }
+        : {
+            board: "Board",
+            dates: "Dates",
+            days: "Days",
+            type: "Type",
+            level: "Level",
+          };
   return `
     <table style="border-collapse:collapse;margin-top:12px">
       <tr><td style="padding:4px 12px;color:#555">${t.board}</td><td style="padding:4px 12px"><strong>${escapeHtml(board.name)}</strong></td></tr>
@@ -265,8 +475,35 @@ function summaryTable(booking: Booking, board: Board, locale: "sl" | "en") {
   `;
 }
 
+// Postal footer with a real address, contact, and a why-you-got-this line
+// is required for legitimate transactional email (CAN-SPAM, ZEPT-1) and
+// also a strong positive signal for Gmail/Outlook spam filters.
 function shell(inner: string) {
-  return `<!doctype html><html><body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:#0a0e1a;max-width:560px;margin:0 auto;padding:24px">${inner}</body></html>`;
+  const footer = `
+    <hr style="margin:32px 0 16px;border:none;border-top:1px solid #e5e7eb" />
+    <p style="font-size:12px;color:#6b7280;line-height:1.5;margin:0 0 8px">
+      Surf-Store.com — E-Foil school &amp; rental<br />
+      Sport Group d.o.o., Osojnikova ulica 4, 2000 Maribor, Slovenija · VAT SI72133449<br />
+      <a href="mailto:info@e-foiling.si" style="color:#6b7280">info@e-foiling.si</a>
+      · <a href="https://www.e-foiling.si" style="color:#6b7280">e-foiling.si</a>
+    </p>
+    <p style="font-size:11px;color:#9ca3af;margin:0">
+      This is a transactional message related to your booking with Surf-Store E-Foil.
+      You're receiving it because you submitted a reservation on e-foiling.si.
+    </p>
+  `;
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Surf-Store E-Foil</title>
+</head>
+<body style="font-family:-apple-system,Segoe UI,Roboto,sans-serif;color:#0a0e1a;max-width:560px;margin:0 auto;padding:24px;background:#ffffff">
+${inner}
+${footer}
+</body>
+</html>`;
 }
 
 function escapeHtml(s: string) {

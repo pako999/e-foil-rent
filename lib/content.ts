@@ -6,7 +6,7 @@
 export const SITE = {
   name: "Surf-Store.com — E-Foil",
   operator: "Surf-Store.com",
-  contactEmail: "info@surf-store.com",
+  contactEmail: "info@e-foiling.si",
   mainSite: "https://www.surf-store.com",
   shop: "https://www.surf-store.com/t/categories/e-foil/e-foil-sets",
   videoId: "Wj6xwO_FDqU",

@@ -22,7 +22,30 @@ function isAuthed(req: Request, cookieToken: string | undefined) {
  * the notes prefix the form leaves, or default to Slovenian. Falls back
  * to "sl" when nothing matches.
  */
-function pickLocale(notes: string | null): "sl" | "en" {
+// MailerSend / fetch throws don't always include a useful `message`. Try
+// progressively richer fields so the admin alert shows something concrete
+// instead of the literal string "undefined".
+function formatErr(err: unknown): string {
+  if (!err) return "unknown";
+  if (typeof err === "string") return err;
+  const e = err as {
+    message?: string;
+    statusCode?: number;
+    body?: unknown;
+  };
+  if (e.message) return e.message;
+  if (e.statusCode) {
+    const body = e.body ? ` ${JSON.stringify(e.body).slice(0, 240)}` : "";
+    return `HTTP ${e.statusCode}${body}`;
+  }
+  try {
+    return JSON.stringify(err).slice(0, 240);
+  } catch {
+    return String(err);
+  }
+}
+
+function pickLocale(notes: string | null): "sl" | "en" | "de" {
   if (notes && /\[Package:/.test(notes)) {
     // existing fall-through, no language hint in the prefix
   }
@@ -66,8 +89,17 @@ export async function POST(
   }
   const booking = updated[0]!;
 
-  // Fire customer notification + proforma based on the new status.
-  // All fire-and-forget so the admin click responds instantly.
+  // Side effects: customer email + proforma. Must `await` — Vercel kills
+  // fire-and-forget tasks the moment the response is returned, so a `void`
+  // here means the email and e-racuni request silently never finish.
+  // ~1-2 s extra delay for the admin click is fine.
+  let sideEffects: {
+    proformaCreated?: boolean;
+    proformaNumber?: string;
+    emailSent?: boolean;
+    error?: string;
+  } = {};
+
   if (
     parsed.data.status === "confirmed" ||
     parsed.data.status === "cancelled"
@@ -82,27 +114,43 @@ export async function POST(
       const locale = pickLocale(booking.notes);
 
       if (parsed.data.status === "confirmed") {
-        // Create proforma first (so we can attach the PDF), then email.
-        void (async () => {
-          try {
-            const proforma = await createProforma({ booking, board });
-            await sendApprovalEmail({
-              booking,
-              board,
-              locale,
-              proforma: proforma ?? undefined,
-            });
-          } catch (err) {
-            console.error("[status] approval flow failed", err);
+        // 1) Create proforma so we can attach the PDF, 2) send approval mail.
+        // Proforma failure must NOT block the approval email — the customer
+        // should still get the confirmation even if e-racuni is down.
+        let proforma: Awaited<ReturnType<typeof createProforma>> = null;
+        try {
+          proforma = await createProforma({ booking, board });
+          if (proforma) {
+            sideEffects.proformaCreated = true;
+            sideEffects.proformaNumber = proforma.documentNumber;
           }
-        })();
+        } catch (err) {
+          console.error("[status] createProforma failed", err);
+          sideEffects.error = `proforma: ${formatErr(err)}`;
+        }
+        try {
+          await sendApprovalEmail({
+            booking,
+            board,
+            locale,
+            proforma: proforma ?? undefined,
+          });
+          sideEffects.emailSent = true;
+        } catch (err) {
+          console.error("[status] sendApprovalEmail failed", err);
+          sideEffects.error = `${sideEffects.error ? sideEffects.error + "; " : ""}email: ${formatErr(err)}`;
+        }
       } else {
-        void sendCancellationEmail({ booking, board, locale }).catch((err) =>
-          console.error("[status] cancellation email failed", err),
-        );
+        try {
+          await sendCancellationEmail({ booking, board, locale });
+          sideEffects.emailSent = true;
+        } catch (err) {
+          console.error("[status] sendCancellationEmail failed", err);
+          sideEffects.error = `email: ${formatErr(err)}`;
+        }
       }
     }
   }
 
-  return NextResponse.json({ ok: true, booking });
+  return NextResponse.json({ ok: true, booking, sideEffects });
 }

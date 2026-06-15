@@ -11,10 +11,11 @@ import { StoreBanner } from "../../components/StoreBanner";
 import {
   BLOG_POSTS,
   getPostBySlug,
+  localizeBlog,
   type BlogBlock,
   type BlogPost,
 } from "@/lib/blog-posts";
-import { locales, type Locale } from "@/i18n/request";
+import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -26,9 +27,9 @@ export async function generateMetadata({
   if (!(locales as readonly string[]).includes(locale)) notFound();
   const post = getPostBySlug(slug);
   if (!post) notFound();
-  const c = locale === "sl" ? post.sl : post.en;
+  const c = localizeBlog(post, locale as Locale);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   return {
     title: c.metaTitle,
@@ -37,8 +38,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `/${locale}/blog/${slug}`,
       languages: {
-        sl: `/sl/blog/${slug}`,
-        en: `/en/blog/${slug}`,
+        "sl-SI": `/sl/blog/${slug}`,
+        "en-GB": `/en/blog/${slug}`,
+        "de-DE": `/de/blog/${slug}`,
         "x-default": `/sl/blog/${slug}`,
       },
     },
@@ -48,7 +50,7 @@ export async function generateMetadata({
       type: "article",
       url: `${siteUrl}/${locale}/blog/${slug}`,
       siteName: "Surf-Store.com",
-      locale: locale === "sl" ? "sl_SI" : "en_GB",
+      locale: ogLocale(locale as Locale),
       publishedTime: post.publishedAt,
       images: [
         { url: post.cover.src, width: 1200, height: 630, alt: post.cover.alt },
@@ -173,16 +175,16 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
   const t = await getTranslations("blog");
-  const c = locale === "sl" ? post.sl : post.en;
+  const c = localizeBlog(post, locale as Locale);
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://efoil.surf-store.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: c.metaTitle,
     description: c.metaDescription,
-    inLanguage: locale === "sl" ? "sl-SI" : "en-GB",
+    inLanguage: intlLocale(locale as Locale),
     image: `${siteUrl}${post.cover.src}`,
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
@@ -265,7 +267,7 @@ export default async function BlogPostPage({
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {fallback.map((p) => {
-                  const rc = locale === "sl" ? p.sl : p.en;
+                  const rc = localizeBlog(p, locale as Locale);
                   return (
                     <Link
                       key={p.slug}
