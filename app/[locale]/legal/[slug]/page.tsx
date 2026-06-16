@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic";
+// Static at build time — pure content + translations; no DB reads.
+export const revalidate = 3600;
 
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -12,6 +13,13 @@ import { notFound } from "next/navigation";
 
 function isLegalSlug(s: string): s is LegalSlug {
   return (LEGAL_PAGES as readonly string[]).includes(s);
+}
+
+// Pre-render every (locale, slug) legal page at build time.
+export function generateStaticParams() {
+  return locales.flatMap((locale) =>
+    LEGAL_PAGES.map((slug) => ({ locale, slug })),
+  );
 }
 
 export async function generateMetadata({

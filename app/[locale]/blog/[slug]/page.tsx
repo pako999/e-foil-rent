@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic";
+// Static at build time — pure content + translations; no DB reads.
+export const revalidate = 3600;
 
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -17,6 +18,14 @@ import {
 } from "@/lib/blog-posts";
 import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
+
+// Pre-render every (locale, slug) pair at build time so Google gets
+// crawl-friendly static HTML, no SSR latency.
+export function generateStaticParams() {
+  return locales.flatMap((locale) =>
+    BLOG_POSTS.map((post) => ({ locale, slug: post.slug })),
+  );
+}
 
 export async function generateMetadata({
   params,

@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic";
+// Static at build time — pure content + translations; no DB reads.
+export const revalidate = 3600;
 
 import type { Metadata } from "next";
 import Image from "next/image";

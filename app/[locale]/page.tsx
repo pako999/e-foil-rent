@@ -1,4 +1,5 @@
-export const dynamic = "force-dynamic";
+// Home reads `boards` from the DB but they change rarely; ISR refreshes hourly.
+export const revalidate = 3600;
 
 import { setRequestLocale } from "next-intl/server";
 import { getActiveBoards } from "@/lib/queries";
