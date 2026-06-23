@@ -9,7 +9,7 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { StickyBookBar } from "../components/StickyBookBar";
 import { StoreBanner } from "../components/StoreBanner";
-import { BLOG_POSTS, localizeBlog } from "@/lib/blog-posts";
+import { BLOG_POSTS, localizeBlog, slugFor } from "@/lib/blog-posts";
 import { locales, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 
@@ -83,7 +83,7 @@ export default async function BlogIndex({
           <section className="bg-paper border-b-2 border-ink">
             <div className="container-x py-12">
               <Link
-                href={`/${locale}/blog/${featured.slug}`}
+                href={`/${locale}/blog/${slugFor(featured, locale as Locale)}`}
                 className="grid md:grid-cols-2 border-2 border-ink overflow-hidden hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
                 style={{ boxShadow: "8px 8px 0 0 #1a1a1a" }}
               >
@@ -127,8 +127,8 @@ export default async function BlogIndex({
                   const c = localizeBlog(post, locale as Locale);
                   return (
                     <Link
-                      key={post.slug}
-                      href={`/${locale}/blog/${post.slug}`}
+                      key={post.slugs.sl}
+                      href={`/${locale}/blog/${slugFor(post, locale as Locale)}`}
                       className="card card-hover flex flex-col bg-paper"
                     >
                       <div className="aspect-[4/3] bg-cream relative overflow-hidden border-b-2 border-ink">

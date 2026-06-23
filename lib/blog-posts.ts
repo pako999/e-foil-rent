@@ -25,7 +25,15 @@ export type BlogLocaleContent = {
 };
 
 export type BlogPost = {
-  slug: string;
+  /**
+   * Per-locale URL slug. Letting each language own its own slug means
+   * google.si gets a Slovenian URL, google.com/en gets an English one,
+   * etc. — which is a meaningful localised-search signal.
+   *
+   * The Slovenian slug is treated as the stable internal id (used for
+   * back-compat redirects from the old single-slug URLs).
+   */
+  slugs: { sl: string; en: string; de: string };
   publishedAt: string; // YYYY-MM-DD
   readingMinutes: number;
   cover: { src: string; alt: string };
@@ -35,19 +43,30 @@ export type BlogPost = {
   de: BlogLocaleContent;
 };
 
+export type LocaleKey = "sl" | "en" | "de";
+
 export function localizeBlog(
   post: BlogPost,
-  locale: "sl" | "en" | "de",
+  locale: LocaleKey,
 ): BlogLocaleContent {
   if (locale === "sl") return post.sl;
   if (locale === "de") return post.de;
   return post.en;
 }
 
+/** URL slug for the current locale. */
+export function slugFor(post: BlogPost, locale: LocaleKey): string {
+  return post.slugs[locale];
+}
+
 export const BLOG_POSTS: readonly BlogPost[] = [
   /* ───────────── Post 1 — What is an e-foil ───────────── */
   {
-    slug: "kaj-je-efoil",
+    slugs: {
+      sl: "kaj-je-efoil",
+      en: "what-is-an-efoil",
+      de: "was-ist-ein-efoil",
+    },
     publishedAt: "2026-06-01",
     readingMinutes: 6,
     cover: { src: "/hero.jpg", alt: "E-foil rider gliding above tropical water" },
@@ -167,7 +186,11 @@ export const BLOG_POSTS: readonly BlogPost[] = [
 
   /* ───────────── Post 2 — How to learn ───────────── */
   {
-    slug: "kako-se-nauciti-efoilanja",
+    slugs: {
+      sl: "kako-se-nauciti-efoilanja",
+      en: "how-to-learn-efoiling",
+      de: "wie-efoilen-lernen",
+    },
     publishedAt: "2026-06-03",
     readingMinutes: 5,
     cover: { src: "/action-2.jpg", alt: "Učenec na e-foilu z inštruktorjem" },
@@ -267,7 +290,11 @@ export const BLOG_POSTS: readonly BlogPost[] = [
 
   /* ───────────── Post 3 — Pricing ───────────── */
   {
-    slug: "cena-najema-efoila-slovenija",
+    slugs: {
+      sl: "cena-najema-efoila-slovenija",
+      en: "efoil-rental-price-slovenia",
+      de: "efoil-verleih-preis-slowenien",
+    },
     publishedAt: "2026-06-05",
     readingMinutes: 5,
     cover: { src: "/board-1.webp", alt: "Duotone Foil Cruise Set AL na vodi" },
@@ -377,7 +404,11 @@ export const BLOG_POSTS: readonly BlogPost[] = [
 
   /* ───────────── Post 4 — Locations ───────────── */
   {
-    slug: "najboljse-lokacije-efoil-slovenija",
+    slugs: {
+      sl: "najboljse-lokacije-efoil-slovenija",
+      en: "best-efoil-spots-slovenia",
+      de: "beste-efoil-spots-slowenien",
+    },
     publishedAt: "2026-06-07",
     readingMinutes: 6,
     cover: { src: "/green-lake.webp", alt: "Green Lake Kidričevo iz zraka" },
@@ -491,7 +522,11 @@ export const BLOG_POSTS: readonly BlogPost[] = [
 
   /* ───────────── Post 5 — Duotone gear review ───────────── */
   {
-    slug: "duotone-foil-cruise-set-al-pregled",
+    slugs: {
+      sl: "duotone-foil-cruise-set-al-pregled",
+      en: "duotone-foil-cruise-set-al-review",
+      de: "duotone-foil-cruise-set-al-test",
+    },
     publishedAt: "2026-06-09",
     readingMinutes: 7,
     cover: { src: "/board-3.jpg", alt: "Duotone Foil Cruise Set AL" },
@@ -621,6 +656,13 @@ export const BLOG_POSTS: readonly BlogPost[] = [
   }
 ];
 
+/**
+ * Look up a post by any of its localised slugs. Matches against sl/en/de
+ * so old URLs (which used only the Slovenian slug) keep resolving while
+ * Google reindexes the new localised URLs.
+ */
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug);
+  return BLOG_POSTS.find(
+    (p) => p.slugs.sl === slug || p.slugs.en === slug || p.slugs.de === slug,
+  );
 }

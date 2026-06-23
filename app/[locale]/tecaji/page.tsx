@@ -12,6 +12,7 @@ import { StoreBanner } from "../components/StoreBanner";
 import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
 import { SITE, TECAJI_LOCATIONS } from "@/lib/content";
+import { coursesPath } from "@/lib/routes";
 
 const WHY_KEYS = ["fast", "safe", "feedback", "gear"] as const;
 const LEVEL_KEYS = ["beginner", "intermediate", "private"] as const;
@@ -35,19 +36,19 @@ export async function generateMetadata({
     description: t("description"),
     keywords: t("keywords"),
     alternates: {
-      canonical: `/${locale}/tecaji`,
+      canonical: coursesPath(locale as Locale),
       languages: {
-        "sl-SI": "/sl/tecaji",
-        "en-GB": "/en/tecaji",
-        "de-DE": "/de/tecaji",
-        "x-default": "/sl/tecaji",
+        "sl-SI": coursesPath("sl"),
+        "en-GB": coursesPath("en"),
+        "de-DE": coursesPath("de"),
+        "x-default": coursesPath("sl"),
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
       type: "article",
-      url: `${siteUrl}/${locale}/tecaji`,
+      url: `${siteUrl}${coursesPath(locale as Locale)}`,
       siteName: "Surf-Store.com",
       locale: ogLocale(locale as Locale),
       images: [{ url: "/hero.jpg", width: 1200, height: 630, alt: "E-foil course" }],
@@ -80,7 +81,7 @@ export default async function TecajiPage({
       url: SITE.mainSite,
       sameAs: SITE.mainSite,
     },
-    url: `${siteUrl}/${locale}/tecaji`,
+    url: `${siteUrl}${coursesPath(locale as Locale)}`,
     image: `${siteUrl}/hero.jpg`,
     hasCourseInstance: LEVEL_KEYS.map((k) => ({
       "@type": "CourseInstance",

@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import type { Locale } from "@/i18n/request";
 import { SITE } from "@/lib/content";
+import { coursesPath } from "@/lib/routes";
 
 type NavItem =
   | { kind: "anchor"; href: string; key: string }
@@ -18,7 +19,7 @@ export function Header({ locale }: { locale: Locale }) {
 
   const items: NavItem[] = [
     { kind: "anchor", href: `/${locale}#packages`, key: "packages" },
-    { kind: "page", href: `/${locale}/tecaji`, key: "tecaji" },
+    { kind: "page", href: coursesPath(locale), key: "tecaji" },
     { kind: "page", href: `/${locale}/blog`, key: "blog" },
     { kind: "page", href: `/${locale}/efoil`, key: "efoil" },
     { kind: "page", href: `/${locale}/duotone`, key: "duotone" },

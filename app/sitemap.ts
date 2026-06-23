@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { LEGAL_PAGES } from "@/lib/content";
+import { COURSES_SLUG } from "@/lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base =
@@ -13,14 +14,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     de: `${base}/de`,
   } as const;
 
-  const make = (path: string, priority: number, lastMod: Date = now) => {
-    // BCP47 keys (sl-SI / en-GB / de-DE) so Google maps the alternates to
-    // regional searchers — bare "sl" is technically valid but a weaker
-    // localisation signal than the language-region pair.
+  /**
+   * Build three sitemap entries for a logical page (one per locale) with
+   * BCP47 hreflang alternates. The `pathFor` callback returns the
+   * locale-specific URL fragment so localised slugs are emitted —
+   * e.g. /sl/tecaji vs /en/courses vs /de/kurse.
+   */
+  const make = (
+    pathFor: (locale: "sl" | "en" | "de") => string,
+    priority: number,
+    lastMod: Date = now,
+  ) => {
     const langs = {
-      "sl-SI": `${languages.sl}${path}`,
-      "en-GB": `${languages.en}${path}`,
-      "de-DE": `${languages.de}${path}`,
+      "sl-SI": `${languages.sl}${pathFor("sl")}`,
+      "en-GB": `${languages.en}${pathFor("en")}`,
+      "de-DE": `${languages.de}${pathFor("de")}`,
     };
     return [
       {
@@ -47,20 +55,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   };
 
+  const samePath = (path: string) => () => path;
+
   const staticEntries = [
-    ...make("", 1),
-    ...make("/tecaji", 0.95),
-    ...make("/efoil", 0.9),
-    ...make("/blog", 0.9),
-    ...make("/duotone", 0.8),
+    ...make(samePath(""), 1),
+    ...make((l) => `/${COURSES_SLUG[l]}`, 0.95),
+    ...make(samePath("/efoil"), 0.9),
+    ...make(samePath("/blog"), 0.9),
+    ...make(samePath("/duotone"), 0.8),
   ];
 
   const blogEntries = BLOG_POSTS.flatMap((post) =>
-    make(`/blog/${post.slug}`, 0.7, new Date(post.publishedAt)),
+    make((l) => `/blog/${post.slugs[l]}`, 0.7, new Date(post.publishedAt)),
   );
 
   const legalEntries = LEGAL_PAGES.flatMap((slug) =>
-    make(`/legal/${slug}`, 0.3),
+    make(samePath(`/legal/${slug}`), 0.3),
   );
 
   return [...staticEntries, ...blogEntries, ...legalEntries];

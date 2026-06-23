@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n/request";
+import { coursesPath } from "@/lib/routes";
 
-const HUBS = [
-  { key: "tecaji", href: "/tecaji", icon: "🎓" },
-  { key: "efoil", href: "/efoil", icon: "⚡" },
-  { key: "duotone", href: "/duotone", icon: "★" },
-  { key: "blog", href: "/blog", icon: "📝" },
-] as const;
+type Hub = { key: string; href: (locale: Locale) => string; icon: string };
+
+const HUBS: readonly Hub[] = [
+  { key: "tecaji", href: (l) => coursesPath(l), icon: "🎓" },
+  { key: "efoil", href: (l) => `/${l}/efoil`, icon: "⚡" },
+  { key: "duotone", href: (l) => `/${l}/duotone`, icon: "★" },
+  { key: "blog", href: (l) => `/${l}/blog`, icon: "📝" },
+];
 
 /**
  * "Explore" strip on the home page — in-body internal links to every sub-page.
@@ -29,7 +32,7 @@ export async function ExploreHubs({ locale }: { locale: Locale }) {
           {HUBS.map((h) => (
             <Link
               key={h.key}
-              href={`/${locale}${h.href}`}
+              href={h.href(locale)}
               className="card card-hover p-6 bg-paper flex flex-col gap-3"
             >
               <span className="text-4xl">{h.icon}</span>

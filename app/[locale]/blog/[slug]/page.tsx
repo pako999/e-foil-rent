@@ -13,17 +13,21 @@ import {
   BLOG_POSTS,
   getPostBySlug,
   localizeBlog,
+  slugFor,
   type BlogBlock,
   type BlogPost,
 } from "@/lib/blog-posts";
 import { locales, intlLocale, ogLocale, type Locale } from "@/i18n/request";
 import { notFound } from "next/navigation";
+import { coursesPath } from "@/lib/routes";
 
-// Pre-render every (locale, slug) pair at build time so Google gets
-// crawl-friendly static HTML, no SSR latency.
+// Pre-render every (locale, localised-slug) pair at build time. Each
+// locale gets its own slug (e.g. "kaj-je-efoil" in SL, "what-is-an-efoil"
+// in EN, "was-ist-ein-efoil" in DE) so Google indexes a language-native
+// URL per market.
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
-    BLOG_POSTS.map((post) => ({ locale, slug: post.slug })),
+    BLOG_POSTS.map((post) => ({ locale, slug: post.slugs[locale] })),
   );
 }
 
@@ -40,24 +44,25 @@ export async function generateMetadata({
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.e-foiling.si";
 
+  const canonical = `/${locale}/blog/${post.slugs[locale as Locale]}`;
   return {
     title: c.metaTitle,
     description: c.metaDescription,
     keywords: c.keywords,
     alternates: {
-      canonical: `/${locale}/blog/${slug}`,
+      canonical,
       languages: {
-        "sl-SI": `/sl/blog/${slug}`,
-        "en-GB": `/en/blog/${slug}`,
-        "de-DE": `/de/blog/${slug}`,
-        "x-default": `/sl/blog/${slug}`,
+        "sl-SI": `/sl/blog/${post.slugs.sl}`,
+        "en-GB": `/en/blog/${post.slugs.en}`,
+        "de-DE": `/de/blog/${post.slugs.de}`,
+        "x-default": `/sl/blog/${post.slugs.sl}`,
       },
     },
     openGraph: {
       title: c.title,
       description: c.excerpt,
       type: "article",
-      url: `${siteUrl}/${locale}/blog/${slug}`,
+      url: `${siteUrl}${canonical}`,
       siteName: "Surf-Store.com",
       locale: ogLocale(locale as Locale),
       publishedTime: post.publishedAt,
@@ -163,7 +168,14 @@ function Block({ block, locale }: { block: BlogBlock; locale: Locale }) {
             </a>
           ) : (
             <Link
-              href={`/${locale}${block.href}`}
+              href={
+                // Blog-authored CTAs use bare paths like "/tecaji" or "/efoil".
+                // Map the courses one to the locale's slug; everything else
+                // just gets the locale prefix.
+                block.href === "/tecaji"
+                  ? coursesPath(locale)
+                  : `/${locale}${block.href}`
+              }
               className="btn-ghost whitespace-nowrap"
             >
               {block.label} →
@@ -203,15 +215,15 @@ export default async function BlogPostPage({
       name: "Surf-Store.com",
       logo: { "@type": "ImageObject", url: `${siteUrl}/logo-surfstore.png` },
     },
-    mainEntityOfPage: `${siteUrl}/${locale}/blog/${slug}`,
+    mainEntityOfPage: `${siteUrl}/${locale}/blog/${slugFor(post, locale as Locale)}`,
     articleSection: t(`categories.${post.category}`),
   };
 
   const related: BlogPost[] = BLOG_POSTS.filter(
-    (p) => p.slug !== post.slug && p.category === post.category,
+    (p) => p.slugs.sl !== post.slugs.sl && p.category === post.category,
   ).slice(0, 2);
   const fallback = related.length === 0
-    ? BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2)
+    ? BLOG_POSTS.filter((p) => p.slugs.sl !== post.slugs.sl).slice(0, 2)
     : related;
 
   return (
@@ -279,8 +291,8 @@ export default async function BlogPostPage({
                   const rc = localizeBlog(p, locale as Locale);
                   return (
                     <Link
-                      key={p.slug}
-                      href={`/${locale}/blog/${p.slug}`}
+                      key={p.slugs.sl}
+                      href={`/${locale}/blog/${slugFor(p, locale as Locale)}`}
                       className="card card-hover flex flex-col bg-paper"
                     >
                       <div className="aspect-[4/3] bg-cream relative overflow-hidden border-b-2 border-ink">
